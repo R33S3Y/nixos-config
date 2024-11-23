@@ -31,7 +31,7 @@
       };
     in
     {
-      nixosConfigurations = pkgs.lib.genAttrs (builtins.attrNames hostConfigs) (host: pkgs.lib.nixosSystem {
+      nixosConfigurations = pkgs.lib.genAttrs (builtins.attrNames hostConfigs) (host: nixosSystem {
         inherit system;
         modules = [
           commonConfig
