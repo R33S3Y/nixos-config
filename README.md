@@ -1,6 +1,6 @@
 # Reesey's NIXos Config
 
-This is the repository where I keep my nixos config. Each branch is for each of my computers currently that only includes my 2 personal computers, Amethyst and Diamond although I may expand it to include some of my servers.
+This is the repository where I keep my nixos config.
 
 ## Disclaimer
 
