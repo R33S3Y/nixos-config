@@ -11,8 +11,8 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
 
-      # Detect the hostname using builtins
-      hostName = builtins.getEnv "HOSTNAME";
+      # Detect the hostname, with a fallback if HOSTNAME is unset
+      hostName = builtins.getEnv "HOSTNAME" or "fallback-hostname";
 
       # Configurations
       commonConfig = ./hosts/common.nix;
@@ -29,17 +29,15 @@
       };
     in
     {
-      nixosConfigurations = {
-        ${hostName} = pkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            commonConfig
-            hostConfigs.${hostName}
-            homeCommonConfig
-            homeConfigs.${hostName}
-            home-manager.nixosModules.home-manager
-          ];
-        };
-      };
+      nixosConfigurations = pkgs.lib.genAttrs (builtins.attrNames hostConfigs) (host: pkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          commonConfig
+          hostConfigs.${hostName}
+          homeCommonConfig
+          homeConfigs.${hostName}
+          home-manager.nixosModules.home-manager
+        ];
+      });
     };
 }
