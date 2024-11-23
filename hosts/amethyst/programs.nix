@@ -10,5 +10,6 @@
   environment.systemPackages = with pkgs; [
     libsForQt5.kate
     krita
+    git
   ];
 }
