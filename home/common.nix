@@ -2,5 +2,6 @@
 {
   home.stateVersion = "23.05";
 
-  programs.zsh.enable = true;
+  home.programs.zsh.enable = true;
 }
+
