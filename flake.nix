@@ -18,7 +18,7 @@
 
       # Configurations
       commonConfig = ./hosts/common.nix;
-      homeCommonConfig = ./home/home-common.nix;
+      homeCommonConfig = ./home/common.nix;
 
       hostConfigs = {
         "Diamond-NixOS" = ./hosts/diamond.nix;
