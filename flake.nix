@@ -6,7 +6,7 @@
     home-manager.url = "github:nix-community/home-manager/release-23.05";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }: 
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -31,15 +31,17 @@
       };
     in
     {
-      nixosConfigurations = pkgs.lib.genAttrs (builtins.attrNames hostConfigs) (host: nixosSystem {
-        inherit system;
-        modules = [
-          commonConfig
-          hostConfigs.${hostName}
-          homeCommonConfig
-          homeConfigs.${hostName}
-          home-manager.nixosModules.home-manager
-        ];
-      });
+      nixosConfigurations = builtins.mapAttrs (host: hostConfigPath: 
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            commonConfig
+            hostConfigPath
+            homeCommonConfig
+            homeConfigs.${host}
+            home-manager.nixosModules.home-manager
+          ];
+        }
+      ) hostConfigs;
     };
 }
