@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 {
-  home.stateVersion = "23.05";
+  home-manager.users.reese = {
+    home.stateVersion = "23.05";
 
-  home.programs.zsh.enable = true;
+    home.programs.zsh.enable = true;
+  };
 }
 
