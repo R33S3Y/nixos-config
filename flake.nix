@@ -47,7 +47,7 @@
           extraSpecialArgs = {inherit inputs outputs;};
           modules = [
             homeCommonConfig
-            homeConfigs.${host}
+            homeConfigs.${hostName}
           ];
         };
       };
