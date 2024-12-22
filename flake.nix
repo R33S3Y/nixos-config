@@ -37,11 +37,19 @@
           modules = [
             commonConfig
             hostConfigPath
-            homeCommonConfig
-            homeConfigs.${host}
-            home-manager.nixosModules.home-manager
           ];
         }
       ) hostConfigs;
+
+      homeConfigurations = {
+        "reese@${hostname}" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = {inherit inputs outputs;};
+          modules = [
+            homeCommonConfig
+            homeConfigs.${host}
+          ];
+        };
+      };
     };
 }

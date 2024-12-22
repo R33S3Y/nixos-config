@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    (import <nixpkgs> {}).home-manager.nixos
 
     ./common/boot.nix
 
@@ -22,8 +21,4 @@
   environment.systemPackages = with pkgs; [
     git
   ];
-
-  programs.home-manager.enable = true;
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
 }

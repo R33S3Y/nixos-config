@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
 {
-  home-manager.users.reese = {
-    home.stateVersion = "23.05";
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
 
-    home.programs.zsh.enable = true;
-  };
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
 }
 
