@@ -18,7 +18,6 @@
     ./common/x11.nix
   ];
 
-  environment.systemPackages = with pkgs; [
-    git
-  ];
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
 }
