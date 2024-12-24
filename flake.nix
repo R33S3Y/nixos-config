@@ -12,7 +12,7 @@
       pkgs = import nixpkgs { inherit system; };
 
       # Detect the hostname, with a fallback if HOSTNAME is unset
-      hostName = if builtins.hasEnv "HOSTNAME" 
+      hostName = if builtins.tryEval "HOSTNAME" 
                  then builtins.getEnv "HOSTNAME" 
                  else "Diamond-NixOS";
 
