@@ -16,6 +16,8 @@
 
     ./common/plasma.nix
     ./common/x11.nix
+
+    <home-manager/nixos>
   ];
 
   environment.systemPackages = with pkgs; [
