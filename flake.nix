@@ -12,9 +12,10 @@
       pkgs = import nixpkgs { inherit system; };
 
       # Detect the hostname, with a fallback if HOSTNAME is unset
-      hostName = if builtins.tryEval.success "HOSTNAME" 
-                 then builtins.getEnv "HOSTNAME" 
-                 else "Diamond-NixOS";
+      hostName = let
+        envHostName = builtins.getEnv "HOSTNAME";
+        in if envHostName != "" then envHostName else "Diamond-NixOS";
+
 
       # Configurations
       commonConfig = ./hosts/common.nix;
