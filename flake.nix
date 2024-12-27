@@ -4,9 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: 
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -35,9 +36,11 @@
       nixosConfigurations = builtins.mapAttrs (host: hostConfigPath: 
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {inherit inputs;};
           modules = [
             commonConfig
             hostConfigPath
+            inputs.stylix.nixosModules.stylix
           ];
         }
       ) hostConfigs;

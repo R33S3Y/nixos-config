@@ -5,5 +5,7 @@
   imports = [
     ./diamond/hardware-configuration.nix
     ./diamond/programs.nix
+
+    ./diamond/stylix.nix
   ];
 }

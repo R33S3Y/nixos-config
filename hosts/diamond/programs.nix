@@ -16,5 +16,7 @@
     vlc
     strawberry
     nano
+
+    plymouth # Boot screen img
   ];
 }
