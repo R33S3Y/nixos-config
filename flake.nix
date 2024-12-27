@@ -41,19 +41,27 @@
             commonConfig
             hostConfigPath
             inputs.stylix.nixosModules.stylix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.reese = import [homeCommonConfig homeConfigs.${hostName}];
+
+
+            }
           ];
         }
       ) hostConfigs;
 
-      homeConfigurations = {
-        "reese@${hostName}" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          #extraSpecialArgs = {inherit inputs outputs;};
-          modules = [
-            homeCommonConfig
-            homeConfigs.${hostName}
-          ];
-        };
-      };
+      #homeConfigurations = {
+      #  "reese@${hostName}" = home-manager.lib.homeManagerConfiguration {
+      #    pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+      #    #extraSpecialArgs = {inherit inputs outputs;};
+      #    modules = [
+      #      homeCommonConfig
+      #      homeConfigs.${hostName}
+      #    ];
+      #  };
+      #};
     };
 }
