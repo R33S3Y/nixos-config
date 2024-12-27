@@ -45,9 +45,12 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.reese = import homeConfigs.${hostName};
-
-
+              home-manager.users.reese = {
+                imports = [
+                  homeCommonConfig
+                  homeConfigs.${hostName}
+                ];
+              };
             }
           ];
         }
