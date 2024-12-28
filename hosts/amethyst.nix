@@ -5,5 +5,7 @@
   imports = [
     ./amethyst/hardware-configuration.nix
     ./amethyst/programs.nix
+
+    ./amethyst/stylix.nix
   ];
 }
