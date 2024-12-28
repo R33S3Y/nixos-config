@@ -17,8 +17,6 @@
     strawberry
     nano
 
-
-    kitty
     alvr
   ];
 }

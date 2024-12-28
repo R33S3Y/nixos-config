@@ -11,5 +11,6 @@
     libsForQt5.kate
     krita
     git
+    nano
   ];
 }

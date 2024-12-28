@@ -14,7 +14,7 @@
 
     ./common/users.nix
 
-    ./common/plasma.nix
+    ./common/desktop.nix
     ./common/x11.nix
 
   ];
