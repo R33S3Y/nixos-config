@@ -17,6 +17,7 @@
     ./common/desktop.nix
     ./common/x11.nix
 
+    ./common/nas.nix
   ];
 
   environment.systemPackages = with pkgs; [
