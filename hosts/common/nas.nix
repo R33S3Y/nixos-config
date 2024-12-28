@@ -6,10 +6,13 @@
     cifs-utils # For SMB/CIFS
   ];
   
-  systemd.tmpfiles.rules = [
-    # Ensure the directory exists with the correct ownership and permissions
-    "d /home/reese/lapus_lazuli 0755 reese users -"
-  ];
+  system.activationScripts.customCommand = {
+    text = ''
+      echo "Running custom command..."
+      mkdir -p /home/reese/lapus_lazuli
+      chown reese:users /home/reese/lapus_lazuli
+    '';
+  };
 
   fileSystems."/home/reese/lapus_lazuli" = {
     device = "//192.168.1.253/lapus_lazuli";
