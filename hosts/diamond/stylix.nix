@@ -5,5 +5,4 @@
   stylix.polarity = "dark";
 
   stylix.image = ../../wallpapers/diamond.jpg;
-
 }
