@@ -16,5 +16,9 @@
     vlc
     strawberry
     nano
+
+
+    kitty
+    alvr
   ];
 }
