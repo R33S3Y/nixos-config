@@ -14,7 +14,7 @@
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
   boot.kernelParams = [
-      "quiet"
+      #"quiet"
       "splash"
       #"boot.shell_on_fail"
       #"loglevel=3"
@@ -25,5 +25,5 @@
     # Hide the OS choice for bootloaders.
     # It's still possible to open the bootloader list by pressing any key
     # It will just not appear on screen unless a key is pressed
-  boot.loader.timeout = 0;
+  #boot.loader.timeout = 0;
 }
