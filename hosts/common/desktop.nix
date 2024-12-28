@@ -8,7 +8,7 @@
 
   programs.hyprland.enable = true;
 
-  environment.systemPackages.pkgs = [
+  environment.systemPackages = with pkgs; [
     kitty # required for the default Hyprland config
   ];
 }
