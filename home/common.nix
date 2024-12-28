@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ./hyprland.nix
+  ];
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
