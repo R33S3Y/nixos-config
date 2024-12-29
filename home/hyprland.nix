@@ -24,7 +24,7 @@
         # allow_tearing = false
       };
 
-      decoration {
+      decoration = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
         rounding = "10";
@@ -35,7 +35,7 @@
           passes = "1";
         };
 
-        shadow {
+        shadow = {
           enabled = "true";
           range = "4";
           render_power = "3";
