@@ -8,7 +8,7 @@
 
 
   # make boots pretty
-  # boot.plymouth.enable = true; # themes are handled by stylix
+  boot.plymouth.enable = true; # themes are handled by stylix
   
   # Enable "Silent Boot" (disable loging)
   # boot.consoleLogLevel = 0;
