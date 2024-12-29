@@ -18,5 +18,6 @@
     nano
 
     alvr
+    prismlauncher
   ];
 }
