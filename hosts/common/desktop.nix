@@ -10,5 +10,9 @@
 
   environment.systemPackages = with pkgs; [
     kitty # required for the default Hyprland config
+    wofi
+    hyprpaper
+    hyprlock
+    waybar
   ];
 }
