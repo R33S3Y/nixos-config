@@ -95,10 +95,6 @@
         "$mainMod, mouse_down, workspace, e-1"
         "$mainMod, mouse_up, workspace, e+1"
 
-        # Move/resize windows with mainMod + LMB/RMB and dragging
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-
         # Screenshot a window
         "$mainMod SHIFT, PRINT, exec, hyprshot -m window"
 
@@ -111,6 +107,12 @@
         # color picker
         "$mainMod CTRL, PRINT, exec, hyprpicker -a"
 
+      ];
+
+      bindm = [
+        # Move/resize windows with mainMod + LMB/RMB and dragging
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
       ];
     };
   };
