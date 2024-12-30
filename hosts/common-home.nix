@@ -12,5 +12,7 @@
   home.username = "reese";
   home.homeDirectory = "/home/reese";
 
+
+  stylix.targets.gtk.enable = false;
 }
 
