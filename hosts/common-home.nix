@@ -13,6 +13,6 @@
   home.homeDirectory = "/home/reese";
 
 
-  stylix.targets.gtk.enable = false;
+  ###stylix.targets.gtk.enable = false;
 }
 
