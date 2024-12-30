@@ -12,6 +12,5 @@
   home.username = "reese";
   home.homeDirectory = "/home/reese";
 
-  home.backupFileExtension = "backup";  
 }
 
