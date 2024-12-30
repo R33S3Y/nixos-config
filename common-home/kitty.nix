@@ -4,7 +4,7 @@
   
   programs.kitty.enable = true;
 
-  home.file.".config/kitty/current-theme.conf".text = ''
+  home.file."/.config/kitty/current-theme.conf".text = ''
     color0 #${config.stylix.base16Scheme.base00} #: Black
     color1 #${config.stylix.base16Scheme.base01} #: RED
     color2 #${config.stylix.base16Scheme.base02} #: GREEN
