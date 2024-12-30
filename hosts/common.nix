@@ -2,22 +2,22 @@
 {
   imports = [
 
-    ./common/boot.nix
+    ../common-nix/boot.nix
 
-    ./common/nix.nix
-    ./common/local.nix
+    ../common-nix/nix.nix
+    ../common-nix/local.nix
 
-    ./common/networking.nix
-    ./common/print.nix
-    ./common/bluetooth.nix
-    ./common/sound.nix
+    ../common-nix/networking.nix
+    ../common-nix/print.nix
+    ../common-nix/bluetooth.nix
+    ../common-nix/sound.nix
 
-    ./common/users.nix
+    ../common-nix/users.nix
 
-    ./common/desktop.nix
-    ./common/x11.nix
+    ../common-nix/desktop.nix
+    ../common-nix/x11.nix
 
-    ./common/nas.nix
+    ../common-nix/nas.nix
   ];
 
   environment.systemPackages = with pkgs; [

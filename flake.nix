@@ -20,7 +20,7 @@
 
       # Configurations
       commonConfig = ./hosts/common.nix;
-      homeCommonConfig = ./home/common.nix;
+      homeCommonConfig = ./hosts/common-home.nix;
 
       hostConfigs = {
         "Diamond-NixOS" = ./hosts/diamond.nix;
@@ -28,8 +28,8 @@
       };
 
       homeConfigs = {
-        "Diamond-NixOS" = ./home/diamond.nix;
-        "Amethyst-NixOS" = ./home/amethyst.nix;
+        "Diamond-NixOS" = ./hosts/diamond-home.nix;
+        "Amethyst-NixOS" = ./hosts/amethyst-home.nix;
       };
     in
     {
