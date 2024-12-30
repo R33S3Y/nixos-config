@@ -7,14 +7,14 @@
   stylix.image = ../../wallpapers/diamond.jpg;
 
   stylix.base16Scheme = {
-    base00 = "282828"; # ----
-    base01 = "3c3836"; # ---
-    base02 = "504945"; # --
-    base03 = "665c54"; # -
-    base04 = "bdae93"; # +
-    base05 = "d5c4a1"; # ++
-    base06 = "ebdbb2"; # +++
-    base07 = "fbf1c7"; # ++++
+    base00 = "181B28"; # ----
+    base01 = "282b38"; # ---
+    base02 = "383b48"; # --
+    base03 = "484b58"; # -
+    base04 = "c58bcf"; # +
+    base05 = "d5abdf"; # ++
+    base06 = "e5cbef"; # +++
+    base07 = "f5ebff"; # ++++
     base08 = "fb4934"; # red
     base09 = "fe8019"; # orange
     base0A = "fabd2f"; # yellow
