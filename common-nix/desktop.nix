@@ -10,6 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     kitty # required for the default Hyprland config
+    libsForQt5.dolphin
     wofi
     hyprpaper
     hyprlock
