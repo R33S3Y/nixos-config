@@ -5,9 +5,13 @@
     settings = {
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
-      "$menu" = "wofi --show drun";
+      "$menu" = ''rofi -modes "run,ssh" -show drun'';
 
       "$mainMod" = "SUPER";
+
+      exec-once = [
+        "waybar"
+      ];
 
       general  = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more

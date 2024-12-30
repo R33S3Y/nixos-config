@@ -11,7 +11,7 @@
   environment.systemPackages = with pkgs; [
     kitty # required for the default Hyprland config
     kdePackages.dolphin
-    wofi
+    rofi-wayland # start menu
     hyprpaper
     hyprlock
     waybar
