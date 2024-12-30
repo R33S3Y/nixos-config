@@ -2,6 +2,7 @@
 {
   imports = [
     ../common-home/hyprland.nix
+    ../common-home/bash.nix
   ];
   # Enable home-manager and git
   programs.home-manager.enable = true;
