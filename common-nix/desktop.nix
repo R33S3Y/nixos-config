@@ -9,8 +9,8 @@
   programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
-    kitty # required for the default Hyprland config
-    kdePackages.dolphin
+    kitty # cmd
+    kdePackages.dolphin #file manager
     rofi-wayland # start menu
     hyprpaper
     hyprlock
