@@ -12,7 +12,6 @@
   home.username = "reese";
   home.homeDirectory = "/home/reese";
 
-  home.file.replace = true; # risky
-  
+  home-manager.backupFileExtension = "backup";  
 }
 
