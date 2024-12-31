@@ -153,7 +153,7 @@
         border-radius: 15px;
         border: 0px;
         font-style: normal;
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
       }
 
       #workspaces button {
@@ -161,15 +161,15 @@
         margin: 4px 3px;
         border-radius: 15px;
         border: 0px;
-        color: #${config.stylix.base16Scheme.base05};
-        background-color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
+        background-color: #${config.stylix.base16Scheme.base06};
         opacity: 0.5;
         transition: all 0.3s ease-in-out;
       }
 
       #workspaces button.active {
-        color: #${config.stylix.base16Scheme.base05};
-        background: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
+        background: #${config.stylix.base16Scheme.base06};
         border-radius: 15px;
         min-width: 40px;
         transition: all 0.3s ease-in-out;
@@ -177,8 +177,8 @@
       }
 
       #workspaces button:hover {
-        color: #${config.stylix.base16Scheme.base05};
-        background: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
+        background: #${config.stylix.base16Scheme.base06};
         border-radius: 15px;
         opacity: 1.0;
       }
@@ -201,7 +201,7 @@
       * Window
       * ----------------------------------------------------- */
       #window {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -209,7 +209,7 @@
       }
 
       #custom-packages {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -217,7 +217,7 @@
       }
 
       #memory {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -225,7 +225,7 @@
       }
 
       #clock {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -233,7 +233,7 @@
       }
 
       #cpu {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -241,7 +241,7 @@
       }
 
       #disk {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -249,7 +249,7 @@
       }
 
       #battery {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -257,7 +257,7 @@
       }
 
       #network {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -265,7 +265,7 @@
       }
 
       #tray {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -273,7 +273,7 @@
       }
 
       #pulseaudio {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
@@ -281,7 +281,7 @@
       }
 
       #custom-notification {
-        color: #${config.stylix.base16Scheme.base05};
+        color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
