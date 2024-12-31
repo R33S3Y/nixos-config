@@ -4,14 +4,17 @@
   programs.waybar = {
     enable = true;
     settings = {
+      #layer = "top";
       position = "top";
 
-      modules-left = [
-        "hyprland/workspaces"
-        "cpu"
-      ];
+      #modules-left = [
+      #  "hyprland/workspaces"
+      #];
+      #modules-center = [
+      #];
       modules-right = [
         "custom/packages"
+        "cpu"
         "memory"
         "disk"
         "network#wifi"
