@@ -9,7 +9,7 @@
       cursor_shape = ''block'';
       confirm_os_window_close = 0;
       font_size = 11;
-      background = ''#181B28'';
+      background = ''#${config.stylix.base16Scheme.base00}'';
       foreground = ''#F8F8F2'';
       selection_foreground = ''#1E1F28'';
       selection_background = ''#44475A'';
