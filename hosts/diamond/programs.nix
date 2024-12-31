@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, ... } @inputs:
 
 let
   unstable = import inputs.unstable { inherit system; };
