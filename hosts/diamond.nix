@@ -7,5 +7,6 @@
     ./diamond/programs.nix
 
     ./diamond/stylix.nix
+    ./diamond/alvr.nix
   ];
 }

@@ -1,5 +1,5 @@
 
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.firefox.enable = true;
@@ -12,12 +12,10 @@
     krita
     vscode
     git
-    lutris
     vlc
     strawberry
     nano
 
-    alvr
     prismlauncher
   ];
 }
