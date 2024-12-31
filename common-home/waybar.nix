@@ -179,7 +179,10 @@
       #workspaces button:hover {
         color: #${config.stylix.base16Scheme.base06};
         background: #${config.stylix.base16Scheme.base06};
+        padding: 0px 5px;
+        margin: 4px 3px;
         border-radius: 15px;
+        border: 0px;
         opacity: 1.0;
       }
 
