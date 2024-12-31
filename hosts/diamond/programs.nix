@@ -1,6 +1,9 @@
 
 { config, pkgs, ... }:
 
+let
+  unstable = import inputs.unstable { inherit system; };
+in
 {
   programs.firefox.enable = true;
   programs.steam.enable = true;
@@ -17,7 +20,7 @@
     strawberry
     nano
 
-    alvr
+    unstable.alvr
     prismlauncher
   ];
 }

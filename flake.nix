@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     stylix.url = "github:danth/stylix";
   };
@@ -16,7 +17,6 @@
       hostName = let
         envHostName = builtins.getEnv "HOSTNAME";
         in if envHostName != "" then envHostName else "Diamond-NixOS";
-
 
       # Configurations
       commonConfig = ./hosts/common.nix;
@@ -45,7 +45,6 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              #home-manager.backupFileExtension = "home-manager.backup";
               home-manager.users.reese = {
                 imports = [
                   homeCommonConfig
