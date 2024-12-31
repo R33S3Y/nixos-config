@@ -2,8 +2,7 @@
   description = "NixOS Configuration for Diamond and Amethyst";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     stylix.url = "github:danth/stylix";
   };
@@ -12,7 +11,6 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      unstable = import inputs.unstable { inherit system; };
 
       # Detect the hostname, with a fallback if HOSTNAME is unset
       hostName = let
