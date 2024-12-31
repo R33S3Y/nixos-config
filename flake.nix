@@ -12,6 +12,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      unstable = import inputs.unstable { inherit system; };
 
       # Detect the hostname, with a fallback if HOSTNAME is unset
       hostName = let
