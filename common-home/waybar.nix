@@ -3,7 +3,7 @@
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
-    settings = builtins.toJSON {
+    settings = {
         layer = "top";
         position = "top";
 
