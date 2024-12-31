@@ -7,17 +7,17 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    libsForQt5.kate
-    krita
-    vscode
-    git
-    lutris
-    vlc
-    strawberry
-    nano
+  environment.systemPackages = [
+    pkgs.libsForQt5.kate
+    pkgs.krita
+    pkgs.vscode
+    pkgs.git
+    pkgs.lutris
+    pkgs.vlc
+    pkgs.strawberry
+    pkgs.nano
 
     unstable.alvr
-    prismlauncher
+    pkgs.prismlauncher
   ];
 }
