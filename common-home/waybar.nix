@@ -4,7 +4,7 @@
   programs.waybar = {
     enable = true;
     settings = {
-        layer = "top";
+        #layer = "top";
         position = "top";
 
         modules-left = [
