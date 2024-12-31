@@ -10,8 +10,8 @@
         modules-left = [
           "hyprland/workspaces"
         ];
-        modules-center = [
-        ];
+        #modules-center = [
+        #];
         modules-right = [
           "custom/packages"
           "cpu"
