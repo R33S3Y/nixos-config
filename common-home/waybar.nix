@@ -3,13 +3,13 @@
   stylix.targets.waybar.enable = false;
   programs.waybar = {
     enable = true;
-    settings = {
+    settings = [{
       #layer = "top";
       position = "top";
 
-      #modules-left = [
-      #  "hyprland/workspaces"
-      #];
+      modules-left = [
+        "hyprland/workspaces"
+      ];
       #modules-center = [
       #];
       modules-right = [
@@ -125,7 +125,7 @@
         on-click = "";
         tooltip = false;
       };
-    };
+    }];
     style = ''
       /* -----------------------------------------------------
       * General 
