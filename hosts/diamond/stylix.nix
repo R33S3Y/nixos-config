@@ -15,13 +15,13 @@
     base05 = "d5abdf"; # ++
     base06 = "e5cbef"; # +++
     base07 = "f5ebff"; # ++++
-    base08 = "fb4934"; # red
-    base09 = "fe8019"; # orange
-    base0A = "fabd2f"; # yellow
-    base0B = "b8bb26"; # green
-    base0C = "5275b8"; # aqua/cyan
-    base0D = "6275b8"; # blue
-    base0E = "7275b8"; # purple
-    base0F = "8275b8"; # brown
+    base08 = "4075dc"; # red
+    base09 = "5075dc"; # orange
+    base0A = "6075dc"; # yellow
+    base0B = "7075dc"; # green
+    base0C = "8075dc"; # aqua/cyan
+    base0D = "9075dc"; # blue
+    base0E = "a075dc"; # purple
+    base0F = "b075dc"; # brown
   };
 }
