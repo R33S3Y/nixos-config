@@ -47,7 +47,7 @@
         };
 
         active_opacity = "1";
-        inactive_opacity = "0.6";
+        inactive_opacity = "0.7";
       };
 
       bind = [

@@ -4,6 +4,7 @@
     ../common-home/hyprland.nix
     ../common-home/bash.nix
     ../common-home/kitty.nix
+    ../common-home/waybar.nix
   ];
   # Enable home-manager and git
   programs.home-manager.enable = true;
