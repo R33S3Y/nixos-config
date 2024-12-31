@@ -132,7 +132,7 @@
       * ----------------------------------------------------- */
       * {
         font-size: 16px;
-        font-family: Ubuntu Nerd Font, Font Awesome, sans-serif;
+        font-family: DejaVu Sans;
         font-weight: bold;
       }
 
@@ -147,13 +147,13 @@
       * Workspaces 
       * ----------------------------------------------------- */
       #workspaces {
-        background: #57526c;
+        background: #${config.stylix.base16Scheme.base0C};
         margin: 5px 3px 5px 12px;
         padding: 0px 1px;
         border-radius: 15px;
         border: 0px;
         font-style: normal;
-        color: #ada0ae;
+        color: #${config.stylix.base16Scheme.base05};
       }
 
       #workspaces button {
@@ -161,15 +161,15 @@
         margin: 4px 3px;
         border-radius: 15px;
         border: 0px;
-        color: #ada0ae;
-        background-color: #ada0ae;
+        color: #${config.stylix.base16Scheme.base05};
+        background-color: #${config.stylix.base16Scheme.base05};
         opacity: 0.5;
         transition: all 0.3s ease-in-out;
       }
 
       #workspaces button.active {
-        color: #ada0ae;
-        background: #ada0ae;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base05};
         border-radius: 15px;
         min-width: 40px;
         transition: all 0.3s ease-in-out;
@@ -177,8 +177,8 @@
       }
 
       #workspaces button:hover {
-        color: #ada0ae;
-        background: #ada0ae;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base05};
         border-radius: 15px;
         opacity: 1.0;
       }
@@ -189,100 +189,100 @@
       * ----------------------------------------------------- */
       tooltip {
       background: #d4bab4;
-      border: 2px solid #57526c;
+      border: 2px solid #${config.stylix.base16Scheme.base0C};
       border-radius: 10px;
       }
 
       tooltip label {
-      color: #57526c;
+      color: #${config.stylix.base16Scheme.base0C};
       }
 
       /* -----------------------------------------------------
       * Window
       * ----------------------------------------------------- */
       #window {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #custom-packages {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #memory {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #clock {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #cpu {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #disk {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #battery {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #network {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #tray {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #pulseaudio {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
       }
 
       #custom-notification {
-        color: #ada0ae;
-        background: #57526c;
+        color: #${config.stylix.base16Scheme.base05};
+        background: #${config.stylix.base16Scheme.base0C};
         border-radius: 15px;
         margin: 5px;
         padding: 2px 10px;
