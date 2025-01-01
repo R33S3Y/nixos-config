@@ -23,7 +23,7 @@
       urgent-background:           var(background);
       selected-normal-foreground:  var(red);
       active-foreground:           var(blue);
-      background:                  #${config.stylix.base16Scheme.base00};  // background
+      background:                  #${config.stylix.base16Scheme.base01};  // background
       selected-active-background:  var(blue);
       active-background:           var(background);
       selected-normal-background:  var(lightfg);
