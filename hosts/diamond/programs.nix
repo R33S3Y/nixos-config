@@ -15,7 +15,7 @@
     vlc
     strawberry
     nano
-
+    kdePackages.qt6ct
     prismlauncher
   ];
 }
