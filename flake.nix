@@ -48,6 +48,8 @@
             hostConfigPath
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
+            nur.modules.nixos.default
+            nur.legacyPackages."${system}".repos.iopq.modules.xraya
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
