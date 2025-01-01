@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 {
-  programs.rofi = {
-    theme = "theme";
-  };
+  home.file.".config/rofi/config.rasi".text = ''
+    @theme "/home/${home.username}/.config/rofi/theme.rasi"
+  '';
   home.file.".config/rofi/theme.rasi".text = ''
     * {
       red:                         rgba ( 173, 160, 174, 100 % ); //highlight text
