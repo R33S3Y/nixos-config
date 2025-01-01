@@ -5,6 +5,7 @@
     ../common-home/bash.nix
     ../common-home/kitty.nix
     ../common-home/waybar.nix
+    ../common-home/rofi.nix
   ];
   # Enable home-manager and git
   programs.home-manager.enable = true;
