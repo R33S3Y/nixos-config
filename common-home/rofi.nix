@@ -5,30 +5,30 @@
   '';
   home.file.".config/rofi/theme.rasi".text = ''
     * {
-      red:                         rgba ( 173, 160, 174, 100 % ); //highlight text
+      red:                         #${config.stylix.base16Scheme.base05}; //highlight text
       selected-active-foreground:  var(background);
-      lightfg:                     rgba ( 87, 82, 108, 100 % ); //highlight / select
+      lightfg:                     #${config.stylix.base16Scheme.base04}; //highlight / select
       separatorcolor:              var(foreground);
       urgent-foreground:           var(red);
       alternate-urgent-background: var(lightbg);
-      lightbg:                     rgba ( 92, 91, 90, 100 % );  // alt background
+      lightbg:                     #${config.stylix.base16Scheme.base02};  // alt background
       background-color:            transparent;
       border-color:                var(blue);
       normal-background:           var(background);
       selected-urgent-background:  var(red);
       alternate-active-background: var(lightbg);
       spacing:                     2;
-      blue:                        rgba ( 193, 143, 178, 100 % ); //outline
+      blue:                        #${config.stylix.base16Scheme.base0B}; //outline
       alternate-normal-foreground: var(foreground);
       urgent-background:           var(background);
       selected-normal-foreground:  var(red);
       active-foreground:           var(blue);
-      background:                  rgba ( 61, 61, 61, 100 % );  // background
+      background:                  #${config.stylix.base16Scheme.base00};  // background
       selected-active-background:  var(blue);
       active-background:           var(background);
       selected-normal-background:  var(lightfg);
       alternate-normal-background: var(lightbg);
-      foreground:                  rgba ( 255, 255, 255, 100 % );  // text color
+      foreground:                  #${config.stylix.base16Scheme.base07};  // text color
       selected-urgent-foreground:  var(background);
       normal-foreground:           var(foreground);
       alternate-urgent-foreground: var(red);
