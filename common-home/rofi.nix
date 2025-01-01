@@ -5,7 +5,7 @@
   '';
   home.file.".config/rofi/theme.rasi".text = ''
     * {
-      red:                         #${config.stylix.base16Scheme.base0B}; //highlight text
+      red:                         #${config.stylix.base16Scheme.base06}; //highlight text
       selected-active-foreground:  var(background);
       lightfg:                     #${config.stylix.base16Scheme.base0E}; //highlight / select
       separatorcolor:              var(foreground);
