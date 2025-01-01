@@ -7,7 +7,7 @@
     * {
       red:                         #${config.stylix.base16Scheme.base05}; //highlight text
       selected-active-foreground:  var(background);
-      lightfg:                     #${config.stylix.base16Scheme.base04}; //highlight / select
+      lightfg:                     #${config.stylix.base16Scheme.base0B}; //highlight / select
       separatorcolor:              var(foreground);
       urgent-foreground:           var(red);
       alternate-urgent-background: var(lightbg);
@@ -18,7 +18,7 @@
       selected-urgent-background:  var(red);
       alternate-active-background: var(lightbg);
       spacing:                     2;
-      blue:                        #${config.stylix.base16Scheme.base0B}; //outline
+      blue:                        #${config.stylix.base16Scheme.base0E}; //outline
       alternate-normal-foreground: var(foreground);
       urgent-background:           var(background);
       selected-normal-foreground:  var(red);
