@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   programs.rofi = {
-    theme = "./theme.rasi";
+    theme = "theme";
   };
   home.file.".config/rofi/theme.rasi".text = ''
     * {
