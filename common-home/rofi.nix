@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, ... }@inputs:
 {
   home.file.".config/rofi/config.rasi".text = ''
-    @theme "/home/${home.username}/.config/rofi/theme.rasi"
+    @theme "/home/${inputs.home.username}/.config/rofi/theme.rasi"
   '';
   home.file.".config/rofi/theme.rasi".text = ''
     * {
