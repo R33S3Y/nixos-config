@@ -4,16 +4,16 @@
 {
   environment.systemPackages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5ct
+    libsForQt5.qt6ct
   ];
-  nixpkgs.config.qt5 = {
+  nixpkgs.config.qt6 = {
     enable = true;
-    platformTheme = "qt5ct"; 
+    platformTheme = "qt6ct"; 
     style = {
       package = pkgs.utterly-nord-plasma;
       name = "Utterly Nord Plasma";
     };
   };
 
-  environment.variables.QT_QPA_PLATFORMTHEME = "qt5ct";
+  environment.variables.QT_QPA_PLATFORMTHEME = "qt6ct";
 }
