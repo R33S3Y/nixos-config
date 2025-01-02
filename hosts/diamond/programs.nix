@@ -17,7 +17,7 @@
     nano
     
     prismlauncher
-    python
+    python314
     btop
   ];
 }
