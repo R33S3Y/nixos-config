@@ -3,8 +3,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt6ct
+    kdePackages.qtstyleplugin-kvantum
+    kdePackages.qt6ct
   ];
   nixpkgs.config.qt6 = {
     enable = true;
