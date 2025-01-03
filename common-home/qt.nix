@@ -14,7 +14,7 @@ let
       name = "qt6ct.conf";
       text = ''
         [Appearance]
-        color_scheme_path=/home/reese/.config/qt6ct/colors/qt-colors.conf
+        color_scheme_path=/home/reese/.config/qt6ct/colors/qt-color.conf
         custom_palette=true
         icon_theme=breeze-dark
         standard_dialogs=default
