@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   home.file.".config/qt6ct/qt6ct.conf".text = ''
     [Appearance]
