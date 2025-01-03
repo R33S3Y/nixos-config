@@ -7,6 +7,7 @@
     ../common-home/waybar.nix
     ../common-home/rofi.nix
     ../common-home/firefox.nix
+    ../common-home/qt.nix
   ];
   # Enable home-manager and git
   programs.home-manager.enable = true;
