@@ -39,8 +39,35 @@
   '';
   home.file.".config/qt6ct/colors/qt-color.conf".text = ''
     [ColorScheme]
-    active_colors=#ff0000ff, #00ff00ff, #0000ffff, #ffff00ff, #ff00ffff, #00ffffff, #ff8000ff, #8000ffff, #80ff00ff, #800000ff, #008000ff, #000080ff, #808000ff, #800080ff, #008080ff, #ffa500ff, #40e0d0ff, #ff69b4ff, #dc143cff, #000000ff, #ffffffff, #a020f0ff
-    disabled_colors=#ff4500ff, #2e8b57ff, #1e90ffff, #ffd700ff, #da70d6ff, #7fffd4ff, #ffa07aff, #d3d3d3ff, #c0c0c0ff, #696969ff, #708090ff, #4682b4ff, #d2691eff, #bc8f8fff, #ff7f50ff, #ff6347ff, #8a2be2ff, #5f9ea0ff, #6b8e23ff, #ffb6c1ff, #ffdeadff, #ff1493ff
-    inactive_colors=#7cfc00ff, #7b68eeff, #ff00bfff, #ffa500ff, #da70d6ff, #ff4500ff, #ba55d3ff, #20b2aaff, #32cd32ff, #191970ff, #8b0000ff, #4b0082ff, #ff8c00ff, #008b8bff, #ff1493ff, #dcdcdcff, #d8bfd8ff, #00fa9aff, #ff4500ff, #1e90ffff, #9400d3ff, #ffd700ff
+    active_colors=#${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff
+    disabled_colors=#${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff
+    inactive_colors=#${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff
   '';
+  /*
+    qt-color.conf cheat sheet
+    active_colors=
+      #ff0000ff, 
+      #00ff00ff, 
+      #0000ffff, - Window Text
+      #ffff00ff, 
+      #ff00ffff, - Button Background
+      #00ffffff, - 
+      #ff8000ff, 
+      #8000ffff, 
+      #80ff00ff, 
+      #800000ff, 
+      #008000ff, 
+      #000080ff, 
+      #808000ff, 
+      #800080ff, 
+      #008080ff, 
+      #ffa500ff, 
+      #40e0d0ff, 
+      #ff69b4ff, 
+      #dc143cff, 
+      #000000ff, 
+      #ffffffff, 
+      #a020f0ff
+  
+  */
 }
