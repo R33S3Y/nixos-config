@@ -17,7 +17,7 @@ in {
     rm ${config.home.homeDirectory}/.config/qt6ct/colors/qt-color.conf
   fi
   cp ${qtColorConf} ${config.home.homeDirectory}/.config/qt6ct/colors/qt-color.conf
-  chmod 755 ${qtColorConf} ${config.home.homeDirectory}/.config/qt6ct/colors/qt-color.conf
+  chmod 755 ${config.home.homeDirectory}/.config/qt6ct/colors/qt-color.conf
 '';
 
   home.file.".config/qt6ct/qt6ct.conf".text = ''
