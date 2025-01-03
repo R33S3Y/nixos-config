@@ -5,13 +5,15 @@
   environment.systemPackages = with pkgs; [
     kdePackages.qtstyleplugin-kvantum
     kdePackages.qt6ct
+    kdePackages.breeze-icons
+    pkgs.kdePackages.breeze
   ];
   nixpkgs.config.qt6 = {
     enable = true;
     platformTheme = "qt6ct"; 
     style = {
       package = pkgs.kdePackages.breeze;
-      name = "Utterly Nord Plasma";
+      name = "Breeze-Dark";
     };
   };
 
