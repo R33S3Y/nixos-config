@@ -8,9 +8,9 @@
     kdePackages.breeze-icons
     pkgs.kdePackages.breeze
   ];
-  nixpkgs.config.qt6 = {
+  nixpkgs.config.qt = {
     enable = true;
-    platformTheme = "qt6ct"; 
+    platformTheme = "qt5ct"; 
     style = {
       package = pkgs.kdePackages.breeze;
       name = "Breeze-Dark";
@@ -18,4 +18,5 @@
   };
 
   environment.variables.QT_QPA_PLATFORMTHEME = "qt6ct";
+  environment.variables.QT_QPA_PLATFORM = "wayland";
 }
