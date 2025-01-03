@@ -37,11 +37,17 @@
     force_raster_widgets=1
     ignored_applications=@Invalid()
   '';
-  home.file.".config/qt6ct/colors/qt-color.conf".text = ''
+  # Define the content of the file
+  qtColorConf = builtins.writeText "qt-color.conf" ''
     [ColorScheme]
     active_colors=#${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff
     disabled_colors=#${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff
     inactive_colors=#${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff, #${config.stylix.base16Scheme.base00}ff
+  '';
+
+  home.activation.createQtColorConf = lib.mkAfter ''
+    mkdir -p ${config.home.homeDirectory}/.config/qt6ct/colors
+    cp ${qtColorConf} ${config.home.homeDirectory}/.config/qt6ct/colors/qt-color.conf
   '';
   /*
     qt-color.conf cheat sheet
