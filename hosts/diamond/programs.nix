@@ -24,5 +24,7 @@
     obsidian
 
     protonup-qt #needed for a vrchat fix
+
+    media-downloader # yt-dlp
   ];
 }
