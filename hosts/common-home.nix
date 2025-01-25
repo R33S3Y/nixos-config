@@ -8,6 +8,7 @@
     ../common-home/rofi.nix
     ../common-home/firefox.nix
     ../common-home/qt.nix
+    ../common-home/vscode.nix
   ];
   # Enable home-manager and git
   programs.home-manager.enable = true;
