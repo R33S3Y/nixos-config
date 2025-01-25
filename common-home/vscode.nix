@@ -5,6 +5,6 @@
   programs.vscode = {
     enable = true;
     enableUpdateCheck = false;
-    extensions = [ pkgs.vscode-extension-bbenoist-Nix ];
+    extensions = [ pkgs.vscode-extensions.bbenoist.nix ];
   };
 }
