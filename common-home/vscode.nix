@@ -6,5 +6,5 @@
     enable = true;
     enableUpdateCheck = false;
     extensions = [ pkgs.vscode-extension-bbenoist-Nix ];
-  }
+  };
 }
