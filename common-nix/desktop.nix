@@ -10,7 +10,7 @@
 
   environment.systemPackages = with pkgs; [
     kitty # cmd
-    kdePackages.dolphin #file manager
+    spacedrive #file manager
     rofi-wayland # start menu
     hyprpaper
     hyprlock

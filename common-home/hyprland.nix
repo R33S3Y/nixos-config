@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "spacedrive";
       "$menu" = ''rofi -modes "run,ssh" -show drun'';
 
       "$mainMod" = "SUPER";
