@@ -2,12 +2,14 @@
 { config, lib, ... }:
 let
   hexToDec = hex: let
-    chars = builtins.stringToList hex;
-    toDec = c: 
-      if c >= "a" && c <= "f" then 10 + (builtins.charToInt c - builtins.charToInt "a")
-      else if c >= "A" && c <= "F" then 10 + (builtins.charToInt c - builtins.charToInt "A")
-      else builtins.charToInt c - builtins.charToInt "0";
-  in builtins.foldl' (acc: c: acc * 16 + toDec c) 0 chars;
+      chars = builtins.match "(.)(.?)" hex;
+      toDec = c: 
+        if c >= "a" && c <= "f" then 10 + (builtins.charToInt c - builtins.charToInt "a")
+        else if c >= "A" && c <= "F" then 10 + (builtins.charToInt c - builtins.charToInt "A")
+        else builtins.charToInt c - builtins.charToInt "0";
+      
+      # Accumulating the decimal value
+    in builtins.foldl' (acc: c: acc * 16 + toDec c) 0 (builtins.concatLists (map (x: [x]) chars));
 
   hexToRgba = hex: alpha: let
     r = hexToDec (builtins.substring 1 2 hex);
