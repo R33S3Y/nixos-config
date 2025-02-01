@@ -1,8 +1,13 @@
 
 { config, lib, ... }:
 let
-  hexToDec = hex: (builtins.elemAt (builtins.match "[0-9a-fA-F]{2}" hex) 0) 
-    |> (h: (builtins.fromJSON "[${builtins.toString (builtins.foldl' (acc: c: acc * 16 + (if c >= "a" then 10 + (builtins.stringToInt (builtins.toString (builtins.charToInt c) - builtins.charToInt "a")) else builtins.stringToInt c)) 0 (builtins.stringToList h))}]").0);
+  hexToDec = hex: let
+    chars = builtins.stringToList hex;
+    toDec = c: 
+      if c >= "a" && c <= "f" then 10 + (builtins.charToInt c - builtins.charToInt "a")
+      else if c >= "A" && c <= "F" then 10 + (builtins.charToInt c - builtins.charToInt "A")
+      else builtins.charToInt c - builtins.charToInt "0";
+  in builtins.foldl' (acc: c: acc * 16 + toDec c) 0 chars;
 
   hexToRgba = hex: alpha: let
     r = hexToDec (builtins.substring 1 2 hex);
