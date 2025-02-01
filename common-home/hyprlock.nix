@@ -14,7 +14,10 @@ in {
         no_fade_in = false;
         disable_loading_bar = false;
       };
-
+      auth {
+        method = pam;
+        prompt = "Password: ";  # Customize the prompt text if desired
+      };
       # BACKGROUND
       background = {
         monitor = "";
