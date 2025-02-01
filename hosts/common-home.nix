@@ -2,6 +2,7 @@
 {
   imports = [
     ../common-home/hyprland.nix
+    ../common-home/hyprlock.nix
     ../common-home/bash.nix
     ../common-home/kitty.nix
     ../common-home/waybar.nix
