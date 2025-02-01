@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  stylix.targets.vscode.enable = false;
+  stylix.targets.vscode.enable = true;
   programs.vscode = {
     enable = true;
     enableUpdateCheck = false;
