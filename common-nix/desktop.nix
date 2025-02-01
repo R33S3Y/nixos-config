@@ -7,7 +7,7 @@
   # services.desktopManager.plasma6.enable = true;
 
   programs.hyprland.enable = true;
-  security.pam.services.hyprlock = { passwd };
+  security.pam.services.hyprlock = { };
 
   environment.systemPackages = with pkgs; [
     kitty # cmd
