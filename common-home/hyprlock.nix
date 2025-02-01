@@ -10,7 +10,7 @@
         no_fade_in = false;
         disable_loading_bar = false;
       };
-      
+
       auth = {
         method = "pam";
         prompt = "Password: ";  # Customize the prompt text if desired
@@ -76,7 +76,6 @@
         inner_color = "#${config.stylix.base16Scheme.base02}";
         font_color = "#${config.stylix.base16Scheme.base0D}";
         fade_on_empty = false;
-        font_family = font + " Bold";
         placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
         position = "0, -250";
