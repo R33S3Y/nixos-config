@@ -5,7 +5,7 @@ let
   imageStr = toString config.stylix.image;
   font = config.stylix.fonts.serif.name;
 in {
-  #stylix.targets.hyprlock.enable = false;
+  stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
     enable = true;
     settings = {
