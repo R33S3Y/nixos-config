@@ -1,12 +1,14 @@
 
 { config, lib, ... }:
 let
+  hexToDec = hex: (builtins.elemAt (builtins.match "[0-9a-fA-F]{2}" hex) 0) 
+    |> (h: (builtins.fromJSON "[${builtins.toString (builtins.foldl' (acc: c: acc * 16 + (if c >= "a" then 10 + (builtins.stringToInt (builtins.toString (builtins.charToInt c) - builtins.charToInt "a")) else builtins.stringToInt c)) 0 (builtins.stringToList h))}]").0);
+
   hexToRgba = hex: alpha: let
-    r = builtins.substring 1 2 hex;
-    g = builtins.substring 3 2 hex;
-    b = builtins.substring 5 2 hex;
-    hexToDec = h: (builtins.fromJSON "[0x${h}]").0;
-  in "rgba(${toString (hexToDec r)}, ${toString (hexToDec g)}, ${toString (hexToDec b)}, ${alpha})";
+    r = hexToDec (builtins.substring 1 2 hex);
+    g = hexToDec (builtins.substring 3 2 hex);
+    b = hexToDec (builtins.substring 5 2 hex);
+  in "rgba(${toString r}, ${toString g}, ${toString b}, ${alpha})";
 in {
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
