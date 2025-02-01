@@ -12,7 +12,7 @@
 
       background = [
         {
-          path = "${config.stylix.wallpaper}";
+          path = "${config.stylix.image}";
           blur_passes = 3;
           blur_size = 8;
         }
