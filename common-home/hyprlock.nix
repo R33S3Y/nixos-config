@@ -1,16 +1,20 @@
 
 { config, lib, ... }:
 let
-  hexToDec = hex: let
-      chars = builtins.match "(.)(.?)" hex;
-      toDec = c: 
-        if c >= "a" && c <= "f" then 10 + (builtins.charToInt c - builtins.charToInt "a")
-        else if c >= "A" && c <= "F" then 10 + (builtins.charToInt c - builtins.charToInt "A")
-        else builtins.charToInt c - builtins.charToInt "0";
-      
-      # Accumulating the decimal value
-    in builtins.foldl' (acc: c: acc * 16 + toDec c) 0 (builtins.concatLists (map (x: [x]) chars));
+  # Mapping hex characters to decimal values
+  hexMap = {
+    "0" = 0; "1" = 1; "2" = 2; "3" = 3; "4" = 4; "5" = 5; "6" = 6; "7" = 7; "8" = 8; "9" = 9;
+    "a" = 10; "b" = 11; "c" = 12; "d" = 13; "e" = 14; "f" = 15;
+    "A" = 10; "B" = 11; "C" = 12; "D" = 13; "E" = 14; "F" = 15;
+  };
 
+  # Convert a 2-character hex string to decimal
+  hexToDec = hex: let
+    high = hexMap.${builtins.substring 0 1 hex};
+    low  = hexMap.${builtins.substring 1 1 hex};
+  in (high * 16) + low;
+
+  # Convert hex to RGBA
   hexToRgba = hex: alpha: let
     r = hexToDec (builtins.substring 1 2 hex);
     g = hexToDec (builtins.substring 3 2 hex);
