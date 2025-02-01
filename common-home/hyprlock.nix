@@ -1,6 +1,13 @@
 
 { config, lib, ... }:
-{
+let
+  hexToRgba = hex: alpha: let
+    r = builtins.substring 1 2 hex;
+    g = builtins.substring 3 2 hex;
+    b = builtins.substring 5 2 hex;
+    hexToDec = h: builtins.fromJSON "[0x${h}]";
+  in "rgba(${toString (hexToDec r)}, ${toString (hexToDec g)}, ${toString (hexToDec b)}, ${alpha})";
+in {
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
     enable = true;
@@ -32,7 +39,7 @@
           # Day-Month-Date
           monitor = "";
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
-          color = "#${config.stylix.base16Scheme.base0D}";
+          color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
           font_size = 28;
           position = "0, 490";
           halign = "center";
@@ -42,7 +49,7 @@
         {
           monitor = "";
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
-          color = "#${config.stylix.base16Scheme.base0D}";
+          color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
           font_size = 160;
           position = "0, 370";
           halign = "center";
@@ -52,7 +59,7 @@
         {
           monitor = "";
           text = "$USER";
-          color = "#${config.stylix.base16Scheme.base0D}";
+          color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
           outline_thickness = 2;
           dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
           dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
@@ -72,9 +79,9 @@
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "#${config.stylix.base16Scheme.base08}";
-        inner_color = "#${config.stylix.base16Scheme.base02}";
-        font_color = "#${config.stylix.base16Scheme.base0D}";
+        outer_color = hexToRgba "#${config.stylix.base16Scheme.base08}" "1";
+        inner_color = hexToRgba "#${config.stylix.base16Scheme.base02}" "1";
+        font_color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
