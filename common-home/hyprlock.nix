@@ -5,7 +5,7 @@ let
     r = builtins.substring 1 2 hex;
     g = builtins.substring 3 2 hex;
     b = builtins.substring 5 2 hex;
-    hexToDec = h: builtins.fromJSON "[0x${h}]";
+    hexToDec = h: (builtins.fromJSON "[0x${h}]").0;
   in "rgba(${toString (hexToDec r)}, ${toString (hexToDec g)}, ${toString (hexToDec b)}, ${alpha})";
 in {
   stylix.targets.hyprlock.enable = false;
