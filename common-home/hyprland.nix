@@ -6,7 +6,7 @@
       "$terminal" = "kitty";
       "$fileManager" = "spacedrive";
       "$menu" = ''rofi -modes "run,ssh" -show drun'';
-      "$lock" = "hyprlock";
+      "$lock" = "${pkgs.hyprlock}/bin/hyprlock";
 
       "$mainMod" = "SUPER";
 
