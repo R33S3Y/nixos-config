@@ -23,9 +23,9 @@
           # Day-Month-Date
           monitor = "";
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
-          color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
+          color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 28;
-          position = "0, 230";
+          position = "0, 200";
           halign = "center";
           valign = "center";
         }
@@ -59,13 +59,13 @@
       input-field = {
         monitor = "";
         size = "300, 60";
-        outline_thickness = 8;
+        outline_thickness = 0;
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "rgba(${config.stylix.base16Scheme.base05}ff) rgba(${config.stylix.base16Scheme.base04}ff) 0deg";
-        inner_color = "rgba(${config.stylix.base16Scheme.base02}20)";
-        font_color = "rgba(${config.stylix.base16Scheme.base05}ff)";
+        outer_color = "rgba(${config.stylix.base16Scheme.base06}ff) rgba(${config.stylix.base16Scheme.base04}ff) 0deg";
+        inner_color = "rgba(${config.stylix.base16Scheme.base02}00)";
+        font_color = "rgba(${config.stylix.base16Scheme.base06}ff)";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
