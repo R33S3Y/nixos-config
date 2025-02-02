@@ -60,7 +60,7 @@
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         "$mainMod, Q, exec, $terminal"
         "$mainMod, C, killactive,"
-        "$mainMod, L, exit,"
+        "$mainMod, L, exec, hyprlock,"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod, Z, exec, $menu"
