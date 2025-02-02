@@ -6,6 +6,7 @@
       "$terminal" = "kitty";
       "$fileManager" = "spacedrive";
       "$menu" = ''rofi -modes "run,ssh" -show drun'';
+      "$lock" = "hyprlock";
 
       "$mainMod" = "SUPER";
 
@@ -60,7 +61,7 @@
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         "$mainMod, Q, exec, $terminal"
         "$mainMod, C, killactive,"
-        "$mainMod, L, hyprlock,"
+        "$mainMod, L, exec, $lock,"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod, Z, exec, $menu"
