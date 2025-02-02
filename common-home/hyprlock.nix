@@ -17,8 +17,8 @@ let
   # Convert hex to RGBA
   hexToRgba = hex: alpha: let
     r = hexToDec (builtins.substring 1 2 hex);
-    g = hexToDec (builtins.substring 3 2 hex);
-    b = hexToDec (builtins.substring 5 2 hex);
+    g = hexToDec (builtins.substring 3 4 hex);
+    b = hexToDec (builtins.substring 4 5 hex);
   in "rgba(${toString r}, ${toString g}, ${toString b}, ${alpha})";
 in {
   stylix.targets.hyprlock.enable = false;
@@ -88,8 +88,8 @@ in {
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "rgba(0,0,0,1) rgba(0,0,0,1) 45deg";
-        inner_color = "rgba(0,0,0,0)";
+        outer_color = "${hexToRgba "#${config.stylix.base16Scheme.base08}" "1"} ${hexToRgba "#${config.stylix.base16Scheme.base08}" "1"} 45deg";
+        inner_color = hexToRgba "#${config.stylix.base16Scheme.base02}" "0.5";
         font_color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
