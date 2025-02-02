@@ -1,26 +1,6 @@
 
 { config, lib, ... }:
-let
-  # Mapping hex characters to decimal values
-  hexMap = {
-    "0" = 0; "1" = 1; "2" = 2; "3" = 3; "4" = 4; "5" = 5; "6" = 6; "7" = 7; "8" = 8; "9" = 9;
-    "a" = 10; "b" = 11; "c" = 12; "d" = 13; "e" = 14; "f" = 15;
-    "A" = 10; "B" = 11; "C" = 12; "D" = 13; "E" = 14; "F" = 15;
-  };
-
-  # Convert a 2-character hex string to decimal
-  hexToDec = hex: let
-    high = hexMap.${builtins.substring 0 1 hex};
-    low  = hexMap.${builtins.substring 1 1 hex};
-  in (high * 16) + low;
-
-  # Convert hex to RGBA
-  hexToRgba = hex: alpha: let
-    r = hexToDec (builtins.substring 1 2 hex);
-    g = hexToDec (builtins.substring 3 4 hex);
-    b = hexToDec (builtins.substring 4 5 hex);
-  in "rgba(${toString r}, ${toString g}, ${toString b}, ${alpha})";
-in {
+{
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
     enable = true;
@@ -48,7 +28,7 @@ in {
           # Day-Month-Date
           monitor = "";
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
-          color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
+          color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
           font_size = 28;
           position = "0, 490";
           halign = "center";
@@ -58,7 +38,7 @@ in {
         {
           monitor = "";
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
-          color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
+          color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
           font_size = 160;
           position = "0, 370";
           halign = "center";
@@ -68,7 +48,7 @@ in {
         {
           monitor = "";
           text = "$USER";
-          color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
+          color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
           outline_thickness = 8;
           dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
           dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
@@ -88,9 +68,9 @@ in {
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "${hexToRgba "#${config.stylix.base16Scheme.base08}" "1"} ${hexToRgba "#${config.stylix.base16Scheme.base08}" "1"} 45deg";
-        inner_color = hexToRgba "#${config.stylix.base16Scheme.base02}" "0.5";
-        font_color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
+        outer_color = "rgba(${config.stylix.base16Scheme.base0D}ff) rgba(${config.stylix.base16Scheme.base0D}ff) 45deg";
+        inner_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
+        font_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
