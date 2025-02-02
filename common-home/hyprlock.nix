@@ -25,7 +25,7 @@
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
           font_size = 28;
-          position = "0, 490";
+          position = "0, 350";
           halign = "center";
           valign = "center";
         }
@@ -35,7 +35,7 @@
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
           font_size = 160;
-          position = "0, 370";
+          position = "0, 300";
           halign = "center";
           valign = "center";
         }
@@ -64,7 +64,7 @@
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
         outer_color = "rgba(${config.stylix.base16Scheme.base0D}ff) rgba(${config.stylix.base16Scheme.base0D}ff) 45deg";
-        inner_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
+        inner_color = "rgba(${config.stylix.base16Scheme.base02}20)";
         font_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
