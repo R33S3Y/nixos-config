@@ -59,12 +59,14 @@
       input-field = {
         monitor = "";
         size = "300, 60";
-        outline_thickness = 0;
+        outline_thickness = 2;
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
         outer_color = "rgba(${config.stylix.base16Scheme.base06}ff) rgba(${config.stylix.base16Scheme.base04}ff) 0deg";
-        inner_color = "rgba(${config.stylix.base16Scheme.base02}00)";
+        check_color = "rgba(${config.stylix.base16Scheme.base08}ff) rgba(${config.stylix.base16Scheme.base09}ff) 0deg";
+        fail_color = "rgba(${config.stylix.base16Scheme.base0D}ff) rgba(${config.stylix.base16Scheme.base0E}ff) 0deg";
+        inner_color = "rgba(${config.stylix.base16Scheme.base02}40)";
         font_color = "rgba(${config.stylix.base16Scheme.base06}ff)";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
