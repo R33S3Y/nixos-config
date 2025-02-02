@@ -15,6 +15,7 @@
       session   include     login
     '';
   };
+  services.udisks2.enable = true; #need to see other disks in file managers
 
   environment.systemPackages = with pkgs; [
     kitty # cmd
