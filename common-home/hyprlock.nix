@@ -88,8 +88,8 @@ in {
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "${hexToRgba "#${config.stylix.base16Scheme.base08}" "1"} ${hexToRgba "#${config.stylix.base16Scheme.base08}" "1"} 45deg";
-        inner_color = hexToRgba "#${config.stylix.base16Scheme.base02}" "0.5";
+        outer_color = "rgba(0,0,0,1) rgba(0,0,0,1) 45deg";
+        inner_color = "rgba(0,0,0,0)";
         font_color = hexToRgba "#${config.stylix.base16Scheme.base0D}" "1";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
