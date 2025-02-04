@@ -25,6 +25,7 @@
     hyprpaper
     hyprlock
     hyprpicker
+    hyprshot
     waybar
   ];
 }
