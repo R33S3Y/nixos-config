@@ -61,7 +61,7 @@
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
         "$mainMod, Q, exec, $terminal"
         "$mainMod, C, killactive,"
-        "$mainMod, L, exec, hyprctl dispatch exec hyprlock,"
+        "$mainMod, L, exec, env > /tmp/env_rofi.txt,"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod, Z, exec, $menu"
