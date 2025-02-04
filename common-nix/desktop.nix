@@ -24,6 +24,7 @@
     rofi-wayland # start menu
     hyprpaper
     hyprlock
+    hyprpicker
     waybar
   ];
 }
