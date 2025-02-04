@@ -15,7 +15,7 @@
     fi
 
     # Install if not already installed
-    if ! flatpak list | grep -q 'BSManager'; then
+    if ! flatpak list | grep -q 'bsmanager'; then
       flatpak install -y "$FILE"
     else
       echo "BSManager is already installed. Skipping..."
