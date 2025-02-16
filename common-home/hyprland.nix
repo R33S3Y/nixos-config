@@ -54,7 +54,7 @@
         };
 
         active_opacity = "1";
-        inactive_opacity = "0.8";
+        inactive_opacity = "1";
       };
 
       bind = [
