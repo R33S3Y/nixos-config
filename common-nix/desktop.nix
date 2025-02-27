@@ -15,7 +15,14 @@
       session   include     login
     '';
   };
-  services.udisks2.enable = true; #need to see other disks in file managers
+
+  #needed to see other disks in file managers
+  services.udisks2.enable = true; 
+  services.gvfs.enable = true;
+  services.tumbler.enable = true; # Required for thumbnailing and some automounting
+  
+  # Polkit (required for permission handling in Wayland)
+  #security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
     kitty # cmd
@@ -28,5 +35,6 @@
     hyprpicker
     hyprshot
     waybar
+    #polkit_gnome # GUI for authentication prompts
   ];
 }
