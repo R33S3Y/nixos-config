@@ -21,6 +21,7 @@
     kitty # cmd
     spacedrive #file manager
     kdePackages.dolphin
+    pcmanfm
     rofi-wayland # start menu
     hyprpaper
     hyprlock
