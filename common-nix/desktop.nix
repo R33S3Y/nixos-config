@@ -32,6 +32,5 @@
     hyprpicker
     hyprshot
     waybar
-    gvfs
   ];
 }
