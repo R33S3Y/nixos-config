@@ -17,6 +17,7 @@
   };
 
   #needed to see other disks in file managers
+  services.devmon.enable = true;
   services.udisks2.enable = true; 
   services.gvfs.enable = true;
   services.tumbler.enable = true; # Required for thumbnailing and some automounting
