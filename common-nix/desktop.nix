@@ -22,7 +22,7 @@
   services.tumbler.enable = true; # Required for thumbnailing and some automounting
   
   # Polkit (required for permission handling in Wayland)
-  #security.polkit.enable = true;
+  security.polkit.enable = true;
 
   environment.systemPackages = with pkgs; [
     kitty # cmd
@@ -35,6 +35,6 @@
     hyprpicker
     hyprshot
     waybar
-    #polkit_gnome # GUI for authentication prompts
+    polkit_gnome # GUI for authentication prompts
   ];
 }
