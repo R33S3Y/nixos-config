@@ -17,7 +17,6 @@
   };
 
   #needed to see other disks in file managers
-  #services.devmon.enable = true;
   services.udisks2.enable = true; 
   services.gvfs.enable = true;
 
