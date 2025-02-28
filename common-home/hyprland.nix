@@ -12,7 +12,9 @@
 
       exec-once = [
         "waybar"
-        "strawberry & sleep 2 && dbus-send --print-reply --dest=org.mpris.MediaPlayer2.strawberry /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play"
+        "bluetoothctl connect 68:59:32:83:6F:39"
+        "strawberry --play"
+        #"strawberry & sleep 2 && dbus-send --print-reply --dest=org.mpris.MediaPlayer2.strawberry /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play"
       ];
 
       general  = {
