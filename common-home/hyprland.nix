@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       "$terminal" = "kitty";
-      "$fileManager" = "spacedrive";
+      "$fileManager" = "pcmanfm";
       "$menu" = ''rofi -modes "run,ssh" -show drun'';
       "$lock" = "${pkgs.hyprlock}/bin/hyprlock";
 

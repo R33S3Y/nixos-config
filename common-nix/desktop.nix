@@ -17,14 +17,12 @@
   };
 
   #needed to see other disks in file managers
-  services.devmon.enable = true;
+  #services.devmon.enable = true;
   services.udisks2.enable = true; 
   services.gvfs.enable = true;
 
   environment.systemPackages = with pkgs; [
     kitty # cmd
-    spacedrive #file manager
-    kdePackages.dolphin
     pcmanfm
     rofi-wayland # start menu
     hyprpaper
