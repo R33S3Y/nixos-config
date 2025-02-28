@@ -11,10 +11,9 @@
       "$mainMod" = "SUPER";
 
       exec-once = [
-        "waybar"
-        "bluetoothctl connect 68:59:32:83:6F:39"
-        "strawberry --play"
-        #"strawberry & sleep 2 && dbus-send --print-reply --dest=org.mpris.MediaPlayer2.strawberry /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play"
+        "waybar" # launch the topbar
+        "sh -c 'sleep 5 && bluetoothctl connect C4:77:64:6C:56:95'" # connect to my Galaxy Buds FE
+        "strawberry --play" # play my music
       ];
 
       general  = {
