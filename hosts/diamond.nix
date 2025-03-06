@@ -8,6 +8,6 @@
     ./diamond/stylix.nix
     
     ./diamond/alvr.nix
-    ./diamond/bs-manager.nix
+    #./diamond/bs-manager.nix
   ];
 }
