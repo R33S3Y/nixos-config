@@ -19,7 +19,7 @@
 
     ../common-nix/nas.nix
     ../common-nix/programs.nix
-    ../common-nix/qt.nix
+    #../common-nix/qt.nix
   ];
 
   environment.systemPackages = with pkgs; [
