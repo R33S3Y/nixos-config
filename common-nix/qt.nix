@@ -3,7 +3,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    kdePackages.qtstyleplugin-kvantum
+    #kdePackages.qtstyleplugin-kvantum
     kdePackages.qt6ct
     kdePackages.breeze-icons
     pkgs.kdePackages.breeze
