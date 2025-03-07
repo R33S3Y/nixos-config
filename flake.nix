@@ -1,5 +1,5 @@
 {
-  description = "NixOS Configuration for Diamond and Amethyst";
+  description = "NixOS Configuration for Diamond";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -25,27 +25,21 @@
         in if envHostName != "" then envHostName else "Diamond-NixOS";
 
       # Configurations
-      commonConfig = ./hosts/common.nix;
-      homeCommonConfig = ./hosts/common-home.nix;
-
       hostConfigs = {
-        "Diamond-NixOS" = ./hosts/diamond.nix;
-        "Amethyst-NixOS" = ./hosts/amethyst.nix;
+        "Diamond-NixOS" = ./hosts/diamond/imports-nix.nix;
       };
 
       homeConfigs = {
-        "Diamond-NixOS" = ./hosts/diamond-home.nix;
-        "Amethyst-NixOS" = ./hosts/amethyst-home.nix;
+        "Diamond-NixOS" = ./hosts/diamond/imports-home.nix;
       };
     in
     {
-      nixosConfigurations = builtins.mapAttrs (host: hostConfigPath: 
+      nixosConfigurations = builtins.mapAttrs (host: hostConfigPath:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = {inherit inputs;};
+          specialArgs = { inherit inputs; };
           modules = [
-            commonConfig
-            hostConfigPath
+            (builtins.getAttr hostName hostConfigs)  # Avoids premature lookup
             inputs.stylix.nixosModules.stylix
             home-manager.nixosModules.home-manager
             nur.modules.nixos.default
@@ -55,8 +49,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.reese = {
                 imports = [
-                  homeCommonConfig
-                  homeConfigs.${hostName}
+                  (builtins.getAttr hostName homeConfigs)  # Same fix for homeConfigs
                 ];
               };
             }
