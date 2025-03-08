@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let username = config.var.username;
+in {
   stylix.targets.vscode.enable = true;
-  stylix.targets.vscode.profileNames = [ config.var.username ];
+  stylix.targets.vscode.profileNames = [ "${username}" ];
   programs.vscode = {
     enable = true;
     profiles.default = {
