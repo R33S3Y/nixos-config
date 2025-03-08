@@ -2,7 +2,7 @@
 
 {
   stylix.targets.vscode.enable = true;
-  stylix.targets.vscode.profileNames = [ "reese" ];
+  stylix.targets.vscode.profileNames = [ "default" ];
   programs.vscode = {
     enable = true;
     profiles.default = {
