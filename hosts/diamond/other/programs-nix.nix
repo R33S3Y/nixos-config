@@ -13,7 +13,6 @@
     git
     vlc
     nano
-    wev
     
     prismlauncher
     python314
