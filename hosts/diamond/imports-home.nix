@@ -17,6 +17,9 @@
     # Firefox
     ../../optional/firefox/settings-home.nix
 
+    # Strawberry
+    ../../optional/strawberry/bind-home.nix     # Global Hotkeys for music player
+
     # VScode
     ../../optional/vscode/settings-home.nix
 

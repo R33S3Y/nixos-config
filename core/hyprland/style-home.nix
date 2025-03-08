@@ -6,8 +6,6 @@
 
       exec-once = [
         "waybar" # launch the topbar
-        "sh -c 'sleep 1 && bluetoothctl connect C4:77:64:6C:56:95'" # connect to my Galaxy Buds FE
-        "strawberry --play" # play my music
       ];
 
       general  = {

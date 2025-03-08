@@ -12,8 +12,8 @@
 
     git
     vlc
-    strawberry
     nano
+    wev
     
     prismlauncher
     python314
