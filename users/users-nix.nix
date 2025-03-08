@@ -1,11 +1,11 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, userName, ... }:
 
 {
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.reese = {
+  users.users.${username} = {
     isNormalUser = true;
-    description = "reese";
+    description = "${username} account";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     ];

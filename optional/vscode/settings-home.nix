@@ -1,7 +1,6 @@
-{ config, pkgs, home, ... }:
+{ config, pkgs, userName, ... }:
 
-let username = home.username;
-in {
+{
   stylix.targets.vscode.enable = true;
   stylix.targets.vscode.profileNames = [ "${username}" ];
   programs.vscode = {
