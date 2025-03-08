@@ -20,8 +20,8 @@
         ", XF86AudioNext, exec, $player --next"
 
         ", XF86AudioMute, exec, $player --volume 0"
-        ", XF86AudioLowerVolume, exec, $player --volume-decrease-by 5"
-        ", XF86AudioRasieVolume, exec, $player --volume-increase-by 5"
+        ", XF86AudioLowerVolume, exec, $player --volume-down"
+        ", XF86AudioRasieVolume, exec, $player --volume-up"
       ];
     };
   };
