@@ -32,14 +32,12 @@
       homeConfigs = {
         "Diamond-NixOS" = ./hosts/diamond/imports-home.nix;
       };
-
-      userName = "reese";  # Define your username here
     in
     {
       nixosConfigurations = builtins.mapAttrs (host: hostConfigPath:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs userName; };
+          specialArgs = { inherit inputs; };
           modules = [
             (builtins.getAttr hostName hostConfigs)  # Avoids premature lookup
             inputs.stylix.nixosModules.stylix
