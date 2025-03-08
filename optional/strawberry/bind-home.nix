@@ -21,7 +21,7 @@
 
         ", XF86AudioMute, exec, $player --volume 0"
         ", XF86AudioLowerVolume, exec, $player --volume-down"
-        ", XF86AudioRasieVolume, exec, $player --volume-up"
+        ", XF86AudioRaiseVolume, exec, $player --volume-up"
       ];
     };
   };
