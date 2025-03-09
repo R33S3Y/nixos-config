@@ -15,6 +15,7 @@
           ublock-origin
           darkreader
           mtab
+          youtube-shorts-block
         ];
       };
     };
