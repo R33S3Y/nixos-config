@@ -13,6 +13,7 @@
     git
     vlc
     nano
+    dnslookup
     
     prismlauncher
     python314
