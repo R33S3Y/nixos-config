@@ -14,6 +14,7 @@
     vlc
     nano
     dnslookup
+    discord
     
     prismlauncher
     python314
