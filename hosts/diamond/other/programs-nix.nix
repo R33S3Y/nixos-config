@@ -13,7 +13,6 @@
     git
     vlc
     nano
-    dnslookup
     discord
     
     prismlauncher
