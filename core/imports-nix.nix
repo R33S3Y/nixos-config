@@ -30,6 +30,5 @@
     ./other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
     ./other/sound-nix.nix       # Sound  -  You like sound?
     ./other/x11-nix.nix         # x11  -  needed for Xwayland??
-    ./other/gtk-nix.nix         # gtk  -  sets icon themes
   ];
 }
