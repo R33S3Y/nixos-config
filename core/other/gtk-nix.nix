@@ -3,7 +3,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    breeze-icons  # Install Breeze icon theme
+    kdePackages.breeze-icons  # Install Breeze icon theme
   ];
 
   #gtk.iconTheme = {
