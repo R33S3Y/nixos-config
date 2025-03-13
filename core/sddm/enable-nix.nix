@@ -2,5 +2,5 @@
 { config, pkgs, ... }:
 
 {
-  programs.regreet.enable = true;
+  services.displayManager.sddm.enable = true;
 }
