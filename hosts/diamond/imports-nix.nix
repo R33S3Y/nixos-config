@@ -35,6 +35,7 @@
 
     # My stuff
     ./other/programs-nix.nix
+    ./other/monitor-settings-nix.nix
     
   ];
 
