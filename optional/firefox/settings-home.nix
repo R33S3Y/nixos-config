@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  stylix.targets.firefox.profileNames = ["default"];
+  
   programs.firefox = {
     enable = true;
     profiles = {
@@ -9,7 +11,7 @@
         isDefault = true;
         search = {
           force = true;
-          default = "DuckDuckGo";
+          default = "ddg";
         };
         extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [ 
           ublock-origin
