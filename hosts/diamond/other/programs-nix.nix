@@ -25,5 +25,6 @@
     bs-manager 
 
     r2modman
+    orca-slicer
   ];
 }
