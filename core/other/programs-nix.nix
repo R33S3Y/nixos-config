@@ -8,4 +8,4 @@
     git
     kdePackages.breeze-icons
   ];
-} 
+}
