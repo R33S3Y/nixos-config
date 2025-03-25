@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-    home-manager.users.reese = {
+    home-manager = {
         xdg.mimeApps = {
             enable = true;
             defaultApplications = {
