@@ -13,7 +13,7 @@
       env = [
         "HYPRCURSOR_THEME,${pkgs.rose-pine-hyprcursor}/share/icons/rose-pine-hyprcursor"
         "HYPRCURSOR_SIZE,24"
-        "XCURSOR_THEME,${pkgs.rose-pine-cursor}"
+        "XCURSOR_THEME,${pkgs.rose-pine-cursor}/share/icons/BreezeX-RosePine-Linux"
         "XCURSOR_SIZE,24"
       ];
 
