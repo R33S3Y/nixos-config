@@ -28,6 +28,7 @@
 
     # Other
     ./other/home-home.nix       # Home-manager settings
+    ./other/xdg-mime-home.nix   # Sets default apps
 
   ];
 }
