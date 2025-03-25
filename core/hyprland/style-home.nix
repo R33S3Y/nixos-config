@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    withUWSM = false; # UWSM Crashes on my setup
+    #withUWSM = false; # UWSM Crashes on my setup
     settings = {
 
       exec-once = [
