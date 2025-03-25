@@ -13,6 +13,7 @@
       env = [
         "HYPRCURSOR_THEME,${pkgs.rose-pine-hyprcursor}"
         "HYPRCURSOR_SIZE,24"
+        "XCURSOR_THEME,${pkgs.rose-pine-hyprcursor}"
         "XCURSOR_SIZE,24"
       ];
 
