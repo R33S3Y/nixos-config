@@ -7,5 +7,6 @@
   environment.systemPackages = with pkgs; [
     hyprcursor
     rose-pine-hyprcursor
+    rose-pine-cursor
   ];
 }
