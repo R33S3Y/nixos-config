@@ -2,18 +2,10 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    #withUWSM = false; # UWSM Crashes on my setup
     settings = {
 
       exec-once = [
         "waybar" # launch the topbar
-      ];
-
-      env = [
-        "HYPRCURSOR_THEME,rose-pine-hyprcursor"
-        "HYPRCURSOR_SIZE,24"
-        "XCURSOR_THEME,BreezeX-RosePine-Linux"
-        "XCURSOR_SIZE,24"
       ];
 
       general  = {
