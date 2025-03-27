@@ -1,5 +1,13 @@
 { config, pkgs, ... }:
-{
+{ 
+
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {

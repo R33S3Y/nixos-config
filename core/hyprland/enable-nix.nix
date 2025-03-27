@@ -8,5 +8,6 @@
     hyprcursor
     rose-pine-hyprcursor
     rose-pine-cursor
+    phinger-cursors
   ];
 }
