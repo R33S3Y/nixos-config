@@ -1,7 +1,8 @@
 
 
 { config, pkgs, ... }:
-{
+{ 
+  # this does not work... :3
   services.displayManager.sddm = {
     enable = true;
     settings = {

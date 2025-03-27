@@ -5,8 +5,9 @@
     name = "phinger-cursors";
     package = pkgs.phinger-cursors;
     size = 24;
-    gtk.enable = true;
-    x11.enable = true;
+    #gtk.enable = true;
+    hyprcursor.enable = true;
+    #x11.enable = true;
   };
 
   wayland.windowManager.hyprland = {
