@@ -2,11 +2,14 @@
 { 
 
   home.pointerCursor = {
-    name = "phinger-cursors";
-    package = pkgs.phinger-cursors;
+    name = "prose-pine-hyprcursor";
+    package = pkgs.rose-pine-hyprcursor;
     size = 24;
     #gtk.enable = true;
-    hyprcursor.enable = true;
+    hyprcursor =  {
+      enable = true;
+      size = 24;
+    }
     #x11.enable = true;
   };
 
