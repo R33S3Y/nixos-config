@@ -2,7 +2,7 @@
 { 
 
   home.pointerCursor = {
-    name = "phinger-cursors-dark-left"; #is folder name
+    name = "phinger-cursors-light"; #is folder name
     package = pkgs.phinger-cursors;
     size = 24;
     gtk.enable = true;
