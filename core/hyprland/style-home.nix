@@ -2,15 +2,11 @@
 { 
 
   home.pointerCursor = {
-    name = "prose-pine-hyprcursor";
-    package = pkgs.rose-pine-hyprcursor;
+    name = "phinger-cursors";
+    package = pkgs.phinger-cursors;
     size = 24;
-    #gtk.enable = true;
-    hyprcursor =  {
-      enable = true;
-      size = 24;
-    };
-    #x11.enable = true;
+    gtk.enable = true;
+    x11.enable = true;
   };
 
   wayland.windowManager.hyprland = {
