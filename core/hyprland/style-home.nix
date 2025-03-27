@@ -2,11 +2,11 @@
 { 
 
   home.pointerCursor = {
-    name = "phinger-cursors-light"; #is folder name
+    name = "phinger-cursors-dark"; #is folder name
     package = pkgs.phinger-cursors;
     size = 24;
     gtk.enable = true;
-    x11.enable = true;
+    #x11.enable = true;
   };
 
   wayland.windowManager.hyprland = {
