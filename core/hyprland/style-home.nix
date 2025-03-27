@@ -2,8 +2,8 @@
 { 
 
   home.pointerCursor = {
-    name = "phinger-cursors-dark"; #is folder name
-    package = pkgs.phinger-cursors;
+    name = "rose-pine-cursor"; #is folder name
+    package = pkgs.rose-pine-cursor;
     size = 24;
     #gtk.enable = true;
     #x11.enable = true;
