@@ -2,7 +2,7 @@
 { 
 
   home.pointerCursor = {
-    name = "rose-pine-cursor"; #is folder name
+    name = "BreezeX-RosePine-Linux"; #is folder name
     package = pkgs.rose-pine-cursor;
     size = 24;
     #gtk.enable = true;
