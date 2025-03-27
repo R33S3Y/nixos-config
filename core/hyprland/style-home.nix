@@ -5,7 +5,7 @@
     name = "phinger-cursors-dark"; #is folder name
     package = pkgs.phinger-cursors;
     size = 24;
-    gtk.enable = true;
+    #gtk.enable = true;
     #x11.enable = true;
   };
 
