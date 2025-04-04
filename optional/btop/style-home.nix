@@ -4,8 +4,8 @@
     enable = true;
     settings = {
       color_theme = "stylix";
-    }
-  }
+    };
+  };
 
   home.file."share/btop/themes/stylix.theme".text = ''
     # Was stolen from https://github.com/catppuccin/btop/blob/main/themes/catppuccin_latte.theme
