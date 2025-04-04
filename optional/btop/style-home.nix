@@ -19,34 +19,34 @@
     theme[title]="#${config.stylix.base16Scheme.base05}"
 
     # Highlight color for keyboard shortcuts
-    theme[hi_fg]="#${config.stylix.base16Scheme.base08}"
+    theme[hi_fg]="#${config.stylix.base16Scheme.base0A}"
 
     # Background color of selected item in processes box
     theme[selected_bg]="#${config.stylix.base16Scheme.base0B}"
 
     # Foreground color of selected item in processes box
-    theme[selected_fg]="#${config.stylix.base16Scheme.base08}"
+    theme[selected_fg]="#${config.stylix.base16Scheme.base0A}"
 
     # Color of inactive/disabled text
-    theme[inactive_fg]="#8c8fa1"
+    theme[inactive_fg]="#${config.stylix.base16Scheme.base01}"
 
     # Color of text appearing on top of graphs, i.e uptime and current network graph scaling
-    theme[graph_text]="#dc8a78"
+    theme[graph_text]="#${config.stylix.base16Scheme.base0D}"
 
     # Background color of the percentage meters
     theme[meter_bg]="#${config.stylix.base16Scheme.base0B}"
 
     # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
-    theme[proc_misc]="#dc8a78"
+    theme[proc_misc]="#${config.stylix.base16Scheme.base0D}"
 
     # CPU, Memory, Network, Proc box outline colors
     theme[cpu_box]="#8839ef" #Mauve
     theme[mem_box]="#40a02b" #Green
     theme[net_box]="#e64553" #Maroon
-    theme[proc_box]="#${config.stylix.base16Scheme.base08}" #Blue
+    theme[proc_box]="#${config.stylix.base16Scheme.base0A}" #Blue
 
     # Box divider line and small boxes line color
-    theme[div_line]="#9ca0b0"
+    theme[div_line]="#${config.stylix.base16Scheme.base0F}"
 
     # Temperature graph color (Green -> Yellow -> Red)
     theme[temp_start]="#40a02b"
@@ -54,19 +54,19 @@
     theme[temp_end]="#d20f39"
 
     # CPU graph colors (Teal -> Lavender)
-    theme[cpu_start]="#179299"
-    theme[cpu_mid]="#209fb5"
-    theme[cpu_end]="#7287fd"
+    theme[cpu_start]="#${config.stylix.base16Scheme.base08}"
+    theme[cpu_mid]="#${config.stylix.base16Scheme.base09}"
+    theme[cpu_end]="#${config.stylix.base16Scheme.base0B}"
 
     # Mem/Disk free meter (Mauve -> Lavender -> Blue)
     theme[free_start]="#8839ef"
-    theme[free_mid]="#7287fd"
-    theme[free_end]="#${config.stylix.base16Scheme.base08}"
+    theme[free_mid]="#${config.stylix.base16Scheme.base0B}"
+    theme[free_end]="#${config.stylix.base16Scheme.base0A}"
 
     # Mem/Disk cached meter (Sapphire -> Lavender)
-    theme[cached_start]="#209fb5"
-    theme[cached_mid]="#${config.stylix.base16Scheme.base08}"
-    theme[cached_end]="#7287fd"
+    theme[cached_start]="#${config.stylix.base16Scheme.base09}"
+    theme[cached_mid]="#${config.stylix.base16Scheme.base0A}"
+    theme[cached_end]="#${config.stylix.base16Scheme.base0B}"
 
     # Mem/Disk available meter (Peach -> Red)
     theme[available_start]="#fe640b"
@@ -75,7 +75,7 @@
 
     # Mem/Disk used meter (Green -> Sky)
     theme[used_start]="#40a02b"
-    theme[used_mid]="#179299"
+    theme[used_mid]="#${config.stylix.base16Scheme.base08}"
     theme[used_end]="#04a5e5"
 
     # Download graph colors (Peach -> Red)
@@ -85,12 +85,12 @@
 
     # Upload graph colors (Green -> Sky)
     theme[upload_start]="#40a02b"
-    theme[upload_mid]="#179299"
+    theme[upload_mid]="#${config.stylix.base16Scheme.base08}"
     theme[upload_end]="#04a5e5"
 
     # Process box color gradient for threads, mem and cpu usage (Sapphire -> Mauve)
-    theme[process_start]="#209fb5"
-    theme[process_mid]="#7287fd"
+    theme[process_start]="#${config.stylix.base16Scheme.base09}"
+    theme[process_mid]="#${config.stylix.base16Scheme.base0B}"
     theme[process_end]="#8839ef"
   '';
 }
