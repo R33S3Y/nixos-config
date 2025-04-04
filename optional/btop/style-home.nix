@@ -13,19 +13,19 @@
     theme[main_bg]="#${config.stylix.base16Scheme.base00}"
 
     # Main text color
-    theme[main_fg]="#4c4f69"
+    theme[main_fg]="#${config.stylix.base16Scheme.base05}"
 
     # Title color for boxes
-    theme[title]="#4c4f69"
+    theme[title]="#${config.stylix.base16Scheme.base05}"
 
     # Highlight color for keyboard shortcuts
-    theme[hi_fg]="#1e66f5"
+    theme[hi_fg]="#${config.stylix.base16Scheme.base08}"
 
     # Background color of selected item in processes box
-    theme[selected_bg]="#bcc0cc"
+    theme[selected_bg]="#${config.stylix.base16Scheme.base0B}"
 
     # Foreground color of selected item in processes box
-    theme[selected_fg]="#1e66f5"
+    theme[selected_fg]="#${config.stylix.base16Scheme.base08}"
 
     # Color of inactive/disabled text
     theme[inactive_fg]="#8c8fa1"
@@ -34,7 +34,7 @@
     theme[graph_text]="#dc8a78"
 
     # Background color of the percentage meters
-    theme[meter_bg]="#bcc0cc"
+    theme[meter_bg]="#${config.stylix.base16Scheme.base0B}"
 
     # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
     theme[proc_misc]="#dc8a78"
@@ -43,7 +43,7 @@
     theme[cpu_box]="#8839ef" #Mauve
     theme[mem_box]="#40a02b" #Green
     theme[net_box]="#e64553" #Maroon
-    theme[proc_box]="#1e66f5" #Blue
+    theme[proc_box]="#${config.stylix.base16Scheme.base08}" #Blue
 
     # Box divider line and small boxes line color
     theme[div_line]="#9ca0b0"
@@ -61,11 +61,11 @@
     # Mem/Disk free meter (Mauve -> Lavender -> Blue)
     theme[free_start]="#8839ef"
     theme[free_mid]="#7287fd"
-    theme[free_end]="#1e66f5"
+    theme[free_end]="#${config.stylix.base16Scheme.base08}"
 
     # Mem/Disk cached meter (Sapphire -> Lavender)
     theme[cached_start]="#209fb5"
-    theme[cached_mid]="#1e66f5"
+    theme[cached_mid]="#${config.stylix.base16Scheme.base08}"
     theme[cached_end]="#7287fd"
 
     # Mem/Disk available meter (Peach -> Red)
