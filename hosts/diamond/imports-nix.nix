@@ -14,6 +14,9 @@
     # OPTIONAL
     # You can comment and uncomment these as needed
 
+    # btop
+    ../../optional/btop/enable-nix.nix
+
     # Fast Fetch
     ../../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
 

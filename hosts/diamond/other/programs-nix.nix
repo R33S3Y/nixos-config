@@ -17,7 +17,6 @@
     
     prismlauncher
     python314
-    btop
     obsidian
 
     protonup-qt #needed for a vrchat fix
