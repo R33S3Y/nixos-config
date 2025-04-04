@@ -28,7 +28,7 @@
     theme[selected_fg]="#${config.stylix.base16Scheme.base0A}"
 
     # Color of inactive/disabled text
-    theme[inactive_fg]="#${config.stylix.base16Scheme.base01}"
+    theme[inactive_fg]="#${config.stylix.base16Scheme.base04}"
 
     # Color of text appearing on top of graphs, i.e uptime and current network graph scaling
     theme[graph_text]="#${config.stylix.base16Scheme.base0D}"
