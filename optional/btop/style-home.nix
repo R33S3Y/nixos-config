@@ -55,8 +55,8 @@
 
     # CPU graph colors (Teal -> Lavender)
     theme[cpu_start]="#${config.stylix.base16Scheme.base08}"
-    theme[cpu_mid]="#${config.stylix.base16Scheme.base09}"
-    theme[cpu_end]="#${config.stylix.base16Scheme.base0B}"
+    theme[cpu_mid]="#${config.stylix.base16Scheme.base0C}"
+    theme[cpu_end]="#${config.stylix.base16Scheme.base0F}"
 
     # Mem/Disk free meter (Mauve -> Lavender -> Blue)
     theme[free_start]="#8839ef"
