@@ -28,7 +28,7 @@
     theme[selected_fg]="#${config.stylix.base16Scheme.base0A}"
 
     # Color of inactive/disabled text
-    theme[inactive_fg]="#${config.stylix.base16Scheme.base04}"
+    theme[inactive_fg]="#${config.stylix.base16Scheme.base01}"
 
     # Color of text appearing on top of graphs, i.e uptime and current network graph scaling
     theme[graph_text]="#${config.stylix.base16Scheme.base0D}"
@@ -40,18 +40,18 @@
     theme[proc_misc]="#${config.stylix.base16Scheme.base0D}"
 
     # CPU, Memory, Network, Proc box outline colors
-    theme[cpu_box]="#8839ef" #Mauve
-    theme[mem_box]="#40a02b" #Green
-    theme[net_box]="#e64553" #Maroon
-    theme[proc_box]="#${config.stylix.base16Scheme.base0A}" #Blue
+    theme[cpu_box]="#${config.stylix.base16Scheme.base08}" #Mauve
+    theme[mem_box]="#${config.stylix.base16Scheme.base0A}" #Green
+    theme[net_box]="#${config.stylix.base16Scheme.base0C}" #Maroon
+    theme[proc_box]="#${config.stylix.base16Scheme.base0E}" #Blue
 
     # Box divider line and small boxes line color
     theme[div_line]="#${config.stylix.base16Scheme.base0F}"
 
     # Temperature graph color (Green -> Yellow -> Red)
-    theme[temp_start]="#40a02b"
-    theme[temp_mid]="#df8e1d"
-    theme[temp_end]="#d20f39"
+    theme[temp_start]="#${config.stylix.base16Scheme.base08}"
+    theme[temp_mid]="#${config.stylix.base16Scheme.base0F}"
+    theme[temp_end]="#${config.stylix.base16Scheme.base0F}"
 
     # CPU graph colors (Teal -> Lavender)
     theme[cpu_start]="#${config.stylix.base16Scheme.base08}"
@@ -59,38 +59,38 @@
     theme[cpu_end]="#${config.stylix.base16Scheme.base0F}"
 
     # Mem/Disk free meter (Mauve -> Lavender -> Blue)
-    theme[free_start]="#8839ef"
-    theme[free_mid]="#${config.stylix.base16Scheme.base0B}"
-    theme[free_end]="#${config.stylix.base16Scheme.base0A}"
+    theme[free_start]="#${config.stylix.base16Scheme.base08}"
+    theme[free_mid]="#${config.stylix.base16Scheme.base0C}"
+    theme[free_end]="#${config.stylix.base16Scheme.base0F}"
 
     # Mem/Disk cached meter (Sapphire -> Lavender)
-    theme[cached_start]="#${config.stylix.base16Scheme.base09}"
-    theme[cached_mid]="#${config.stylix.base16Scheme.base0A}"
-    theme[cached_end]="#${config.stylix.base16Scheme.base0B}"
+    theme[cached_start]="#${config.stylix.base16Scheme.base08}"
+    theme[cached_mid]="#${config.stylix.base16Scheme.base0C}"
+    theme[cached_end]="#${config.stylix.base16Scheme.base0F}"
 
     # Mem/Disk available meter (Peach -> Red)
-    theme[available_start]="#fe640b"
-    theme[available_mid]="#e64553"
-    theme[available_end]="#d20f39"
+    theme[available_start]="#${config.stylix.base16Scheme.base08}"
+    theme[available_mid]="#${config.stylix.base16Scheme.base0C}"
+    theme[available_end]="#${config.stylix.base16Scheme.base0F}"
 
     # Mem/Disk used meter (Green -> Sky)
-    theme[used_start]="#40a02b"
-    theme[used_mid]="#${config.stylix.base16Scheme.base08}"
-    theme[used_end]="#04a5e5"
+    theme[used_start]="#${config.stylix.base16Scheme.base08}"
+    theme[used_mid]="#${config.stylix.base16Scheme.base0C}"
+    theme[used_end]="#${config.stylix.base16Scheme.base0F}"
 
     # Download graph colors (Peach -> Red)
-    theme[download_start]="#fe640b"
-    theme[download_mid]="#e64553"
-    theme[download_end]="#d20f39"
+    theme[download_start]="#${config.stylix.base16Scheme.base08}"
+    theme[download_mid]="#${config.stylix.base16Scheme.base0C}"
+    theme[download_end]="#${config.stylix.base16Scheme.base0F}"
 
     # Upload graph colors (Green -> Sky)
-    theme[upload_start]="#40a02b"
-    theme[upload_mid]="#${config.stylix.base16Scheme.base08}"
-    theme[upload_end]="#04a5e5"
+    theme[upload_start]="#${config.stylix.base16Scheme.base08}"
+    theme[upload_mid]="#${config.stylix.base16Scheme.base0C}"
+    theme[upload_end]="#${config.stylix.base16Scheme.base0F}"
 
     # Process box color gradient for threads, mem and cpu usage (Sapphire -> Mauve)
-    theme[process_start]="#${config.stylix.base16Scheme.base09}"
-    theme[process_mid]="#${config.stylix.base16Scheme.base0B}"
-    theme[process_end]="#8839ef"
+    theme[process_start]="#${config.stylix.base16Scheme.base08}"
+    theme[process_mid]="#${config.stylix.base16Scheme.base0C}"
+    theme[process_end]="#${config.stylix.base16Scheme.base0F}"
   '';
 }
