@@ -10,7 +10,7 @@
   home.file."share/btop/themes/stylix.theme".text = ''
     # Was stolen from https://github.com/catppuccin/btop/blob/main/themes/catppuccin_latte.theme
     # Main background, empty for terminal default, need to be empty if you want transparent background
-    theme[main_bg]="#eff1f5"
+    theme[main_bg]="#${config.stylix.base16Scheme.base00}"
 
     # Main text color
     theme[main_fg]="#4c4f69"

@@ -7,7 +7,10 @@
     enable = true;
     profiles.default = {
       enableUpdateCheck = false;
-      extensions = [ pkgs.vscode-extensions.bbenoist.nix ];
+      extensions = [ 
+        pkgs.vscode-extensions.bbenoist.nix 
+        pkgs.vscode-extensions.naumovs.color-highlight 
+      ];
     };
   };
 }

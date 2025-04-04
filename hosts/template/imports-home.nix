@@ -11,6 +11,9 @@
     # OPTIONAL
     # You can comment and uncomment these as needed
 
+    # btop
+    ../../optional/btop/style-home.nix
+
     # Fast Fetch
     ../../optional/fastfetch/settings-home.nix  # Fastfetch  -  run on bash init
 
