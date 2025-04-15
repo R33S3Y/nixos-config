@@ -63,10 +63,10 @@
         "$mainMod SHIFT, PRINT, exec, hyprshot -m window"
 
         # Screenshot a monitor
-        ", PRINT, exec, hyprshot -m output"
+        ", PRINT, exec, hyprshot -m region"
 
         # Screenshot a region
-        "$mainMod, PRINT, exec, hyprshot -m region"
+        "$mainMod, PRINT, exec, hyprshot -m output"
 
         # color picker
         "$mainMod CTRL, PRINT, exec, hyprpicker -a"
