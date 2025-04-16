@@ -4,5 +4,5 @@
 {
   services.foldingathome.enable = true;
 
-  environment.systemPackages = with pkgs; [ fahcontrol ];
+  environment.systemPackages = with pkgs; [ fah-control ];
 }
