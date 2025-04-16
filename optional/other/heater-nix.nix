@@ -3,8 +3,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    fahclient
+    fah-client
   ];
 
-   
+  
 }
