@@ -2,9 +2,7 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    fah-client
-  ];
+  services.foldingathome.enable = true;
 
   
 }
