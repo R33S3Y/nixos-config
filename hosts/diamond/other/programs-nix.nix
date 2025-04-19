@@ -25,5 +25,6 @@
 
     r2modman
     orca-slicer
+    etcher
   ];
 }
