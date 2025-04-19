@@ -25,6 +25,6 @@
 
     r2modman
     orca-slicer
-    etcher
+    ventoy-full-qt
   ];
 }
