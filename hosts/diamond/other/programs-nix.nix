@@ -25,6 +25,6 @@
 
     r2modman
     orca-slicer
-    ventoy-full-qt
+    openscad
   ];
 }
