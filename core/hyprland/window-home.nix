@@ -6,7 +6,7 @@
       "windowrulev2" = [
         #"nofullscreenrequest,class:^(steam_app_),title:^(?!SteamVR)"
         #"noinitialfullscreen,class:^(steam_app_),title:^(?!SteamVR)"
-        "tile, title:^(steam_app_)"
+        "tile,class:^steam_app\d+$"
       ];
     };
   };
