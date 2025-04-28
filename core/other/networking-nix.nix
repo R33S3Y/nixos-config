@@ -9,6 +9,10 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
   networking.firewall.enable = true;
+
+  networking.useDHCP = lib.mkDefault true;
+  networking.interfaces.enp10s0.useDHCP = lib.mkDefault true;
+  networking.interfaces.wlp9s0.useDHCP = lib.mkDefault true;
 }
