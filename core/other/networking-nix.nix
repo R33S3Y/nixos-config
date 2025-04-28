@@ -22,5 +22,4 @@
     interface = "ens18";
   };
   networking.nameservers = [ "192.168.1.1" ];
-  networking.networkmanager.enable = false;
 }
