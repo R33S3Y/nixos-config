@@ -13,7 +13,7 @@
   networking.firewall.enable = true;
 
   networking.useDHCP = false;
-  networking.interfaces.enp10s0.ipv4.addresses = [{
+  networking.interfaces.enp10.ipv4.addresses = [{
     address = "192.168.1.245";
     prefixLength = 24;
   }];
