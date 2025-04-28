@@ -6,7 +6,7 @@
       "windowrule" = [
         #"nofullscreenrequest,class:^(steam_app_),title:^(?!SteamVR)"
         #"noinitialfullscreen,class:^(steam_app_),title:^(?!SteamVR)"
-        "tile,class:^steam_app\d+$"
+        "tile,class:^steam_app_\d+$"
       ];
     };
   };
