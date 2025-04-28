@@ -12,7 +12,15 @@
   networking.networkmanager.enable = false;
   networking.firewall.enable = true;
 
-  networking.useDHCP = true;
-  networking.interfaces.enp10s0.useDHCP = true;
-  networking.interfaces.wlp9s0.useDHCP = true;
+  networking.useDHCP = false;
+  networking.interfaces.enp10s0.ipv4.addresses = [{
+    address = "192.168.1.245";
+    prefixLength = 24;
+  }];
+  networking.defaultGateway = {
+    address = "192.168.1.1";
+    interface = "ens18";
+  };
+  networking.nameservers = [ "192.168.1.1" ];
+  networking.networkmanager.enable = false;
 }
