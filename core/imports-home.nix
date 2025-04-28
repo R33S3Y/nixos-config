@@ -5,6 +5,7 @@
     # Hyprland
     ./hyprland/bind-home.nix    # Keyboard bindings
     ./hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
+    ./hyprland/window-home.nix  # Window rules
 
     # Hyprlock
     ./hyprlock/style-home.nix   # Styles + What to display and where
