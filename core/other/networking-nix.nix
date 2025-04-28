@@ -12,7 +12,7 @@
   networking.networkmanager.enable = false;
   networking.firewall.enable = true;
 
-  networking.useDHCP = lib.mkDefault true;
-  networking.interfaces.enp10s0.useDHCP = lib.mkDefault true;
-  networking.interfaces.wlp9s0.useDHCP = lib.mkDefault true;
+  networking.useDHCP = true;
+  networking.interfaces.enp10s0.useDHCP = true;
+  networking.interfaces.wlp9s0.useDHCP = true;
 }
