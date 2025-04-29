@@ -26,5 +26,7 @@
     r2modman
     orca-slicer
     openscad
+
+    gamescope
   ];
 }
