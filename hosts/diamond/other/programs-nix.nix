@@ -28,5 +28,6 @@
     openscad
 
     gamescope
+    qtcreator
   ];
 }
