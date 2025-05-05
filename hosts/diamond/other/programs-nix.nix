@@ -30,4 +30,4 @@
     gamescope
     qtcreator
   ];
-}
+} 
