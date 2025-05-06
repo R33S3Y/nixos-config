@@ -4,7 +4,7 @@
 {
   programs.steam = {
     enable = true;
-    gamescopeSession = true;
+    gamescopeSession.enable = true;
   };
   programs.gamescope.enable = true;
   # List packages installed in system profile. To search, run:
@@ -30,7 +30,6 @@
     orca-slicer
     openscad
 
-    gamescope
     qtcreator
   ];
 } 
