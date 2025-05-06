@@ -29,6 +29,6 @@
 
     gamescope
     qtcreator
-    gammaray
+    gammaray 
   ];
 } 
