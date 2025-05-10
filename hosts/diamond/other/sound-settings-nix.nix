@@ -13,12 +13,14 @@
               { "node.name", "matches", "bluez_input.C4:77:64:6C:56:95" }
             }
           },
-          apply_properties = {
-            ["device.disabled"] = true
+          actions = {
+            update-props = {
+              device.disabled = true
+            }
           }
         }
 
-        table.insert(alsa_monitor.rules, rule)
+        table.insert(bluez_monitor.rules, rule)
       '')
     ];
   };
