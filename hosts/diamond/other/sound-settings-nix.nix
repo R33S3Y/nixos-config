@@ -18,7 +18,7 @@
           }
         }
 
-        table.insert(bluez_monitor.rules, rule)
+        table.insert(alsa_monitor.rules, rule)
       '')
     ];
   };
