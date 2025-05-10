@@ -6,7 +6,7 @@
 
     # Inject a custom Lua rule to disable the Buds mic
     wireplumber.configPackages = [
-      (pkgs.writeTextDir "share/wireplumber/main.lua.d/91-disable-galaxybuds-mic.lua" ''
+      (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/91-disable-galaxybuds-mic.lua" ''
         rule = {
           matches = {
             {
