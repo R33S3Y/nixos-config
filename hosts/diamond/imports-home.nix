@@ -5,7 +5,7 @@
     # CORE
     # These imports will realisticly be needed
     ../../core/imports-home.nix
-    ./stylix-home.nix # I should check if this is still needed
+    #./stylix-home.nix # I should check if this is still needed
 
 
     # OPTIONAL
