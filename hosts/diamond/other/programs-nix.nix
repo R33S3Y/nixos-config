@@ -31,5 +31,6 @@
     openscad
 
     qtcreator
+    obs
   ];
 } 
