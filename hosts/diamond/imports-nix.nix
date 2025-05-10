@@ -38,6 +38,7 @@
 
     # My stuff
     ./other/programs-nix.nix
+    ./other/sound-settings-nix.nix
     
   ];
 
