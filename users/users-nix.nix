@@ -3,7 +3,7 @@
 
 { 
 
-  config.var.screenshot-folder = "~/Pictures";
+  config.var.screenshotFolder = "~/Pictures";
   # Define a user account. Don't forget to set a password with ‘passwd’.
   config.users.users.reese = {
     isNormalUser = true;
