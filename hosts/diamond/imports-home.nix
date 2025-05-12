@@ -6,8 +6,6 @@
     # These imports will realisticly be needed
     ../../core/imports-home.nix
 
-    ../../users/users-home.nix      # user  -  User Options
-
 
     # OPTIONAL
     # You can comment and uncomment these as needed
@@ -34,4 +32,7 @@
     ./other/monitor-settings-home.nix
 
   ];
+
+  var.screenshotFolder = "~/Pictures";
+  
 }
