@@ -25,7 +25,7 @@
 
     # Other
     ./other/boot-nix.nix        # Boot settings  -  Also contains plymouth settings
-    ./other/local-nix           # Local settings
+    ./other/local-nix.nix       # Local settings
     ./other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
     ./other/networking-nix.nix  # Networking  -  internet is requirement for nixOS
     ./other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
