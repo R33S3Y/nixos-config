@@ -6,7 +6,7 @@
     # These imports will realisticly be needed
     ../../core/imports-home.nix
 
-    ../../users/users-nix.nix      # user  -  User Options
+    ../../users/users-home.nix      # user  -  User Options
 
 
     # OPTIONAL
