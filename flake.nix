@@ -49,7 +49,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.reese = {
                 imports = [
-                  hostConfigs."${hostName}"
+                  (builtins.getAttr hostName homeConfigs)  # Same fix for homeConfigs
                 ];
               };
             }
