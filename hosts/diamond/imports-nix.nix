@@ -7,7 +7,6 @@
     ../../core/imports-nix.nix     # imports  -  imports all this repo's core stuff
     ./hardware-configuration.nix   # hardware  -  your hardware settings
     ./stylix-nix.nix               # stylix  -  this repo expects stylix
-    ../../users/local-nix.nix      # local  -  For setting local infomation like timezones
 
 
     # OPTIONAL
