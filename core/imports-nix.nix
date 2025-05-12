@@ -29,7 +29,8 @@
     ./other/networking-nix.nix  # Networking  -  internet is requirement for nixOS
     ./other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
     ./other/sound-nix.nix       # Sound  -  You like sound?
+    ./other/user-nix.nix        # user  -  Adds a user
     ./other/x11-nix.nix         # x11  -  needed for Xwayland??
-    ./other/var.nix         # var  -  make var option for user config
+    ./other/var.nix             # var  -  make var option for user config
   ];
 }
