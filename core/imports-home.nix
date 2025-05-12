@@ -30,6 +30,6 @@
     # Other
     ./other/home-home.nix       # Home-manager settings
     ./other/xdg-mime-home.nix   # Sets default apps
-
+    ./other/var-nix.nix         # var  -  make var option for user config
   ];
 }
