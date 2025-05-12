@@ -3,9 +3,9 @@
 
 { 
 
-  config.var.screenshotFolder = "~/Pictures";
+  var.screenshotFolder = "~/Pictures";
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  config.users.users.reese = {
+  users.users.reese = {
     isNormalUser = true;
     description = "reese";
     extraGroups = [ "networkmanager" "wheel" ];
