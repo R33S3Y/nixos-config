@@ -20,7 +20,7 @@
     ./rofi/style-home.nix       # Styles
 
     # SDDM
-    #  TODO : SDDM styles
+    # TODO : SDDM styles
 
     # Waybar
     ./waybar/style-home.nix     # Styles
