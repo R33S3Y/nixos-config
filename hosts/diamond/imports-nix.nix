@@ -61,6 +61,6 @@
       LC_TELEPHONE = "en_NZ.UTF-8";
       LC_TIME = "en_NZ.UTF-8";
     };
-  }
+  };
 
 }
