@@ -1,4 +1,4 @@
-
+# this imported by both home and nix
 { config, pkgs, lib, ... }:
 
 {
