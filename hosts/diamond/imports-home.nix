@@ -4,33 +4,33 @@
 
     # CORE
     # Hyprland
-    ./hyprland/bind-home.nix    # Keyboard bindings
-    ./hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
+    ../../core/hyprland/bind-home.nix    # Keyboard bindings
+    ../../core/hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
 
     # Hyprlock
-    ./hyprlock/style-home.nix   # Styles + What to display and where
+    ../../core/hyprlock/style-home.nix   # Styles + What to display and where
 
     # Kitty
-    ./kitty/style-home.nix      # Styles  -  You should be fine to get away with disabling this
-    ./kitty/settings-home.nix   # Settings
+    ../../core/kitty/style-home.nix      # Styles  -  You should be fine to get away with disabling this
+    ../../core/kitty/settings-home.nix   # Settings
 
     # PCmanFM
     # No home-manager files
 
     # Rofi
-    ./rofi/style-home.nix       # Styles
+    ../../core/rofi/style-home.nix       # Styles
 
     # SDDM
     # TODO : SDDM styles
 
     # Waybar
-    ./waybar/style-home.nix     # Styles
-    ./waybar/settings-home.nix  # Settings
+    ../../core/waybar/style-home.nix     # Styles
+    ../../core/waybar/settings-home.nix  # Settings
 
     # Other
-    ./other/home-home.nix       # Home-manager settings
-    ./other/xdg-mime-home.nix   # Sets default apps
-    ./other/var.nix             # var  -  make var option for user config
+    ../../core/other/home-home.nix       # Home-manager settings
+    ../../core/other/xdg-mime-home.nix   # Sets default apps
+    ../../core/other/var.nix             # var  -  make var option for user config
 
 
     # OPTIONAL
