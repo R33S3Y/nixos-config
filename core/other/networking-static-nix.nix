@@ -16,4 +16,5 @@
   };
   networking.nameservers = config.var.static.nameservers;
   networking.networkmanager.enable = false;
+  networking.firewall.enable = true;
 }
