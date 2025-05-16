@@ -28,7 +28,8 @@
     ../../core/other/boot-nix.nix        # Boot settings  -  Also contains plymouth settings
     ../../core/other/local-nix.nix       # Local settings
     ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-    ../../core/other/networking-nix.nix  # Networking  -  internet is requirement for nixOS
+    ../../core/other/networking-dhcp-nix.nix  # Networking  -  internet is requirement for nixOS
+    # ../../core/other/networking-static-nix.nix
     ../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
     ../../core/other/sound-nix.nix       # Sound  -  You like sound?
     ../../core/other/user-nix.nix        # user  -  Adds a user
@@ -68,9 +69,8 @@
     
   ];
 
-  networking.hostName = "Diamond-NixOS";
-
   var = {
+
     username = "reese";
 
     timeZone = "Pacific/Auckland";
@@ -87,6 +87,19 @@
       LC_PAPER = "en_NZ.UTF-8";
       LC_TELEPHONE = "en_NZ.UTF-8";
       LC_TIME = "en_NZ.UTF-8";
+    };
+
+    hostName = "Diamond-NixOS";
+
+    static = { # only needed when using networking-static-nix.nix
+      interface = "ens18";
+      ipv4 = {
+        address = "192.168.1.252";
+        prefixLength = 24;
+      };
+      gatewayAddress = "192.168.1.1";
+
+      nameservers = [ "192.168.1.1" ];
     };
   };
 
