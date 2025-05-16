@@ -3,10 +3,37 @@
   imports = [
 
     # CORE
-    # These imports will realisticly be needed
-    ../../core/imports-nix.nix     # imports  -  imports all this repo's core stuff
-    ./hardware-configuration.nix   # hardware  -  your hardware settings
-    ./stylix-nix.nix               # stylix  -  this repo expects stylix
+    # Hyprland
+    ../../core/hyprland/enable-nix.nix
+
+    # Hyprlock
+    ../../core/hyprlock/enable-nix.nix
+
+    # Kitty
+    ../../core/kitty/enable-nix.nix
+
+    # PCmanFM
+    ../../core/pcmanfm/enable-nix.nix
+
+    # Rofi
+    ../../core/rofi/enable-nix.nix
+
+    # SDDM
+    ../../core/sddm/enable-nix.nix
+
+    # Waybar
+    ../../core/waybar/enable-nix.nix
+
+    # Other
+    ../../core/other/boot-nix.nix        # Boot settings  -  Also contains plymouth settings
+    ../../core/other/local-nix.nix       # Local settings
+    ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
+    ../../core/other/networking-nix.nix  # Networking  -  internet is requirement for nixOS
+    ../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
+    ../../core/other/sound-nix.nix       # Sound  -  You like sound?
+    ../../core/other/user-nix.nix        # user  -  Adds a user
+    ../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
+    ../../core/other/var.nix             # var  -  make var option for user config
 
 
     # OPTIONAL
@@ -36,6 +63,8 @@
 
     # My stuff
     ./other/programs-nix.nix
+    ./hardware-configuration.nix   # hardware  -  your hardware settings
+    ./stylix-nix.nix               # stylix  -  this repo expects stylix
     
   ];
 
