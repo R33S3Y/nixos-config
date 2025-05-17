@@ -104,6 +104,11 @@
       nameservers = [ "192.168.1.1" ];
     };
     */
+
+    lapisLazuli = {
+      mount = "/home/${config.var.username}/lapisLazuli";
+      share = "lapis_lazuli";
+    }
   };
 
 }

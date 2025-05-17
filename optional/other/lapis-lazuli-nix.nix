@@ -6,9 +6,9 @@
     cifs-utils # For SMB/CIFS
   ];
   
-  fileSystems."/home/reese/lapus_lazuli" = {
-    device = "//192.168.1.253/lapis_lazuli/";
+  fileSystems."${config.var.lapisLazuli.mount}" = {
+    device = "//192.168.1.253/${config.var.lapisLazuli.share}";
     fsType = "cifs";
-    options = [ "credentials=/etc/nas_credentials" "uid=reese" "gid=users" "iocharset=utf8" ];
+    options = [ "credentials=/etc/nas_credentials" "uid=${config.var.username}" "gid=users" "iocharset=utf8" ];
   };
 }
