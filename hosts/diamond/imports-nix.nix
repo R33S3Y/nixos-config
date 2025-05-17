@@ -108,7 +108,7 @@
     lapisLazuli = {
       mount = "/home/${config.var.username}/lapisLazuli";
       share = "lapis_lazuli";
-    }
+    };
   };
 
 }
