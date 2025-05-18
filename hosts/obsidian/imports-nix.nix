@@ -25,7 +25,7 @@
     #../../core/waybar/enable-nix.nix
 
     # Other
-    ../../core/other/boot-nix.nix        # Boot settings  -  Also contains plymouth settings
+    #../../core/other/boot-nix.nix        # Boot settings  -  Also contains plymouth settings
     ../../core/other/local-nix.nix       # Local settings
     ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
     #../../core/other/networking-dhcp-nix.nix  # Networking  -  internet is requirement for nixOS
