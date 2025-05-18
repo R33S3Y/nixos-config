@@ -16,7 +16,7 @@
 
   outputs = { nixpkgs, home-manager, nur, ... }@inputs: {
     nixosConfigurations = {
-      Diamond-NixOS = nixpkgs.lib.nixosSystem {
+      diamond = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
