@@ -90,7 +90,7 @@
       LC_TIME = "en_NZ.UTF-8";
     };
 
-    hostName = "diamond";
+    hostName = "Diamond-NixOS";
 
     /**
     static = { # only needed when using networking-static-nix.nix
