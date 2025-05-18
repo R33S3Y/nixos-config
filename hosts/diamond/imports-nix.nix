@@ -16,6 +16,10 @@
     # Kitty
     ../../core/kitty/enable-nix.nix
 
+    # Networking
+    ../../core/networking/dhcp-nix.nix
+    #../../core/networking/static-nix.nix
+
     # PCmanFM
     ../../core/pcmanfm/enable-nix.nix
 
@@ -31,12 +35,10 @@
     # Other
     ../../core/other/local-nix.nix       # Local settings
     ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-    ../../core/other/networking-dhcp-nix.nix  # Networking  -  internet is requirement for nixOS
-    # ../../core/other/networking-static-nix.nix
     ../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
     ../../core/other/sound-nix.nix       # Sound  -  You like sound?
     ../../core/other/user-nix.nix        # user  -  Adds a user
-    # ../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
+    # ../../core/other/ssh-nix.nix       # ssh  -  Enables ssh on port 22
     ../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
     ../../core/other/var.nix             # var  -  make var option for user config
 
