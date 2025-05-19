@@ -39,7 +39,8 @@ if ! nixos-rebuild switch --flake $CONFIG_DST/#diamond; then
 fi
 
 # Sync configuration files to obsidian
-rsync -av --delete --rsync-path="sudo rsync" "$CONFIG_SRC/" "${OBS_USER}@${OBSIDIAN_HOST}:$CONFIG_DST/"
+scp -r "$CONFIG_SRC"/* "${OBS_USER}@${OBSIDIAN_HOST}:/tmp/config_tmp/"
+ssh "${OBS_USER}@${OBSIDIAN_HOST}" "sudo mv /tmp/config_tmp/* $CONFIG_DST/"
 
 # Rebuild NixOS remotely (obsidian)
 if ! ssh "${OBS_USER}@${OBSIDIAN_HOST}" "sudo nixos-rebuild switch --flake $CONFIG_DST/#obsidian"; then
