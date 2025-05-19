@@ -109,37 +109,37 @@ in
       cp ${pixel "base01"} $out/background_c.png
 
 
-      magick -size 7x7 xc:none \
+      ${lib.getExe' pkgs.imagemagick} -size 7x7 xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_n.png
-      magick -size 7x7 xc:none \
+      ${lib.getExe' pkgs.imagemagick} -size 7x7 xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_e.png
-      magick -size 7x7 xc:none \
+      ${lib.getExe' pkgs.imagemagick} -size 7x7 xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_s.png
-      magick -size 7x7 xc:none \
+      ${lib.getExe' pkgs.imagemagick} -size 7x7 xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_w.png
 
 
-      magick -size 14x14 xc:none \
+      ${lib.getExe' pkgs.imagemagick} -size 14x14 xc:none \
       -fill "${base0D}" -draw "circle 7,7 14,7" \
       -fill "${base01}" -draw "circle 7,7 12,7" \
       $out/background_ne.png
-      magick -size 14x14 xc:none \
+      ${lib.getExe' pkgs.imagemagick} -size 14x14 xc:none \
       -fill "${base0D}" -draw "circle 7,7 14,7" \
       -fill "${base01}" -draw "circle 7,7 12,7" \
       $out/background_se.png
-      magick -size 14x14 xc:none \
+      ${lib.getExe' pkgs.imagemagick} -size 14x14 xc:none \
       -fill "${base0D}" -draw "circle 7,7 14,7" \
       -fill "${base01}" -draw "circle 7,7 12,7" \
       $out/background_sw.png
-      magick -size 14x14 xc:none \
+      ${lib.getExe' pkgs.imagemagick} -size 14x14 xc:none \
       -fill "${base0D}" -draw "circle 7,7 14,7" \
       -fill "${base01}" -draw "circle 7,7 12,7" \
       $out/background_nw.png
