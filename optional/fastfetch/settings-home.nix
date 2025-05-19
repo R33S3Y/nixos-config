@@ -5,7 +5,10 @@
     enable = true;
     
     bashrcExtra = ''
-      fastfetch
+      # Only run fastfetch for interactive, non-SSH shells
+      if [[ $- == *i* && -z "$SSH_CONNECTION" ]]; then
+        fastfetch
+      fi
     '';
   };
 }
