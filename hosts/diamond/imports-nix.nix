@@ -4,8 +4,9 @@
 
     # CORE
     # boot
-    ../../core/boot/grub-nix.nix
-    ../../core/boot/plymouth-nix.nix
+    #../../core/boot/bios-nix.nix
+    ../../core/boot/uefi-nix.nix
+    ../../core/boot/style-nix.nix
 
     # Hyprland
     ../../core/hyprland/enable-nix.nix
