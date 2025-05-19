@@ -44,29 +44,5 @@
         ];
       };
     };
-    deploy.nodes = {
-      diamond = {
-        hostname = "localhost"; # diamond
-        sshUser = "reese";    
-        profiles.system = {
-          user = "reese";
-          path = self.nixosConfigurations.diamond.config.system.build.toplevel;
-        };
-      };
-
-      obsidian = {
-        hostname = "192.168.1.249"; # obsidian
-        sshUser = "reese";
-        profiles.system = {
-          user = "reese";
-          path = self.nixosConfigurations.obsidian.config.system.build.toplevel;
-        };
-      };
-    };
-
-    deploy.defaults = {
-      magicRollback = true;
-      autoRollback = true;
-    };
   };
 }
