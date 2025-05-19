@@ -107,6 +107,15 @@ in
       ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png
 
       cp ${pixel "base01"} $out/background_c.png
+      cp ${pixel "base0E"} $out/background_n.png
+      cp ${pixel "base0E"} $out/background_e.png
+      cp ${pixel "base0E"} $out/background_s.png
+      cp ${pixel "base0E"} $out/background_w.png
+      cp ${pixel "base0E"} $out/background_ne.png
+      cp ${pixel "base0E"} $out/background_se.png
+      cp ${pixel "base0E"} $out/background_sw.png
+      cp ${pixel "base0E"} $out/background_nw.png
+
       cp ${pixel "base0B"} $out/selection_c.png
 
       cp ${mkGrubFont fonts.sansSerif} $out/sans_serif.pf2
