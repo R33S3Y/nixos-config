@@ -7,7 +7,7 @@
   stylix.targets.plymouth.logoAnimated = false;
 
   
-  boot.loader.grub.splashImage = stylix.image;
+  boot.loader.grub.splashImage = config.stylix.image;
   
   #boot.loader.timeout = 0;
 }
