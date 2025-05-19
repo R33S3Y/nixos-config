@@ -29,7 +29,7 @@ EOF
 rsync -av --delete "$CONFIG_SRC/" "$CONFIG_DST/"
 
 # Deploy using deploy-rs
-if deploy --remote-build --flake "$CONFIG_DST"; then
+if deploy --remote-build "$CONFIG_DST"; then
     echo "Deploy successful. Pushing changes to GitHub..."
     sudo -u "$(logname)" bash <<EOF
         cd "$GIT_REPO"
