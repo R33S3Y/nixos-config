@@ -32,5 +32,6 @@
 
     qtcreator
     obs-studio
+    deploy-rs
   ];
 } 
