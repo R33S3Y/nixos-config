@@ -44,30 +44,29 @@
         ];
       };
     };
-  };
+    deploy.nodes = {
+      diamond = {
+        hostname = "diamond";  # Change to your real hostname or IP
+        sshUser = "reese";            # Or your user with NixOS rebuild rights
+        profiles.system = {
+          user = "reese";
+          path = self.nixosConfigurations.diamond.config.system.build.toplevel;
+        };
+      };
 
-  deploy.nodes = {
-    diamond = {
-      hostname = "diamond";  # Change to your real hostname or IP
-      sshUser = "reese";            # Or your user with NixOS rebuild rights
-      profiles.system = {
-        user = "reese";
-        path = self.nixosConfigurations.diamond.config.system.build.toplevel;
+      obsidian = {
+        hostname = "obsidian"; # Change this too
+        sshUser = "reese";
+        profiles.system = {
+          user = "reese";
+          path = self.nixosConfigurations.obsidian.config.system.build.toplevel;
+        };
       };
     };
 
-    obsidian = {
-      hostname = "obsidian"; # Change this too
-      sshUser = "reese";
-      profiles.system = {
-        user = "reese";
-        path = self.nixosConfigurations.obsidian.config.system.build.toplevel;
-      };
+    deploy.defaults = {
+      magicRollback = true;
+      autoRollback = true;
     };
-  };
-
-  deploy.defaults = {
-    magicRollback = true;
-    autoRollback = true;
   };
 }
