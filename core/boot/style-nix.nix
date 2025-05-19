@@ -1,4 +1,4 @@
-
+# This code was careless stolen from and modifyed from https://github.com/nix-community/stylix/blob/master/modules/grub/nixos.nix
 {
   pkgs,
   config,
@@ -47,7 +47,7 @@ in
     # This font will be used for the GRUB terminal
     font = toString (mkGrubFont fonts.monospace);
 
-    theme = pkgs.runCommand "stylix-grub" { 
+    theme = pkgs.runCommand "grub-theme" { 
       themeTxt = ''
         desktop-image: "background.png"
         desktop-image-scale-method: "${image-scale}"
@@ -101,15 +101,7 @@ in
       mkdir $out
       cp $themeTxtPath $out/theme.txt
 
-      ${
-        if
-          config.stylix.targets.grub.useWallpaper
-        # Make sure the background image is .png by asking to convert it
-        then
-          "${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png"
-        else
-          "cp ${pixel "base00"} $out/background.png"
-      }
+      ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png"
 
       cp ${pixel "base01"} $out/background_c.png
       cp ${pixel "base0B"} $out/selection_c.png
