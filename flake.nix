@@ -52,7 +52,7 @@
       sshUser = "reese";            # Or your user with NixOS rebuild rights
       profiles.system = {
         user = "reese";
-        path = ./#diamond;
+        path = self.nixosConfigurations.diamond.config.system.build.toplevel;
       };
     };
 
@@ -61,7 +61,7 @@
       sshUser = "reese";
       profiles.system = {
         user = "reese";
-        path = ./#obsidian;
+        path = self.nixosConfigurations.obsidian.config.system.build.toplevel;
       };
     };
   };
