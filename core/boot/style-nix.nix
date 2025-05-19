@@ -120,11 +120,11 @@ in
 
 
   config.boot.plymouth.enable = true; # themes are handled by stylix
-  stylix.targets.plymouth.logoAnimated = false;
+  config.stylix.targets.plymouth.logoAnimated = false;
 
-  stylix.targets.grub.enable = false;
+  config.stylix.targets.grub.enable = false;
   
-  environment.systemPackages = with pkgs; [
+  config.environment.systemPackages = with pkgs; [
     librsvg
   ];
   #boot.loader.timeout = 0;
