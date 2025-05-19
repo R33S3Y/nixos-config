@@ -41,8 +41,8 @@ let
       "crop";
 in
 {
-  config.boot.loader.grub = {
-    backgroundColor = config.stylix.base16Scheme.base00;
+  config.boot.loader.grub = with config.lib.stylix.colors.withHashtag; {
+    backgroundColor = base00;
 
     # This font will be used for the GRUB terminal
     font = toString (mkGrubFont fonts.monospace);
@@ -51,7 +51,7 @@ in
       themeTxt = ''
         desktop-image: "background.png"
         desktop-image-scale-method: "${image-scale}"
-        desktop-color: "${config.stylix.base16Scheme.base00}"
+        desktop-color: "${base00}"
 
         title-text: ""
 
@@ -71,10 +71,10 @@ in
           font = "${fonts.sansSerif.name}"
           text = "@TIMEOUT_NOTIFICATION_MIDDLE@"
 
-          border_color = "${config.stylix.base16Scheme.base00}"
-          bg_color = "${config.stylix.base16Scheme.base00}"
-          fg_color = "${config.stylix.base16Scheme.base0B}"
-          text_color = "${config.stylix.base16Scheme.base05}"
+          border_color = "${base00}"
+          bg_color = "${base00}"
+          fg_color = "${base0B}"
+          text_color = "${base05}"
         }
 
         + boot_menu {
@@ -89,9 +89,9 @@ in
           item_spacing = 0
           item_padding = 0
           item_font = "${fonts.sansSerif.name}"
-          item_color = "${config.stylix.base16Scheme.base05}"
+          item_color = "${base05}"
 
-          selected_item_color = "${config.stylix.base16Scheme.base01}"
+          selected_item_color = "${base01}"
           selected_item_pixmap_style = "selection_*.png"
         }
       ''; 
