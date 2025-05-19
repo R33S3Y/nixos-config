@@ -40,10 +40,9 @@ fi
 
 # Sync configuration files to obsidian
 scp -r "$CONFIG_SRC"/* "${OBS_USER}@${OBSIDIAN_HOST}:/tmp/config_tmp/"
-ssh "${OBS_USER}@${OBSIDIAN_HOST}" "sudo -S mv /tmp/config_tmp/* $CONFIG_DST/"
 
 # Rebuild NixOS remotely (obsidian)
-if ! ssh "${OBS_USER}@${OBSIDIAN_HOST}" "sudo nixos-rebuild switch --flake $CONFIG_DST/#obsidian"; then
+if ! ssh "${OBS_USER}@${OBSIDIAN_HOST}" "sudo -S rm -rf $CONFIG_DST/ && sudo -S mv /tmp/config_tmp/* $CONFIG_DST/ && sudo nixos-rebuild switch --flake $CONFIG_DST/#obsidian"; then
     echo "Remote NixOS rebuild failed on obsidian. Aborting."
     exit 1
 fi
