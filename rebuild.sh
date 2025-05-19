@@ -33,7 +33,7 @@ if deploy --remote-build "$CONFIG_DST"; then
     echo "Deploy successful. Pushing changes to GitHub..."
     sudo -u "$(logname)" bash <<EOF
         cd "$GIT_REPO"
-        git push
+        git push 
 EOF
 else
     echo "Deploy failed. Not pushing changes."
