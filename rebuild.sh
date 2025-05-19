@@ -31,7 +31,7 @@ EOF
 rsync -av --delete "$CONFIG_SRC/" "$CONFIG_DST/"
 
 # Rebuild NixOS
-if nixos-rebuild switch --flake /etc/nixos#diamond; then
+if deploy --remote-build --flake "$CONFIG_DST"; then
     echo "NixOS rebuild successful. Pushing changes to GitHub..."
     
     sudo -u "$(logname)" bash <<EOF
