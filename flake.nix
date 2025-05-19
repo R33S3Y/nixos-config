@@ -46,7 +46,7 @@
     };
     deploy.nodes = {
       diamond = {
-        hostname = "diamond";
+        hostname = "localhost"; # diamond
         sshUser = "reese";     
         profiles.system = {
           user = "reese";
