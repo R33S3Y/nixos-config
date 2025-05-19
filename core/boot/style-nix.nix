@@ -44,6 +44,9 @@ in
   config.boot.loader.grub = with config.lib.stylix.colors.withHashtag; {
     backgroundColor = base00;
 
+    # Need to override the NixOS splash, this will match the background
+    splashImage = pixel "base00";
+
     # This font will be used for the GRUB terminal
     font = toString (mkGrubFont fonts.monospace);
 
