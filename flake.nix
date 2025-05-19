@@ -46,8 +46,8 @@
     };
     deploy.nodes = {
       diamond = {
-        hostname = "diamond";  # Change to your real hostname or IP
-        sshUser = "reese";            # Or your user with NixOS rebuild rights
+        hostname = "diamond";
+        sshUser = "reese";     
         profiles.system = {
           user = "reese";
           path = self.nixosConfigurations.diamond.config.system.build.toplevel;
@@ -55,7 +55,7 @@
       };
 
       obsidian = {
-        hostname = "obsidian"; # Change this too
+        hostname = "192.168.1.249"; # obsidian
         sshUser = "reese";
         profiles.system = {
           user = "reese";
