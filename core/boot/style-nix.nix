@@ -107,14 +107,43 @@ in
       ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png
 
       cp ${pixel "base01"} $out/background_c.png
-      cp ${pixel "base0E"} $out/background_n.png
-      cp ${pixel "base0E"} $out/background_e.png
-      cp ${pixel "base0E"} $out/background_s.png
-      cp ${pixel "base0E"} $out/background_w.png
-      cp ${pixel "base0E"} $out/background_ne.png
-      cp ${pixel "base0E"} $out/background_se.png
-      cp ${pixel "base0E"} $out/background_sw.png
-      cp ${pixel "base0E"} $out/background_nw.png
+
+
+      magick -size 7x7 xc:none \
+      -fill "${base0D}" -draw "rectangle 0,0 6,6" \
+      -fill "${base01}" -draw "rectangle 0,0 6,4" \
+      $out/background_n.png
+      magick -size 7x7 xc:none \
+      -fill "${base0D}" -draw "rectangle 0,0 6,6" \
+      -fill "${base01}" -draw "rectangle 0,0 6,4" \
+      $out/background_e.png
+      magick -size 7x7 xc:none \
+      -fill "${base0D}" -draw "rectangle 0,0 6,6" \
+      -fill "${base01}" -draw "rectangle 0,0 6,4" \
+      $out/background_s.png
+      magick -size 7x7 xc:none \
+      -fill "${base0D}" -draw "rectangle 0,0 6,6" \
+      -fill "${base01}" -draw "rectangle 0,0 6,4" \
+      $out/background_w.png
+
+
+      magick -size 14x14 xc:none \
+      -fill "${base0D}" -draw "circle 7,7 14,7" \
+      -fill "${base01}" -draw "circle 7,7 12,7" \
+      $out/background_ne.png
+      magick -size 14x14 xc:none \
+      -fill "${base0D}" -draw "circle 7,7 14,7" \
+      -fill "${base01}" -draw "circle 7,7 12,7" \
+      $out/background_se.png
+      magick -size 14x14 xc:none \
+      -fill "${base0D}" -draw "circle 7,7 14,7" \
+      -fill "${base01}" -draw "circle 7,7 12,7" \
+      $out/background_sw.png
+      magick -size 14x14 xc:none \
+      -fill "${base0D}" -draw "circle 7,7 14,7" \
+      -fill "${base01}" -draw "circle 7,7 12,7" \
+      $out/background_nw.png
+
 
       cp ${pixel "base0B"} $out/selection_c.png
 
