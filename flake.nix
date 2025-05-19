@@ -47,7 +47,8 @@
     deploy.nodes = {
       diamond = {
         hostname = "localhost"; # diamond
-        sshUser = "reese";     
+        sshUser = "reese";    
+        sshOpts = [ "-o" "ProxyCommand=none" ];
         profiles.system = {
           user = "reese";
           path = self.nixosConfigurations.diamond.config.system.build.toplevel;
