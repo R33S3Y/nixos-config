@@ -42,7 +42,7 @@ let
 in
 {
   config.boot.loader.grub = {
-    backgroundColor = base00;
+    backgroundColor = config.stylix.base16Scheme.base00;
 
     # This font will be used for the GRUB terminal
     font = toString (mkGrubFont fonts.monospace);
