@@ -103,7 +103,7 @@ in
 
       ${
         if
-          stylix.targets.grub.useWallpaper
+          config.stylix.targets.grub.useWallpaper
         # Make sure the background image is .png by asking to convert it
         then
           "${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png"
