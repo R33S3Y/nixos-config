@@ -88,7 +88,7 @@ in
           top = 20%
           width = 50%
           height = 60%
-          menu_pixmap_style = "background_*.png"
+          menu_pixmap_style = "background *.png"
 
           item_height = 40
           item_icon_space = 8
@@ -109,43 +109,43 @@ in
 
       ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png
 
-      cp ${pixel "base01"} $out/background_c.png
+      cp ${pixel "base01"} $out/background c.png
 
 
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
-      $out/background_n.png
+      $out/background n.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
-      $out/background_e.png
+      $out/background e.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
-      $out/background_s.png
+      $out/background s.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
-      $out/background_w.png
+      $out/background w.png
 
 
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
       -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
-      $out/background_ne.png
+      $out/background ne.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
       -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
-      $out/background_se.png
+      $out/background se.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
       -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
-      $out/background_sw.png
+      $out/background sw.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
       -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
-      $out/background_nw.png
+      $out/background nw.png
 
 
       cp ${pixel "base0B"} $out/selection_c.png
