@@ -9,6 +9,9 @@
 let
   inherit (config.stylix) imageScalingMode fonts;
   inherit (config.lib.stylix) mkEnableTarget mkEnableWallpaper pixel;
+
+  borderWidth = config.var.style.borderWidth;
+  rounding = config.var.style.rounding;
   # Grub requires fonts to be converted to "PFF2 format"
   # This function takes a font { name, package } and produces a .pf2 file
   mkGrubFont =
@@ -109,39 +112,39 @@ in
       cp ${pixel "base01"} $out/background_c.png
 
 
-      ${lib.getExe' pkgs.imagemagick "magick"} -size 7x7 xc:none \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${borderWidth+rounding}x${borderWidth+rounding} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_n.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size 7x7 xc:none \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${borderWidth+rounding}x${borderWidth+rounding} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_e.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size 7x7 xc:none \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${borderWidth+rounding}x${borderWidth+rounding} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_s.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size 7x7 xc:none \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${borderWidth+rounding}x${borderWidth+rounding} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_w.png
 
 
-      ${lib.getExe' pkgs.imagemagick "magick"} -size 14x14 xc:none \
-      -fill "${base0D}" -draw "circle 7,7 14,7" \
-      -fill "${base01}" -draw "circle 7,7 12,7" \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${borderWidth+rounding}x${borderWidth+rounding} xc:none \
+      -fill "${base0D}" -draw "circle 0,0 ${(borderWidth+rounding)-1},0" \
+      -fill "${base01}" -draw "circle 0,0 ${borderWidth-1},0" \
       $out/background_ne.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size 14x14 xc:none \
-      -fill "${base0D}" -draw "circle 7,7 14,7" \
-      -fill "${base01}" -draw "circle 7,7 12,7" \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${borderWidth+rounding}x${borderWidth+rounding} xc:none \
+      -fill "${base0D}" -draw "circle 0,0 ${(borderWidth+rounding)-1},0" \
+      -fill "${base01}" -draw "circle 0,0 ${borderWidth-1},0" \
       $out/background_se.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size 14x14 xc:none \
-      -fill "${base0D}" -draw "circle 7,7 14,7" \
-      -fill "${base01}" -draw "circle 7,7 12,7" \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${borderWidth+rounding}x${borderWidth+rounding} xc:none \
+      -fill "${base0D}" -draw "circle 0,0 ${(borderWidth+rounding)-1},0" \
+      -fill "${base01}" -draw "circle 0,0 ${borderWidth-1},0" \
       $out/background_sw.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size 14x14 xc:none \
-      -fill "${base0D}" -draw "circle 7,7 14,7" \
-      -fill "${base01}" -draw "circle 7,7 12,7" \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${borderWidth+rounding}x${borderWidth+rounding} xc:none \
+      -fill "${base0D}" -draw "circle 0,0 ${(borderWidth+rounding)-1},0" \
+      -fill "${base01}" -draw "circle 0,0 ${borderWidth-1},0" \
       $out/background_nw.png
 
 
