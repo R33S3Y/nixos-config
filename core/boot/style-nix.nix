@@ -88,7 +88,7 @@ in
           top = 20%
           width = 50%
           height = 60%
-          menu_pixmap_style = "background *.png"
+          menu_pixmap_style = "background_*.png"
 
           item_height = 40
           item_icon_space = 8
