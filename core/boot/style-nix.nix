@@ -112,39 +112,39 @@ in
       cp ${pixel "base01"} $out/background_c.png
 
 
-      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString borderWidth+rounding}x${toString borderWidth+rounding} xc:none \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_n.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString borderWidth+rounding}x${toString borderWidth+rounding} xc:none \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_e.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString borderWidth+rounding}x${toString borderWidth+rounding} xc:none \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_s.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString borderWidth+rounding}x${toString borderWidth+rounding} xc:none \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
       $out/background_w.png
 
 
-      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString borderWidth+rounding}x${toString borderWidth+rounding} xc:none \
-      -fill "${base0D}" -draw "circle 0,0 ${toString (borderWidth+rounding)-1},0" \
-      -fill "${base01}" -draw "circle 0,0 ${toString borderWidth-1},0" \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
+      -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
+      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth-1)},0" \
       $out/background_ne.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString borderWidth+rounding}x${toString borderWidth+rounding} xc:none \
-      -fill "${base0D}" -draw "circle 0,0 ${toString (borderWidth+rounding)-1},0" \
-      -fill "${base01}" -draw "circle 0,0 ${toString borderWidth-1},0" \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
+      -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
+      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth-1)},0" \
       $out/background_se.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString borderWidth+rounding}x${toString borderWidth+rounding} xc:none \
-      -fill "${base0D}" -draw "circle 0,0 ${toString (borderWidth+rounding)-1},0" \
-      -fill "${base01}" -draw "circle 0,0 ${toString borderWidth-1},0" \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
+      -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
+      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth-1)},0" \
       $out/background_sw.png
-      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString borderWidth+rounding}x${toString borderWidth+rounding} xc:none \
-      -fill "${base0D}" -draw "circle 0,0 ${toString (borderWidth+rounding)-1},0" \
-      -fill "${base01}" -draw "circle 0,0 ${toString borderWidth-1},0" \
+      ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
+      -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
+      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth-1)},0" \
       $out/background_nw.png
 
 
