@@ -112,7 +112,7 @@
     lapisLazuli = {
       mount = "/mnt/lapisLazuli/media";
       share = "media";
-      credentials = "../secrets/obsidian-user-access";
+      credentials = "/etc/nixos/secrets/obsidian-user-access";
     };
   };
 
