@@ -109,7 +109,7 @@ in
 
       ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png
 
-      cp ${pixel "base01"} $out/background_c.png
+      cp ${pixel "base01"} "$out/background c.png"
 
 
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
