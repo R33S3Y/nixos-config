@@ -115,15 +115,15 @@ in
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
-      $out/background n.png
+      $out/background_n.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
-      $out/background e.png
+      $out/background_e.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
-      $out/background s.png
+      $out/background_s.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
