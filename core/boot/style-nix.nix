@@ -107,7 +107,7 @@ in
       mkdir $out
       cp $themeTxtPath $out/theme.txt
 
-      ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/wallpaper.png
+      ${lib.getExe' pkgs.imagemagick "magick"} convert ${config.stylix.image} png32:$out/wallpaper.png
 
       cp ${pixel "base01"} $out/background_c.png
 
