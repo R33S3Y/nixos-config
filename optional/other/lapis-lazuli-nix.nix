@@ -8,7 +8,7 @@
   
   fileSystems."${config.var.lapisLazuli.mount}" = {
     device = "//192.168.1.253/${config.var.lapisLazuli.share}";
-    fsType = "cifs";
+    fsType = "${config.var.lapisLazuli.fsType}";
     options = [ "credentials=${config.var.lapisLazuli.credentials}" "uid=${config.var.username}" "gid=users" "iocharset=utf8" ];
   };
 

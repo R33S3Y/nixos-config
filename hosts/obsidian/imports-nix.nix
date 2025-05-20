@@ -113,6 +113,7 @@
       mount = "/mnt/lapisLazuli/media";
       share = "media";
       credentials = "../secrets/obsidian-user-access";
+      fsType = "nfs";
     };
   };
 
