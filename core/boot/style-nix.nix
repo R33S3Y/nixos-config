@@ -55,7 +55,7 @@ in
 
     theme = pkgs.runCommand "grub-theme" { 
       themeTxt = ''
-        desktop-image: "wallpaper.png"
+        desktop-image: "background.png"
         desktop-image-scale-method: "${image-scale}"
         desktop-color: "${base00}"
 
@@ -88,7 +88,7 @@ in
           top = 20%
           width = 50%
           height = 60%
-          menu_pixmap_style = "background *.png"
+          menu_pixmap_style = "background_*.png"
 
           item_height = 40
           item_icon_space = 8
@@ -107,7 +107,7 @@ in
       mkdir $out
       cp $themeTxtPath $out/theme.txt
 
-      ${lib.getExe' pkgs.imagemagick "magick"} "${config.stylix.image}" "png32:$out/wallpaper.png"
+      ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png
 
       cp ${pixel "base01"} $out/background_c.png
 
@@ -127,25 +127,25 @@ in
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "rectangle 0,0 6,6" \
       -fill "${base01}" -draw "rectangle 0,0 6,4" \
-      $out/background w.png
+      $out/background_w.png
 
 
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
       -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
-      $out/background ne.png
+      $out/background_ne.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
       -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
-      $out/background se.png
+      $out/background_se.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
       -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
-      $out/background sw.png
+      $out/background_sw.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
       -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
-      $out/background nw.png
+      $out/background_nw.png
 
 
       cp ${pixel "base0B"} $out/selection_c.png
