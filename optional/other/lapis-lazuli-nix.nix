@@ -11,7 +11,7 @@
     fsType = "cifs";
     options = [ "credentials=${config.var.lapisLazuli.credentials}" "uid=${config.var.username}" "gid=users" "iocharset=utf8" ];
   };
-
+ 
   systemd.tmpfiles.rules = [
     "d ${config.var.lapisLazuli.mount} 0755 ${config.var.username} users - -"
   ];
