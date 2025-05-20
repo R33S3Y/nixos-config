@@ -51,6 +51,6 @@ echo "Both local and remote rebuild succeeded. Pushing changes to GitHub..."
 
 # Push changes to GitHub
 sudo -u "$(logname)" bash <<EOF
-    cd "$GIT_REPO"
+    cd "$GIT_REPO" 
     git push
 EOF
