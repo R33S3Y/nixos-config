@@ -115,6 +115,11 @@
       mount = "/home/${config.var.username}/lapisLazuli";
       share = "lapis_lazuli";
     };
+    style = {
+      # for window settings
+      rounding = 10; #px 
+      borderWidth = 2; #px
+    };
   };
 
 }
