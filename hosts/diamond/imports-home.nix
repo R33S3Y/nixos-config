@@ -61,10 +61,5 @@
 
   var = {
     screenshotFolder = "~/Pictures";
-    style = {
-      # for window settings
-      rounding = 10; #px 
-      borderWidth = 2; #px
-    };
   };
 }
