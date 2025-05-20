@@ -132,19 +132,19 @@ in
 
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
-      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth-1)},0" \
+      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
       $out/background_ne.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
-      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth-1)},0" \
+      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
       $out/background_se.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
-      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth-1)},0" \
+      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
       $out/background_sw.png
       ${lib.getExe' pkgs.imagemagick "magick"} -size ${toString (borderWidth+rounding)}x${toString (borderWidth+rounding)} xc:none \
       -fill "${base0D}" -draw "circle 0,0 ${toString ((borderWidth+rounding)-1)},0" \
-      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth-1)},0" \
+      -fill "${base01}" -draw "circle 0,0 ${toString (borderWidth - 1)},0" \
       $out/background_nw.png
 
 
