@@ -111,7 +111,7 @@
     };
     */
 
-    lapisLazuli = {
+    lapisLazuli = { 
       mount = "/home/${config.var.username}/lapisLazuli";
       share = "lapis_lazuli";
       credentials = "../secrets/diamond-user-access";
