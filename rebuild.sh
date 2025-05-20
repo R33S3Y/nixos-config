@@ -33,7 +33,7 @@ EOF
 rsync -av --delete "$CONFIG_SRC/" "$CONFIG_DST/"
 
 # Rebuild NixOS locally (diamond)
-if ! nixos-rebuild switch --flake $CONFIG_DST/#diamond; then
+if ! nixos-rebuild switch --flake $CONFIG_DST/#diamond --verbose; then
     echo "Local NixOS rebuild failed on diamond. Aborting."
     exit 1
 fi
