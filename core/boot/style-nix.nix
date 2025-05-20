@@ -55,7 +55,7 @@ in
 
     theme = pkgs.runCommand "grub-theme" { 
       themeTxt = ''
-        desktop-image: "background.png"
+        desktop-image: "wallpaper.png"
         desktop-image-scale-method: "${image-scale}"
         desktop-color: "${base00}"
 
@@ -107,7 +107,7 @@ in
       mkdir $out
       cp $themeTxtPath $out/theme.txt
 
-      ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/background.png
+      ${lib.getExe' pkgs.imagemagick "convert"} ${config.stylix.image} png32:$out/wallpaper.png
 
       cp ${pixel "base01"} "$out/background c.png"
 
