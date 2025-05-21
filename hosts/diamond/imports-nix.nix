@@ -117,5 +117,4 @@
       credentials = "/etc/nixos/secrets/diamond-user-access";
     };
   };
-
 }
