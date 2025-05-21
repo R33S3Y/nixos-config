@@ -1,9 +1,10 @@
 
 { config, pkgs, ... }:
 
-{
   services.jellyfin = {
     enable = true;
+    #user = "reese";
+    group = "users";
 
     dataDir = "/mnt/lapisLazuli/media";
     configDir = "/mnt/lapisLazuli/media/services/jellyfin/config";
