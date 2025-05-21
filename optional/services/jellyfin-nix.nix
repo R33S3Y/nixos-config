@@ -4,7 +4,7 @@
 {
   services.jellyfin = {
     enable = true;
-    #user = "reese";
+    user = "reese";
     group = "users";
 
     dataDir = "/mnt/lapisLazuli/media";
