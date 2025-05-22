@@ -16,9 +16,9 @@
   networking.firewall.allowedTCPPorts = [ 8096 8920 ];
 
   systemd.tmpfiles.rules = [
-    "d ${config.services.jellyfin.dataDir} 0755 ${config.services.jellyfin.users} users - -"
-    "d ${config.services.jellyfin.configDir} 0755 ${config.services.jellyfin.users} users - -"
-    "d ${config.services.jellyfin.logDir} 0755 ${config.services.jellyfin.users} users - -"
-    "d ${config.services.jellyfin.cacheDir} 0755 ${config.services.jellyfin.users} users - -"
+    "d ${config.services.jellyfin.dataDir} 0755 ${config.services.jellyfin.user} users - -"
+    "d ${config.services.jellyfin.configDir} 0755 ${config.services.jellyfin.user} users - -"
+    "d ${config.services.jellyfin.logDir} 0755 ${config.services.jellyfin.user} users - -"
+    "d ${config.services.jellyfin.cacheDir} 0755 ${config.services.jellyfin.user} users - -"
   ];
 }
