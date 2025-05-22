@@ -21,4 +21,4 @@
     "d ${config.services.jellyfin.logDir} 0755 ${config.services.jellyfin.user} users - -"
     "d ${config.services.jellyfin.cacheDir} 0755 ${config.services.jellyfin.user} users - -"
   ];
-}
+} 
