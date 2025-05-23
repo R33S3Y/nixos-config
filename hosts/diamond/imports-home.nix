@@ -11,6 +11,7 @@
     ../../core/hyprlock/style-home.nix   # Styles + What to display and where
 
     # Kitty
+    ../../core/kitty/bind-home.nix       # Key binds
     ../../core/kitty/style-home.nix      # Styles  -  You should be fine to get away with disabling this
     ../../core/kitty/settings-home.nix   # Settings
 
