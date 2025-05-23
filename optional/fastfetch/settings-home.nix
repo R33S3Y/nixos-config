@@ -9,8 +9,6 @@
       if [[ $- == *i* && -z "$SSH_CONNECTION" ]]; then
         fastfetch
       fi
-
-      HISTCONTROL=ignoredups:erasedups
     '';
   };
 }
