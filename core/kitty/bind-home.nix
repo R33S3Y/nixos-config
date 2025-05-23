@@ -6,7 +6,7 @@
     keybindings = {
       "ctrl+c" = "copy_to_clipboard";
       "ctrl+v" = "paste_from_clipboard";
-      "ctrl+shift+c" = "interrupt";
+      "ctrl+shift+c" = "send_text all \x03\\";
     };
   };
 }
