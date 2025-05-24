@@ -6,7 +6,7 @@
     enable = true;
 
     #user = "reese";
-    #group = "users";
+    group = "users";
 
     dataDir = "/var/lib/jellyfin";
     cacheDir = "/var/cache/jellyfin";
