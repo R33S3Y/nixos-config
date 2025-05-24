@@ -5,6 +5,9 @@
   services.jellyfin = {
     enable = true;
 
+    user = "reese";
+    group = "users";
+
     dataDir = "/var/lib/jellyfin";
     cacheDir = "/var/cache/jellyfin";
 
