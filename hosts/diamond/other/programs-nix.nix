@@ -32,5 +32,7 @@
 
     qtcreator
     obs-studio
+
+    keymapp
   ];
 } 
