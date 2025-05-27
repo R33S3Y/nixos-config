@@ -12,11 +12,11 @@
 
       bind = [
         # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-        "$mainMod, Q, exec, $terminal"
-        "$mainMod, C, killactive,"
+        "$mainMod, A, exec, $terminal"
+        "$mainMod, X, killactive,"
         "$mainMod, L, exec, hyprlock"
-        "$mainMod, E, exec, $fileManager"
-        "$mainMod, V, togglefloating,"
+        "$mainMod, S, exec, $fileManager"
+        "$mainMod, D, togglefloating,"
         "$mainMod, Z, exec, $menu"
         "$mainMod, P, pseudo,"
         "$mainMod, J, togglesplit,"
