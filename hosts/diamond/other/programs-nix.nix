@@ -36,5 +36,6 @@
     keymapp 
 
     kicad
+    libreoffice-qt6-fresh
   ];
 } 
