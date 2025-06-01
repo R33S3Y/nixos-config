@@ -33,6 +33,8 @@
     qtcreator
     obs-studio
 
-    keymapp
+    keymapp 
+
+    kicad
   ];
 } 
