@@ -37,5 +37,7 @@
 
     kicad
     libreoffice-qt6-fresh
+    kdePackages.kdeconnect-kde
+    
   ];
 } 
