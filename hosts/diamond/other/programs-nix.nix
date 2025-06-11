@@ -30,13 +30,16 @@
     orca-slicer
     openscad
 
-    qtcreator
     obs-studio
 
     keymapp 
 
     kicad
     libreoffice-qt6-fresh
+
+    qtcreator
+    cmake
+    gdb
     
   ];
 } 
