@@ -12,6 +12,7 @@
   environment.systemPackages = with pkgs; [
     libsForQt5.kate
     krita
+    gimp3
 
     git
     vlc
@@ -40,6 +41,7 @@
     qtcreator
     cmake
     gdb
+
     
   ];
 } 
