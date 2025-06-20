@@ -58,6 +58,7 @@
 
     # My stuff
     ./other/monitor-settings-home.nix
+    ./other/startup-home.nix
 
   ];
 
