@@ -13,13 +13,11 @@
       #modules-center = [
       #];
       modules-right = [
-        "custom/packages"
         "cpu"
         "memory"
         "disk"
         "network#wifi"
         "battery"
-        "pulseaudio"
         "clock"
         "tray"
         "custom/notification"
@@ -47,21 +45,16 @@
       };
       memory = {
         interval = 5;
-        format = " {}%";
+        format = "RAM: {}%";
       };
       cpu = {
         interval = 5;
-        format = " {usage:2}%";
+        format = "CPU: {usage:2}%";
         tooltip = false;
       };
       disk = {
-        format = "  {free}/{total}";
+        format = "Disk: {free}/{total}";
         tooltip = false;
-      };
-      "custom/packages" = {
-        exec = "~/.local/bin/packagecount";
-        format = " {}";
-        interval = 45;
       };
       "network#wifi" = {
         interval = 1;
