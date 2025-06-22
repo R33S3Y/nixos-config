@@ -3,7 +3,7 @@
 
 {
   services.jellyfin = {
-    enable = false;
+    enable = true;
   };
   networking.firewall.allowedUDPPorts = [ 1900 7359 ];
   networking.firewall.allowedTCPPorts = [ 8096 8920 ];
