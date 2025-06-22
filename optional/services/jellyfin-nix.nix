@@ -3,8 +3,13 @@
 
 {
   services.jellyfin = {
-    enable = false;
+    enable = true;
     openFirewall = true;
+    user = "obsidain"; 
   };
-
+  environment.systemPackages = [
+    pkgs.jellyfin
+    pkgs.jellyfin-web
+    pkgs.jellyfin-ffmpeg
+  ];
 }  
