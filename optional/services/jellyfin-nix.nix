@@ -12,4 +12,12 @@
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
   ];
+
+  users = {
+    users.obsidain = {
+      isNormalUser = true;
+      description = "obsidain";
+      extraGroups = [ "networkmanager" "wheel" ];
+    };
+  };
 }  
