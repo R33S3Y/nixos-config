@@ -18,7 +18,7 @@
           darkreader
           mtab
           youtube-shorts-block
-        ];
+        ]; 
       };
     };
     /* ---- POLICIES ---- */
