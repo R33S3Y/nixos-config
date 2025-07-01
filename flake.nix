@@ -38,7 +38,7 @@
                 ./hosts/diamond/imports-home.nix
               ];
             };
-          }
+          } 
         ];
       };
       obsidian = nixpkgs.lib.nixosSystem {
