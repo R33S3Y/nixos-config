@@ -3,7 +3,7 @@
 # Display informations like workspaces, battery, wifi, ...
 { inputs, config, ... }:
 let
-  transparentButtons = config.theme.bar.transparentButtons;
+  transparentButtons = "${config.theme.bar.transparentButtons}";
 
   accent = "#${config.lib.stylix.colors.base0D}";
   accent-alt = "#${config.lib.stylix.colors.base03}";
@@ -29,7 +29,7 @@ let
   location = config.var.location;
 in {
 
-  #imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
 
   programs.hyprpanel = {
     enable = true;
