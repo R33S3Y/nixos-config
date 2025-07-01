@@ -4,9 +4,9 @@
 { inputs, config, ... }:
 {
 
-  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+  #imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
 
-  programs.hyprpanel = {
+  hyprpanel = {
     enable = true;
     hyprland.enable = true;
     overwrite.enable = true;
