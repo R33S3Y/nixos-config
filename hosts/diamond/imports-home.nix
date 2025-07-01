@@ -11,6 +11,9 @@
     # Hyprlock
     ../../core/hyprlock/style-home.nix   # Styles + What to display and where
 
+    # Hyprpanel
+    ../../core/hyprpanel/style-home.nix
+
     # Kitty
     ../../core/kitty/bind-home.nix       # Key binds
     ../../core/kitty/style-home.nix      # Styles  -  You should be fine to get away with disabling this
