@@ -3,7 +3,7 @@
 # Display informations like workspaces, battery, wifi, ...
 { inputs, config, ... }:
 let
-  transparentButtons = "${config.theme.bar.transparentButtons}";
+  transparentButtons = "${home.theme.bar.transparentButtons}";
 
   accent = "#${config.lib.stylix.colors.base0D}";
   accent-alt = "#${config.lib.stylix.colors.base03}";
