@@ -29,7 +29,7 @@
           home-manager.nixosModules.home-manager
           nur.modules.nixos.default
           nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
-          { nixpkgs.overlays = [ inputs.hyprpanel.overlay ]; }
+          #{ nixpkgs.overlays = [ inputs.hyprpanel.overlay ]; }
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
