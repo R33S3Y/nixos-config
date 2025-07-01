@@ -12,6 +12,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs: {
@@ -25,6 +29,7 @@
           home-manager.nixosModules.home-manager
           nur.modules.nixos.default
           nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
+          { nixpkgs.overlays = [ inputs.hyprpanel.overlay ]; }
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
