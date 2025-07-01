@@ -16,9 +16,10 @@
       layout = {
         "bar.layouts" = {
           "*" = {
-            "left" = [ "dashboard" "workspaces" "windowtitle" ];
+            "left" = [  ];
             "middle" = [ "media" "cava" ];
             "right" = [
+              "dashboard" "workspaces" "windowtitle"
               "systray"
               "volume"
               "bluetooth"
@@ -30,13 +31,6 @@
           };
         };
       };
-
-      theme.font.name = font;
-      theme.font.size = fontSizeForHyprpanel;
-
-      theme.bar.floating = floating;
-      theme.bar.buttons.padding_x = "0.8rem";
-      theme.bar.buttons.padding_y = "0.4rem";
     };
   };
 }
