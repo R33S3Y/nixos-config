@@ -82,6 +82,8 @@
     
   ];
 
+  home-manager.users."${config.var.username}" = import ./imports-home.nix;
+
   var = { 
 
     username = "reese";
