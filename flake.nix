@@ -36,6 +36,7 @@
             home-manager.users.reese = {
               imports = [
                 ./hosts/diamond/imports-home.nix
+                { nixpkgs.overlays = [ inputs.hyprpanel.overlay ]; }
               ];
             };
           } 

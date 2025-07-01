@@ -6,7 +6,7 @@
 
   #imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
 
-  hyprpanel = {
+  programs.hyprpanel = {
     enable = true;
     hyprland.enable = true;
     overwrite.enable = true;
