@@ -14,6 +14,9 @@
     # Hyprlock
     #../../core/hyprlock/enable-nix.nix
 
+    # Hyprpanel
+    #../../core/hyprpanel/enable-nix.nix
+
     # Kitty
     #../../core/kitty/enable-nix.nix
 
