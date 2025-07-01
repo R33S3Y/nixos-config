@@ -22,12 +22,14 @@
     nixosConfigurations = {
       diamond = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        #specialArgs = { inherit inputs; };
         modules = [
           ./hosts/diamond/imports-nix.nix
           inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
-
+          nur.modules.nixos.default
+          nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
+          { nixpkgs.overlays = [ inputs.hyprpanel.overlay ]; }
         ];
       };
       obsidian = nixpkgs.lib.nixosSystem {
