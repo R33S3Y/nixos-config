@@ -18,11 +18,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-
-      exec-once = [
-        "waybar" # launch the topbar
-      ];
-
       general  = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
