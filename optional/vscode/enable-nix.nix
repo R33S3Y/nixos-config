@@ -8,3 +8,4 @@
 
   nixpkgs.config.allowUnfree = true;
 }
+ 
