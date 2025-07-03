@@ -16,6 +16,7 @@
 
     # Hyprpanel
     ../../core/hyprpanel/enable-nix.nix
+    ../../core/hyprpanel/style-home.nix
 
     # Kitty
     ../../core/kitty/enable-nix.nix
