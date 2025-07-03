@@ -14,7 +14,7 @@
           force = true;
           default = "ddg";
         };
-        extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [ 
+        extensions.packages = with inputs.rycee.firefox-addons; [ 
           ublock-origin
           darkreader
           mtab
