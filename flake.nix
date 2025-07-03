@@ -32,7 +32,7 @@
           {
             nixpkgs.overlays = [
               inputs.hyprpanel.overlay
-              nur.overlay
+              nur.overlays.default
             ];
           }
         ];
