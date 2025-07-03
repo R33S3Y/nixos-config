@@ -4,7 +4,7 @@
 { inputs, config, ... }:
 {
 
-  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+  #imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
 
   programs.hyprpanel = {
     enable = true;
