@@ -1,9 +1,6 @@
 { config, pkgs, inputs, ... }:
 {
   
-  imports = [
-    inputs.nur.nixosModules.nur
-  ];
   stylix.targets.firefox.profileNames = ["default"];
   
   programs.firefox = {

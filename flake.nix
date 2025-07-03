@@ -22,7 +22,7 @@
     nixosConfigurations = {
       diamond = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        #specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs nur; };
         modules = [
           ./hosts/diamond/imports-nix.nix
           inputs.stylix.nixosModules.stylix
@@ -31,7 +31,6 @@
           nur.legacyPackages.x86_64-linux.repos.iopq.modules.xraya
           {
             nixpkgs.overlays = [inputs.hyprpanel.overlay];
-            _module.args = {inherit inputs;};
           }
         ];
       };
