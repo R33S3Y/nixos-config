@@ -82,6 +82,9 @@
     
   ];
 
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
   home-manager.users."${config.var.username}" = import ./imports-home.nix;
 
   var = { 
