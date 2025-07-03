@@ -20,11 +20,7 @@
         system = "x86_64-linux";
         specialArgs = { 
           inherit inputs;
-          nixpkgs = {
-            config = {
-              allowUnfree = true;
-            };
-          };
+          nixpkgs.config.allowUnfree = true;
         };
         modules = [
           ./hosts/diamond/imports-nix.nix
