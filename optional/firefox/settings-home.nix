@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, input, ... }:
 {
   
   imports = [ inputs.nur.modules.nixos.default ];
