@@ -22,11 +22,6 @@
           ./hosts/diamond/imports-nix.nix
           inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager     
-          {
-            nixpkgs.overlays = [
-              inputs.hyprpanel.overlay
-            ];
-          }
         ];
       };
       obsidian = nixpkgs.lib.nixosSystem {
