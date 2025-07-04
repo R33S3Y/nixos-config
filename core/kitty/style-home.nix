@@ -5,7 +5,7 @@
   programs.kitty = {
     enable = true;
     settings = {
-      font_size = 11;
+      font_size = config.stylix.fonts.sizes.terminal;
       background = ''#${config.stylix.base16Scheme.base00}'';
       foreground = ''#${config.stylix.base16Scheme.base07}'';
       selection_foreground = ''#${config.stylix.base16Scheme.base00}'';
