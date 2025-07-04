@@ -24,6 +24,28 @@
     base0E = "a075dc"; # purple
     base0F = "b075dc"; # brown
   };
+  
+  stylix.fonts = {
+    monospace = {
+      package = pkgs.nerd-fonts.jetbrains-mono;
+      name = "JetBrains Mono Nerd Font";
+    };
+    sansSerif = {
+      package = pkgs.source-sans-pro;
+      name = "Source Sans Pro";
+    };
+    serif = config.stylix.fonts.sansSerif;
+    emoji = {
+      package = pkgs.noto-fonts-emoji;
+      name = "Noto Color Emoji";
+    };
+    sizes = {
+      applications = 13;
+      desktop = 13;
+      popups = 13;
+      terminal = 13;
+    };
+  };
 }
 #base00 = "#181B28"; # ----
 #base01 = "#282b38"; # ---
