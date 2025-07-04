@@ -20,7 +20,7 @@ let
   gaps-out = 20;
   gaps-in = 10;
 
-  floating = true;
+  floating = false;
   transparent = true;
   position = "top"; # "top" or "bottom"
 
@@ -51,8 +51,8 @@ in {
         };
       };
 
-      theme.font.name = font;
-      theme.font.size = fontSizeForHyprpanel;
+      theme.font.name = config.stylix.fonts.serif.name;
+      theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
 
       theme.bar.outer_spacing =
         if floating && transparent then "0px" else "8px";
