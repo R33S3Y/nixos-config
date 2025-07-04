@@ -54,15 +54,13 @@ in {
       theme.font.name = config.stylix.fonts.serif.name;
       theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
 
-      theme.bar.outer_spacing =
-        if floating && transparent then "0px" else "8px";
-      theme.bar.buttons.y_margins =
-        if floating && transparent then "0px" else "8px";
+      theme.bar.outer_spacing = "0px";
+      theme.bar.buttons.y_margins = "0px";
       theme.bar.buttons.spacing = "0.3em";
       theme.bar.buttons.radius =
         (if transparent then toString rounding else toString (rounding - 8))
         + "px";
-      theme.bar.floating = floating;
+      theme.bar.floating = false;
       theme.bar.buttons.padding_x = "0.8rem";
       theme.bar.buttons.padding_y = "0.4rem";
 
@@ -182,9 +180,6 @@ in {
         foregroundOnWallpaper
       else
         foreground;
-      "theme.bar.buttons.background" =
-        (if transparent then background else background-alt)
-        + (if transparentButtons then "00" else "");
       "theme.bar.buttons.icon" = accent;
 
       "theme.bar.buttons.notifications.background" = background-alt;
