@@ -14,7 +14,7 @@ let
   font = "${config.stylix.fonts.serif.name}";
   fontSizeForHyprpanel = "${toString config.stylix.fonts.sizes.desktop}px";
 
-  rounding = 20;
+  rounding = 20; 
   border-size = 2;
 
   gaps-out = 20;
