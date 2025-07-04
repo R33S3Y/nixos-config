@@ -10,7 +10,7 @@ let
   background = "#${config.lib.stylix.colors.base00}";
   background-alt = "#${config.lib.stylix.colors.base01}";
   foreground = "#${config.lib.stylix.colors.base05}";
-  foregroundOnWallpaper = "#${config.theme.textColorOnWallpaper}";
+  foregroundOnWallpaper = "#${config.lib.stylix.colors.base07}";
   font = "${config.stylix.fonts.serif.name}";
   fontSizeForHyprpanel = "${toString config.stylix.fonts.sizes.desktop}px";
 
