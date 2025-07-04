@@ -3,7 +3,7 @@
 # Display informations like workspaces, battery, wifi, ...
 { inputs, config, ... }:
 let
-  transparentButtons = config.theme.bar.transparentButtons;
+  transparentButtons = true;
 
   accent = "#${config.lib.stylix.colors.base0D}";
   accent-alt = "#${config.lib.stylix.colors.base03}";
@@ -14,19 +14,19 @@ let
   font = "${config.stylix.fonts.serif.name}";
   fontSizeForHyprpanel = "${toString config.stylix.fonts.sizes.desktop}px";
 
-  rounding = config.theme.rounding;
-  border-size = config.theme.border-size;
+  rounding = 20;
+  border-size = 2;
 
-  gaps-out = config.theme.gaps-out;
-  gaps-in = config.theme.gaps-in;
+  gaps-out = 20;
+  gaps-in = 10;
 
-  floating = config.theme.bar.floating;
-  transparent = config.theme.bar.transparent;
-  position = config.theme.bar.position; # "top" ou "bottom"
+  floating = true;
+  transparent = true;
+  position = "top"; # "top" or "bottom"
 
   notificationOpacity = 90;
 
-  location = config.var.location;
+  location = "Paris";
 in {
 
   programs.hyprpanel = {
