@@ -149,9 +149,7 @@ in {
       menus.power.lowBatteryNotification = true;
 
       wallpaper.enable = false;
-    };
-
-    override = {
+    
       "theme.bar.buttons.workspaces.hover" = accent-alt;
       "theme.bar.buttons.workspaces.active" = accent;
       "theme.bar.buttons.workspaces.available" = accent-alt;
