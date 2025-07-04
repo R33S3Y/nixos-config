@@ -35,14 +35,13 @@ in {
     settings = {
       layout = {
         "bar.layouts" = {
-          "*" = {
+          "2" = {
             "left" = [ "dashboard" "workspaces" "windowtitle" ];
             "middle" = [ "media" "cava" ];
             "right" = [
               "systray"
               "volume"
               "bluetooth"
-              "battery"
               "network"
               "clock"
               "notifications"
