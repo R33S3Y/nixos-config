@@ -35,7 +35,7 @@ in {
     settings = {
       layout = {
         "bar.layouts" = {
-          "2" = {
+          "HDMI-A-1" = {
             "left" = [ "dashboard" "workspaces" "windowtitle" ];
             "middle" = [ "media" "cava" ];
             "right" = [
