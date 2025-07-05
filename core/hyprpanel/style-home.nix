@@ -49,7 +49,6 @@ in {
         };
         "*" = {
           "left" = [ "dashboard" "workspaces" "windowtitle" ];
-          "middle" = [ "media" "cava" ];
           "right" = [
             "volume"
             "clock"
@@ -63,7 +62,7 @@ in {
       theme.font.name = config.stylix.fonts.serif.name;
       theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
 
-      theme.bar.outer_spacing = "0px";
+      theme.bar.outer_spacing = "100px";
       theme.bar.buttons.y_margins = "0px";
       theme.bar.buttons.spacing = "0.3em";
       theme.bar.buttons.radius =
@@ -96,7 +95,7 @@ in {
       bar.workspaces.show_numbered = false;
       bar.workspaces.workspaces = 5;
       bar.workspaces.numbered_active_indicator = "color";
-      bar.workspaces.monitorSpecific = false;
+      bar.workspaces.monitorSpecific = true;
       bar.workspaces.applicationIconEmptyWorkspace = "";
       bar.workspaces.showApplicationIcons = true;
       bar.workspaces.showWsIcons = true;
