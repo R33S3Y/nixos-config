@@ -47,6 +47,15 @@ in {
               "notifications"
             ];
           };
+          "*" = {
+            "left" = [ "dashboard" "workspaces" "windowtitle" ];
+            "middle" = [ "media" "cava" ];
+            "right" = [
+              "volume"
+              "clock"
+              "notifications"
+            ];
+          }
         };
       };
 
