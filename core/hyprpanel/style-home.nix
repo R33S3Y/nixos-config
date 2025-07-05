@@ -31,8 +31,9 @@ in {
 
   programs.hyprpanel = {
     enable = true;
+
     settings = {
-      bar.layouts = {
+      "bar.layouts" = {
         "HDMI-A-1" = {
           "left" = [ "dashboard" "workspaces" "windowtitle" ];
           "middle" = [ "media" ];
