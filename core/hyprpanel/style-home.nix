@@ -6,11 +6,11 @@ let
   transparentButtons = true;
 
   accent = "#${config.lib.stylix.colors.base0D}";
-  accent-alt = "#${config.lib.stylix.colors.base03}";
+  accent-alt = "#${config.lib.stylix.colors.base08}";
   background = "#${config.lib.stylix.colors.base00}";
   background-alt = "#${config.lib.stylix.colors.base01}";
   foreground = "#${config.lib.stylix.colors.base05}";
-  foregroundOnWallpaper = "#${config.lib.stylix.colors.base07}";
+  foregroundOnWallpaper = "#${config.lib.stylix.colors.base06}";
   font = "${config.stylix.fonts.serif.name}";
   fontSizeForHyprpanel = "${toString config.stylix.fonts.sizes.desktop}px";
 
@@ -214,7 +214,7 @@ in {
       "theme.notification.text" = foreground;
       "theme.notification.labelicon" = accent;
       "theme.notification.close_button.background" = background-alt;
-      "theme.notification.close_button.label" = "#f38ba8";
+      "theme.notification.close_button.label" = accent-alt;
     };
   };
 
