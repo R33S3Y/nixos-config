@@ -164,7 +164,7 @@ in {
 
       # Windowtitle module
       bar.windowtitle.label = true;
-      bar.windowtitle.icon = accent;
+      theme.bar.windowtitle.icon = accent;
 
       # Media
       bar.media.show_active_only = true;
