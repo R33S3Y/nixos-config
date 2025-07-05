@@ -62,7 +62,7 @@ in {
       theme.font.name = config.stylix.fonts.serif.name;
       theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
 
-      theme.bar.outer_spacing = "100px";
+      theme.bar.outer_spacing = "0px";
       theme.bar.buttons.y_margins = "0px";
       theme.bar.buttons.spacing = "0.3em";
       theme.bar.buttons.radius =
