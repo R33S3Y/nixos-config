@@ -58,7 +58,7 @@ in {
               "clock"
               "notifications"
             ];
-          };
+          }; 
         };
       };
       
