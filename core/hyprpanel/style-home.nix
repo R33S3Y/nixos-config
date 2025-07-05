@@ -31,7 +31,6 @@ in {
 
   programs.hyprpanel = {
     enable = true;
-
     settings = {
       bar.layouts = {
         "HDMI-A-1" = {

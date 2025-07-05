@@ -58,7 +58,11 @@
           installation_mode = "force_installed";
         };
         "{34daeb50-c2d2-4f14-886a-7160b24d66a4}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube_shorts_block/latest.xpi";
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4487339/youtube_shorts_block-1.5.3.xpi";
+          installation_mode = "force_installed";
+        };
+        "sponsorBlocker@ajay.app" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4523436/sponsorblock-5.13.2.xpi";
           installation_mode = "force_installed";
         };
       };
