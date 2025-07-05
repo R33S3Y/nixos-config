@@ -36,28 +36,29 @@ in {
     enable = true;
 
     settings = {
-      
-      "bar.layouts" = {
-        "HDMI-A-1" = {
-          "left" = [ "dashboard" "workspaces" "windowtitle" ];
-          "middle" = [ "media" "cava" ];
-          "right" = [
-            "systray"
-            "volume"
-            "bluetooth"
-            "network"
-            "clock"
-            "notifications"
-          ];
-        };
-        "*" = {
-          "left" = [ "dashboard" "workspaces" "windowtitle" ];
-          "middle" = [ "media" "cava" ];
-          "right" = [
-            "volume"
-            "clock"
-            "notifications"
-          ];
+      layout = {
+        "bar.layouts" = {
+          "HDMI-A-1" = {
+            "left" = [ "dashboard" "workspaces" "windowtitle" ];
+            "middle" = [ "media" "cava" ];
+            "right" = [
+              "systray"
+              "volume"
+              "bluetooth"
+              "network"
+              "clock"
+              "notifications"
+            ];
+          };
+          "*" = {
+            "left" = [ "dashboard" "workspaces" "windowtitle" ];
+            "middle" = [ "media" "cava" ];
+            "right" = [
+              "volume"
+              "clock"
+              "notifications"
+            ];
+          };
         };
       };
       
