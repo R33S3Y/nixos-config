@@ -67,5 +67,6 @@
 
   var = {
     screenshotFolder = "~/Pictures";
+    primaryDisplay =  "HDMI-A-1";
   };
 }

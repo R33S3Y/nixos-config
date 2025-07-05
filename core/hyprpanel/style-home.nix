@@ -35,7 +35,7 @@ in {
     settings = {
       
       bar.layouts = {
-        "HDMI-A-1" = {
+        "${config.var.primaryDisplay}" = {
           "left" = [ "dashboard" "workspaces" "windowtitle" ];
           "middle" = [ "media" "cava" ];
           "right" = [
