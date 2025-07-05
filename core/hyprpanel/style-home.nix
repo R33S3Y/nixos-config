@@ -32,9 +32,6 @@ in {
   programs.hyprpanel = {
     enable = true;
 
-      programs.hyprpanel = {
-    enable = true;
-
     settings = {
       layout = {
         "bar.layouts" = {
