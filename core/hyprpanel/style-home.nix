@@ -33,31 +33,31 @@ in {
     enable = true;
 
     settings = {
-      layout = {
-        "bar.layouts" = {
-          "HDMI-A-1" = {
-            "left" = [ "dashboard" "workspaces" "windowtitle" ];
-            "middle" = [ "media" "cava" ];
-            "right" = [
-              "systray"
-              "volume"
-              "bluetooth"
-              "network"
-              "clock"
-              "notifications"
-            ];
-          };
-          "*" = {
-            "left" = [ "dashboard" "workspaces" "windowtitle" ];
-            "middle" = [ "media" "cava" ];
-            "right" = [
-              "volume"
-              "clock"
-              "notifications"
-            ];
-          }; 
+      
+      bar.layouts = {
+        "HDMI-A-1" = {
+          "left" = [ "dashboard" "workspaces" "windowtitle" ];
+          "middle" = [ "media" "cava" ];
+          "right" = [
+            "systray"
+            "volume"
+            "bluetooth"
+            "network"
+            "clock"
+            "notifications"
+          ];
         };
+        "*" = {
+          "left" = [ "dashboard" "workspaces" "windowtitle" ];
+          "middle" = [ "media" "cava" ];
+          "right" = [
+            "volume"
+            "clock"
+            "notifications"
+          ];
+        }; 
       };
+      
       
 
       theme.font.name = config.stylix.fonts.serif.name;
