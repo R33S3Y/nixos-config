@@ -82,8 +82,8 @@ in {
       theme.bar.buttons.radius =
         (if transparent then toString rounding else toString (rounding - 8))
         + "px";
-      theme.bar.buttons.padding_x = "0.8rem";
-      theme.bar.buttons.padding_y = "0.4rem";
+      theme.bar.buttons.padding_x = "1.2rem";
+      theme.bar.buttons.padding_y = "0.8rem";
       theme.bar.buttons.style = "default";
       theme.bar.buttons.monochrome = true;
       theme.bar.buttons.text = if transparent && transparentButtons then
