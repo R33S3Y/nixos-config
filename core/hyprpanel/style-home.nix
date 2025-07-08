@@ -62,7 +62,7 @@ in {
       theme.font.name = config.stylix.fonts.serif.name;
       theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
 
-      "theme.bar.background" = background
+      theme.bar.background = background
         + (if transparentButtons && transparent then "00" else "");
       theme.bar.outer_spacing = "0px";
       theme.bar.margin_top =
@@ -120,6 +120,7 @@ in {
       theme.bar.menus.tooltip.text = foreground;
       theme.bar.menus.dropdownmenu.background = background-alt;
       theme.bar.menus.dropdownmenu.text = foreground;
+      theme.bar.menus.padding = "100px";
 
 
       # Start menu
