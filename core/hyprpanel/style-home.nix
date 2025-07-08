@@ -120,7 +120,7 @@ in {
       theme.bar.menus.tooltip.text = foreground;
       theme.bar.menus.dropdownmenu.background = background-alt;
       theme.bar.menus.dropdownmenu.text = foreground;
-      theme.bar.menus.padding = "100px";
+      theme.bar.menus.margins = "100px";
 
 
       # Start menu
