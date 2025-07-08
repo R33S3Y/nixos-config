@@ -93,8 +93,7 @@ in {
       theme.bar.buttons.icon = accent;
       
 
-      theme.bar.menus.shadow =
-        if transparent then "0 0 0 0" else "0px 0px 3px 1px #16161e";
+      theme.bar.menus.shadow.enable = true;
       theme.bar.menus.monochrome = true;
       theme.bar.menus.card_radius = toString rounding + "px";
       theme.bar.menus.border.size = toString border-size + "px";
@@ -120,7 +119,6 @@ in {
       theme.bar.menus.tooltip.text = foreground;
       theme.bar.menus.dropdownmenu.background = background-alt;
       theme.bar.menus.dropdownmenu.text = foreground;
-      theme.bar.menus.margins = "100px";
 
 
       # Start menu
