@@ -33,6 +33,9 @@
     # SDDM
     #../../core/sddm/enable-nix.nix
 
+    # Sound
+    ../../core/sound/sound-nix.nix
+
     # Waybar
     #../../core/waybar/enable-nix.nix
 
@@ -76,7 +79,6 @@
 
 
     # My stuff
-    #./other/programs-nix.nix
     ./hardware-configuration.nix   # hardware  -  your hardware settings
     
   ];
