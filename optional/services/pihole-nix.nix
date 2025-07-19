@@ -16,19 +16,19 @@
     lists = [
       {
         url = "https://easylist.to/easylist/easylist.txt";
-        type = "hosts";
+        type = "block";
         enabled = true;
         description = "EasyList";
       }
       {
         url = "https://easylist.to/easylist/easyprivacy.txt";
-        type = "hosts";
+        type = "block";
         enabled = true;
         description = "EasyPrivacy";
       }
       {
         url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
-        type = "hosts";
+        type = "block";
         enabled = true;
         description = "Steven Black Hosts";
       }
