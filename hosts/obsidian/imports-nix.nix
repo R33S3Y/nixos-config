@@ -34,7 +34,7 @@
     #../../core/sddm/enable-nix.nix
 
     # Sound
-    ../../core/sound/sound-nix.nix
+    #../../core/sound/sound-nix.nix
 
     # Waybar
     #../../core/waybar/enable-nix.nix
@@ -64,6 +64,7 @@
 
     # Services
     #../../optional/services/jellyfin-nix.nix
+    ../../optional/services/pihole-nix.nix
 
     # Strawberry
     #../../optional/strawberry/enable-nix.nix    # Music player
