@@ -4,7 +4,7 @@
 
     openFirewallDHCP = true;
     openFirewallWebserver = true;
-
+    /**
     # Blocklists
     lists = {
       easylist = {
@@ -26,7 +26,7 @@
         description = "Steven Black Hosts";
       };
     };
-
+    */
     # Optional settings
     privacyLevel = 0; # 0 = show everything, increase for more privacy
     queryLogDeleter = {
