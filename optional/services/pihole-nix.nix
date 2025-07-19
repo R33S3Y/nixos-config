@@ -38,8 +38,8 @@
     privacyLevel = 0; # 0 = show everything, increase for more privacy
     queryLogDeleter = {
       enable = true;
-      interval = "1d"; # delete logs older than 1 day
-      age = "7d";      # keep logs max 7 days
+      interval = "weekly";
+      age = 7;      # keep logs max 7 days
     };
 
     # Web UI password can be set in settings if supported, otherwise set manually
