@@ -60,7 +60,7 @@
     #../../optional/firefox/enable-nix.nix
 
     # Services
-    ../../optional/services/jellyfin-nix.nix
+    #../../optional/services/jellyfin-nix.nix
 
     # Strawberry
     #../../optional/strawberry/enable-nix.nix    # Music player

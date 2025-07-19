@@ -28,6 +28,9 @@
     # SDDM
     # TODO : SDDM styles
 
+    # Sound
+    ../../core/sound/sound-home.nix
+
     # Waybar
     ../../core/waybar/style-home.nix     # Styles
     ../../core/waybar/settings-home.nix  # Settings

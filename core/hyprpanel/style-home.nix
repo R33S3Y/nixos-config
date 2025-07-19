@@ -92,8 +92,6 @@ in {
         foreground;
       theme.bar.buttons.icon = accent;
       
-
-      theme.bar.menus.shadow.enable = true;
       theme.bar.menus.monochrome = true;
       theme.bar.menus.card_radius = toString rounding + "px";
       theme.bar.menus.border.size = toString border-size + "px";
