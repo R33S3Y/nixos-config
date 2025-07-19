@@ -4,29 +4,29 @@
 
     openFirewallDHCP = true;
     openFirewallWebserver = true;
-    /**
+    
     # Blocklists
-    lists = {
-      easylist = {
+    lists = [
+      {
         url = "https://easylist.to/easylist/easylist.txt";
         type = "hosts";
         enabled = true;
         description = "EasyList";
-      };
-      easyprivacy = {
+      }
+      {
         url = "https://easylist.to/easylist/easyprivacy.txt";
         type = "hosts";
         enabled = true;
         description = "EasyPrivacy";
-      };
-      stevenblack = {
+      }
+      {
         url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
         type = "hosts";
         enabled = true;
         description = "Steven Black Hosts";
-      };
-    };
-    */
+      }
+    ];
+  
     # Optional settings
     privacyLevel = 0; # 0 = show everything, increase for more privacy
     queryLogDeleter = {
@@ -39,6 +39,6 @@
     # settings = { WEBPASSWORD = "yourpassword"; };
   };
 
-  networking.firewall.allowedTCPPorts = [ 53 80 ];
-  networking.firewall.allowedUDPPorts = [ 53 ];
+  #networking.firewall.allowedTCPPorts = [ 53 80 ];
+  #networking.firewall.allowedUDPPorts = [ 53 ];
 }
