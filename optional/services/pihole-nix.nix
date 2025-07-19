@@ -1,4 +1,5 @@
 {
+  services.pihole-web.enable = true;
   services.pihole-ftl = {
     enable = true;
 
