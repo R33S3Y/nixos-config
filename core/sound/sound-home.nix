@@ -5,9 +5,19 @@
     settings = {
       "$mainMod" = "SUPER";
 
-      exec-once = [
-        "sh -c 'sleep 1 && bluetoothctl connect C4:77:64:6C:56:95'" # connect to my Galaxy Buds FE
+      exec-once = builtins.concatLists [
+        (if config.var.microphone.bluetooth.enable then [
+          "sh -c 'sleep 1 && bluetoothctl connect ${config.var.microphone.bluetooth.id}'"
+        ] else [])
+        (if config.var.speaker.bluetooth.enable then [
+          "sh -c 'sleep 1 && bluetoothctl connect ${config.var.speaker.bluetooth.id}'"
+        ] else [])
+        [
+          "sh -c 'sleep 2 && wpctl status | grep -oP '\d+(?=\. ${config.var.microphone.name})' | xargs wpctl set-default'"
+          "sh -c 'sleep 2 && wpctl status | grep -oP '\d+(?=\. ${config.var.speaker.name})' | xargs wpctl set-default'"
+        ]
       ];
+        
 
       bind = [
         ", XF86AudioMute, exec, $player --volume 0"

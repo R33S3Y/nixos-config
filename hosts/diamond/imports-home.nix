@@ -71,5 +71,20 @@
   var = {
     screenshotFolder = "~/Pictures";
     primaryDisplay =  "HDMI-A-1";
+
+    microphone = {
+      name = "Family 17h/19h/1ah HD Audio Controller Analog Stereo";
+      bluetooth = {
+        enable = false;
+        id = "";
+      }
+    };
+    speaker = {
+      name = "Galaxy Buds FE";
+      bluetooth = {
+        enable = true;
+        id = "C4:77:64:6C:56:95";
+      }
+    };
   };
 }
