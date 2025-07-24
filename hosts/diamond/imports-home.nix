@@ -77,14 +77,14 @@
       bluetooth = {
         enable = false;
         id = "";
-      }
+      };
     };
     speaker = {
       name = "Galaxy Buds FE";
       bluetooth = {
         enable = true;
         id = "C4:77:64:6C:56:95";
-      }
+      };
     };
   };
 }
