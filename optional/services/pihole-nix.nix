@@ -10,6 +10,7 @@
     enable = true;
 
     openFirewallDHCP = true;
+    openFirewallDNS = true;
     openFirewallWebserver = true;
     
     # Blocklists
