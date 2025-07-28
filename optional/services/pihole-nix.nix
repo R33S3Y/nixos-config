@@ -13,6 +13,7 @@
     openFirewallDNS = true;
     openFirewallWebserver = true;
     
+    /**
     # Blocklists
     lists = [
       {
@@ -34,7 +35,8 @@
         description = "Steven Black Hosts";
       }
     ];
-  
+    */
+    
     # Optional settings
     privacyLevel = 0; # 0 = show everything, increase for more privacy
     queryLogDeleter = {
@@ -42,11 +44,5 @@
       interval = "weekly";
       age = 7;      # keep logs max 7 days
     };
-
-    # Web UI password can be set in settings if supported, otherwise set manually
-    # settings = { WEBPASSWORD = "yourpassword"; };
   };
-
-  #networking.firewall.allowedTCPPorts = [ 53 80 ];
-  #networking.firewall.allowedUDPPorts = [ 53 ];
 }
