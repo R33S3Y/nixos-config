@@ -47,6 +47,7 @@
 
     settings = {
       dns = {
+        active = true;
         domainNeeded = true;
         expandHosts = true;
         #listeningMode = "BIND";
@@ -62,12 +63,6 @@
         multiDNS = true;
         rapidCommit = true;
       };
-      #misc.dnsmasq_lines = [
-        # This DHCP server is the only one on the network
-        #"dhcp-authoritative"
-        # Source: https://data.iana.org/root-anchors/root-anchors.xml
-        #"trust-anchor=.,38696,8,2,683D2D0ACB8C9B712A1948B27F741219298D0A450D612C483AF444A4C0FB2B16"
-      #];
     };
   };
 }
