@@ -13,6 +13,10 @@
         ", XF86AudioPrev, exec, $player --previous"
         ", XF86AudioPlay, exec, $player --play-pause"
         ", XF86AudioNext, exec, $player --next"
+
+        ", XF86AudioLowerVolume, exec, $player --volume-down"
+        ", XF86AudioRaiseVolume, exec, $player --volume-up"
+
       ];
     };
   };
