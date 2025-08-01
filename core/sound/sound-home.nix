@@ -20,7 +20,7 @@
         
 
       bind = [
-        ", XF86AudioMute, exec, $player --volume 0"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@"
 
       ];
     };
