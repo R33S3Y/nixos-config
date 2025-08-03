@@ -30,7 +30,7 @@
     r2modman
     orca-slicer
     openscad
-    blender
+    blender-hip
 
     obs-studio
 
