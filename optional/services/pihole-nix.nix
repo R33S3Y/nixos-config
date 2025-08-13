@@ -50,7 +50,7 @@
         active = true;
         domainNeeded = true;
         expandHosts = true;
-        #listeningMode = "BIND";
+        listeningMode = "BIND";
         upstreams = [ "1.1.1.1" ];
       };
       dhcp = {
