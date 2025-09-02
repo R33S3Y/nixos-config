@@ -186,9 +186,9 @@
           restore = true;
         };
 
-        tls = {
-          cert = "/etc/pihole/tls.pem";
-        };
+        #tls = {
+        #  cert = "/etc/pihole/tls.pem";
+        #};
 
         #paths = {
         #  webroot = "/var/www/html";
