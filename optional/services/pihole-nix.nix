@@ -192,7 +192,7 @@
 
         paths = {
           webroot = "/var/www/html";
-          webhome = "/admin/";
+          #webhome = "/admin/";
           prefix = "";
         };
 
