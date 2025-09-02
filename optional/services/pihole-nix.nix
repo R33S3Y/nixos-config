@@ -223,20 +223,20 @@
         };
       };
 
-      files = {
-        pid = "/run/pihole-FTL.pid";
-        database = "/etc/pihole/pihole-FTL.db";
-        gravity = "/etc/pihole/gravity.db";
-        gravity_tmp = "/tmp";
-        macvendor = "/etc/pihole/macvendor.db";
-        pcap = "";
-
-        log = {
-          ftl = "/var/log/pihole/FTL.log";
-          dnsmasq = "/var/log/pihole/pihole.log";
-          webserver = "/var/log/pihole/webserver.log";
-        };
-      };
+      #files = {
+      #  pid = "/run/pihole-FTL.pid";
+      #  database = "/etc/pihole/pihole-FTL.db";
+      #  gravity = "/etc/pihole/gravity.db";
+      #  gravity_tmp = "/tmp";
+      #  macvendor = "/etc/pihole/macvendor.db";
+      #  pcap = "";
+      #
+      #  log = {
+      #    ftl = "/var/log/pihole/FTL.log";
+      #    dnsmasq = "/var/log/pihole/pihole.log";
+      #    webserver = "/var/log/pihole/webserver.log";
+      #  };
+      #};
 
       misc = {
         privacylevel = 0;
