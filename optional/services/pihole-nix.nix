@@ -169,7 +169,7 @@
       webserver = {
         domain = "pi.hole";
         acl = "";
-        port = "80o,443os,[::]:80o,[::]:443os";
+        #port = "80o,443os,[::]:80o,[::]:443os";
         threads = 50;
         headers = [
           "X-DNS-Prefetch-Control: off"
