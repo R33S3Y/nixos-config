@@ -10,7 +10,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    libsForQt5.kate
+    featherpad
     krita
     gimp3
 
