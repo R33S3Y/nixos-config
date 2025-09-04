@@ -237,7 +237,7 @@
       #    webserver = "/var/log/pihole/webserver.log";
       #  };
       #};
-
+ 
       misc = {
         privacylevel = 0;
         delay_startup = 0;
