@@ -63,7 +63,7 @@
         domain = "lan";
         bogusPriv = true;
         dnssec = false;
-        interface = "ens18";
+        interface = "";
         hostRecord = "";
         listeningMode = "LOCAL";
         queryLogging = true;
@@ -223,8 +223,8 @@
         };
       };
 
-      #files = {
-      #  pid = "/run/pihole-FTL.pid";
+      files = {
+        pid = "/run/pihole-FTL.pid";
       #  database = "/etc/pihole/pihole-FTL.db";
       #  gravity = "/etc/pihole/gravity.db";
       #  gravity_tmp = "/tmp";
@@ -236,7 +236,7 @@
       #    dnsmasq = "/var/log/pihole/pihole.log";
       #    webserver = "/var/log/pihole/webserver.log";
       #  };
-      #};
+      };
  
       misc = {
         privacylevel = 0;
