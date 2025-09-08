@@ -43,6 +43,6 @@
     cmake
     gdb
 
-    
+    qbittorrent
   ];
 } 
