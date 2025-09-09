@@ -111,16 +111,16 @@
       };
 
       dhcp = {
-        active = false;
-        start = "";
-        end = "";
-        router = "";
+        active = true;
+        start = "192.168.1.100";
+        end = "192.168.1.150";
+        router = "192.168.1.1";
         netmask = "";
         leaseTime = "";
         ipv6 = false;
         rapidCommit = false;
         multiDNS = false;
-        logging = false;
+        logging = true;
         ignoreUnknownClients = false;
         hosts = [ ];
       };
