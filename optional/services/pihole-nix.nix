@@ -194,7 +194,7 @@
         #};
 
         paths = {
-          webroot = "/var/www/html";
+          #webroot = "/var/www/html";
           webhome = lib.mkForce("/admin/");
           prefix = "";
         };
