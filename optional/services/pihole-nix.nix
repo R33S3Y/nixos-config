@@ -16,7 +16,6 @@
     openFirewallDNS = true;
     openFirewallWebserver = true;
     
-    
     # Blocklists
     lists = [
       {
@@ -158,7 +157,6 @@
       };
  
       misc = {
-        privacylevel = 0;
         delay_startup = 0;
         nice = -10;
         addr2line = true;
@@ -174,38 +172,7 @@
         };
       };
 
-      debug = {
-        database = true;
-        networking = true;
-        locks = true;
-        queries = true;
-        flags = true;
-        shmem = true;
-        gc = true;
-        arp = true;
-        regex = true;
-        api = true;
-        tls = true;
-        overtime = true;
-        status = true;
-        caps = true;
-        dnssec = true;
-        vectors = true;
-        resolver = true;
-        edns0 = true;
-        clients = true;
-        aliasclients = true;
-        events = true;
-        helper = true;
-        config = true;
-        inotify = true;
-        webserver = true;
-        extra = true;
-        reserved = true;
-        ntp = true;
-        netlink = true;
-        all = true;
-      };
+      debug.all = true;
     };
   };
 }
