@@ -1,3 +1,6 @@
+
+{ config, pkgs, lib, ... }:
+
 {
   services.pihole-web = {
     enable = true;
