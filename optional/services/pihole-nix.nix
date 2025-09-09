@@ -2,13 +2,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  services.pihole-web = {
-    enable = true;
-    ports = [
-      "80r"
-      "443s"
-    ];
-  };
   services.pihole-ftl = {
     enable = true;
 
