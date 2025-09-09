@@ -115,7 +115,7 @@
 
       dhcp = {
         active = true;
-        start = "192.168.1.100";
+        start = "192.168.1.2";
         end = "192.168.1.150";
         router = "192.168.1.1";
         netmask = "";
@@ -156,90 +156,6 @@
         networkNames = true;
         refreshNames = "IPV4_ONLY";
       };
-
-      database = {
-        DBimport = true;
-        maxDBdays = 91;
-        DBinterval = 60;
-        useWAL = true;
-
-        network = {
-          parseARPcache = true;
-          expire = 91;
-        };
-      };
-
-      webserver = {
-        domain = "pi.hole";
-        acl = "";
-        #port = "80o,443os,[::]:80o,[::]:443os";
-        threads = 50;
-        headers = [
-          "X-DNS-Prefetch-Control: off"
-          "Content-Security-Policy: default-src 'self' 'unsafe-inline';"
-          "X-Frame-Options: DENY"
-          "X-XSS-Protection: 0"
-          "X-Content-Type-Options: nosniff"
-          "Referrer-Policy: strict-origin-when-cross-origin"
-        ];
-        serve_all = false;
-
-        session = {
-          timeout = 1800;
-          restore = true;
-        };
-
-        #tls = {
-        #  cert = "/etc/pihole/tls.pem";
-        #};
-
-        paths = {
-          #webroot = "/var/www/html";
-          webhome = lib.mkForce("/admin/");
-          prefix = "";
-        };
-
-        interface = {
-          boxed = true;
-          theme = "default-auto";
-        };
-
-        api = {
-          max_sessions = 16;
-          prettyJSON = false;
-          pwhash = "$BALLOON-SHA256$v=1$s=1024,t=32$yIWL542L+LORQ6pzuDIEuA==$mdkGwgBJN0Zsy84SNqbfIzc3Gr+to7dz3Zx3q/FjiEY=";
-          totp_secret = "";
-          app_pwhash = "";
-          app_sudo = false;
-          cli_pw = true;
-          excludeClients = [ ];
-          excludeDomains = [ ];
-          maxHistory = 86400;
-          maxClients = 10;
-          client_history_global_max = true;
-          allow_destructive = true;
-
-          temp = {
-            limit = 60.0;
-            unit = "C";
-          };
-        };
-      };
-
-      files = {
-        pid = "/var/lib/pihole-FTL.pid";
-      #  database = "/etc/pihole/pihole-FTL.db";
-      #  gravity = "/etc/pihole/gravity.db";
-      #  gravity_tmp = "/tmp";
-      #  macvendor = "/etc/pihole/macvendor.db";
-      #  pcap = "";
-      #
-      #  log = {
-      #    ftl = "/var/log/pihole/FTL.log";
-      #    dnsmasq = "/var/log/pihole/pihole.log";
-      #    webserver = "/var/log/pihole/webserver.log";
-      #  };
-      };
  
       misc = {
         privacylevel = 0;
@@ -249,7 +165,7 @@
         etc_dnsmasq_d = false;
         dnsmasq_lines = [ ];
         extraLogging = true;
-        readOnly = false;
+        readOnly = true;
 
         check = {
           load = true;
