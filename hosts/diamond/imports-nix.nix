@@ -19,6 +19,7 @@
 
     # Kitty
     ../../core/kitty/enable-nix.nix
+    ../../core/kitty/tools-nix.nix
 
     # Networking
     ../../core/networking/dhcp-nix.nix
