@@ -190,11 +190,11 @@
         #  cert = "/etc/pihole/tls.pem";
         #};
 
-        #paths = {
-        #  webroot = "/var/www/html";
-        #  webhome = "/admin/";
-        #  prefix = "";
-        #};
+        paths = {
+          webroot = "/var/www/html";
+          webhome = "/admin/";
+          prefix = "";
+        };
 
         interface = {
           boxed = true;
