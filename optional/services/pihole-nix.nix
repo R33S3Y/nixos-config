@@ -225,7 +225,7 @@
 
       files = {
         pid = "/tmp/pihole-FTL.pid";
-      #  database = "/etc/pihole/pihole-FTL.db";
+        database = "/etc/pihole/pihole-FTL.db";
       #  gravity = "/etc/pihole/gravity.db";
       #  gravity_tmp = "/tmp";
       #  macvendor = "/etc/pihole/macvendor.db";
