@@ -9,7 +9,7 @@
     openFirewallDNS = true;
     openFirewallWebserver = true;
     
-    # Blocklists
+    # Blocklists 
     lists = [
       {
         url = "https://easylist.to/easylist/easylist.txt";
