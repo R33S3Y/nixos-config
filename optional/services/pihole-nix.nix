@@ -2,6 +2,13 @@
 { config, pkgs, lib, ... }:
 
 {
+  services.pihole-web = {
+    enable = true;
+    ports = [
+      "80r"
+      "443s"
+    ];
+  };
   services.pihole-ftl = {
     enable = true;
 
@@ -9,7 +16,7 @@
     openFirewallDNS = true;
     openFirewallWebserver = true;
     
-    # Blocklists 
+    # Blocklists
     lists = [
       {
         url = "https://easylist.to/easylist/easylist.txt";
