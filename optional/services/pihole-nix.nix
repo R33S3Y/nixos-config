@@ -124,7 +124,9 @@
         multiDNS = false;
         logging = true;
         ignoreUnknownClients = false;
-        hosts = [ ];
+        hosts = [
+          "*,192.168.1.253,lapisLazuli"
+        ];
       };
 
       ntp = {
