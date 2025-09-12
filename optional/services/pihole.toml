@@ -482,7 +482,9 @@
   # Possible values are:
   #     Array of static leases each on in one of the following forms:
   #     "[<hwaddr>][,id:<client_id>|*][,set:<tag>][,tag:<tag>][,<ipaddr>][,<hostname>][,<lease_time>][,ignore]"
-  hosts = []
+  hosts = [
+    "*,192.168.1.253,lapisLazuli"
+  ]
 
   [ntp.ipv4]
     # Should FTL act as network time protocol (NTP) server (IPv4)?

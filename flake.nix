@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -30,6 +31,28 @@
         modules = [
           ./hosts/obsidian/imports-nix.nix
         ];
+      };
+    };
+
+    deploy = {
+      nodes = {
+        diamond = {
+          hostname = "localhost"; # Always local
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos
+              self.nixosConfigurations.diamond;
+          };
+        };
+
+        obsidian = {
+          hostname = "192.168.1.249"; # Or obsidian.lan
+          profiles.system = {
+            user = "reese"; # SSH user
+            path = deploy-rs.lib.x86_64-linux.activate.nixos
+              self.nixosConfigurations.obsidian;
+          };
+        };
       };
     };
   };
