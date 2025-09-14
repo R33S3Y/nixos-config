@@ -125,7 +125,7 @@
         logging = true;
         ignoreUnknownClients = false;
         hosts = [
-          "7c:f1:7e:b2:70:68,192.168.1.253,lapisLazuli"
+          "7c:f1:7e:b2:70:68,192.168.1.253,lapisLazuli,infinite"
         ];
       };
 
