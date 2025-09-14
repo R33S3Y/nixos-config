@@ -22,8 +22,8 @@
     ../../core/kitty/tools-nix.nix
 
     # Networking
-    ../../core/networking/dhcp-nix.nix
-    #../../core/networking/static-nix.nix
+    #../../core/networking/dhcp-nix.nix
+    ../../core/networking/static-nix.nix
 
     # PCmanFM
     ../../core/pcmanfm/enable-nix.nix
@@ -111,18 +111,18 @@
 
     hostName = "diamond";
 
-    /**
+    
     static = { # only needed when using networking-static-nix.nix
-      interface = "ens18";
+      interface = "enp10s0";
       ipv4 = {
-        address = "192.168.1.252";
+        address = "192.168.1.140";
         prefixLength = 24;
       };
       gatewayAddress = "192.168.1.1";
 
-      nameservers = [ "192.168.1.1" ];
+      nameservers = [ "192.168.1.249" ];
     };
-    */
+    
 
     lapisLazuli = { 
       mount = "/home/reese/lapisLazuli";

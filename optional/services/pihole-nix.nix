@@ -61,6 +61,9 @@
         blockTTL = 2;
         hosts = [
           "192.168.1.253 lapisLazuli"
+          "192.168.1.253 lapisLazuli.lan"
+          "192.168.1.254 jade"
+          "192.168.1.254 jade.lan"
         ];
         domainNeeded = false;
         expandHosts = false;
