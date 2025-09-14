@@ -59,7 +59,9 @@
         piholePTR = "PI.HOLE";
         replyWhenBusy = "ALLOW";
         blockTTL = 2;
-        hosts = [ ];
+        hosts = [
+          "192.168.1.253 lapisLazuli"
+        ];
         domainNeeded = false;
         expandHosts = false;
         domain = "lan";
@@ -124,9 +126,7 @@
         multiDNS = false;
         logging = true;
         ignoreUnknownClients = false;
-        hosts = [
-          "192.168.1.253,lapisLazuli,infinite"
-        ];
+        hosts = [ ];
       };
 
       ntp = {
