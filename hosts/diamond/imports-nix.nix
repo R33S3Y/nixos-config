@@ -24,7 +24,7 @@
     # Networking
     #../../core/networking/dhcp-nix.nix
     ../../core/networking/static-nix.nix
-
+ 
     # PCmanFM
     ../../core/pcmanfm/enable-nix.nix
 
