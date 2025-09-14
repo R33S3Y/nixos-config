@@ -30,7 +30,7 @@
 
     # Rofi
     ../../core/rofi/enable-nix.nix
-
+ 
     # SDDM
     ../../core/sddm/enable-nix.nix
 
