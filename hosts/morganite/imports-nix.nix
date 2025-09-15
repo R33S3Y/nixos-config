@@ -118,11 +118,12 @@
       nameservers = [ "192.168.1.249" ];
     };
     
-
+    /**
     lapisLazuli = {
       mount = "/mnt/lapisLazuli/media";
       share = "media";
       credentials = "/etc/nixos/secrets/obsidian-user-access";
     };
+    */
   };
 }

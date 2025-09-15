@@ -5,7 +5,7 @@
   services.jellyfin = {
     enable = true;
     openFirewall = true;
-    user = "obsidain"; 
+    user = "obsidian"; 
   };
   environment.systemPackages = [
     pkgs.jellyfin
@@ -14,9 +14,9 @@
   ];
 
   users = {
-    users.obsidain = {
+    users.obsidian = {
       isNormalUser = true;
-      description = "obsidain";
+      description = "obsidian";
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };

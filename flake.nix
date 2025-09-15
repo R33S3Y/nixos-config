@@ -32,6 +32,13 @@
           ./hosts/obsidian/imports-nix.nix
         ];
       };
+      morganite = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/morganite/imports-nix.nix
+        ];
+      };
     };
 
     #deploy = {
