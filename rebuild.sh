@@ -46,7 +46,7 @@ if ! ssh "${OBS_USER}@${OBSIDIAN_HOST}" "sudo -S rm -rf $CONFIG_DST/ && sudo -S 
     echo "Remote NixOS rebuild failed on obsidian. Aborting."
     exit 1
 fi
-
+ 
 echo "Both local and remote rebuild succeeded. Pushing changes to GitHub..."
 
 # Push changes to GitHub
