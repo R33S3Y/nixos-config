@@ -76,8 +76,8 @@
     # Other
     #../../optional/other/alvr-nix.nix           # ALVR  -  For my vr nerds
     #../../optional/other/bluetooth-nix.nix      # Bluetooth  -  Enables bluetooth and installs blueman
-    #../../optional/other/lapis-lazuli-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
-    #../../optional/other/print-nix.nix          # Print  -  How old are you?
+    ../../optional/other/lapis-lazuli-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
+    #../../optional/other/print-nix.nix         # Print  -  How old are you?
 
 
     # My stuff
@@ -105,17 +105,24 @@
       LC_TIME = "en_NZ.UTF-8";
     };
 
-    hostName = "obsidian";
+    hostName = "morganite";
 
     static = { # only needed when using networking-static-nix.nix
       interface = "ens18";
       ipv4 = {
-        address = "192.168.1.249";
+        address = "192.168.1.248";
         prefixLength = 24;
       };
       gatewayAddress = "192.168.1.1";
 
       nameservers = [ "192.168.1.249" ];
+    };
+    
+
+    lapisLazuli = {
+      mount = "/mnt/lapisLazuli/media";
+      share = "media";
+      credentials = "/etc/nixos/secrets/obsidian-user-access";
     };
   };
 }
