@@ -28,7 +28,7 @@ sudo -u "$(logname)" bash <<EOF
     git add .
     git commit -m "$COMMIT_MSG"
 EOF
-
+ 
 # Copy the configuration files locally to diamond
 rsync -av --delete "$CONFIG_SRC/" "$CONFIG_DST/"
 
