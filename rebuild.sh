@@ -5,7 +5,7 @@ set -e  # Exit immediately if a command fails
 CONFIG_SRC="/home/reese/Desktop/nixos"
 CONFIG_DST="/etc/nixos"
 GIT_REPO="$CONFIG_SRC"
-OBSIDIAN_HOST="192.168.1.248"   # Replace with obsidian IP or hostname
+OBSIDIAN_HOST="192.168.1.249"   # Replace with obsidian IP or hostname
 OBS_USER="reese"                # SSH user on obsidian
 
 # Ensure the script is run with sudo
