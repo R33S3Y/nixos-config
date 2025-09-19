@@ -24,6 +24,7 @@
           inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           inputs.deploy-rs
+        ];
       };
       obsidian = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
