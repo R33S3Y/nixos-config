@@ -41,26 +41,28 @@
       };
     };
 
-    #deploy = {
-    #  nodes = {
-    #    diamond = {
-    #      hostname = "localhost"; # Always local
-    #      profiles.system = {
-    #        user = "root";
-    #        path = deploy-rs.lib.x86_64-linux.activate.nixos
-    #          self.nixosConfigurations.diamond;
-    #      };
-    #    };
-    #
-    #   obsidian = {
-    #      hostname = "192.168.1.249"; # Or obsidian.lan
-    #      profiles.system = {
-    #        user = "reese"; # SSH user
-    #        path = deploy-rs.lib.x86_64-linux.activate.nixos
-    #          self.nixosConfigurations.obsidian;
-    #      };
-    #    };
-    #  };
-    #};
+    deploy = {
+      nodes = {
+        diamond = {
+          hostname = "localhost"; # Always local
+          profiles.system = {
+            user = "root";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos
+              self.nixosConfigurations.diamond;
+          };
+        };
+    
+       obsidian = {
+          hostname = "192.168.1.249"; # Or obsidian.lan
+          interactiveSudo = true;
+          profiles.system = {
+            user = "reese";
+            sshUser = "reese";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos
+              self.nixosConfigurations.obsidian;
+          };
+        };
+      };
+    };
   };
 }
