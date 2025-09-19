@@ -44,8 +44,7 @@
     deploy = {
       nodes = {
         diamond = {
-          hostname = "localhost"; # Always local
-          interactiveSudo = true;
+          hostname = "diamond";
           remoteBuild = true;
           profiles.system = {
             user = "root";
@@ -55,8 +54,7 @@
         };
     
         obsidian = {
-          hostname = "192.168.1.249"; # Or obsidian.lan
-          interactiveSudo = true;
+          hostname = "obsidian";
           remoteBuild = true;
           profiles.system = {
             user = "reese";
