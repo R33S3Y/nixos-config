@@ -65,7 +65,7 @@
 
     # Services
     #../../optional/services/jellyfin-nix.nix
-    ../../optional/services/pihole-nix.nix
+    #../../optional/services/pihole-nix.nix
 
     # Strawberry
     #../../optional/strawberry/enable-nix.nix    # Music player
