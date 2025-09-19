@@ -23,7 +23,7 @@
           ./hosts/diamond/imports-nix.nix
           inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
-          inputs.deploy-rs
+          inputs.deploy-rs.modules.nixos.deploy-rs
         ];
       };
       obsidian = nixpkgs.lib.nixosSystem {
