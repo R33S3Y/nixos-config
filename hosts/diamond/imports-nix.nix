@@ -45,7 +45,7 @@
     ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
     ../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
     ../../core/other/user-nix.nix        # user  -  Adds a user
-    #../../core/other/ssh-nix.nix        # ssh  -  Enables ssh on port 22 needed for deploy rs
+    ../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
     ../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
     ../../core/other/var.nix             # var  -  make var option for user config
 

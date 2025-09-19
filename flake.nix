@@ -52,9 +52,10 @@
           };
         };
     
-       obsidian = {
+        obsidian = {
           hostname = "192.168.1.249"; # Or obsidian.lan
           interactiveSudo = true;
+          remoteBuild = true;
           profiles.system = {
             user = "reese";
             sshUser = "reese";
