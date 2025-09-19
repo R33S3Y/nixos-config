@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
-    #deploy-rs.url = "github:serokell/deploy-rs";
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
