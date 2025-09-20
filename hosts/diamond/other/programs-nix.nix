@@ -44,6 +44,5 @@
     gdb
 
     qbittorrent
-    inputs.deploy-rs.packages.${pkgs.system}.deploy-rs
   ];
 } 

@@ -8,7 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
-    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -38,31 +37,6 @@
         modules = [
           ./hosts/morganite/imports-nix.nix
         ];
-      };
-    };
-
-    deploy = {
-      nodes = {
-        diamond = {
-          hostname = "diamond";
-          remoteBuild = true;
-          profiles.system = {
-            user = "root";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos
-              self.nixosConfigurations.diamond;
-          };
-        };
-    
-        obsidian = {
-          hostname = "obsidian";
-          remoteBuild = true;
-          profiles.system = {
-            user = "reese";
-            sshUser = "reese";
-            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos
-              self.nixosConfigurations.obsidian;
-          };
-        };
       };
     };
   };
