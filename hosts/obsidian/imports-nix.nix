@@ -47,6 +47,7 @@
     #../../core/other/sound-nix.nix      # Sound  -  You like sound?
     ../../core/other/user-nix.nix        # user  -  Adds a user
     ../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
+    ../../core/other/sudo-nix.nix        # sudo  -  Sudo settings for deploy rs
     #../../core/other/x11-nix.nix        # x11  -  needed for Xwayland??
     ../../core/other/var.nix             # var  -  make var option for user config
 
