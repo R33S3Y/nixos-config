@@ -12,9 +12,14 @@ REMOTE_HOSTS=(
     "reese@morganite"
 )
 
+GOOD="\033[94m"
+OK="\033[35m"
+BAD="\033[31m"
+RESET="\033[0m"
+
 # Ensure the script is run with sudo
 if [[ $EUID -ne 0 ]]; then
-    echo "Please run as root (sudo $0)"
+    echo "${BAD}Please run as root (sudo $0)${RESET}"
     exit 1
 fi
 
@@ -30,7 +35,7 @@ chown -R "$(logname):$(id -gn logname)" "$GIT_REPO"
 sudo -u "$(logname)" bash <<EOF
     cd "$GIT_REPO"
     git add .
-    git commit -m "$COMMIT_MSG" || echo "No changes to commit"
+    git commit -m "$COMMIT_MSG" || echo "${BAD}No changes to commit${RESET}"
 EOF
 
 # Copy the configuration files locally
@@ -38,13 +43,13 @@ rsync -av --delete "$CONFIG_SRC/" "$CONFIG_DST/"
 
 # Rebuild NixOS locally (diamond)
 if ! nixos-rebuild switch --flake "$CONFIG_DST/#diamond"; then
-    echo "Local NixOS rebuild failed on diamond. Aborting."
+    echo "${BAD}Local NixOS rebuild failed on diamond. Aborting.${RESET}"
     exit 1
 fi
 
 # Loop through each remote host
 for HOST in "${REMOTE_HOSTS[@]}"; do
-    echo "Deploying to $HOST..."
+    echo "${OK}Deploying to $HOST...${RESET}"
 
     ssh "$HOST" "rm -rf $CONFIG_DST && mkdir -p $CONFIG_DST"
 
@@ -56,12 +61,12 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
 
     # Rebuild NixOS remotely
     if ! ssh "$HOST" "sudo -S nixos-rebuild switch --flake $CONFIG_DST/#$HOSTNAME"; then
-        echo "Remote NixOS rebuild failed on $HOSTNAME. Aborting."
+        echo "${BAD}Remote NixOS rebuild failed on $HOSTNAME. Aborting.${RESET}"
         exit 1
     fi
 done
 
-echo "All rebuilds succeeded. Pushing changes to GitHub..."
+echo "${GOOD}All rebuilds succeeded. Pushing changes to GitHub...${RESET}"
 
 # Push changes to GitHub
 sudo -u "$(logname)" bash <<EOF
