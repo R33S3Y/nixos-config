@@ -38,7 +38,7 @@ if ! nixos-rebuild switch --flake $CONFIG_DST/#diamond; then
     exit 1
 fi
 
-ssh "${REMOTE_USER}@${REMOTE_HOST}" "sudo -S rm -rf $CONFIG_DST/ && sudo -S mkdir $CONFIG_DST/"
+ssh "${REMOTE_USER}@${REMOTE_HOST}" "rm -rf $CONFIG_DST/ && mkdir $CONFIG_DST/"
 
 # Sync configuration files to obsidian
 scp -r "$CONFIG_SRC"/* "${REMOTE_USER}@${REMOTE_HOST}:$CONFIG_DST/"
