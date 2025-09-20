@@ -8,7 +8,7 @@ GIT_REPO="$CONFIG_SRC"
 
 REMOTE_HOSTS=(
     "reese@obsidian"
-    #"reese@morganite"
+    "reese@morganite"
 )
 
 if [[ $EUID -ne 0 ]]; then
