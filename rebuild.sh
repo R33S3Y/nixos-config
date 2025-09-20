@@ -51,19 +51,17 @@ fi
 
 # Loop through each remote host
 for HOST in "${REMOTE_HOSTS[@]}"; do
-    echo -e "${OK}Deploying to $HOST...${RESET}"
-
+    echo -e "${OK}Preparing $HOST...${RESET}"
     ssh "$HOST" "rm -rf $CONFIG_DST && mkdir -p $CONFIG_DST"
 
     # Sync configuration files
-    scp -r "$CONFIG_SRC"/* "$HOST:$CONFIG_DST/"
-
-    # Extract just the hostname (after @ if present)
-    HOSTNAME=$(echo "$HOST" | cut -d@ -f2)
+    echo -e "${OK}Copying files to $HOST...${RESET}"
+    scp -q -r "$CONFIG_SRC"/* "$HOST:$CONFIG_DST/"
 
     # Rebuild NixOS remotely
+    echo -e "${OK}Rebuilding $HOST...${RESET}"
     if ! ssh "$HOST" "sudo -S nixos-rebuild switch --flake $CONFIG_DST/#$HOSTNAME"; then
-        echo -e "${BAD}Remote NixOS rebuild failed on $HOSTNAME. Aborting.${RESET}"
+        echo -e "${BAD}Remote NixOS rebuild failed on $HOST. Aborting.${RESET}"
         exit 1
     fi
 done
