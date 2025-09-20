@@ -12,8 +12,8 @@ REMOTE_HOSTS=(
     "reese@morganite"
 )
 
-GOOD="\n\033[94m"
-OK="\n\033[35m"
+GOOD="\033[94m"
+OK="\033[35m"
 BAD="\n\033[31m"
 RESET="\033[0m"
 
@@ -51,22 +51,24 @@ fi
 
 # Loop through each remote host
 for HOST in "${REMOTE_HOSTS[@]}"; do
-    echo -e "${OK}Preparing $HOST...${RESET}"
+    echo -e "\n${OK}Preparing $HOST...${RESET}"
     ssh "$HOST" "rm -rf $CONFIG_DST && mkdir -p $CONFIG_DST"
 
     # Sync configuration files
     echo -e "${OK}Copying files to $HOST...${RESET}"
     scp -q -r "$CONFIG_SRC"/* "$HOST:$CONFIG_DST/"
 
-    # Rebuild NixOS remotely
+    # Extract just the hostname (after @ if present)
     echo -e "${OK}Rebuilding $HOST...${RESET}"
+    HOSTNAME=$(echo "$HOST" | cut -d@ -f2)
+    # Rebuild NixOS remotely
     if ! ssh "$HOST" "sudo -S nixos-rebuild switch --flake $CONFIG_DST/#$HOSTNAME"; then
         echo -e "${BAD}Remote NixOS rebuild failed on $HOST. Aborting.${RESET}"
         exit 1
     fi
 done
 
-echo -e "${GOOD}All rebuilds succeeded. Pushing changes to GitHub...${RESET}"
+echo -e "\n${GOOD}All rebuilds succeeded. Pushing changes to GitHub...${RESET}"
 
 # Push changes to GitHub
 sudo -u "$(logname)" bash <<EOF
