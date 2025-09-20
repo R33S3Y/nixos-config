@@ -12,9 +12,9 @@ REMOTE_HOSTS=(
     "reese@morganite"
 )
 
-GOOD="\033[94m"
-OK="\033[35m"
-BAD="\033[31m"
+GOOD="\n\033[94m"
+OK="\n\033[35m"
+BAD="\n\033[31m"
 RESET="\033[0m"
 
 # Ensure the script is run with sudo
