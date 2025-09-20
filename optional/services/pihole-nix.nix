@@ -64,6 +64,8 @@
           "192.168.1.253 lapisLazuli.lan"
           "192.168.1.254 jade"
           "192.168.1.254 jade.lan"
+          "192.168.1.248 morganite"
+          "192.168.1.248 morganite.lan"
         ];
         domainNeeded = false;
         expandHosts = false;
