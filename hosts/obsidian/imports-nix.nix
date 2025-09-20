@@ -51,7 +51,7 @@
     #../../core/other/x11-nix.nix        # x11  -  needed for Xwayland??
     ../../core/other/var.nix             # var  -  make var option for user config
 
-
+ 
     # OPTIONAL
     # You can comment and uncomment these as needed
 
