@@ -3,10 +3,10 @@
 set -e  # Exit immediately if a command fails
 
 CONFIG_SRC="/home/reese/Desktop/nixos"
-CONFIG_DST="/etc/nixos"
+CONFIG_DST="/tmp/config_current"
 GIT_REPO="$CONFIG_SRC"
-OBSIDIAN_HOST="obsidian"   # Replace with obsidian IP or hostname
-OBS_USER="reese"                # SSH user on obsidian
+REMOTE_HOST="obsidian"   # Replace with obsidian IP or hostname
+REMOTE_USER="reese"                # SSH user on obsidian
 
 # Ensure the script is run with sudo
 if [[ $EUID -ne 0 ]]; then
@@ -33,16 +33,18 @@ EOF
 rsync -av --delete "$CONFIG_SRC/" "$CONFIG_DST/"
 
 # Rebuild NixOS locally (diamond)
-if ! nixos-rebuild switch --flake $CONFIG_DST/#diamond --verbose; then
+if ! nixos-rebuild switch --flake $CONFIG_DST/#diamond; then
     echo "Local NixOS rebuild failed on diamond. Aborting."
     exit 1
 fi
 
+ssh "${REMOTE_USER}@${REMOTE_HOST}" "sudo -S rm -rf $CONFIG_DST/ && sudo -S mkdir $CONFIG_DST/"
+
 # Sync configuration files to obsidian
-scp -r "$CONFIG_SRC"/* "${OBS_USER}@${OBSIDIAN_HOST}:/tmp/config_tmp/"
+scp -r "$CONFIG_SRC"/* "${REMOTE_USER}@${REMOTE_HOST}:$CONFIG_DST/"
 
 # Rebuild NixOS remotely (obsidian)
-if ! ssh "${OBS_USER}@${OBSIDIAN_HOST}" "sudo -S rm -rf $CONFIG_DST/ && sudo -S mkdir $CONFIG_DST/ && sudo -S mv /tmp/config_tmp/* $CONFIG_DST/ && sudo -S nixos-rebuild switch --flake $CONFIG_DST/#obsidian"; then
+if ! ssh "${REMOTE_USER}@${REMOTE_HOST}" "sudo -S nixos-rebuild switch --flake $CONFIG_DST/#obsidian"; then
     echo "Remote NixOS rebuild failed on obsidian. Aborting."
     exit 1
 fi
