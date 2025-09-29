@@ -44,5 +44,7 @@
     gdb
 
     qbittorrent
+
+    nfs-utils
   ];
 } 
