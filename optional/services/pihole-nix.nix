@@ -183,7 +183,7 @@
     };
   };
 
-  system.activationScripts.pihole.text = ''
-    pihole -g
-  '';
+  #system.activationScripts.pihole.text = ''
+  #  pihole -g
+  #'';
 }
