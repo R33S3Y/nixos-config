@@ -19,7 +19,7 @@
     # Blocklists
     lists = [
       {
-        url = "https://easylist.to/easylist/easylist.txt";
+        #url = "https://easylist.to/easylist/easylist.txt";
         type = "block";
         enabled = true;
         description = "EasyList";
