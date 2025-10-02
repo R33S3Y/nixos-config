@@ -182,4 +182,8 @@
       debug.all = true;
     };
   };
+
+  system.activationScripts.pihole.text = ''
+    pihole -g
+  '';
 }
