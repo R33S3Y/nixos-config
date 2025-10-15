@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
-let username = config.var.username;
-in {
+{
   users = {
-    users.${username} = {
+    users.reese = {
       isNormalUser = true;
-      description = "${username}";
+      uid = 1000;
+      description = "reese";
       extraGroups = [ "networkmanager" "wheel" ];
     };
   };

@@ -182,8 +182,4 @@
       debug.all = true;
     };
   };
-
-  system.activationScripts.pihole.text = ''
-    sudo pihole -g
-  '';
 }
