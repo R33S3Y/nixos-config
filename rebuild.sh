@@ -62,7 +62,7 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
     scp -q -r "$CONFIG_SRC"/* "$HOST:$CONFIG_DST/"
 
     # Extract just the hostname (after @ if present)
-    echo -e "${OK}Rebuilding $HOST...${RESET}"
+    echo -e "${OK}Rebuilding $HOST...${RESET} \n"
     HOSTNAME=$(echo "$HOST" | cut -d@ -f2)
     # Rebuild NixOS remotely
     if ! ssh "$HOST" "sudo -S nixos-rebuild switch --flake $CONFIG_DST/#$HOSTNAME"; then
