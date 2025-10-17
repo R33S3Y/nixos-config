@@ -8,8 +8,8 @@ GIT_REPO="$CONFIG_SRC"
 
 # List of remote hosts (can be just "host" or "user@host")
 REMOTE_HOSTS=(
-    "reese@obsidian"
-    "reese@morganite"
+    "rebuild@obsidian"
+    "rebuild@morganite"
 )
 
 GOOD="\033[94m"
@@ -45,6 +45,8 @@ if ! nixos-rebuild switch --flake "$CONFIG_DST/#diamond"; then
     echo -e "${BAD}Local NixOS rebuild failed on diamond. Aborting.${RESET}"
     exit 1
 fi
+
+ssh-add ~/.ssh/id_ed25519
 
 # Loop through each remote host
 for HOST in "${REMOTE_HOSTS[@]}"; do
