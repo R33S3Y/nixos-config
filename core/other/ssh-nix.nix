@@ -7,7 +7,10 @@
     ports = [ 22 ];
     settings = {
       PasswordAuthentication = true;
-      AllowUsers = [ config.var.username ];
+      AllowUsers = [ 
+        config.var.username
+        "rebuild"
+      ];
       PermitRootLogin = "no";
       X11Forwarding = false;
     };

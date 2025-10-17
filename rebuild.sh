@@ -28,9 +28,6 @@ CURRENT_GEN=$(nix-env --list-generations --profile /nix/var/nix/profiles/system 
 NEXT_GEN=$((CURRENT_GEN + 1))
 COMMIT_MSG="$(date '+%Y-%m-%d') - Attempting Build for gen: $NEXT_GEN"
 
-# Ensure the user owns the repo before committing
-chown -R "$(logname):$(id -gn logname)" "$GIT_REPO"
-
 # Commit changes before rebuilding
 sudo -u "$(logname)" bash <<EOF
     cd "$GIT_REPO"
