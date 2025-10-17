@@ -46,6 +46,10 @@ if ! nixos-rebuild switch --flake "$CONFIG_DST/#diamond"; then
     exit 1
 fi
 
+echo -e "\n${OK}Local NixOS rebuild succeeded on diamond.${RESET}"
+echo -e "\n${OK}Pushing to remote hosts...${RESET}"
+
+eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 
 # Loop through each remote host
