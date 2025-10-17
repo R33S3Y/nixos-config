@@ -69,9 +69,10 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
         echo -e "${BAD}Remote NixOS rebuild failed on $HOST. Aborting.${RESET}"
         exit 1
     fi
+    echo -e "\n"
 done
 
-echo -e "\n${GOOD}All rebuilds succeeded. Pushing changes to GitHub...${RESET}"
+echo -e "\n${GOOD}All rebuilds succeeded. Pushing changes to GitHub...\n${RESET}"
 
 # Push changes to GitHub
 sudo -u "$(logname)" bash <<EOF
