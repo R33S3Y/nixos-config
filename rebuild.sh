@@ -50,7 +50,7 @@ echo -e "\n${OK}Local NixOS rebuild succeeded on diamond.${RESET}"
 echo -e "\n${OK}Pushing to remote hosts...${RESET}"
 
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
+ssh-add /home/reese/.ssh/id_ed25519
 
 # Loop through each remote host
 for HOST in "${REMOTE_HOSTS[@]}"; do
