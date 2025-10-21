@@ -26,8 +26,10 @@ let
 
   notificationOpacity = 90;
 
-  location = "Paris";
+  location = "";
 in {
+
+  stylix.targets.hyprpanel.enable = false;
 
   programs.hyprpanel = {
     enable = true;
