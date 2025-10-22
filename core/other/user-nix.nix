@@ -21,4 +21,5 @@ in {
       description = "jellyfin";
     };
   };
+  users.groups.jellyfin = { gid = 1002; };
 }
