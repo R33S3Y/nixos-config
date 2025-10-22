@@ -99,7 +99,7 @@
     defaultLocale = "en_NZ.UTF-8";
 
     extraLocaleSettings = {
-      LC_ADDRESS = "en_NZ.UTF-8";
+      LC_ADDRESS = "en_NZ.UTF-8";e ra
       LC_IDENTIFICATION = "en_NZ.UTF-8";
       LC_MEASUREMENT = "en_NZ.UTF-8";
       LC_MONETARY = "en_NZ.UTF-8";
@@ -126,7 +126,7 @@
     */
 
     lapisLazuli = { 
-      mount = "/home/reese/lapisLazuli";
+      mount = "/home/reese/lapis_Lazuli";
       share = "lapis_lazuli";
       credentials = "/etc/nixos/secrets/diamond-user-access";
     };
