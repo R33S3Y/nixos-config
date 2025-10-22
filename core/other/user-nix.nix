@@ -17,6 +17,7 @@ in {
     jellyfin = {
       isNormalUser = true;
       uid = 1002;
+      group = "jellyfin";
       description = "jellyfin";
     };
   };
