@@ -126,7 +126,7 @@
     */
 
     lapisLazuli = { 
-      mount = "/home/reese/lapis_Lazuli";
+      mount = "/home/reese/lapis_lazuli";
       share = "lapis_lazuli";
       credentials = "/etc/nixos/secrets/diamond-user-access";
     };
