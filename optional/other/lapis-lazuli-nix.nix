@@ -11,8 +11,10 @@
     fsType = "cifs";
     options = [ "credentials=${config.var.lapisLazuli.credentials}" "uid=${config.var.username}" "gid=users" "iocharset=utf8" ];
   };
-  
-  #systemd.tmpfiles.rules = [
-  #  "d ${config.var.lapisLazuli.mount} 0755 ${config.var.username} users - -"
-  #];
+
+  boot.supportedFilesystems = [ "nfs" ];
+  fileSystems."/mnt/lapisLazuli" = {
+    device = "lapisLazuli:/mnt/Pool 1/lapisLazuli";
+    fsType = "nfs";
+  };
 } 
