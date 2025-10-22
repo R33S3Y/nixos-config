@@ -12,7 +12,12 @@ in {
       isNormalUser = true;
       uid = 1001;
       description = "Remote rebuild user";
-      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGspq2G8adszEonoETTJ9s8RWFCJfthqCqd5fjq+wXm r3es3y@gmail.com" ];
+      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGspq2G8adszEonoETTJ9s8RWFCJfthqCqd5fjq+wXm reese@diamond" ];
+    };
+    jellyfin = {
+      isNormalUser = true;
+      uid = 1002;
+      description = "jellyfin";
     };
   };
 }
