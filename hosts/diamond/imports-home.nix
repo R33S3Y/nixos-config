@@ -31,10 +31,6 @@
     # Sound
     ../../core/sound/sound-home.nix
 
-    # Waybar
-    ../../core/waybar/style-home.nix     # Styles
-    ../../core/waybar/settings-home.nix  # Settings
-
     # Other
     ../../core/other/home-home.nix       # Home-manager settings
     ../../core/other/xdg-mime-home.nix   # Sets default apps

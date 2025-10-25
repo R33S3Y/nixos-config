@@ -37,9 +37,6 @@
     # Sound
     ../../core/sound/sound-nix.nix
 
-    # Waybar
-    ../../core/waybar/enable-nix.nix
-
     # Other
     ../../core/other/local-nix.nix       # Local settings
     ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
