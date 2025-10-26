@@ -62,7 +62,7 @@
     #../../optional/firefox/enable-nix.nix
 
     # Services
-    #../../optional/services/jellyfin-nix.nix
+    ../../optional/services/jellyfin-nix.nix
     #../../optional/services/pihole-nix.nix
 
     # Strawberry
