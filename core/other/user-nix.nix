@@ -15,7 +15,7 @@ in {
       openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGspq2G8adszEonoETTJ9s8RWFCJfthqCqd5fjq+wXm reese@diamond" ];
     };
     jellyfin = {
-      isNormalUser = true;
+      isNormalUser = false;
       uid = 1002;
       group = "jellyfin";
       description = "jellyfin";
