@@ -83,38 +83,4 @@
     ./hardware-configuration.nix   # hardware  -  your hardware settings
     
   ];
-
-  var = {
-
-    username = "reese";
-
-    timeZone = "Pacific/Auckland";
-
-    defaultLocale = "en_NZ.UTF-8";
-
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_NZ.UTF-8";
-      LC_IDENTIFICATION = "en_NZ.UTF-8";
-      LC_MEASUREMENT = "en_NZ.UTF-8";
-      LC_MONETARY = "en_NZ.UTF-8";
-      LC_NAME = "en_NZ.UTF-8";
-      LC_NUMERIC = "en_NZ.UTF-8";
-      LC_PAPER = "en_NZ.UTF-8";
-      LC_TELEPHONE = "en_NZ.UTF-8";
-      LC_TIME = "en_NZ.UTF-8";
-    };
-
-    hostName = "morganite";
-
-    static = { # only needed when using networking-static-nix.nix
-      interface = "ens18";
-      ipv4 = {
-        address = "192.168.1.248";
-        prefixLength = 24;
-      };
-      gatewayAddress = "192.168.1.1";
-
-      nameservers = [ "192.168.1.249" ];
-    };
-  };
 }
