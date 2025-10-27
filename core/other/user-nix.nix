@@ -22,6 +22,7 @@ in {
     };
   };
   users.groups = {
+    rebuild = { gid = 1001; }; 
     jellyfin = { gid = 1002; }; 
   };
 }
