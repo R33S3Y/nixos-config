@@ -70,9 +70,10 @@
     ../../optional/vscode/enable-nix.nix
 
     # Other
-    ../../optional/other/alvr-nix.nix           # ALVR  -  For my vr nerds
-    ../../optional/other/lapis-lazuli-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
-    #../../optional/other/print-nix.nix         # Print  -  How old are you?
+    ../../optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
+    ../../optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
+    ../../optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
+    #../../optional/other/print-nix.nix             # Print  -  How old are you?
 
 
     # My stuff
