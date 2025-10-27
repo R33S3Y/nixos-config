@@ -21,82 +21,82 @@
             imports = [
               # CORE
               # boot
-              #../../core/boot/bios-nix.nix
-              ../../core/boot/uefi-nix.nix
-              ../../core/boot/style-nix.nix
+              #./core/boot/bios-nix.nix
+              ./core/boot/uefi-nix.nix
+              ./core/boot/style-nix.nix
 
               # Hyprland
-              ../../core/hyprland/enable-nix.nix
+              ./core/hyprland/enable-nix.nix
 
               # Hyprlock
-              ../../core/hyprlock/enable-nix.nix
+              ./core/hyprlock/enable-nix.nix
 
               # Hyprpanel
-              ../../core/hyprpanel/enable-nix.nix
+              ./core/hyprpanel/enable-nix.nix
 
               # Kitty
-              ../../core/kitty/enable-nix.nix
-              ../../core/kitty/tools-nix.nix
+              ./core/kitty/enable-nix.nix
+              ./core/kitty/tools-nix.nix
 
               # Networking
-              ../../core/networking/dhcp-nix.nix
-              #../../core/networking/static-nix.nix
+              ./core/networking/dhcp-nix.nix
+              #./core/networking/static-nix.nix
           
               # PCmanFM
-              ../../core/pcmanfm/enable-nix.nix
+              ./core/pcmanfm/enable-nix.nix
 
               # Rofi
-              ../../core/rofi/enable-nix.nix
+              ./core/rofi/enable-nix.nix
           
               # SDDM
-              ../../core/sddm/enable-nix.nix
+              ./core/sddm/enable-nix.nix
 
               # Sound
-              ../../core/sound/sound-nix.nix
+              ./core/sound/sound-nix.nix
 
               # Other
-              ../../core/other/local-nix.nix       # Local settings
-              ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-              ../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
-              ../../core/other/user-nix.nix        # user  -  Adds a user
-              ../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
-              ../../core/other/sudo-nix.nix        # sudo  -  Sudo settings for deploy rs
-              ../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
-              ../../core/other/var.nix             # var  -  make var option for user config
+              ./core/other/local-nix.nix       # Local settings
+              ./core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
+              ./core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
+              ./core/other/user-nix.nix        # user  -  Adds a user
+              ./core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
+              ./core/other/sudo-nix.nix        # sudo  -  Sudo settings for deploy rs
+              ./core/other/x11-nix.nix         # x11  -  needed for Xwayland??
+              ./core/other/var.nix             # var  -  make var option for user config
 
 
               # OPTIONAL
               # You can comment and uncomment these as needed
 
               # btop
-              ../../optional/btop/enable-nix.nix
+              ./optional/btop/enable-nix.nix
 
               # Fast Fetch
-              ../../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
+              ./optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
               # Firefox
-              ../../optional/firefox/enable-nix.nix
+              ./optional/firefox/enable-nix.nix
 
               # Services
-              # ../../optional/services/jellyfin-nix.nix
+              # ./optional/services/jellyfin-nix.nix
 
               # Strawberry
-              ../../optional/strawberry/enable-nix.nix    # Music player
+              ./optional/strawberry/enable-nix.nix    # Music player
 
               # VScode
-              ../../optional/vscode/enable-nix.nix
+              ./optional/vscode/enable-nix.nix
 
               # Other
-              ../../optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
-              ../../optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
-              ../../optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
-              #../../optional/other/print-nix.nix             # Print  -  How old are you?
+              ./optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
+              ./optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
+              ./optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
+              #./optional/other/print-nix.nix             # Print  -  How old are you?
 
 
               # My stuff
-              ./other/programs-nix.nix
-              ./hardware-configuration.nix   # hardware  -  your hardware settings
-              ./stylix-nix.nix               # stylix  -  this repo expects stylix
+              ./hosts/diamond/other/programs-nix.nix
+              ./hosts/diamond/hardware-configuration.nix   # hardware  -  your hardware settings
+              ./hosts/diamond/stylix-nix.nix               # stylix  -  this repo expects stylix
               
             ];
           
@@ -156,85 +156,85 @@
             imports = [
               # CORE
               # boot
-              ../../core/boot/bios-nix.nix
-              #../../core/boot/uefi-nix.nix
-              #../../core/boot/style-nix.nix
+              ./core/boot/bios-nix.nix
+              #./core/boot/uefi-nix.nix
+              #./core/boot/style-nix.nix
               
               # Hyprland
-              #../../core/hyprland/enable-nix.nix
+              #./core/hyprland/enable-nix.nix
 
               # Hyprlock
-              #../../core/hyprlock/enable-nix.nix
+              #./core/hyprlock/enable-nix.nix
 
               # Hyprpanel
-              #../../core/hyprpanel/enable-nix.nix
+              #./core/hyprpanel/enable-nix.nix
 
               # Kitty
-              #../../core/kitty/enable-nix.nix
-              ../../core/kitty/tools-nix.nix
+              #./core/kitty/enable-nix.nix
+              ./core/kitty/tools-nix.nix
 
               # Networking
-              #../../core/networking/dhcp-nix.nix
-              ../../core/networking/static-nix.nix
+              #./core/networking/dhcp-nix.nix
+              ./core/networking/static-nix.nix
 
               # PCmanFM
-              #../../core/pcmanfm/enable-nix.nix
+              #./core/pcmanfm/enable-nix.nix
 
               # Rofi
-              #../../core/rofi/enable-nix.nix
+              #./core/rofi/enable-nix.nix
 
               # SDDM
-              #../../core/sddm/enable-nix.nix
+              #./core/sddm/enable-nix.nix
 
               # Sound
-              #../../core/sound/sound-nix.nix
+              #./core/sound/sound-nix.nix
 
               # Other
-              ../../core/other/local-nix.nix       # Local settings
-              ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-              ../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
-              #../../core/other/sound-nix.nix      # Sound  -  You like sound?
-              ../../core/other/user-nix.nix        # user  -  Adds a user
-              ../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
-              ../../core/other/sudo-nix.nix        # sudo  -  Sudo settings for deploy rs
-              #../../core/other/x11-nix.nix        # x11  -  needed for Xwayland??
-              ../../core/other/var.nix             # var  -  make var option for user config
+              ./core/other/local-nix.nix       # Local settings
+              ./core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
+              ./core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
+              #./core/other/sound-nix.nix      # Sound  -  You like sound?
+              ./core/other/user-nix.nix        # user  -  Adds a user
+              ./core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
+              ./core/other/sudo-nix.nix        # sudo  -  Sudo settings for deploy rs
+              #./core/other/x11-nix.nix        # x11  -  needed for Xwayland??
+              ./core/other/var.nix             # var  -  make var option for user config
 
 
               # OPTIONAL
               # You can comment and uncomment these as needed
 
               # btop
-              ../../optional/btop/enable-nix.nix
+              ./optional/btop/enable-nix.nix
 
               # Fast Fetch
-              ../../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
+              ./optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
               # Firefox
-              #../../optional/firefox/enable-nix.nix
+              #./optional/firefox/enable-nix.nix
 
               # Services
-              ../../optional/services/jellyfin-nix.nix
-              #../../optional/services/pihole-nix.nix
+              ./optional/services/jellyfin-nix.nix
+              #./optional/services/pihole-nix.nix
 
               # Strawberry
-              #../../optional/strawberry/enable-nix.nix    # Music player
+              #./optional/strawberry/enable-nix.nix    # Music player
 
               # VScode
-              #../../optional/vscode/enable-nix.nix
+              #./optional/vscode/enable-nix.nix
 
               # Other
-              #../../optional/other/alvr-nix.nix           # ALVR  -  For my vr nerds
-              #../../optional/other/bluetooth-nix.nix      # Bluetooth  -  Enables bluetooth and installs blueman
-              #../../optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
-              ../../optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
-              #../../optional/other/print-nix.nix          # Print  -  How old are you?
+              #./optional/other/alvr-nix.nix           # ALVR  -  For my vr nerds
+              #./optional/other/bluetooth-nix.nix      # Bluetooth  -  Enables bluetooth and installs blueman
+              #./optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
+              ./optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
+              #./optional/other/print-nix.nix          # Print  -  How old are you?
 
 
               # My stuff
-              ./hardware-configuration.nix   # hardware  -  your hardware settings
+              ./hosts/obsidian/hardware-configuration.nix   # hardware  -  your hardware settings
             ];
-            
+
             username = "reese";
 
             timeZone = "Pacific/Auckland";
@@ -279,83 +279,83 @@
             imports = [
               # CORE
               # boot
-              ../../core/boot/bios-nix.nix
-              #../../core/boot/uefi-nix.nix
-              #../../core/boot/style-nix.nix
+              ./core/boot/bios-nix.nix
+              #./core/boot/uefi-nix.nix
+              #./core/boot/style-nix.nix
               
               # Hyprland
-              #../../core/hyprland/enable-nix.nix
+              #./core/hyprland/enable-nix.nix
 
               # Hyprlock
-              #../../core/hyprlock/enable-nix.nix
+              #./core/hyprlock/enable-nix.nix
 
               # Hyprpanel
-              #../../core/hyprpanel/enable-nix.nix
+              #./core/hyprpanel/enable-nix.nix
 
               # Kitty
-              #../../core/kitty/enable-nix.nix
-              ../../core/kitty/tools-nix.nix
+              #./core/kitty/enable-nix.nix
+              ./core/kitty/tools-nix.nix
 
               # Networking
-              #../../core/networking/dhcp-nix.nix
-              ../../core/networking/static-nix.nix
+              #./core/networking/dhcp-nix.nix
+              ./core/networking/static-nix.nix
 
               # PCmanFM
-              #../../core/pcmanfm/enable-nix.nix
+              #./core/pcmanfm/enable-nix.nix
 
               # Rofi
-              #../../core/rofi/enable-nix.nix
+              #./core/rofi/enable-nix.nix
 
               # SDDM
-              #../../core/sddm/enable-nix.nix
+              #./core/sddm/enable-nix.nix
 
               # Sound
-              #../../core/sound/sound-nix.nix
+              #./core/sound/sound-nix.nix
 
               # Other
-              ../../core/other/local-nix.nix       # Local settings
-              ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-              ../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
-              #../../core/other/sound-nix.nix      # Sound  -  You like sound?
-              ../../core/other/user-nix.nix        # user  -  Adds a user
-              ../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
-              ../../core/other/sudo-nix.nix        # sudo  -  Sudo settings for deploy rs
-              #../../core/other/x11-nix.nix        # x11  -  needed for Xwayland??
-              ../../core/other/var.nix             # var  -  make var option for user config
+              ./core/other/local-nix.nix       # Local settings
+              ./core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
+              ./core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
+              #./core/other/sound-nix.nix      # Sound  -  You like sound?
+              ./core/other/user-nix.nix        # user  -  Adds a user
+              ./core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
+              ./core/other/sudo-nix.nix        # sudo  -  Sudo settings for deploy rs
+              #./core/other/x11-nix.nix        # x11  -  needed for Xwayland??
+              ./core/other/var.nix             # var  -  make var option for user config
 
 
               # OPTIONAL
               # You can comment and uncomment these as needed
 
               # btop
-              ../../optional/btop/enable-nix.nix
+              ./optional/btop/enable-nix.nix
 
               # Fast Fetch
-              ../../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
+              ./optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
               # Firefox
-              #../../optional/firefox/enable-nix.nix
+              #./optional/firefox/enable-nix.nix
 
               # Services
-              ../../optional/services/jellyfin-nix.nix
-              #../../optional/services/pihole-nix.nix
+              ./optional/services/jellyfin-nix.nix
+              #./optional/services/pihole-nix.nix
 
               # Strawberry
-              #../../optional/strawberry/enable-nix.nix    # Music player
+              #./optional/strawberry/enable-nix.nix    # Music player
 
               # VScode
-              #../../optional/vscode/enable-nix.nix
+              #./optional/vscode/enable-nix.nix
 
               # Other
-              #../../optional/other/alvr-nix.nix           # ALVR  -  For my vr nerds
-              #../../optional/other/bluetooth-nix.nix      # Bluetooth  -  Enables bluetooth and installs blueman
-              #../../optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
-              ../../optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
-              #../../optional/other/print-nix.nix          # Print  -  How old are you?
+              #./optional/other/alvr-nix.nix           # ALVR  -  For my vr nerds
+              #./optional/other/bluetooth-nix.nix      # Bluetooth  -  Enables bluetooth and installs blueman
+              #./optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
+              ./optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
+              #./optional/other/print-nix.nix          # Print  -  How old are you?
 
 
               # My stuff
-              ./hardware-configuration.nix   # hardware  -  your hardware settings
+              ./hosts/morganite/hardware-configuration.nix   # hardware  -  your hardware settings
               
             ];
             username = "reese";
