@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 
 {
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -11,5 +11,5 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
-  networking.hostName = config.var.hostName;
+  networking.hostName = specialArgs.var.hostName;
 }

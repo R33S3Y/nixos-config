@@ -1,12 +1,12 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 
 {
   # Set your time zone.
-  time.timeZone = config.var.timeZone;
+  time.timeZone = specialArgs.var.timeZone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = config.var.defaultLocale;
+  i18n.defaultLocale = specialArgs.var.defaultLocale;
 
-  i18n.extraLocaleSettings = config.var.extraLocaleSettings;
+  i18n.extraLocaleSettings = specialArgs.var.extraLocaleSettings;
 }

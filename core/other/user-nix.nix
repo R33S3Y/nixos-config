@@ -1,5 +1,5 @@
-{ config, pkgs, ... }:
-let username = config.var.username;
+{ config, pkgs, specialArgs, ... }:
+let username = specialArgs.var.username;
 in {
   users.users = {
     ${username} = {

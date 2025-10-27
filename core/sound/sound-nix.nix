@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 
 {
   # Enable sound with pipewire.
@@ -18,6 +18,6 @@
   };
   
   
-  hardware.bluetooth.enable = config.var.bluetooth; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = config.var.bluetooth; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.enable = specialArgs.var.bluetooth; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = specialArgs.var.bluetooth; # powers up the default Bluetooth controller on boot
 }

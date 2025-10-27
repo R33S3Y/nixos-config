@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 {
   imports = [
 
@@ -86,7 +86,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users."${config.var.username}" = import ./imports-home.nix;
+  home-manager.users."${specialArgs.var.username}" = import ./imports-home.nix;
 
   var = { 
     imports = [

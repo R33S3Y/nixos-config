@@ -1,20 +1,20 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 
 {
 
   # Networking
-  networking.hostName = config.var.hostName; # Define your hostname.
+  networking.hostName = specialArgs.var.hostName; # Define your hostname.
   networking.useDHCP = false;
-  networking.interfaces.${config.var.static.interface}.ipv4.addresses = [{
-      address = config.var.static.ipv4.address;
-      prefixLength = config.var.static.ipv4.prefixLength;
+  networking.interfaces.${specialArgs.var.static.interface}.ipv4.addresses = [{
+      address = specialArgs.var.static.ipv4.address;
+      prefixLength = specialArgs.var.static.ipv4.prefixLength;
     }];
   networking.defaultGateway = {
-    address = config.var.static.gatewayAddress;
-    interface = config.var.static.interface;
+    address = specialArgs.var.static.gatewayAddress;
+    interface = specialArgs.var.static.interface;
   };
-  networking.nameservers = config.var.static.nameservers;
+  networking.nameservers = specialArgs.var.static.nameservers;
   networking.networkmanager.enable = false;
   networking.firewall.enable = true;
 }

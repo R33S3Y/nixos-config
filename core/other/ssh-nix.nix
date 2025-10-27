@@ -1,5 +1,5 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 
 {
   services.openssh = {
@@ -8,7 +8,7 @@
     settings = {
       PasswordAuthentication = true;
       AllowUsers = [ 
-        config.var.username
+        specialArgs.var.username
         "rebuild"
       ];
       PermitRootLogin = "no";

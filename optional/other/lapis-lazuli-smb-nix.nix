@@ -7,8 +7,8 @@
   ];
   
   fileSystems."${specialArgs.var.lapisLazuli.mount}" = {
-    device = "//192.168.1.253/${config.var.lapisLazuli.share}";
+    device = "//192.168.1.253/${specialArgs.var.lapisLazuli.share}";
     fsType = "cifs";
-    options = [ "credentials=${config.var.lapisLazuli.credentials}" "uid=${config.var.username}" "gid=users" "iocharset=utf8" ];
+    options = [ "credentials=${specialArgs.var.lapisLazuli.credentials}" "uid=${specialArgs.var.username}" "gid=users" "iocharset=utf8" ];
   };
 } 
