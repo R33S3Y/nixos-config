@@ -200,7 +200,7 @@
               #./core/other/x11-nix.nix        # x11  -  needed for Xwayland??
               ./core/other/var.nix             # var  -  make var option for user config
 
-
+          
               # OPTIONAL
               # You can comment and uncomment these as needed
 
@@ -214,8 +214,8 @@
               #./optional/firefox/enable-nix.nix
 
               # Services
-              ./optional/services/jellyfin-nix.nix
-              #./optional/services/pihole-nix.nix
+              #./optional/services/jellyfin-nix.nix
+              ./optional/services/pihole-nix.nix
 
               # Strawberry
               #./optional/strawberry/enable-nix.nix    # Music player
@@ -227,12 +227,13 @@
               #./optional/other/alvr-nix.nix           # ALVR  -  For my vr nerds
               #./optional/other/bluetooth-nix.nix      # Bluetooth  -  Enables bluetooth and installs blueman
               #./optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
-              ./optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
+              #./optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
               #./optional/other/print-nix.nix          # Print  -  How old are you?
 
 
               # My stuff
               ./hosts/obsidian/hardware-configuration.nix   # hardware  -  your hardware settings
+              
             ];
 
             username = "reese";
