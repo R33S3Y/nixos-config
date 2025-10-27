@@ -11,10 +11,4 @@
     fsType = "cifs";
     options = [ "credentials=${config.var.lapisLazuli.credentials}" "uid=${config.var.username}" "gid=users" "iocharset=utf8" ];
   };
-
-  boot.supportedFilesystems = [ "nfs" ];
-  fileSystems."/mnt/lapisLazuli" = {
-    device = "lapisLazuli:/mnt/Pool 1/lapisLazuli";
-    fsType = "nfs";
-  };
 } 

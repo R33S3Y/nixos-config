@@ -74,7 +74,8 @@
     # Other
     #../../optional/other/alvr-nix.nix           # ALVR  -  For my vr nerds
     #../../optional/other/bluetooth-nix.nix      # Bluetooth  -  Enables bluetooth and installs blueman
-    #../../optional/other/lapis-lazuli-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
+    #../../optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
+    #../../optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
     #../../optional/other/print-nix.nix          # Print  -  How old are you?
 
 
