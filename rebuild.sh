@@ -8,8 +8,8 @@ GIT_REPO="$CONFIG_SRC"
 
 # List of remote hosts (can be just "host" or "user@host")
 REMOTE_HOSTS=(
-    "reese@obsidian"
-    "reese@morganite"
+    "rebuild@obsidian"
+    "rebuild@morganite"
 )
 
 GOOD="\033[94m"
