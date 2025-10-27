@@ -9,7 +9,7 @@ in {
       extraGroups = [ "networkmanager" "wheel" "jellyfin" ];
     };
     rebuild = {
-      isSystemUser = true;
+      isNormalUser = true;
       uid = 1001;
       group = "rebuild";
       description = "Remote rebuild user";
