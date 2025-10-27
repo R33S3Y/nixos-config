@@ -11,6 +11,7 @@ in {
     rebuild = {
       isSystemUser = true;
       uid = 1001;
+      group = "rebuild";
       description = "Remote rebuild user";
       openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGspq2G8adszEonoETTJ9s8RWFCJfthqCqd5fjq+wXm reese@diamond" ];
     };
