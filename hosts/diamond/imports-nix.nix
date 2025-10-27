@@ -202,13 +202,13 @@
 
       nameservers = [ "192.168.1.249" ];
     };
-    */
 
     lapisLazuli = { 
       mount = "/home/reese/lapis_lazuli";
       share = "lapis_lazuli";
       credentials = "/etc/nixos/secrets/diamond-user-access";
     };
+    */
 
     bluetooth = true;
   };
