@@ -1,4 +1,4 @@
-{
+var = {
   diamond = { 
     imports = [
       # CORE
@@ -127,7 +127,7 @@
 
     bluetooth = true;
     };
-  }
+  };
   obsidian = {
     imports = [
       # CORE
@@ -242,7 +242,7 @@
 
       nameservers = [ "192.168.1.249" ];
     };
-  }
+  };
   morganite = {
     imports = [
       # CORE
@@ -356,5 +356,5 @@
 
       nameservers = [ "192.168.1.249" ];
     };
-  }
+  };
 }
