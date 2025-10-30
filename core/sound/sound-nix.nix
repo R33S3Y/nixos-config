@@ -18,6 +18,6 @@
   };
   
   
-  hardware.bluetooth.enable = specialArgs.var.bluetooth; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = specialArgs.var.bluetooth; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.enable = config.var.${specialArgs.system}.bluetooth; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = config.var.${specialArgs.system}.bluetooth; # powers up the default Bluetooth controller on boot
 }

@@ -1,4 +1,4 @@
 { config, pkgs, specialArgs, ... }:
 {
-  imports = specialArgs.var.imports;
+  imports = config.var.${specialArgs.system}.imports;
 }
