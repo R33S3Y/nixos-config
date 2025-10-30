@@ -3,10 +3,10 @@
 
 {
   # Set your time zone.
-  time.timeZone = config.var.${specialArgs.system}.timeZone;
+  time.timeZone = specialArgs.var.${specialArgs.system}.timeZone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = config.var.${specialArgs.system}.defaultLocale;
+  i18n.defaultLocale = specialArgs.var.${specialArgs.system}.defaultLocale;
 
-  i18n.extraLocaleSettings = config.var.${specialArgs.system}.extraLocaleSettings;
+  i18n.extraLocaleSettings = specialArgs.var.${specialArgs.system}.extraLocaleSettings;
 }

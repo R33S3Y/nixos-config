@@ -11,5 +11,5 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
-  networking.hostName = config.var.${specialArgs.system}.hostName;
+  networking.hostName = specialArgs.var.${specialArgs.system}.hostName;
 }

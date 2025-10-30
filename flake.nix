@@ -10,7 +10,11 @@
     stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  let 
+    var = import ./flake/var-nix.nix;
+  in
+  {
     nixosConfigurations = {
       diamond = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -18,32 +22,27 @@
           inherit inputs;
           nixpkgs.config.allowUnfree = true;
           system = "diamond";
+          var = var;
         };
-        modules = [
-          ./main-nix.nix
-          inputs.stylix.nixosModules.stylix
-          home-manager.nixosModules.home-manager
-        ];
+        modules = var.diamond.imports;
       };
       obsidian = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
           inherit inputs; 
           system = "obsidian";
+          var = var;
         };
-        modules = [
-          ./main-nix.nix
-        ];
+        modules = var.obsidian.imports;
       };
       morganite = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
           inherit inputs; 
           system = "morganite";
+          var = var;
         };
-        modules = [
-          ./main-nix.nix
-        ];
+        modules = var.morganite.imports;
       };
     };
   };

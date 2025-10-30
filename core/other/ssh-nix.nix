@@ -8,7 +8,7 @@
     settings = {
       PasswordAuthentication = true;
       AllowUsers = [ 
-        config.var.${specialArgs.system}.username
+        specialArgs.var.${specialArgs.system}.username
         "rebuild"
       ];
       PermitRootLogin = "no";
