@@ -107,7 +107,7 @@ let
 
       hostName = "diamond";
 
-      /**
+      /*
       static = { # only needed when using networking-static-nix.nix
           interface = "enp10s0";
           ipv4 = {
@@ -358,6 +358,6 @@ let
         nameservers = [ "192.168.1.249" ];
       };
     };
-  };
+  }
 in
 var
