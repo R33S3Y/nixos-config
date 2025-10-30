@@ -94,40 +94,40 @@ let
       defaultLocale = "en_NZ.UTF-8";
 
       extraLocaleSettings = {
-          LC_ADDRESS = "en_NZ.UTF-8";
-          LC_IDENTIFICATION = "en_NZ.UTF-8";
-          LC_MEASUREMENT = "en_NZ.UTF-8";
-          LC_MONETARY = "en_NZ.UTF-8";
-          LC_NAME = "en_NZ.UTF-8";
-          LC_NUMERIC = "en_NZ.UTF-8";
-          LC_PAPER = "en_NZ.UTF-8";
-          LC_TELEPHONE = "en_NZ.UTF-8";
-          LC_TIME = "en_NZ.UTF-8";
+        LC_ADDRESS = "en_NZ.UTF-8";
+        LC_IDENTIFICATION = "en_NZ.UTF-8";
+        LC_MEASUREMENT = "en_NZ.UTF-8";
+        LC_MONETARY = "en_NZ.UTF-8";
+        LC_NAME = "en_NZ.UTF-8";
+        LC_NUMERIC = "en_NZ.UTF-8";
+        LC_PAPER = "en_NZ.UTF-8";
+        LC_TELEPHONE = "en_NZ.UTF-8";
+        LC_TIME = "en_NZ.UTF-8";
       };
 
       hostName = "diamond";
 
       /*
       static = { # only needed when using networking-static-nix.nix
-          interface = "enp10s0";
-          ipv4 = {
-          address = "192.168.1.140";
-          prefixLength = 24;
-          };
-          gatewayAddress = "192.168.1.1";
+        interface = "enp10s0";
+        ipv4 = {
+        address = "192.168.1.140";
+        prefixLength = 24;
+        };
+        gatewayAddress = "192.168.1.1";
 
-          nameservers = [ "192.168.1.249" ];
+        nameservers = [ "192.168.1.249" ];
       };
       */
 
       lapisLazuli = { 
-          mount = "/home/reese/lapis_lazuli";
-          share = "lapis_lazuli";
-          credentials = "/etc/nixos/secrets/diamond-user-access";
+        mount = "/home/reese/lapis_lazuli";
+        share = "lapis_lazuli";
+        credentials = "/etc/nixos/secrets/diamond-user-access";
       };
 
       bluetooth = true;
-      };
+      
     };
     obsidian = {
       imports = [
