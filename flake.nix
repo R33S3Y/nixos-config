@@ -12,7 +12,9 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
   let 
-    var = import ./flake/var-flake.nix {  inherit inputs;  };
+    var = import ./flake/var-flake.nix {
+      inherit inputs home-manager;
+    };
   in
   {
     nixosConfigurations = {
