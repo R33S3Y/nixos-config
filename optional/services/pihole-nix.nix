@@ -66,6 +66,8 @@
           "192.168.1.254 jade.lan"
           "192.168.1.248 morganite"
           "192.168.1.248 morganite.lan"
+          "192.168.1.249 obsidian"
+          "192.168.1.249 obsidian.lan"
         ];
         domainNeeded = false;
         expandHosts = false;
