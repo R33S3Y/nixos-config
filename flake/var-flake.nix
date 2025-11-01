@@ -1,3 +1,5 @@
+{ inputs, home-manager }:
+
 let
   var = {
     diamond = { 
