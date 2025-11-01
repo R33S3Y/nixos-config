@@ -1,6 +1,6 @@
 { config, pkgs, specialArgs, ... }:
 {
-  imports = specialArgs.var.${specialArgs.system}.imports;
+  #imports = specialArgs.var.${specialArgs.system}.imports;
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
