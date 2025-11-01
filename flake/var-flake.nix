@@ -178,6 +178,7 @@ let
         ../core/other/sudo-nix.nix        # sudo  -  Sudo settings for deploy rs
         #../core/other/x11-nix.nix        # x11  -  needed for Xwayland??
         ../core/other/var.nix             # var  -  make var option for user config
+        ../core/other/journald-nix.nix    # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
 
     
         # OPTIONAL
