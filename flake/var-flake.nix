@@ -52,26 +52,28 @@ let
         ../optional/btop/enable-nix.nix
 
         # Fast Fetch
-        ../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
+        ../optional/fastfetch/enable-nix.nix         # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
         # Firefox
         ../optional/firefox/enable-nix.nix
 
+        # LapisLazuli
+        ../optional/lapisLazuli/smb-nix.nix          # Lapius  -  My NAS! It's here cause I want it!
+        ../optional/lapisLazuli/nfs-nix.nix          # Lapius  -  NAS
+
         # Strawberry
-        ../optional/strawberry/enable-nix.nix    # Music player
+        ../optional/strawberry/enable-nix.nix        # Music player
 
         # VScode
         ../optional/vscode/enable-nix.nix
 
         # Other
         ../optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
-        ../optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
-        ../optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
 
         # My stuff
         ../hosts/diamond/other/programs-nix.nix
-        ../hosts/diamond/hardware-configuration.nix   # hardware  -  your hardware settings
-        ../hosts/diamond/stylix-nix.nix               # stylix  -  this repo expects stylix
+        ../hosts/diamond/hardware-configuration.nix  # hardware  -  your hardware settings
+        ../hosts/diamond/stylix-nix.nix              # stylix  -  this repo expects stylix
         ../hosts/diamond/imports-nix.nix
 
         inputs.stylix.nixosModules.stylix
@@ -206,8 +208,8 @@ let
         # Services
         ../optional/services/jellyfin-nix.nix
 
-        # Other
-        ../optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
+        # lapisLazuli
+        ../optional/lapisLazuli/nfs-nix.nix             # Lapius  -  NAS
 
         # My stuff
         ../hosts/morganite/hardware-configuration.nix   # hardware  -  your hardware settings
@@ -304,6 +306,10 @@ let
         # Firefox
         #../optional/firefox/enable-nix.nix
 
+        # LapisLazuli
+        #../optional/lapisLazuli/smb-nix.nix      # Lapius  -  My NAS! It's here cause I want it!
+        #../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
+
         # Services
         #../optional/services/jellyfin-nix.nix
         #../optional/services/pihole-nix.nix
@@ -316,8 +322,6 @@ let
 
         # Other
         #../optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
-        #../optional/other/lapis-lazuli-smb-nix.nix   # Lapius  -  My NAS! It's here cause I want it!
-        #../optional/other/lapis-lazuli-nfs-nix.nix   # Lapius  -  NAS
         #../optional/other/print-nix.nix              # Print  -  How old are you?
 
         #inputs.stylix.nixosModules.stylix
