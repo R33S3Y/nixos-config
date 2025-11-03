@@ -111,7 +111,6 @@ let
 
         # Other
         ../core/other/xdg-mime-home.nix   # Sets default apps
-        ../core/other/var-home.nix             # var  -  make var option for user config
 
 
         # OPTIONAL
@@ -439,7 +438,6 @@ let
         # Other
         ../core/other/home-home.nix       # Home-manager settings
         ../core/other/xdg-mime-home.nix   # Sets default apps
-        ../core/other/var-home.nix             # var  -  make var option for user config
 
 
         # OPTIONAL
