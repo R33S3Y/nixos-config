@@ -37,7 +37,7 @@ in {
     settings = {
       
       bar.layouts = {
-        "${config.var.primaryDisplay}" = {
+        "${specialArgs.var.${specialArgs.system}.primaryDisplay}" = {
           "left" = [ "dashboard" "workspaces" "windowtitle" ];
           "middle" = [ "media" "cava" ];
           "right" = [

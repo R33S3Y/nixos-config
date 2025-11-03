@@ -6,15 +6,15 @@
       "$mainMod" = "SUPER";
 
       exec-once = builtins.concatLists [
-        (if config.var.microphone.bluetooth.enable then [
-          "sh -c 'sleep 1 && bluetoothctl connect ${config.var.microphone.bluetooth.id}'"
+        (if specialArgs.var.${specialArgs.system}.microphone.bluetooth.enable then [
+          "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.var.${specialArgs.system}.microphone.bluetooth.id}'"
         ] else [])
-        (if config.var.speaker.bluetooth.enable then [
-          "sh -c 'sleep 1 && bluetoothctl connect ${config.var.speaker.bluetooth.id}'"
+        (if specialArgs.var.${specialArgs.system}.speaker.bluetooth.enable then [
+          "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.var.${specialArgs.system}.speaker.bluetooth.id}'"
         ] else [])
         [
-          "sh -c 'sleep 2 && wpctl status | grep -oP '\d+(?=\. ${config.var.microphone.name})' | xargs wpctl set-default'"
-          "sh -c 'sleep 2 && wpctl status | grep -oP '\d+(?=\. ${config.var.speaker.name})' | xargs wpctl set-default'"
+          "sh -c 'sleep 2 && wpctl status | grep -oP '\d+(?=\. ${specialArgs.var.${specialArgs.system}.microphone.name})' | xargs wpctl set-default'"
+          "sh -c 'sleep 2 && wpctl status | grep -oP '\d+(?=\. ${specialArgs.var.${specialArgs.system}.speaker.name})' | xargs wpctl set-default'"
         ]
       ];
         
