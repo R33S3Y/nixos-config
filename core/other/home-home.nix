@@ -1,5 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 {
+  imports = specialArgs.var.${specialArgs.system}.homeImports;
   # Enable home-manager
   programs.home-manager.enable = true;
 
