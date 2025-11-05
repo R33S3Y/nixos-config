@@ -83,6 +83,7 @@ let
         # CORE
         # Hyprland
         ../core/hyprland/bind-home.nix    # Keyboard bindings
+        ../core/hyprland/monitor-home.nix 
         ../core/hyprland/settings-home.nix# Settings
         ../core/hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
 
@@ -135,7 +136,6 @@ let
         # No home-manager files
 
         # My stuff
-        ../hosts/diamond/other/monitor-settings-home.nix
         ../hosts/diamond/other/startup-home.nix
 
       ];
@@ -185,6 +185,11 @@ let
           id = "C4:77:64:6C:56:95";
         };
       };
+      monitor = [
+        "HDMI-A-1, 1920x1080@60, 0x0, 1"
+        "DP-3, 2560x1440@165, 1920x-200, 2, transform,3"
+        "DP-2, 1920x1080@60, -960x375, 2"
+      ];
     };
     obsidian = {
       imports = [
@@ -521,6 +526,11 @@ let
           id = "C4:77:64:6C:56:95";
         };
       };
+      monitor = [
+        "HDMI-A-1, 1920x1080@60, 0x0, 1"
+        "DP-3, 2560x1440@165, 1920x-200, 2, transform,3"
+        "DP-2, 1920x1080@60, -960x375, 2"
+      ];
       
     };
   };
