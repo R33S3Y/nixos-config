@@ -7,7 +7,7 @@
   services.gvfs.enable = true;
 
   environment.systemPackages = with pkgs; [
-    lxqt.pcmanfm-qt
+    pcmanfm
     peazip
   ];
 }
