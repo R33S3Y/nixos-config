@@ -48,6 +48,6 @@
     nfs-utils
   ];
 
-  environment.variables.QT_STYLE_OVERRIDE = lib.mkForce null;
+  environment.variables.QT_STYLE_OVERRIDE = null;
 
 } 
