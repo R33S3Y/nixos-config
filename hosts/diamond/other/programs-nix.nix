@@ -1,5 +1,5 @@
 
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, inputs, specialArgs, ... }:
 
 {
   # List packages installed in system profile. To search, run:
