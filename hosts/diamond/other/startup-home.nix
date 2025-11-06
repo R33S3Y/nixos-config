@@ -4,8 +4,8 @@
 {
   wayland.windowManager.hyprland.settings.exec-once = [
     "steam -silent -no-browser"
-    "unset QT_STYLE_OVERRIDE"
   ];
+  stylix.targets.qt.enable = true;
   
 } 
 

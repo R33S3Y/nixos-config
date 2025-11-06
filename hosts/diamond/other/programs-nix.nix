@@ -48,6 +48,6 @@
     nfs-utils
   ];
 
-  environment.variables.QT_STYLE_OVERRIDE = null;
+  stylix.targets.qt.enable = false;
 
 } 
