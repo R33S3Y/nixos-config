@@ -9,7 +9,5 @@
   home.username = "reese";
   home.homeDirectory = "/home/reese";
 
-  home.sessionVariables.QT_STYLE_OVERRIDE = lib.mkForce null;
-
 }
 
