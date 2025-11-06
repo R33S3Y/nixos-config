@@ -79,9 +79,9 @@ let
 
         # Other
         ../optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
+        ../optional/other/programs-nix.nix
 
         # My stuff
-        ../hosts/diamond/other/programs-nix.nix
         ../hosts/diamond/hardware-configuration.nix  # hardware  -  your hardware settings
         ../hosts/diamond/stylix-nix.nix              # stylix  -  this repo expects stylix
 
@@ -466,6 +466,7 @@ let
         # Other
         #../optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
         #../optional/other/print-nix.nix              # Print  -  How old are you?
+        #../optional/other/programs-nix.nix
 
         #inputs.stylix.nixosModules.stylix
         #home-manager.nixosModules.home-manager
