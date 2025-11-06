@@ -12,8 +12,19 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
   let 
-    var = import ./flake/var-flake.nix {
-      inherit inputs home-manager;
+    var = {
+      diamond = import ./diamond/var-flake.nix {
+        inherit inputs home-manager;
+      };
+      morganite = import ./morganite/var-flake.nix {
+        inherit inputs home-manager;
+      };
+      obsidian = import ./obsidian/var-flake.nix {
+        inherit inputs home-manager;
+      };
+      template = import ./template/var-flake.nix {
+        inherit inputs home-manager;
+      };
     };
   in
   {
