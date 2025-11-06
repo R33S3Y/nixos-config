@@ -178,6 +178,45 @@ let
         credentials = "/etc/nixos/secrets/diamond-user-access";
       };
 
+      programs = with nixpkgs; [
+        featherpad
+        krita
+        gimp3
+
+        git
+        vlc
+        nano
+        discord
+        
+        prismlauncher
+        python314
+        obsidian
+
+        protonup-qt #needed for a vrchat fix
+
+        bs-manager 
+
+        r2modman
+        orca-slicer
+        openscad
+        blender-hip
+
+        obs-studio
+
+        keymapp 
+
+        kicad
+        libreoffice-qt6-fresh
+
+        qtcreator
+        cmake
+        gdb
+
+        qbittorrent
+
+        nfs-utils
+      ];
+
       bluetooth = true;
 
       screenshotFolder = "~/Pictures";
