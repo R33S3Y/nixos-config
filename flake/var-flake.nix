@@ -569,7 +569,7 @@ let
         credentials = "/etc/nixos/secrets/diamond-user-access";
       };
 
-      programs = with pkgs; [
+      programs = with inputs.nixpkgs; [
         featherpad
         krita
         gimp3
