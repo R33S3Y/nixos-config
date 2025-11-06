@@ -28,6 +28,9 @@ let
         # PCmanFM
         ../core/pcmanfm/enable-nix.nix
 
+        # qt
+        ../core/qt/enable-nix.nix
+
         # Rofi
         ../core/rofi/enable-nix.nix
     
@@ -100,6 +103,9 @@ let
 
         # PCmanFM
         # No home-manager files
+
+        # qt
+        ../core/qt/style-home.nix
 
         # Rofi
         ../core/rofi/style-home.nix       # Styles
@@ -356,6 +362,9 @@ let
         # PCmanFM
         #../core/pcmanfm/enable-nix.nix
 
+        # qt
+        #../core/qt/enable-nix.nix
+
         # Rofi
         #../core/rofi/enable-nix.nix
     
@@ -430,6 +439,9 @@ let
 
         # PCmanFM
         # No home-manager files
+
+        # qt
+        ../core/qt/style-home.nix
 
         # Rofi
         ../core/rofi/style-home.nix       # Styles
