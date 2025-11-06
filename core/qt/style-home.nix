@@ -66,4 +66,6 @@ in {
     cp ${qtConf} ${config.home.homeDirectory}/.config/qt6ct/qt6ct.conf
     chmod 755 ${config.home.homeDirectory}/.config/qt6ct/qt6ct.conf
   '';
+
+  stylix.targets.qt.enable = false;
 }
