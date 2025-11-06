@@ -1,6 +1,9 @@
 { inputs, home-manager }:
 
 let
+  pkgs = import inputs.nixpkgs {
+    system = "x86_64-linux"; # or inherit system if passed from the flake
+  };
   var = {
     diamond = { 
       imports = [
@@ -178,7 +181,7 @@ let
         credentials = "/etc/nixos/secrets/diamond-user-access";
       };
 
-      programs = with inputs.nixpkgs; [
+      programs = with pkgs; [
         featherpad
         krita
         gimp3
@@ -569,7 +572,7 @@ let
         credentials = "/etc/nixos/secrets/diamond-user-access";
       };
 
-      programs = with inputs.nixpkgs; [
+      programs = with pkgs; [
         featherpad
         krita
         gimp3
