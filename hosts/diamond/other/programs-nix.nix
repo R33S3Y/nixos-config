@@ -48,6 +48,6 @@
     nfs-utils
   ];
 
-  stylix.targets.qt.enable = false;
+  stylix.targets.qt.enable = true;
 
 } 
