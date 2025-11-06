@@ -64,6 +64,9 @@ let
         ../optional/lapisLazuli/smb-nix.nix          # Lapius  -  My NAS! It's here cause I want it!
         ../optional/lapisLazuli/nfs-nix.nix          # Lapius  -  NAS
 
+        # steam
+        ../optional/steam/enable-nix.nix
+
         # Strawberry
         ../optional/strawberry/enable-nix.nix        # Music player
 
@@ -131,6 +134,9 @@ let
 
         # Firefox
         ../optional/firefox/settings-home.nix
+
+        # steam
+        ../optional/steam/startup-home.nix
 
         # Strawberry
         ../optional/strawberry/bind-home.nix     # Global Hotkeys for music player
@@ -405,6 +411,9 @@ let
         #../optional/services/jellyfin-nix.nix
         #../optional/services/pihole-nix.nix
 
+        # steam
+        #../optional/steam/enable-nix.nix
+
         # Strawberry
         #../optional/strawberry/enable-nix.nix    # Music player
 
@@ -468,6 +477,9 @@ let
 
         # Firefox
         ../optional/firefox/settings-home.nix
+
+        # steam
+        ../optional/steam/startup-home.nix
 
         # Strawberry
         ../optional/strawberry/bind-home.nix     # Global Hotkeys for music player
