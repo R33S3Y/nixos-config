@@ -4,7 +4,7 @@
 
   stylix.polarity = "dark";
 
-  stylix.image = ./wallpapers/diamond.jpg;
+  stylix.image = ./wallpapers.jpg;
 
   stylix.base16Scheme = {
     base00 = "181B28"; # ----
