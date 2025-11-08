@@ -123,7 +123,7 @@ let
       ../../core/sound/sound-home.nix
 
       # Other
-      ../../core/other/xdg-mime-home.nix   # Sets default apps
+      ../../core/other/xdgMime-home.nix   # Sets default apps
 
 
       # OPTIONAL
