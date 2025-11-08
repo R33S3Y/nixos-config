@@ -54,7 +54,7 @@ let
       ../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
       ../../core/other/user-nix.nix        # user  -  Adds a user
       ../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
-      ../../core/other/stylix-nix.nix      # stylix  -  this repo expects stylix
+      ../../core/style/stylix-nix.nix      # stylix  -  this repo expects stylix
       ../../core/other/sudo-nix.nix        # sudo  -  Sudo settings
       ../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
       ../../core/other/journald-nix.nix    # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
