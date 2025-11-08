@@ -218,6 +218,7 @@ let
       qbittorrent
 
       nfs-utils
+      libnotify
     ];
 
     bluetooth = true;
