@@ -31,7 +31,6 @@ let
 
       # Networking
       ../../core/networking/dhcp-nix.nix
-      ../../core/networking/static-nix.nix
   
       # PCmanFM
       ../../core/pcmanfm/enable-nix.nix
@@ -73,26 +72,9 @@ let
       ../../optional/firefox/enable-nix.nix
 
       # LapisLazuli
-      ../../optional/lapisLazuli/smb-nix.nix      # Lapius  -  My NAS! It's here cause I want it!
       ../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
 
-      # Services
-      ../../optional/services/jellyfin-nix.nix
-      ../../optional/services/pihole-nix.nix
-
-      # steam
-      ../../optional/steam/enable-nix.nix
-
-      # Strawberry
-      ../../optional/strawberry/enable-nix.nix    # Music player
-
-      # VScode
-      ../../optional/vscode/enable-nix.nix
-
-      # Other
-      ../../optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
-      ../../optional/other/print-nix.nix              # Print  -  How old are you?
-      ../../optional/other/programs-nix.nix           # Install all programs in the programs var
+      ../../optional/other/programs-nix.nix
 
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
@@ -150,15 +132,6 @@ let
       # Firefox
       ../../optional/firefox/settings-home.nix
 
-      # steam
-      ../../optional/steam/startup-home.nix
-
-      # Strawberry
-      ../../optional/strawberry/bind-home.nix     # Global Hotkeys for music player
-
-      # VScode
-      ../../optional/vscode/settings-home.nix
-
       # Other
       # No home-manager files
     ];
@@ -181,90 +154,17 @@ let
       LC_TIME = "en_NZ.UTF-8";
     };
 
-    hostName = "diamond";
-
-    
-    static = { # only needed when using networking-static-nix.nix
-      interface = "enp10s0";
-      ipv4 = {
-      address = "192.168.1.140";
-      prefixLength = 24;
-      };
-      gatewayAddress = "192.168.1.1";
-
-      nameservers = [ "192.168.1.249" ];
-    };
-    
-
-    lapisLazuli = { 
-      mount = "/home/reese/lapis_lazuli";
-      share = "lapis_lazuli";
-      credentials = "/etc/nixos/secrets/diamond-user-access";
-    };
+    hostName = "cinnabar";
 
     programs = with pkgs; [
-      featherpad
-      krita
-      gimp3
-
-      git
-      vlc
-      nano
-      discord
-      
-      prismlauncher
-      python314
-      obsidian
-
-      protonup-qt #needed for a vrchat fix
-
-      bs-manager 
-
-      r2modman
-      orca-slicer
-      openscad
-      blender-hip
-
-      obs-studio
-
-      keymapp 
-
-      kicad
-      libreoffice-qt6-fresh
-
-      qtcreator
-      cmake
-      gdb
-
-      qbittorrent
-
-      nfs-utils
     ];
-
-    bluetooth = true;
 
     # home manager vars
     screenshotFolder = "~/Pictures";
-    primaryDisplay =  "HDMI-A-1";
+    primaryDisplay =  "";
 
-    microphone = {
-      name = "Family 17h/19h/1ah HD Audio Controller Analog Stereo";
-      bluetooth = {
-        enable = false;
-        id = "";
-      };
-    };
-    speaker = {
-      name = "Galaxy Buds FE";
-      bluetooth = {
-        enable = true;
-        id = "C4:77:64:6C:56:95";
-      };
-    };
     monitor = [
-      "HDMI-A-1, 1920x1080@60, 0x0, 1"
-      "DP-3, 2560x1440@165, 1920x-200, 2, transform,3"
-      "DP-2, 1920x1080@60, -960x375, 2"
+      ""
     ];
     
   };
