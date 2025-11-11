@@ -44,9 +44,6 @@ let
       # SDDM
       ../../core/sddm/enable-nix.nix
 
-      # Sound
-      ../../core/sound/sound-nix.nix
-
       # Other
       ../../core/other/local-nix.nix       # Local settings
       ../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
@@ -116,9 +113,6 @@ let
 
       # SDDM
       # TODO : SDDM styles
-
-      # Sound
-      ../../core/sound/sound-home.nix
 
       # Other
       ../../core/other/xdgMime-home.nix   # Sets default apps
