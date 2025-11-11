@@ -27,7 +27,7 @@ let
       ../../core/kitty/tools-nix.nix
 
       # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
-      ../../core/lazyupdate/enable-nix.nix
+      ../../core/lazyUpdate/enable-nix.nix
 
       # Networking
       ../../core/networking/dhcp-nix.nix
@@ -117,7 +117,7 @@ let
       ../../core/kitty/settings-home.nix   # Settings
 
       # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
-      ../../core/lazyupdate/run-home.nix
+      ../../core/lazyUpdate/run-home.nix
 
       # PCmanFM
       # No home-manager files
