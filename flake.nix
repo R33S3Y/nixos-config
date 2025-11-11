@@ -13,7 +13,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
   let 
     var = {
-      cinnabar = import ./hosts/diamond/var-flake.nix {
+      cinnabar = import ./hosts/cinnabar/var-flake.nix {
         inherit inputs home-manager;
       };
       diamond = import ./hosts/diamond/var-flake.nix {
