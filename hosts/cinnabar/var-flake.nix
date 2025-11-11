@@ -74,8 +74,12 @@ let
       # LapisLazuli
       ../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
 
+      # other
       ../../optional/other/programs-nix.nix
 
+      # My stuff
+      ./hardware-configuration.nix  # hardware  -  your hardware settings
+      
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       
