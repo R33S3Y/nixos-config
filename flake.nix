@@ -13,6 +13,9 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
   let 
     var = {
+      cinnabar = import ./hosts/diamond/var-flake.nix {
+        inherit inputs home-manager;
+      };
       diamond = import ./hosts/diamond/var-flake.nix {
         inherit inputs home-manager;
       };
@@ -29,6 +32,16 @@
   in
   {
     nixosConfigurations = {
+      cinnabar = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { 
+          inherit inputs;
+          nixpkgs.config.allowUnfree = true;
+          system = "cinnabar";
+          var = var;
+        };
+        modules = var.cinnabar.imports;
+      };
       diamond = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
