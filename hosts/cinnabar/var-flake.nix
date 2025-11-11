@@ -9,7 +9,6 @@ let
     imports = [
       # CORE
       # boot
-      ../../core/boot/bios-nix.nix
       ../../core/boot/uefi-nix.nix
       ../../core/boot/style-nix.nix
 
