@@ -7,6 +7,9 @@ let
   };
   template = { 
     imports = [
+      # Nix modules
+      inputs.stylix.nixosModules.stylix
+      home-manager.nixosModules.home-manager
       # CORE
       # boot
       ../../core/boot/uefi-nix.nix
@@ -75,9 +78,6 @@ let
 
       # My stuff
       ./hardware-configuration.nix  # hardware  -  your hardware settings
-      
-      inputs.stylix.nixosModules.stylix
-      home-manager.nixosModules.home-manager
       
     ];
     homeImports = [

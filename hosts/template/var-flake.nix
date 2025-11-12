@@ -7,6 +7,9 @@ let
   };
   template = { 
     imports = [
+      # Nix modules
+      inputs.stylix.nixosModules.stylix
+      home-manager.nixosModules.home-manager
       # CORE
       # boot
       ../../core/boot/bios-nix.nix
@@ -94,9 +97,6 @@ let
       ../../optional/other/print-nix.nix              # Print  -  How old are you?
       ../../optional/other/programs-nix.nix           # Install all programs in the programs var
 
-      inputs.stylix.nixosModules.stylix
-      home-manager.nixosModules.home-manager
-      
     ];
     homeImports = [
       # CORE
