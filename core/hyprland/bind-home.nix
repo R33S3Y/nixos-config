@@ -60,13 +60,13 @@
         "$mainMod, mouse_up, workspace, e+1"
 
         # Screenshot a window
-        "$mainMod SHIFT, PRINT, exec, hyprshot -m window -o ${specialArgs.var.${specialArgs.system}.screenshotFolder}"
+        "$mainMod SHIFT, PRINT, exec, hyprshot -m window -o ~/Public"
 
         # Screenshot a monitor
-        ", PRINT, exec, hyprshot -m region -o ${specialArgs.var.${specialArgs.system}.screenshotFolder}"
+        ", PRINT, exec, hyprshot -m region -o ~/Public"
 
         # Screenshot a region
-        "$mainMod, PRINT, exec, hyprshot -m output -o ${specialArgs.var.${specialArgs.system}.screenshotFolder}"
+        "$mainMod, PRINT, exec, hyprshot -m output -o ~/Public"
 
         # color picker
         "$mainMod CTRL, PRINT, exec, hyprpicker -a"
