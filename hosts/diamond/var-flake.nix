@@ -122,7 +122,7 @@ let
       # TODO : SDDM styles
 
       # Sound
-      #../../core/sound/sound-home.nix
+      ../../core/sound/sound-home.nix
 
       # Other
       ../../core/other/xdgMime-home.nix   # Sets default apps
