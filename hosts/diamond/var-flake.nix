@@ -152,9 +152,6 @@ let
       # Other
       # No home-manager files
 
-      # My stuff
-      ../../hosts/diamond/other/startup-home.nix
-
     ];
     
     username = "reese";
