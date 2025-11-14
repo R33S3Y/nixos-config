@@ -155,6 +155,8 @@ let
     hostName = "cinnabar";
 
     programs = with pkgs; [
+      handbrake
+      libdvdcss
     ];
 
     # home manager vars
