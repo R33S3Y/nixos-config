@@ -222,7 +222,7 @@ let
 
     bluetooth = true;
 
-    screenshotFolder = "~/Public";
+    screenshotFolder = "~/Pictures";
     primaryDisplay =  "HDMI-A-1";
 
     microphone = {
