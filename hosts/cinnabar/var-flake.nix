@@ -157,6 +157,7 @@ let
     programs = with pkgs; [
       handbrake
       libdvdcss
+      ffmpeg-full
     ];
 
     # home manager vars

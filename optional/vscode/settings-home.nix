@@ -10,6 +10,7 @@
       extensions = [ 
         pkgs.vscode-extensions.bbenoist.nix 
         pkgs.vscode-extensions.naumovs.color-highlight 
+        pkgs.vscode-extensions.ms-python.python
       ];
     };
   };
