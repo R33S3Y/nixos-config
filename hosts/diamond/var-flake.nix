@@ -226,17 +226,18 @@ let
     primaryDisplay =  "HDMI-A-1";
 
     microphone = {
-      name = "Family 17h/19h/1ah HD Audio Controller Analog Stereo";
+      # use wpctl status to get device names
+      name = "Blue Microphones Analog Stereo";
       bluetooth = {
         enable = false;
-        id = "";
+        id = ""; # bluetoothctl devices
       };
     };
     speaker = {
-      name = "Galaxy Buds FE";
+      name = "Baseus Inspire XC1";
       bluetooth = {
         enable = true;
-        id = "C4:77:64:6C:56:95";
+        id = "54:84:50:67:C9:A2"; # bluetoothctl devices
       };
     };
     monitor = [
