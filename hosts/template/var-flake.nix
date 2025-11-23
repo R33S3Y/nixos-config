@@ -248,7 +248,8 @@ let
     primaryDisplay =  "HDMI-A-1";
 
     microphone = {
-      name = "Family 17h/19h/1ah HD Audio Controller Analog Stereo";
+      # use wpctl status to get device names
+      name = "Blue Microphones Analog Stereo";
       bluetooth = {
         enable = false;
         id = "";
