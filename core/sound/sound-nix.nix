@@ -15,6 +15,10 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    pwvucontrol
+  ];
   
   hardware.bluetooth.enable = specialArgs.var.${specialArgs.system}.bluetooth; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = specialArgs.var.${specialArgs.system}.bluetooth; # powers up the default Bluetooth controller on boot
