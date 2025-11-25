@@ -17,7 +17,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    pulseaudio
+    pulseaudio-ctl
   ];
   
   hardware.bluetooth.enable = specialArgs.var.${specialArgs.system}.bluetooth; # enables support for Bluetooth
