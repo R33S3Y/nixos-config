@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       "$mainMod" = "SUPER";
-
+      # this is broken
       exec-once = builtins.concatLists [
         (if specialArgs.var.${specialArgs.system}.microphone.bluetooth.enable then [
           "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.var.${specialArgs.system}.microphone.bluetooth.id}'"
