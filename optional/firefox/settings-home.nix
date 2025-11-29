@@ -17,6 +17,7 @@
           force = true;
           default = "ddg";
         };
+        extensions.force = true;
       };
     };
     /* ---- POLICIES ---- */
