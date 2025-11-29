@@ -18,19 +18,19 @@
   let 
     var = {
       cinnabar = import ./hosts/cinnabar/var-flake.nix {
-        inherit inputs home-manager;
+        inherit inputs home-manager nur;
       };
       diamond = import ./hosts/diamond/var-flake.nix {
-        inherit inputs home-manager;
+        inherit inputs home-manager nur;
       };
       morganite = import ./hosts/morganite/var-flake.nix {
-        inherit inputs home-manager;
+        inherit inputs home-manager nur;
       };
       obsidian = import ./hosts/obsidian/var-flake.nix {
-        inherit inputs home-manager;
+        inherit inputs home-manager nur;
       };
       template = import ./hosts/template/var-flake.nix {
-        inherit inputs home-manager;
+        inherit inputs home-manager nur;
       };
     };
   in
