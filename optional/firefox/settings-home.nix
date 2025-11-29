@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   
-  stylix.targets.firefox.profileNames = ["Default"];
+  stylix.targets.firefox.profileNames = ["default"];
   
   programs.firefox = {
     enable = true;
