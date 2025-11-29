@@ -13,8 +13,8 @@
           "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.var.${specialArgs.system}.speaker.bluetooth.id}'"
         ] else [])
         [
-          "sh -c 'sleep 2 && wpctl status | grep -oP '\d+(?=\. ${specialArgs.var.${specialArgs.system}.microphone.name})' | xargs wpctl set-default'"
-          "sh -c 'sleep 2 && wpctl status | grep -oP '\d+(?=\. ${specialArgs.var.${specialArgs.system}.speaker.name})' | xargs wpctl set-default'"
+          "setDefaultAudio --sink ${specialArgs.var.${specialArgs.system}.microphone.name})' | xargs wpctl set-default"
+          "setDefaultAudio --source ${specialArgs.var.${specialArgs.system}.speaker.name})' | xargs wpctl set-default'"
         ]
       ];
         
