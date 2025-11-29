@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs: 
   let 
     var = {
       cinnabar = import ./hosts/cinnabar/var-flake.nix {
