@@ -1,4 +1,4 @@
-{ config, pkgs, nur, ... }:
+{ config, pkgs, specialArgs, ... }:
 {
   
   stylix.targets.firefox = {
@@ -20,7 +20,7 @@
         extensions = {
           force = true;
           packages = [
-            nur.repos.rycee.firefox-addons.darkreader
+            specialArgs.nur.repos.rycee.firefox-addons.darkreader
           ];
         };
       };
