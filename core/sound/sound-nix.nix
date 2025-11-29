@@ -19,29 +19,31 @@
   hardware.bluetooth.enable = specialArgs.var.${specialArgs.system}.bluetooth; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = specialArgs.var.${specialArgs.system}.bluetooth; # powers up the default Bluetooth controller on boot
 
-  pkgs.stdenv.mkDerivation = {
-    pname = "setDefaultAudio";
-    version = "1.0";
+  environment.systemPackages = [
+    (pkgs.stdenv.mkDerivation = {
+      pname = "setDefaultAudio";
+      version = "1.0";
 
-    src = ./.;
+      src = ./.;
 
-    buildInputs = [
-      pkgs.nlohmann_json
-    ];
+      buildInputs = [
+        pkgs.nlohmann_json
+      ];
 
-    nativeBuildInputs = [
-      pkgs.gcc
-    ];
+      nativeBuildInputs = [
+        pkgs.gcc
+      ];
 
-    buildPhase = ''
-      g++ setDefaultAudio.cpp -o setDefaultAudio \
-        -std=c++20 \
-        -I${pkgs.nlohmann_json}/include
-    '';
+      buildPhase = ''
+        g++ setDefaultAudio.cpp -o setDefaultAudio \
+          -std=c++20 \
+          -I${pkgs.nlohmann_json}/include
+      '';
 
-    installPhase = ''
-      mkdir -p $out/bin
-      cp setDefaultAudio $out/bin/
-    '';
-  };
+      installPhase = ''
+        mkdir -p $out/bin
+        cp setDefaultAudio $out/bin/
+      '';
+    });
+  ];
 }
