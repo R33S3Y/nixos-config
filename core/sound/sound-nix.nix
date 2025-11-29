@@ -20,7 +20,7 @@
   hardware.bluetooth.powerOnBoot = specialArgs.var.${specialArgs.system}.bluetooth; # powers up the default Bluetooth controller on boot
 
   environment.systemPackages = [
-    (pkgs.stdenv.mkDerivation = {
+    (pkgs.stdenv.mkDerivation {
       pname = "setDefaultAudio";
       version = "1.0";
 
