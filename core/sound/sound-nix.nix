@@ -43,5 +43,5 @@
       mkdir -p $out/bin
       cp setDefaultAudio $out/bin/
     '';
-  }
+  };
 }
