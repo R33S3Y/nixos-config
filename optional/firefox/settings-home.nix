@@ -19,9 +19,9 @@
         };
         extensions = {
           force = true;
-          packages = {
+          packages = [
             nur.repos.rycee.firefox-addons.darkreader
-          };
+          ];
         };
       };
     };
