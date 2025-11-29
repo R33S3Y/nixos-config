@@ -17,7 +17,12 @@
           force = true;
           default = "ddg";
         };
-        extensions.force = true;
+        extensions = {
+          force = true;
+          packages = {
+            nur.repos.rycee.firefox-addons.darkreader
+          };
+        };
       };
     };
     /* ---- POLICIES ---- */

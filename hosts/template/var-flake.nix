@@ -10,6 +10,7 @@ let
       # Nix modules
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
+      nur.modules.nixos.default
       # CORE
       # boot
       ../../core/boot/bios-nix.nix
