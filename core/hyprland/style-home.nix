@@ -51,8 +51,8 @@
           # color = "rgba(1a1a1aee)";
         };
 
-        active_opacity = "0.99";
-        inactive_opacity = "0.9";
+        active_opacity = "1";
+        inactive_opacity = "1";
       };
     };
   };
