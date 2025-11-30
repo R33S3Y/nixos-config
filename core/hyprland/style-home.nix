@@ -41,7 +41,7 @@
         blur = {
           enabled = "true";
           size = "20";
-          passes = "1";
+          passes = "5";
         };
 
         shadow = {
