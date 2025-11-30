@@ -20,8 +20,11 @@
         extensions = {
           force = true;
           #autoDisableScopes = 0;
-          packages = [
-            pkgs.nur.repos.rycee.firefox-addons.darkreader
+          packages = with pkgs.nur.repos.rycee.firefox-addons;[
+            darkreader
+            sponsorblock
+            return-youtube-dislikes
+            redirect-shorts-to-youtube
           ];
         };
       };
