@@ -1,4 +1,4 @@
-{ config, pkgs, specialArgs, ... }:
+{ config, pkgs, ... }:
 {
   
   stylix.targets.firefox = {
@@ -19,8 +19,9 @@
         };
         extensions = {
           force = true;
+          autoDisableScopes = 0;
           packages = [
-            specialArgs.nur.repos.rycee.firefox-addons.darkreader
+            #nur.repos.rycee.firefox-addons.darkreader
           ];
         };
       };
