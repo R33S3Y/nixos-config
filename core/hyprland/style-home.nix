@@ -48,7 +48,7 @@
           enabled = "true";
           range = "8";
           render_power = "4";
-          # color = "rgba(1a1a1aee)";
+          color = "rgba(1a1a1aee)";
         };
 
         active_opacity = "1";
