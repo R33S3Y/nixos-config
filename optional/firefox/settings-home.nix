@@ -19,9 +19,9 @@
         };
         extensions = {
           force = true;
-          autoDisableScopes = 0;
+          #autoDisableScopes = 0;
           packages = [
-            #nur.repos.rycee.firefox-addons.darkreader
+            pkgs.nur.repos.rycee.firefox-addons.darkreader
           ];
         };
       };
