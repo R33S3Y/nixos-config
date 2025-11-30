@@ -25,6 +25,7 @@
             sponsorblock
             return-youtube-dislikes
             redirect-shorts-to-youtube
+            ublock-origin
           ];
         };
         settings = {
