@@ -24,8 +24,8 @@
             darkreader
             sponsorblock
             return-youtube-dislikes
-            redirect-shorts-to-youtube
             ublock-origin
+            youtube-shorts-block
           ];
         };
         settings = {
