@@ -40,7 +40,7 @@
         
         blur = {
           enabled = "true";
-          size = "7";
+          size = "20";
           passes = "1";
         };
 
@@ -52,7 +52,7 @@
         };
 
         active_opacity = "1";
-        inactive_opacity = "1";
+        inactive_opacity = "0.9";
       };
     };
   };
