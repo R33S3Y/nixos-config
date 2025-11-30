@@ -1,4 +1,4 @@
-{ inputs, home-manager }:
+{ inputs, home-manager, nur }:
 
 let
   pkgs = import inputs.nixpkgs {
@@ -10,6 +10,7 @@ let
       # Nix modules
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
+      nur.modules.nixos.default
       # CORE
       # boot
       ../../core/boot/uefi-nix.nix

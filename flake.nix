@@ -24,10 +24,10 @@
         inherit inputs home-manager nur;
       };
       morganite = import ./hosts/morganite/var-flake.nix {
-        inherit inputs home-manager nur;
+        inherit inputs home-manager;
       };
       obsidian = import ./hosts/obsidian/var-flake.nix {
-        inherit inputs home-manager nur;
+        inherit inputs home-manager;
       };
       template = import ./hosts/template/var-flake.nix {
         inherit inputs home-manager nur;
