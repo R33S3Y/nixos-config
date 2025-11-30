@@ -27,6 +27,9 @@
             redirect-shorts-to-youtube
           ];
         };
+        settings = {
+          "extensions.autoDisableScopes" = 0;
+        };
       };
     };
     /* ---- POLICIES ---- */
@@ -50,14 +53,6 @@
       DisplayBookmarksToolbar = "always"; # alternatives: "always" or "newtab"
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unified"; # alternative: "separate"
-
-      /* ---- EXTENSIONS ---- */
-      # Check about:support for extension/add-on ID strings.
-      # Valid strings for installation_mode are "allowed", "blocked",
-      # "force_installed" and "normal_installed".
-      ExtensionSettings = {
-        "*".installation_mode = "force_installed"; # blocks all addons except the ones specified below
-      };
     };
   };
 }
