@@ -44,9 +44,9 @@ int main(int argc, char const *argv[]) {
     for (int i = 0; i < json.size(); i++) {
         if (json[i]["info"]["props"]["node.description"] == name && json[i]["info"]["props"]["media.class"] == "Audio/" + type) {
             std::cout << json[i]["id"];
-            return 0;
+            //return 0;
         }
     }
-    std::cerr << "Nothing found";
+    //std::cerr << "Nothing found";
     return 0;
 }
