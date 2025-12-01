@@ -47,6 +47,6 @@ int main(int argc, char const *argv[]) {
             //return 0;
         }
     }
-    //std::cerr << "Nothing found";
+    std::cerr << "Nothing found";
     return 0;
 }
