@@ -21,7 +21,7 @@
 
   environment.systemPackages = [
     (pkgs.stdenv.mkDerivation {
-      pname = "setDefaultAudio";
+      pname = "getDeviceId";
       version = "1.0";
 
       src = ./.;
@@ -35,14 +35,14 @@
       ];
 
       buildPhase = ''
-        g++ setDefaultAudio.cpp -o setDefaultAudio \
+        g++ getDeviceId.cpp -o getDeviceId \
           -std=c++20 \
           -I${pkgs.nlohmann_json}/include
       '';
 
       installPhase = ''
         mkdir -p $out/bin
-        cp setDefaultAudio $out/bin/
+        cp getDeviceId $out/bin/
       '';
     })
   ];
