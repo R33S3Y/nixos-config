@@ -13,8 +13,8 @@
           "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.var.${specialArgs.system}.speaker.bluetooth.id}'"
         ] else [])
         [
-          "getDeviceId --sink '${specialArgs.var.${specialArgs.system}.microphone.name}' | xargs wpctl set-default"
-          "getDeviceId --source '${specialArgs.var.${specialArgs.system}.speaker.name}' | xargs wpctl set-default'"
+          "getDeviceId --source '${specialArgs.var.${specialArgs.system}.microphone.name}' | xargs wpctl set-default"
+          "getDeviceId --sink '${specialArgs.var.${specialArgs.system}.speaker.name}' | xargs wpctl set-default'"
         ]
       ];
         
