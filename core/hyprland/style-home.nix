@@ -4,7 +4,7 @@
   home.pointerCursor = {
     name = "BreezeX-RosePine-Linux"; # Cursor name is the folder name of your choice in /nix/store/{{cursor Theme}}/share/icons
     package = pkgs.rose-pine-cursor;
-    size = 24;
+    size = 32;
 
     gtk.enable = true;
     x11.enable = true;
