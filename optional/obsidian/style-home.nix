@@ -2,6 +2,7 @@
 { 
   stylix.targets.obsidian.vaultNames = [
     "NoteBox"
-    "~/Desktop"
+    "Desktop"
   ];
+  programs.obsidian.enable = true;
 }
