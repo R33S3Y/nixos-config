@@ -12,7 +12,7 @@
     vaultNames = {
       "lapisLazuli/reese/NoteBox".settings.app = {
         "attachmentFolderPath" = "Assets";
-      }
+      };
     };
   };
 }
