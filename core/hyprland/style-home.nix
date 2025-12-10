@@ -52,7 +52,7 @@
         };
 
         active_opacity = "0.95";
-        inactive_opacity = "0.8";
+        inactive_opacity = "0.9";
       };
     };
   };
