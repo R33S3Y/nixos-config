@@ -10,8 +10,10 @@
       "useMarkdownLinks" = true;
     };
     vaults = [
-      "lapisLazuli/reese/NoteBox".settings.app = {
-        "attachmentFolderPath" = "Assets";
+      "lapisLazuli/reese/NoteBox" = {
+        settings.app = {
+          "attachmentFolderPath" = "Assets";
+        };
       };
     ];
   };
