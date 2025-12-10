@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 { 
   stylix.targets.obsidian.vaultNames = [
-    #"lapisLazuli/reese/NoteBox"
+    "lapisLazuli/reese/NoteBox"
     "Desktop"
   ];
   home.file = {
