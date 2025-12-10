@@ -9,10 +9,10 @@
     defaultSettings.app = {
       "useMarkdownLinks" = true;
     };
-    vaultNames = {
+    vaults = [
       "lapisLazuli/reese/NoteBox".settings.app = {
         "attachmentFolderPath" = "Assets";
       };
-    };
+    ];
   };
 }
