@@ -80,6 +80,9 @@ let
       ../../optional/lapisLazuli/smb-nix.nix      # Lapius  -  My NAS! It's here cause I want it!
       ../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
 
+      # obsidian
+      ../../optional/obsidian/enable-nix.nix
+
       # Services
       ../../optional/services/jellyfin-nix.nix
       ../../optional/services/pihole-nix.nix
@@ -150,6 +153,9 @@ let
 
       # Firefox
       ../../optional/firefox/settings-home.nix
+
+      # obsidian
+      ../../optional/obsidian/style-home.nix
 
       # steam
       ../../optional/steam/startup-home.nix

@@ -74,6 +74,9 @@ let
       ../../optional/lapisLazuli/smb-nix.nix          # Lapius  -  My NAS! It's here cause I want it!
       ../../optional/lapisLazuli/nfs-nix.nix          # Lapius  -  NAS
 
+      # obsidian
+      ../../optional/obsidian/enable-nix.nix
+
       # steam
       ../../optional/steam/enable-nix.nix
 
@@ -141,6 +144,9 @@ let
       # Firefox
       ../../optional/firefox/settings-home.nix
 
+      # obsidian
+      ../../optional/obsidian/style-home.nix
+
       # steam
       ../../optional/steam/startup-home.nix
 
@@ -193,7 +199,6 @@ let
       
       prismlauncher
       python314
-      obsidian
 
       protonup-qt #needed for a vrchat fix
 
