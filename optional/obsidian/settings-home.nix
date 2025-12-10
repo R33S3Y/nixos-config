@@ -14,5 +14,5 @@
         "attachmentFolderPath" = "Assets";
       }
     }
-  }
+  };
 }
