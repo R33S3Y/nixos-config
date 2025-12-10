@@ -7,11 +7,11 @@
   programs.obsidian = {
     enable = true;
     defaultSettings.app = {
-      "useMarkdownLinks": true
+      "useMarkdownLinks" = true;
     };
     vaultNames = {
       "lapisLazuli/reese/NoteBox".settings.app = {
-        "attachmentFolderPath": "Assets"
+        "attachmentFolderPath" = "Assets";
       }
     }
   }

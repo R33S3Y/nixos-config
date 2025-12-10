@@ -145,7 +145,7 @@ let
       ../../optional/firefox/settings-home.nix
 
       # obsidian
-      ../../optional/obsidian/style-home.nix
+      ../../optional/obsidian/settings-home.nix
 
       # steam
       ../../optional/steam/startup-home.nix
