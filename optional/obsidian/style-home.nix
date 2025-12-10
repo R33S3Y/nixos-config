@@ -1,8 +1,11 @@
 { config, pkgs, ... }:
 { 
   stylix.targets.obsidian.vaultNames = [
-    "../../mnt/lapisLazuli/reese/NoteBox"
+    "lapisLazuli/reese/NoteBox"
     "Desktop"
   ];
+  home.file = {
+    lapisLazuli.source = config.lib.file.mkOutOfStoreSymlink "/mnt/lapisLazuli";
+  };
   programs.obsidian.enable = true;
 }
