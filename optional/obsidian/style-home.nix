@@ -4,5 +4,15 @@
     "lapisLazuli/reese/NoteBox"
     "Desktop"
   ];
-  programs.obsidian.enable = true;
+  programs.obsidian = {
+    enable = true;
+    defaultSettings.app = {
+      "useMarkdownLinks": true
+    };
+    vaultNames = {
+      "lapisLazuli/reese/NoteBox".settings.app = {
+        "attachmentFolderPath": "Assets"
+      }
+    }
+  }
 }
