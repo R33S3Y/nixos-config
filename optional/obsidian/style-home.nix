@@ -2,6 +2,6 @@
 { 
   stylix.targets.obsidian.vaultNames = [
     "NoteBox"
-    "Desktop"
+    "~/Desktop"
   ];
 }
