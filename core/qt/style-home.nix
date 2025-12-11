@@ -18,7 +18,7 @@ let
       custom_palette=true
       icon_theme=breeze-dark
       standard_dialogs=default
-      style=Breeze
+      style=Fusion
 
       [Fonts]
       fixed="DejaVu Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1"
