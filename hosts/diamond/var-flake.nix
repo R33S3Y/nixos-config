@@ -224,6 +224,8 @@ let
 
       nfs-utils
       libnotify
+
+      keepassxc
     ];
 
     bluetooth = true;
