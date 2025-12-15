@@ -3,14 +3,13 @@
 
 {
   environment.systemPackages = with pkgs; [
-    kdePackages.qtstyleplugin-kvantum
     kdePackages.qt6ct
     kdePackages.breeze-icons
-    pkgs.kdePackages.breeze
+    kdePackages.breeze
   ];
   nixpkgs.config.qt = {
     enable = true;
-    platformTheme = "qt5ct"; 
+    platformTheme = "qt6ct"; 
     style = {
       package = pkgs.kdePackages.breeze;
       name = "Breeze-Dark";
