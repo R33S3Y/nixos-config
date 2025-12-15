@@ -36,7 +36,7 @@ let
       ../../core/pcmanfm/enable-nix.nix
 
       # qt
-      ../../core/qt/enable-nix.nix
+      #../../core/qt/enable-nix.nix
 
       # Rofi
       ../../core/rofi/enable-nix.nix
@@ -117,7 +117,7 @@ let
       # No home-manager files
 
       # qt
-      ../../core/qt/style-home.nix
+      #../../core/qt/style-home.nix
 
       # Rofi
       ../../core/rofi/style-home.nix       # Styles
