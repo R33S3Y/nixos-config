@@ -40,9 +40,6 @@ let
       # PCmanFM
       ../../core/pcmanfm/enable-nix.nix
 
-      # qt
-      ../../core/qt/enable-nix.nix
-
       # Rofi
       ../../core/rofi/enable-nix.nix
   
@@ -125,9 +122,6 @@ let
 
       # PCmanFM
       # No home-manager files
-
-      # qt
-      ../../core/qt/style-home.nix
 
       # Rofi
       ../../core/rofi/style-home.nix       # Styles
@@ -218,34 +212,7 @@ let
       vlc
       nano
       discord
-      
-      prismlauncher
-      python314
-      obsidian
 
-      protonup-qt #needed for a vrchat fix
-
-      bs-manager 
-
-      r2modman
-      orca-slicer
-      openscad
-      blender-hip
-
-      obs-studio
-
-      keymapp 
-
-      kicad
-      libreoffice-qt6-fresh
-
-      qtcreator
-      cmake
-      gdb
-
-      qbittorrent
-
-      nfs-utils
     ];
 
     bluetooth = true;
