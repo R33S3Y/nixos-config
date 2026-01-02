@@ -38,7 +38,7 @@
             Floodgate = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/bWrNNfkb/versions/wPa1pHZJ/Floodgate-Fabric-2.2.4-b36.jar"; sha256 = ""; };
           });
       
-          "server-icon.png" = /home/reese/server-icon.png;         
+          #"server-icon.png" = /home/reese/server-icon.png;         
           "config/textile_backup.json5" = pkgs.writeTextFile {
             name = "textile_backup.json5";
             text = "{
