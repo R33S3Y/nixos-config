@@ -15,7 +15,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, ... }@inputs: 
   let 
     var = {
       bort = import ./hosts/bort/var-flake.nix {
