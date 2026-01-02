@@ -10,6 +10,7 @@ GIT_REPO="$CONFIG_SRC"
 REMOTE_HOSTS=(
     "rebuild@obsidian"
     "rebuild@morganite"
+    "rebuild@bort"
 )
 
 GOOD="\033[94m"
