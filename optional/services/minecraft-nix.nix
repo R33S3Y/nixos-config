@@ -28,7 +28,7 @@
           view-distance = 16;
           simulation-distance = 16;
           motd = "§cChristian §9Minecraft §eServer§r§b - Hi Bort\!\!\!";
-          level-name = "Fredy"; # comment this line for it to start working          
+          level-name = "Fred";     
         };
 
         jvmOpts = "-Xms4092M -Xmx4092M";
