@@ -37,8 +37,8 @@
             TextileBackup = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/wwcspvkr/versions/C73KkDD6/textile_backup-3.1.3-1.21.jar"; sha256 = ""; };
             FabricAPI = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/oGwyXeEI/fabric-api-0.102.0+1.21.jar"; sha256 = "sha256-fsDloR53lX/h7QMoSHkhqCEbt+rOFCmM10Y1vsYaPyY="; };
             ClothConfigAPI = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9s6osm5g/versions/HpMb5wGb/cloth-config-15.0.140-fabric.jar"; sha256 = "sha256-M4lOldo69ZAUs50SZYbVJB4H6jn4YYdj4w2rY3QF+V8="; };
-            Geyzer = pkgs.fetchurl { url = "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/fabric"; sha256 = ""; };
-            Floodgate = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/bWrNNfkb/versions/wPa1pHZJ/Floodgate-Fabric-2.2.4-b36.jar"; sha256 = ""; };
+            #Geyzer = pkgs.fetchurl { url = "https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/fabric"; sha256 = ""; };
+            #Floodgate = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/bWrNNfkb/versions/wPa1pHZJ/Floodgate-Fabric-2.2.4-b36.jar"; sha256 = "sha256-ifzWrdZ4KJoQpFspdhmOQ+FJtwVMaGtfy4XQOcewV0Y="; };
           });
       
           #"server-icon.png" = /home/reese/server-icon.png;         
