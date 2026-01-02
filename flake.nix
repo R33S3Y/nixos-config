@@ -17,6 +17,9 @@
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs: 
   let 
     var = {
+      bort = import ./hosts/bort/var-flake.nix {
+        inherit inputs home-manager nur;
+      };
       cinnabar = import ./hosts/cinnabar/var-flake.nix {
         inherit inputs home-manager nur;
       };
@@ -36,6 +39,16 @@
   in
   {
     nixosConfigurations = {
+      bort = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { 
+          inherit inputs;
+          nixpkgs.config.allowUnfree = true;
+          system = "bort";
+          var = var;
+        };
+        modules = var.bort.imports;
+      };
       cinnabar = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
