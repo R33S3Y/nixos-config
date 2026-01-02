@@ -30,7 +30,7 @@
           #Fetching from the internet
           "mods" = pkgs.linkFarmFromDrvs "mods" (builtins.attrValues {
             Lithium = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/M7RXiitG/lithium-fabric-mc1.21-0.13.1.jar"; sha256 = ""; };
-            Krypton = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/Acz3ttTp/krypton-0.2.8.jar"; sha256 = ""; };
+            Krypton = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/Acz3ttTp/krypton-0.2.8.jar"; sha256 = "sha256-lPGVgZsk5dpk7/3J2hXN2Eg2zHXo/w/QmLq2vC9J4/4="; };
             C2ME = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/VSNURh3q/versions/fEWDAK3p/c2me-fabric-mc1.21-0.2.0+alpha.11.109.jar"; sha256 = "sha256-DHdk0FTriRjK26KJLEE4n04QU//Uj3mOZuKlK+Fe4Nw="; };
             Carpet = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/TQTTVgYE/versions/f2mvlGrg/fabric-carpet-1.21-1.4.147+v240613.jar"; sha256 = ""; };
             CarpetExtra = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/VX3TgwQh/versions/8gEVsK18/carpet-extra-1.21-1.4.148.jar"; sha256 = "sha256-2EJfekuE+8hX30hhhD/1EfvxwcRFL+m7HrRuBFjY2Ps="; };
