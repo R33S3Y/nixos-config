@@ -27,8 +27,8 @@
           difficulty = "hard";
           view-distance = 16;
           simulation-distance = 16;
-          motd = "§cChristian §9Minecraft §eServer§r§b - Hi Bort\!\!\!";
-          level-name = "Fred";     
+          motd = "§cChristian §9Minecraft §eServer§r§b - Now actually up to date\!\!\! (as of  3/1/2026)";
+          level-name = "Fred"; 
         };
 
         jvmOpts = "-Xms4092M -Xmx4092M";
