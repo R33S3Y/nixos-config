@@ -12,13 +12,14 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs: 
   let 
     var = {
       bort = import ./hosts/bort/var-flake.nix {
-        inherit inputs home-manager nur;
+        inherit inputs home-manager nur nix-minecraft;
       };
       cinnabar = import ./hosts/cinnabar/var-flake.nix {
         inherit inputs home-manager nur;
@@ -33,7 +34,7 @@
         inherit inputs home-manager;
       };
       template = import ./hosts/template/var-flake.nix {
-        inherit inputs home-manager nur;
+        inherit inputs home-manager nur nix-minecraft;
       };
     };
   in

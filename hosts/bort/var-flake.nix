@@ -8,9 +8,7 @@ let
   template = { 
     imports = [
       # Nix modules
-      #inputs.stylix.nixosModules.stylix
-      #home-manager.nixosModules.home-manager
-      #nur.modules.nixos.default
+      inputs.nix-minecraft.nixosModules.minecraft-servers
       # CORE
       # boot
       ../../core/boot/bios-nix.nix
@@ -42,12 +40,11 @@ let
       ../../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
       # LapisLazuli
-      #../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
+      ../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
 
       # Services
-      #../../optional/services/jellyfin-nix.nix
-      #../../optional/services/pihole-nix.nix
-
+      ../../optional/services/minecraft-nix.nix
+     
       # Other
       ../../optional/other/programs-nix.nix           # Install all programs in the programs var
 

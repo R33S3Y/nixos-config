@@ -11,6 +11,7 @@ let
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
+      inputs.nix-minecraft.nixosModules.minecraft-servers
       # CORE
       # boot
       ../../core/boot/bios-nix.nix
@@ -82,6 +83,7 @@ let
 
       # Services
       ../../optional/services/jellyfin-nix.nix
+      ../../optional/services/minecraft-nix.nix
       ../../optional/services/pihole-nix.nix
 
       # steam
