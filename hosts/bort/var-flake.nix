@@ -51,6 +51,8 @@ let
       # Other
       ../../optional/other/programs-nix.nix           # Install all programs in the programs var
 
+      # My stuff
+      ./hardware-configuration.nix   # hardware  -  your hardware settings
     ];
     
     username = "reese";
@@ -71,7 +73,7 @@ let
       LC_TIME = "en_NZ.UTF-8";
     };
 
-    hostName = "diamond";
+    hostName = "bort";
 
     
     static = { # only needed when using networking-static-nix.nix
