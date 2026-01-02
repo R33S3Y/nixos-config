@@ -8,8 +8,8 @@
     enable = true;
     eula = true;
 
-    user = "minecraft";
-    group = "minecraft";
+    user = "cms";
+    group = "cms";
 
     servers = {
       cmsSurvival = {
