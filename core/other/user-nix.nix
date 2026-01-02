@@ -21,9 +21,16 @@ in {
       group = "jellyfin";
       description = "jellyfin";
     };
+    minecraft = {
+      isSystemUser = true;
+      uid = 1003;
+      group = "minecraft";
+      description = "minecraft";
+    };
   };
   users.groups = {
     rebuild = { gid = 1001; }; 
     jellyfin = { gid = 1002; }; 
+    minecraft = { gid = 1003; }; 
   };
 }
