@@ -4,7 +4,11 @@
 {
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
 
-  servers = {
+  services.minecraft-servers = {
+    enable = true;
+    eula = true;
+
+    servers = {
       cmsSurvival = {
         enable = true;
         package = pkgs.fabricServers.fabric-1_21;
@@ -53,4 +57,5 @@
         };
       };
     };
+  };
 }
