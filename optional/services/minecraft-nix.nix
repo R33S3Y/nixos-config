@@ -8,6 +8,9 @@
     enable = true;
     eula = true;
 
+    user = "minecraft";
+    group = "minecraft";
+
     servers = {
       cmsSurvival = {
         enable = true;
