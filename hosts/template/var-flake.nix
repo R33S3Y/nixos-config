@@ -1,4 +1,4 @@
-{ inputs, home-manager, nur }:
+{ inputs, home-manager, nur, nix-minecraft  }:
 
 let
   pkgs = import inputs.nixpkgs {
