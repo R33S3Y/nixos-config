@@ -20,7 +20,7 @@
           difficulty = "hard";
           view-distance = 16;
           simulation-distance = 16;
-          motd = "§cChristian §9Minecraft §eServer§r§b - Now on nixOS\!\!\!";
+          motd = "§cChristian §9Minecraft §eServer§r§b - Hi Bort\!\!\!";
           level-name = "Fredy"; # comment this line for it to start working          
         };
 
@@ -33,7 +33,7 @@
             Krypton = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/fQEb0iXm/versions/Acz3ttTp/krypton-0.2.8.jar"; sha256 = ""; };
             C2ME = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/VSNURh3q/versions/fEWDAK3p/c2me-fabric-mc1.21-0.2.0+alpha.11.109.jar"; sha256 = "sha256-DHdk0FTriRjK26KJLEE4n04QU//Uj3mOZuKlK+Fe4Nw="; };
             Carpet = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/TQTTVgYE/versions/f2mvlGrg/fabric-carpet-1.21-1.4.147+v240613.jar"; sha256 = ""; };
-            CarpetExtra = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/VX3TgwQh/versions/8gEVsK18/carpet-extra-1.21-1.4.148.jar"; sha256 = ""; };
+            CarpetExtra = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/VX3TgwQh/versions/8gEVsK18/carpet-extra-1.21-1.4.148.jar"; sha256 = "sha256-2EJfekuE+8hX30hhhD/1EfvxwcRFL+m7HrRuBFjY2Ps="; };
             TextileBackup = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/wwcspvkr/versions/C73KkDD6/textile_backup-3.1.3-1.21.jar"; sha256 = ""; };
             FabricAPI = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/oGwyXeEI/fabric-api-0.102.0+1.21.jar"; sha256 = ""; };
             ClothConfigAPI = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9s6osm5g/versions/HpMb5wGb/cloth-config-15.0.140-fabric.jar"; sha256 = "sha256-M4lOldo69ZAUs50SZYbVJB4H6jn4YYdj4w2rY3QF+V8="; };
