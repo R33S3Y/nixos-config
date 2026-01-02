@@ -8,9 +8,9 @@ let
   template = { 
     imports = [
       # Nix modules
-      inputs.stylix.nixosModules.stylix
-      home-manager.nixosModules.home-manager
-      nur.modules.nixos.default
+      #inputs.stylix.nixosModules.stylix
+      #home-manager.nixosModules.home-manager
+      #nur.modules.nixos.default
       # CORE
       # boot
       ../../core/boot/bios-nix.nix
@@ -77,7 +77,7 @@ let
 
     
     static = { # only needed when using networking-static-nix.nix
-      interface = "enp10s0";
+      interface = "ens18";
       ipv4 = {
       address = "192.168.1.246";
       prefixLength = 24;
