@@ -48,22 +48,7 @@
             distantHorizons = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/uCdwusMi/versions/GT3Bm3GN/DistantHorizons-2.4.5-b-1.21.11-fabric-neoforge.jar"; sha256 = "sha256-dpTHoX5V9b7yG0VsIqKxxOSAYLN0Z97itx1MEuWGvD8="; };
           });
       
-          #"server-icon.png" = /home/reese/server-icon.png;         
-          "config/textile_backup.json5" = pkgs.writeTextFile {
-            name = "textile_backup.json5";
-            text = "{
-        'perWorldBackup': true,
-        'backupInterval':  86400,
-        'restoreDelay': 30,
-        'doBackupsOnEmptyServer': false,
-        'shutdownBackup': true,
-        'backupOldWorlds': true,
-        'deleteOldBackupAfterRestore': false,
-        'backupsToKeep': 25,
-        'broadcastBackupStart': true,
-        'broadcastBackupDone': true,
-}";
-          };
+          "server-icon.png" = /mnt/lapisLazuli/cms/server-icon.png;
         };
       };
     };
