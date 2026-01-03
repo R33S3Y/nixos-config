@@ -48,7 +48,7 @@
             distantHorizons = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/uCdwusMi/versions/GT3Bm3GN/DistantHorizons-2.4.5-b-1.21.11-fabric-neoforge.jar"; sha256 = "sha256-dpTHoX5V9b7yG0VsIqKxxOSAYLN0Z97itx1MEuWGvD8="; };
           });
       
-          "server-icon.png" = /mnt/lapisLazuli/cms/server-icon.png;
+          "server-icon.png" = ./minecraftServerIcon.png;
         };
       };
     };
