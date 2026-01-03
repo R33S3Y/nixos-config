@@ -187,6 +187,7 @@ let
       gimp3
 
       git
+      git-lfs
       vlc
       nano
       discord
