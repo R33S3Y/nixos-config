@@ -51,7 +51,7 @@
             clothConfigAPI = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/9s6osm5g/versions/xuX40TN5/cloth-config-21.11.153-fabric.jar"; sha256 = "sha256-ikDITl7N5SWs+2xOE7gALaz8o++VNNf69ugEllb0I8g="; };
             distantHorizons = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/uCdwusMi/versions/GT3Bm3GN/DistantHorizons-2.4.5-b-1.21.11-fabric-neoforge.jar"; sha256 = "sha256-dpTHoX5V9b7yG0VsIqKxxOSAYLN0Z97itx1MEuWGvD8="; };
             noEndermanGrief = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/ss02V75k/versions/JsguYUrA/no-enderman-grief-v3.0.1.jar"; sha256 = "sha256-w5uz+6KMVO27pXxdW+Pu4tX4OtZLsgB08skETMn7Fj4="; };
-            tweakeroo = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/t5wuYk45/versions/UF1XSSa4/tweakeroo-fabric-1.21.11-0.27.2.jar"; sha256 = "sha256-uR3siBSeBSSOIEsCyiY6atpv/AdaoLZ2o8smx5wHO8g="; };
+            tweakeroo = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/t5wuYk45/versions/UF1XSSa4/tweakeroo-fabric-1.21.11-0.27.2.jar"; sha256 = "sha256-kzFovJKW38s0SOVk52Ze0IFeJc641brd4gRXJPln+5s="; };
           });
       
           "server-icon.png" = ./minecraftServerIcon.png;
