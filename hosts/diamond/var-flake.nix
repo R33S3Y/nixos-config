@@ -197,10 +197,11 @@ let
 
       protonup-qt #needed for a vrchat fix
 
-      bs-manager 
+      bs-manager  
 
       r2modman
       orca-slicer
+      super-slicer
       openscad
       blender-hip
 
