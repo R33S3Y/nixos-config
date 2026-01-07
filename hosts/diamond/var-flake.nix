@@ -201,7 +201,7 @@ let
 
       r2modman
       orca-slicer
-      super-slicer
+      super-slicer-beta
       openscad
       blender-hip
 
