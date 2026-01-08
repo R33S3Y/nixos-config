@@ -200,10 +200,10 @@ let
       bs-manager  
 
       r2modman
-      orca-slicer
       super-slicer-beta
       openscad
       blender-hip
+      freecad
 
       obs-studio
 
