@@ -14,7 +14,7 @@
         ] else [])
         [
           "getDeviceId --source '${specialArgs.var.${specialArgs.system}.microphone.name}' | xargs wpctl set-default"
-          "getDeviceId --sink '${specialArgs.var.${specialArgs.system}.speaker.name}' | xargs wpctl set-default'"
+          "getDeviceId --sink '${specialArgs.var.${specialArgs.system}.speaker.name}' | xargs wpctl set-default"
         ]
       ];
         
