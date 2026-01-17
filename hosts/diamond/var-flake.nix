@@ -203,6 +203,8 @@ let
 
       protonup-qt #needed for a vrchat fix
 
+      bs-manager  
+
       r2modman
       super-slicer-beta
       openscad
