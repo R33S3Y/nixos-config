@@ -80,7 +80,7 @@
 
       env.ELECTRON_SKIP_BINARY_DOWNLOAD = "1";
 
-      npmRebuildFlags = [ "--ignore-scripts" ];
+      npmRebuildFlags = [ "--ignore-scripts" "--legacy-peer-deps" ];
 
       nativeBuildInputs = [
         pkgs.autoPatchelfHook # for some prebuilt node deps: query-process @resvg/resvg-js
