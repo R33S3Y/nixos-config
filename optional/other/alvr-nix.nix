@@ -46,7 +46,7 @@
   networking.firewall.allowedUDPPorts = [ 9943 9944 ];
 
   environment.systemPackages = [
-    (buildNpmPackage (finalAttrs: {
+    (pkgs.buildNpmPackage (finalAttrs: {
       pname = "bs-manager";
       version = "1.5.4";
 
