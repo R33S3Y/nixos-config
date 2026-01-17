@@ -2,7 +2,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.alvr.enable = {
+  programs.alvr = {
     # Pin to 20.13.0 due to https://github.com/alvr-org/ALVR/issues/3134
     package = pkgs.alvr.overrideAttrs (
       finalAttrs: prevAttrs: {
