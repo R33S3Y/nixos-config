@@ -5,7 +5,7 @@ let
     system = "x86_64-linux"; # or inherit system if passed from the flake
     config.allowUnfree = true;
   };
-  template = { 
+  diamond = { 
     imports = [
       # Nix modules
       inputs.stylix.nixosModules.stylix

@@ -1,4 +1,4 @@
-{ inputs, home-manager, nur, nix-minecraft  }:
+{ inputs, home-manager, nur, nix-minecraft, nixcord  }:
 
 let
   pkgs = import inputs.nixpkgs {
@@ -12,6 +12,7 @@ let
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
       inputs.nix-minecraft.nixosModules.minecraft-servers
+      inputs.nixcord.homeModules.nixcord
       # CORE
       # boot
       ../../core/boot/bios-nix.nix

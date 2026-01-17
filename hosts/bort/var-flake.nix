@@ -5,7 +5,7 @@ let
     system = "x86_64-linux"; # or inherit system if passed from the flake
     config.allowUnfree = true;
   };
-  template = { 
+  bort = { 
     imports = [
       # Nix modules
       inputs.nix-minecraft.nixosModules.minecraft-servers
@@ -90,4 +90,4 @@ let
     ];
   };
 in
-template
+bort
