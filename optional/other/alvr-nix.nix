@@ -46,5 +46,5 @@
   networking.firewall.allowedUDPPorts = [ 9943 9944 ];
   
   powerManagement.cpuFreqGovernor = "performance"; # was having some internet throughput issues when having alvr this was the fix
-  boot.kernelParams = [ "processor.max_cstate=1" "idle=nomwait" ];
+  boot.kernelParams = [ "amd_pstate=active" "processor.max_cstate=1" "idle=nomwait" ];
 }
