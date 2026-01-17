@@ -84,7 +84,7 @@
 
       nativeBuildInputs = [
         pkgs.autoPatchelfHook # for some prebuilt node deps: query-process @resvg/resvg-js
-        copyDesktopItems
+        pkgs.copyDesktopItems
         makeWrapper
       ];
 
