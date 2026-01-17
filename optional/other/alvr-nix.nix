@@ -127,7 +127,7 @@
           --set-default ELECTRON_FORCE_IS_PACKAGED 1 \
           --add-flags $out/share/bs-manager/resources/app.asar \
           --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}" \
-          --prefix PATH : ${lib.makeBinPath [ steam-run-free ]} \
+          --prefix PATH : ${lib.makeBinPath [ pkgs.steam-run-free ]} \
           --inherit-argv0
 
         runHook postInstall
