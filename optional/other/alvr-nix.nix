@@ -83,7 +83,7 @@
       npmRebuildFlags = [ "--ignore-scripts" ];
 
       nativeBuildInputs = [
-        autoPatchelfHook # for some prebuilt node deps: query-process @resvg/resvg-js
+        pkgs.autoPatchelfHook # for some prebuilt node deps: query-process @resvg/resvg-js
         copyDesktopItems
         makeWrapper
       ];
