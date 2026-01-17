@@ -103,14 +103,14 @@
       '';
 
       postBuild = ''
-        cp -r ${electron.dist} electron-dist
+        cp -r ${pkgs.electron.dist} electron-dist
         chmod -R u+w electron-dist
 
         npm exec electron-builder -- \
           --dir \
           --config=electron-builder.config.js \
           -c.electronDist=electron-dist \
-          -c.electronVersion=${electron.version}
+          -c.electronVersion=${pkgs.electron.version}
       '';
 
       installPhase = ''
