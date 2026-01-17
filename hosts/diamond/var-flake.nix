@@ -142,6 +142,9 @@ let
       # Firefox
       ../../optional/firefox/settings-home.nix
 
+      # nixcord
+      ../../optional/nixcord/settings-home.nix
+
       # obsidian
       ../../optional/obsidian/settings-home.nix
 

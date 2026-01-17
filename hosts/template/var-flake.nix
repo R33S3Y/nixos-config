@@ -78,6 +78,9 @@ let
       ../../optional/lapisLazuli/smb-nix.nix      # Lapius  -  My NAS! It's here cause I want it!
       ../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
 
+      # nixcord
+      ../../optional/nixcord/enable-nix.nix
+
       # obsidian
       ../../optional/obsidian/enable-nix.nix
 
@@ -149,6 +152,9 @@ let
 
       # Firefox
       ../../optional/firefox/settings-home.nix
+
+      # nixcord
+      ../../optional/nixcord/settings-home.nix
 
       # obsidian
       ../../optional/obsidian/settings-home.nix
