@@ -11,7 +11,7 @@ let
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
-      #inputs.nixcord.homeModules.nixcord
+      inputs.nixcord.homeModules.nixcord
       # CORE
       # boot
       ../../core/boot/uefi-nix.nix
