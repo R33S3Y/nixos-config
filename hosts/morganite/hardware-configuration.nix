@@ -28,4 +28,6 @@
   # networking.interfaces.ens18.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+  networking.firewall.allowedUDPPorts = [ 5201 ];
 }
