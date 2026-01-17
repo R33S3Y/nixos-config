@@ -64,7 +64,7 @@
 
         # replace vendored DepotDownloader with our own
         rm assets/scripts/DepotDownloader
-        ln -s ${finalAttrs.passthru.depotdownloader}/bin/DepotDownloader assets/scripts/DepotDownloader
+        ln -s ${finalAttrs.passthru.pkgs.depotdownloader}/bin/DepotDownloader assets/scripts/DepotDownloader
       '';
 
       npmDepsHash = "sha256-3NMqYD7S4wYjwYuGJOmq2/C82qtG1mImsR4crjFLe30=";
