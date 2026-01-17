@@ -208,7 +208,7 @@ let
       r2modman
       super-slicer-beta
       openscad
-      blender-hip
+      blender
       freecad
 
       obs-studio
