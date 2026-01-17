@@ -50,7 +50,7 @@
       pname = "bs-manager";
       version = "1.5.4";
 
-      src = fetchFromGitHub {
+      src = pkgs.fetchFromGitHub {
         owner = "Zagrios";
         repo = "bs-manager";
         tag = "v${finalAttrs.version}";
