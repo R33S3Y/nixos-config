@@ -89,7 +89,7 @@
       ];
 
       buildInputs = [
-        stdenv.cc.cc
+        pkgs.stdenv.cc.cc
       ];
 
       preBuild = ''
