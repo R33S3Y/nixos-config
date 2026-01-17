@@ -157,7 +157,7 @@
 
       passthru = {
         updateScript = nix-update-script { };
-        depotdownloader = callPackage ./depotdownloader { };
+        depotdownloader = pkgs.callPackage ./depotdownloader { };
       };
 
       meta = {
