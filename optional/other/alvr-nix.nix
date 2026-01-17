@@ -134,7 +134,7 @@
       '';
 
       desktopItems = [
-        (makeDesktopItem {
+        (pkgs.makeDesktopItem {
           desktopName = "BSManager";
           name = "BSManager";
           exec = "bs-manager";
