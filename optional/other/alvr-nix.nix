@@ -69,7 +69,7 @@
 
       npmDepsHash = "sha256-3NMqYD7S4wYjwYuGJOmq2/C82qtG1mImsR4crjFLe30=";
 
-      extraNpmDeps = fetchNpmDeps {
+      extraNpmDeps = pkgs.fetchNpmDeps {
         name = "bs-manager-${finalAttrs.version}-extra-npm-deps";
         inherit (finalAttrs) src;
         sourceRoot = "${finalAttrs.src.name}/release/app";
