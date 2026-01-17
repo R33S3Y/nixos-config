@@ -1,16 +1,17 @@
-{ inputs, home-manager, nur }:
+{ inputs, home-manager, nur, nix-minecraft, nixcord  }:
 
 let
   pkgs = import inputs.nixpkgs {
     system = "x86_64-linux"; # or inherit system if passed from the flake
     config.allowUnfree = true;
   };
-  diamond = { 
+  template = { 
     imports = [
       # Nix modules
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
+      inputs.nixcord.homeModules.nixcord
       # CORE
       # boot
       ../../core/boot/uefi-nix.nix
