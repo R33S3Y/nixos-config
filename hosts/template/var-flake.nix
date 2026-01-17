@@ -12,7 +12,6 @@ let
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
       inputs.nix-minecraft.nixosModules.minecraft-servers
-      inputs.nixcord.homeModules.nixcord
       # CORE
       # boot
       ../../core/boot/bios-nix.nix
@@ -214,8 +213,6 @@ let
       git
       vlc
       nano
-      discord
-
     ];
 
     bluetooth = true;
@@ -244,7 +241,6 @@ let
       "DP-3, 2560x1440@165, 1920x-200, 2, transform,3"
       "DP-2, 1920x1080@60, -960x375, 2"
     ];
-    
   };
 in
 template

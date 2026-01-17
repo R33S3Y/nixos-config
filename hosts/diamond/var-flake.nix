@@ -139,6 +139,9 @@ let
       # Firefox
       ../../optional/firefox/settings-home.nix
 
+      # nixcord
+      ../../optional/nixcord/enable-home.nix
+
       # obsidian
       ../../optional/obsidian/settings-home.nix
 
@@ -153,8 +156,6 @@ let
 
       # Other
       # No home-manager files
-
-      inputs.nixcord.homeModules.nixcord
 
     ];
     
@@ -193,7 +194,6 @@ let
       git-lfs
       vlc
       nano
-      discord
       
       prismlauncher
       python314
