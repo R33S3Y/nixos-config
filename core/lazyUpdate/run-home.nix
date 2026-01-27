@@ -195,6 +195,7 @@ let
   lazyUpdate = pkgs.writeTextFile {
     name = "lazyUpdate.sh";
     text = ''
+      #!/bin/bash
       sleep 3
       notify-send -i ${config.home.homeDirectory}/.config/hypr/nixSnowflake.svg "NixOS Auto Rebuild" "Starting rebuild for $HOSTNAME..."
       rm -rf /tmp/config_current
