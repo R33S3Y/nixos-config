@@ -7,6 +7,7 @@ let
 in {
   systemd = {
     services."minecraft-backup-${serverName}" = {
+      enable = true;
       description = "Minecraft backup for ${serverName}";
       wants = [ "network-online.target" ];
       after = [
