@@ -30,7 +30,7 @@ in {
         systemctl stop minecraft-server-${serverName}
 
         echo "Creating backup..."
-        ${pkgs.gnzutar}/bin/tar \
+        ${pkgs.gnutar}/bin/tar \
         --exclude=mods \
         --exclude=libraries \
         -C "${stateDir}" \
