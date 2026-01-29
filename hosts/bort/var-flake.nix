@@ -43,7 +43,8 @@ let
       ../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
 
       # Services
-      ../../optional/services/minecraft-nix.nix
+      ../../optional/services/minecraft/minecraft-nix.nix
+      ../../optional/services/minecraft/minecraftBackup-nix.nix
      
       # Other
       ../../optional/other/programs-nix.nix           # Install all programs in the programs var

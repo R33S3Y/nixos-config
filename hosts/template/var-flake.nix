@@ -86,7 +86,8 @@ let
 
       # Services
       ../../optional/services/jellyfin-nix.nix
-      ../../optional/services/minecraft-nix.nix
+      ../../optional/services/minecraft/minecraft-nix.nix
+      ../../optional/services/minecraft/minecraftBackup-nix.nix
       ../../optional/services/pihole-nix.nix
 
       # steam
