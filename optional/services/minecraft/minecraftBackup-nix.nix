@@ -6,7 +6,7 @@ let
   backupDir  = "/mnt/lapisLazuli/cms/backups/${serverName}";
 in {
   systemd = {
-    services.minecraft-backup-${serverName} = {
+    services."minecraft-backup-${serverName}" = {
       description = "Minecraft backup for ${serverName}";
       wants = [ "network-online.target" ];
       after = [
@@ -42,14 +42,14 @@ in {
         echo "Backup finished"
       '';
     };
-    timers.minecraft-backup-cmsSurvival = {
+    timers."minecraft-backup-${serverName}" = {
       wantedBy = [ "timers.target" ];
 
       timerConfig = {
         OnCalendar = "04:00";
         RandomizedDelaySec = "10m";
         Persistent = true;
-        Unit = "minecraft-backup-cmsSurvival.service";
+        Unit = "minecraft-backup-${serverName}.service";
       };
     };
   };
