@@ -2,6 +2,11 @@
 {
   home.file.".config/rofi/config.rasi".text = ''
     @theme "/home/reese/.config/rofi/theme.rasi"
+
+    configuration {
+      combi-modes: ["obsidian"];
+      modes: ["obsidian:rofi-obsidian"]
+    }
   '';
   home.file.".config/rofi/theme.rasi".text = ''
     * {
