@@ -69,6 +69,7 @@ let
       ../../optional/firefox/enable-nix.nix
 
       # LapisLazuli
+      ../../optional/lapisLazuli/home-nix.nix         # Lapius  -  Mount NAS to home
       ../../optional/lapisLazuli/smb-nix.nix          # Lapius  -  My NAS! It's here cause I want it!
       ../../optional/lapisLazuli/nfs-nix.nix          # Lapius  -  NAS
 
