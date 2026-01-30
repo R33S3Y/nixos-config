@@ -5,7 +5,7 @@
 
     configuration {
       combi-modes: ["obsidian"];
-      modes: ["obsidian:rofi-obsidian"]
+      modes: ["obsidian:rofi-obsidian"];
     }
   '';
   home.file.".config/rofi/theme.rasi".text = ''
