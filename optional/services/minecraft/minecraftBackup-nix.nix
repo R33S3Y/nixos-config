@@ -10,11 +10,15 @@ in {
       enable = true;
       description = "Minecraft backup for ${serverName}";
       wants = [ "network-online.target" ];
+      
+      conflicts = [ "minecraft-server-${serverName}.service" ];
+      before    = [ "minecraft-server-${serverName}.service" ];
+
       after = [
         "network-online.target"
-        "minecraft-server-${serverName}.service"
         "mnt-lapisLazuli.mount"
       ];
+
 
       serviceConfig = {
         Type = "oneshot";
@@ -28,18 +32,8 @@ in {
         TS=$(date +%F_%H-%M)
         mkdir -p "${backupDir}"
 
-        echo "Stopping Minecraft server..."
-        systemctl stop minecraft-server-${serverName}
-
         echo "Creating backup..."
-        tar \
-        --exclude=mods \
-        --exclude=libraries \
-        -C "${stateDir}" \
-        -czf "${backupDir}/${serverName}-$TS.tar.gz" .
-
-        echo "Starting Minecraft server..."
-        systemctl start minecraft-server-${serverName}
+        tar --exclude=mods --exclude=libraries -C "${stateDir}" -czf "${backupDir}/${serverName}-$TS.tar.gz" .
 
         echo "Backup finished"
       '';
