@@ -3,7 +3,7 @@
 let
   serverName = "cmsSurvival";
   stateDir   = "/srv/minecraft/${serverName}";
-  backupDir  = "/mnt/lapisLazuli/cms/backups/${serverName}";
+  backupDir  = "/mnt/lapisLazuli/cms/backups";
 in {
   systemd = {
     services."minecraft-backup-${serverName}" = {
@@ -33,7 +33,7 @@ in {
         mkdir -p "${backupDir}"
 
         echo "Creating backup..."
-        tar --exclude=mods --exclude=libraries -C "${stateDir}" -czf "${backupDir}/${serverName}-$TS.tar.gz" .
+        ${pkgs.gnutar}/bin/tar --exclude=mods --exclude=libraries -C "${stateDir}" -czf "${backupDir}/${serverName}-$TS.tar.gz" .
 
         echo "Backup finished"
       '';
