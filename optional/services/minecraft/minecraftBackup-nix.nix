@@ -13,7 +13,7 @@ in {
       
       conflicts = [ "minecraft-server-${serverName}.service" ];
       before = [ "minecraft-server-${serverName}.service" ];
-      onSuccess = [ "minecraft-server-${serverName}.service" ];
+      onSuccess = [ "minecraft-server-${serverName}.service" ]; # MC server will not start again if the backup fails
 
       after = [
         "network-online.target"
