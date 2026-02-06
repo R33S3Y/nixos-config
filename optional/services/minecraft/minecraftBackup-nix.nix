@@ -19,6 +19,10 @@ in {
         "mnt-lapisLazuli.mount"
       ];
 
+      path = with pgks; [
+        gnutar
+        gzip
+      ];
 
       serviceConfig = {
         Type = "oneshot";
@@ -34,7 +38,7 @@ in {
         chmod 770 "${backupDir}"
 
         echo "Creating backup..."
-        ${pkgs.gnutar}/bin/tar --exclude=mods --exclude=libraries -C "${stateDir}" -czf "${backupDir}/${serverName}-$TS.tar.gz" .
+        tar --exclude=mods --exclude=libraries -C "${stateDir}" -czf "${backupDir}/${serverName}-$TS.tar.gz" .
 
         echo "Backup finished"
       '';
