@@ -12,7 +12,8 @@ in {
       wants = [ "network-online.target" ];
       
       conflicts = [ "minecraft-server-${serverName}.service" ];
-      before    = [ "minecraft-server-${serverName}.service" ];
+      before = [ "minecraft-server-${serverName}.service" ];
+      onSuccess = [ "minecraft-server-${serverName}.service" ];
 
       after = [
         "network-online.target"
@@ -33,6 +34,7 @@ in {
       script = ''
         set -e
 
+        echo "Setting permisions..."
         TS=$(date +%F_%H-%M)
         mkdir -p "${backupDir}"
         chmod 770 "${backupDir}"
