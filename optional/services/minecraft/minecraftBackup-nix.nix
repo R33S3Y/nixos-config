@@ -19,7 +19,7 @@ in {
         "mnt-lapisLazuli.mount"
       ];
 
-      path = with pgks; [
+      path = with pkgs; [
         gnutar
         gzip
       ];
