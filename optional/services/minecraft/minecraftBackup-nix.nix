@@ -31,6 +31,7 @@ in {
 
         TS=$(date +%F_%H-%M)
         mkdir -p "${backupDir}"
+        chmod 770 "${backupDir}"
 
         echo "Creating backup..."
         ${pkgs.gnutar}/bin/tar --exclude=mods --exclude=libraries -C "${stateDir}" -czf "${backupDir}/${serverName}-$TS.tar.gz" .
