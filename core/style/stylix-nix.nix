@@ -46,9 +46,9 @@
       terminal = 11;
     };
   };
-  
+
   options = {
-    style = lib.mkOption {
+    config.style = lib.mkOption {
       type = lib.types.attrs;
       default = { };
     };
