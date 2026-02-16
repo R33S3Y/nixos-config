@@ -47,7 +47,12 @@
       terminal = 11;
     };
   };
-
+  options = {
+    stylix = lib.mkOption {
+      type = lib.types.attrs;
+      default = { };
+    };
+  };
   
 }
 #base00 = "#181B28"; # ----
