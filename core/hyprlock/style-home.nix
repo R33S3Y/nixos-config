@@ -39,7 +39,7 @@
           monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base06}ff)";
-          font_size = 160;
+          font_size = 100;
           position = "0, 300";
           halign = "center";
           valign = "center";
@@ -49,7 +49,7 @@
           monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
-          font_size = 28;
+          font_size = 30;
           position = "0, 190";
           halign = "center";
           valign = "center";
