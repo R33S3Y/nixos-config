@@ -21,8 +21,8 @@
       shape = [
         {
           monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
-          size = "100, 100";
-          position = "0, 80";
+          size = "400, 200";
+          position = "0, 225";
           halign = "center";
           valign = "center";
 
