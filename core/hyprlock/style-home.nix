@@ -24,7 +24,7 @@
           size = "100, 100";
           color = "rgba(${config.stylix.base16Scheme.base00}ff)";
           rounding = 10;
-          borderSize = 2;
+          border_size = 2;
         }
       ];
 
