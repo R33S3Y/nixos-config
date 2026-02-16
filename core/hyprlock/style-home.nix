@@ -43,7 +43,7 @@
         {
           monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
           text = "$USER";
-          color = "rgba(${config.stylix.base16Scheme.base04}ff)";
+          color = "rgba(${config.stylix.base16Scheme.base06}ff)";
           outline_thickness = 8;
           dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
           dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0

@@ -234,7 +234,7 @@ let
     bluetooth = true;
 
     screenshotFolder = "~/Pictures";
-    primaryMonitor =  "HDMI-A-1";
+    
 
     microphone = {
       # use wpctl status to get device names
@@ -253,6 +253,7 @@ let
         id = "54:84:50:67:C9:A2"; # bluetoothctl devices
       };
     };
+    primaryMonitor =  "HDMI-A-1";
     monitor = [
       "HDMI-A-1, 3840x2160@60, 0x0, 1"
       "DP-3, 2560x1440@165, 3840x0, 1.066667, transform,3"
