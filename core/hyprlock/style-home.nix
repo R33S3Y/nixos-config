@@ -44,7 +44,7 @@
           monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
           text = "$USER";
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
-          font_size = 20;
+          font_size = 28;
           position = "0, -180";
           halign = "center";
           valign = "center";
