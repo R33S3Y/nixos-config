@@ -26,7 +26,7 @@
           align = "center";
           valign = "center";
 
-          path = ${config.stylix.other.profile};
+          path = ${config.style.profile};
           rounding = 20;
           border_size = 3;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
