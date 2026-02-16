@@ -19,16 +19,6 @@
       };
 
       label = [
-        {
-          # Day-Month-Date
-          monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
-          text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
-          color = "rgba(${config.stylix.base16Scheme.base04}ff)";
-          font_size = 28;
-          position = "0, 190";
-          halign = "center";
-          valign = "center";
-        }
         # Time
         {
           monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
@@ -39,16 +29,22 @@
           halign = "center";
           valign = "center";
         }
+        # Date
+        {
+          monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
+          text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
+          color = "rgba(${config.stylix.base16Scheme.base04}ff)";
+          font_size = 28;
+          position = "0, 190";
+          halign = "center";
+          valign = "center";
+        }
         # USER
         {
           monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
           text = "$USER";
-          color = "rgba(${config.stylix.base16Scheme.base06}ff)";
-          outline_thickness = 8;
-          dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
-          dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
-          dots_center = true;
-          font_size = 18;
+          color = "rgba(${config.stylix.base16Scheme.base04}ff)";
+          font_size = 20;
           position = "0, -180";
           halign = "center";
           valign = "center";
