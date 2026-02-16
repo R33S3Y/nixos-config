@@ -23,7 +23,7 @@
 
         gaps_in = "5";
         gaps_out = "10";
-        border_size = "2";
+        border_size = "4";
         #col.active_border = "rgba(c18fb3ff) rgba(c18fb3ff) 45deg"
         #col.inactive_border = "rgba(57526cff)"
 
