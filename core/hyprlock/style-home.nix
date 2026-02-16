@@ -22,7 +22,7 @@
         {
           monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
           size = "400, 200";
-          position = "0, 225";
+          position = "0, -225";
           halign = "center";
           valign = "center";
 
