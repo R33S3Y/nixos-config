@@ -18,7 +18,7 @@
       };
 
       shape = [
-        # bottom window box
+        # window box
         {
           monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
           size = "400, 200";
@@ -27,11 +27,9 @@
           valign = "center";
 
           color = "rgba(${config.stylix.base16Scheme.base00}B0)";
-          rounding = 10;
-          border_size = 2;
+          rounding = 20;
+          border_size = 4;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
-
-          blur_passes = "3";
         }
       ];
 
