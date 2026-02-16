@@ -14,7 +14,7 @@
       # BACKGROUND
       background = {
         monitor = "";
-        path = "${config.stylix.image}";
+        #path = "${config.stylix.image}";
         blur_passes = 3;
       };
 
