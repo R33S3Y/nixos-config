@@ -27,7 +27,7 @@
           halign = "center";
           valign = "center";
 
-          color = "rgba(${config.stylix.base16Scheme.base00}e0)";
+          color = "rgba(${config.stylix.base16Scheme.base01}e0)";
           rounding = 10;
           border_size = 2;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
