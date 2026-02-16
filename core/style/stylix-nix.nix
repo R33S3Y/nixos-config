@@ -47,7 +47,7 @@
     };
   };
 
-  config = {
+  options = {
     style = lib.mkOption {
       type = lib.types.attrs;
       default = { };
