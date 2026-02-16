@@ -17,6 +17,22 @@
         path = "${config.stylix.image}";
       };
 
+      image = [
+        # window box
+        {
+          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
+          size = "500, 600";
+          position = "0, 0";
+          align = "center";
+          valign = "center";
+
+          path = ${config.stylix.profile};
+          rounding = 20;
+          border_size = 3;
+          border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
+        }
+      ];
+
       shape = [
         # window box
         {

@@ -5,6 +5,7 @@
   stylix.polarity = "dark";
 
   stylix.image = ./wallpaper.jpg;
+  stylix.profile = ./profile.png;
 
   stylix.base16Scheme = {
     base00 = "181B28"; # ----
@@ -46,6 +47,8 @@
       terminal = 11;
     };
   };
+
+  
 }
 #base00 = "#181B28"; # ----
 #base01 = "#282b38"; # ---
