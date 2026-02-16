@@ -21,14 +21,14 @@
         # window box
         {
           monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
-          size = "500, 200";
-          position = "0, -225";
+          size = "500, 600";
+          position = "0, 0";
           halign = "center";
           valign = "center";
 
           color = "rgba(${config.stylix.base16Scheme.base00}B0)";
           rounding = 20;
-          border_size = 4;
+          border_size = 3;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         }
       ];
@@ -70,7 +70,7 @@
       input-field = {
         monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
         size = "325, 60";
-        outline_thickness = 4;
+        outline_thickness = 3;
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
