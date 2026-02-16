@@ -22,7 +22,11 @@
         {
           monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
           size = "100, 100";
-          color = "rgba(${config.stylix.base16Scheme.base00}ff)";
+          position = "0, 80";
+          halign = "center";
+          valign = "center";
+
+          color = "rgba(${config.stylix.base16Scheme.base01}ff)";
           rounding = 10;
           border_size = 2;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
