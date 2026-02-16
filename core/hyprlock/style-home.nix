@@ -40,7 +40,7 @@
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base06}ff)";
           font_size = 100;
-          position = "0, 150";
+          position = "0, 200";
           halign = "center";
           valign = "center";
         }
@@ -82,7 +82,7 @@
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
-        position = "0, -150";
+        position = "0, -200";
         halign = "center";
         valign = "center";
       };
