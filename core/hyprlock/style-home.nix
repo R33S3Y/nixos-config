@@ -26,10 +26,12 @@
           halign = "center";
           valign = "center";
 
-          color = "rgba(${config.stylix.base16Scheme.base00}A0)";
+          color = "rgba(${config.stylix.base16Scheme.base00}60)";
           rounding = 10;
           border_size = 2;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
+
+          blur_passes = "3";
         }
       ];
 
