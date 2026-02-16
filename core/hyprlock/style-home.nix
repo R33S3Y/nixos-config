@@ -25,6 +25,7 @@
           color = "rgba(${config.stylix.base16Scheme.base00}ff)";
           rounding = 10;
           border_size = 2;
+          border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)"
         }
       ];
 
