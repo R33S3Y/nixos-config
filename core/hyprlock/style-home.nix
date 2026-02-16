@@ -50,7 +50,7 @@
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 30;
-          position = "0, 75";
+          position = "0, 50";
           halign = "center";
           valign = "center";
         }
