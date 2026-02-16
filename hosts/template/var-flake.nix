@@ -227,7 +227,7 @@ let
 
     # home manager vars
     screenshotFolder = "~/Pictures";
-    primaryDisplay =  "HDMI-A-1";
+    primaryMonitor =  "HDMI-A-1";
 
     microphone = {
       # use wpctl status to get device names

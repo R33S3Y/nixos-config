@@ -157,7 +157,7 @@ let
 
     # home manager vars
     screenshotFolder = "~/Pictures";
-    primaryDisplay =  "Unknown-1";
+    primaryMonitor =  "Unknown-1";
 
     monitor = [
       "Unknown-1, 1920x1080@60, 0x0, 2"
