@@ -54,7 +54,7 @@
     };
   };
 
-  style = { 
+  config.style = { 
     profile = ./profile.png;
   };
 }
