@@ -5,7 +5,6 @@
   stylix.polarity = "dark";
 
   stylix.image = ./wallpaper.jpg;
-  stylix.profile = ./profile.png;
 
   stylix.base16Scheme = {
     base00 = "181B28"; # ----
@@ -48,11 +47,13 @@
     };
   };
   options = {
-    stylix = lib.mkOption {
+    stylix.other = lib.mkOption {
       type = lib.types.attrs;
       default = { };
     };
   };
+
+  stylix.other.profile = ./profile.png;
   
 }
 #base00 = "#181B28"; # ----
