@@ -18,10 +18,20 @@
         blur_passes = 3;
       };
 
+      shape = [
+        {
+          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
+          size = "100, 100";
+          color = "rgba(${config.stylix.base16Scheme.base00})";
+          rounding = 10;
+          borderSize = 2;
+        }
+      ];
+
       label = [
         # Time
         {
-          monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
+          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base06}ff)";
           font_size = 160;
@@ -31,7 +41,7 @@
         }
         # Date
         {
-          monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
+          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 28;
@@ -41,7 +51,7 @@
         }
         # USER
         {
-          monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
+          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
           text = "$USER";
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 25;
@@ -53,7 +63,7 @@
 
       # INPUT FIELD
       input-field = {
-        monitor = "${specialArgs.var.${specialArgs.system}.primaryMonitor}";
+        monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
         size = "300, 60";
         outline_thickness = 4;
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
