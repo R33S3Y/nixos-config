@@ -46,15 +46,17 @@
       terminal = 11;
     };
   };
+  
   options = {
-    stylix.other = lib.mkOption {
+    style = lib.mkOption {
       type = lib.types.attrs;
       default = { };
     };
   };
 
-  stylix.other.profile = ./profile.png;
-  
+  style = { 
+    profile = ./profile.png;
+  };
 }
 #base00 = "#181B28"; # ----
 #base01 = "#282b38"; # ---
