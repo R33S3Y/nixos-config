@@ -26,7 +26,7 @@
           halign = "center";
           valign = "center";
 
-          color = "rgba(${config.stylix.base16Scheme.base00}60)";
+          color = "rgba(${config.stylix.base16Scheme.base00}B0)";
           rounding = 10;
           border_size = 2;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
@@ -79,7 +79,7 @@
         outer_color = "rgba(${config.stylix.base16Scheme.base04}ff) rgba(${config.stylix.base16Scheme.base0D}ff) 0deg";
         check_color = "rgba(${config.stylix.base16Scheme.base08}ff) rgba(${config.stylix.base16Scheme.base09}ff) 0deg";
         fail_color = "rgba(${config.stylix.base16Scheme.base0D}ff) rgba(${config.stylix.base16Scheme.base0E}ff) 0deg";
-        inner_color = "rgba(${config.stylix.base16Scheme.base02}ff)";
+        inner_color = "rgba(${config.stylix.base16Scheme.base03}ff)";
         font_color = "rgba(${config.stylix.base16Scheme.base04}ff)";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
