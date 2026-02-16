@@ -15,7 +15,6 @@
       background = {
         monitor = "";
         path = "${config.stylix.image}";
-        blur_passes = 3;
       };
 
       shape = [
