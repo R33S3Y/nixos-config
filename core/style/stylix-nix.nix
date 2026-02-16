@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, specialArgs, ... }:
 {
   config.stylix = {
     enable = true;
@@ -56,7 +56,7 @@
     };
   };
 
-  config.style = { 
+  specialArgs.style = { 
     profile = ./profile.png;
   };
 }
