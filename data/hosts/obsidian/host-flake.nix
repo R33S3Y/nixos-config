@@ -1,14 +1,12 @@
-{ inputs, home-manager, nur, nix-minecraft }:
+{ inputs, home-manager }:
 
 let
   pkgs = import inputs.nixpkgs {
     system = "x86_64-linux"; # or inherit system if passed from the flake
     config.allowUnfree = true;
   };
-  bort = { 
+  obsidian = {
     imports = [
-      # Nix modules
-      inputs.nix-minecraft.nixosModules.minecraft-servers
       # CORE
       # boot
       ../../../core/boot/bios-nix.nix
@@ -24,71 +22,40 @@ let
       ../../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
       ../../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
       ../../../core/other/user-nix.nix        # user  -  Adds a user
-      ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
+      ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
       ../../../core/other/sudo-nix.nix        # sudo  -  Sudo settings
-      ../../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
       ../../../core/other/journald-nix.nix    # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
-
-
+  
       # OPTIONAL
-      # You can comment and uncomment these as needed
-
       # btop
       ../../../optional/btop/enable-nix.nix
 
       # Fast Fetch
       ../../../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
-      # LapisLazuli
-      ../../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
-
       # Services
-      ../../../optional/services/minecraft/minecraft-nix.nix
-      ../../../optional/services/minecraft/minecraftBackup-nix.nix
-     
-      # Other
-      ../../../optional/other/programs-nix.nix           # Install all programs in the programs var
+      ../../../optional/services/pihole-nix.nix
 
       # My stuff
       ./hardware-configuration.nix   # hardware  -  your hardware settings
+      
     ];
-    
-    username = "reese";
 
-    timeZone = "Pacific/Auckland";
+    user = "reese";
 
-    defaultLocale = "en_NZ.UTF-8";
+    hostName = "obsidian";
 
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_NZ.UTF-8";
-      LC_IDENTIFICATION = "en_NZ.UTF-8";
-      LC_MEASUREMENT = "en_NZ.UTF-8";
-      LC_MONETARY = "en_NZ.UTF-8";
-      LC_NAME = "en_NZ.UTF-8";
-      LC_NUMERIC = "en_NZ.UTF-8";
-      LC_PAPER = "en_NZ.UTF-8";
-      LC_TELEPHONE = "en_NZ.UTF-8";
-      LC_TIME = "en_NZ.UTF-8";
-    };
-
-    hostName = "bort";
-
-    
     static = { # only needed when using networking-static-nix.nix
       interface = "ens18";
       ipv4 = {
-      address = "192.168.1.246";
-      prefixLength = 24;
+        address = "192.168.1.249";
+        prefixLength = 24;
       };
       gatewayAddress = "192.168.1.1";
 
       nameservers = [ "192.168.1.249" ];
     };
-    
-
-    programs = with pkgs; [
-      
-    ];
   };
+  
 in
-bort
+obsidian

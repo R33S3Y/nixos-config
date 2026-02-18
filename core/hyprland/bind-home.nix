@@ -66,7 +66,7 @@
         ", PRINT, exec, hyprshot -m region -o ${specialArgs.hosts.${specialArgs.host}.screenshotFolder}"
 
         # Screenshot a region
-        "$mainMod, PRINT, exec, hyprshot -m output -o ${specialArgs.hosts.${specialArgs.host}.screenshotFolder}"
+        "$mainMod, PRINT, exec, hyprshot -m output -o ${specialArgs.users.${specialArgs.user}.screenshotFolder}"
 
         # color picker
         "$mainMod CTRL, PRINT, exec, hyprpicker -a"

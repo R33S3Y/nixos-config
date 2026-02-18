@@ -1,5 +1,5 @@
 { config, pkgs, specialArgs, ... }:
-let username = specialArgs.hosts.${specialArgs.host}.username;
+let username = specialArgs.users.${specialArgs.user}.name;
 in {
   users.users = {
     ${username} = {
