@@ -56,7 +56,7 @@
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base06}ff)";
           font_size = 100;
-          position = "0, 175";
+          position = "0, 150";
           halign = "center";
           valign = "center";
         }
@@ -66,7 +66,7 @@
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 30;
-          position = "0, 100";
+          position = "0, 75";
           halign = "center";
           valign = "center";
         }
@@ -86,11 +86,11 @@
       input-field = {
         monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
         size = "325, 60";
-        outline_thickness = 3;
+        outline_thickness = specialArgs.themes.${specialArgs.theme}.borders.thickness;
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "rgba(${config.stylix.base16Scheme.base04}ff) rgba(${config.stylix.base16Scheme.base0D}ff) 0deg";
+        outer_color = "rgba(${config.stylix.base16Scheme.base04}ff)";
         check_color = "rgba(${config.stylix.base16Scheme.base08}ff) rgba(${config.stylix.base16Scheme.base09}ff) 0deg";
         fail_color = "rgba(${config.stylix.base16Scheme.base0D}ff) rgba(${config.stylix.base16Scheme.base0E}ff) 0deg";
         inner_color = "rgba(${config.stylix.base16Scheme.base03}ff)";
