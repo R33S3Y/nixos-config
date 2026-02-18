@@ -57,8 +57,8 @@ let
     };
 
     borders = {
-      thickness = "3";
-      rounding = "20";
+      thickness = "30";
+      rounding = "200";
     };
   };
 in

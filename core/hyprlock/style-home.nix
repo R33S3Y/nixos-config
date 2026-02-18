@@ -22,7 +22,7 @@
         {
           monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           size = "100, 100";
-          position = "0, -50";
+          position = "0, 350";
           align = "center";
           valign = "center";
 
@@ -56,7 +56,7 @@
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base06}ff)";
           font_size = 100;
-          position = "0, 200";
+          position = "0, 175";
           halign = "center";
           valign = "center";
         }
@@ -76,7 +76,7 @@
           text = "$USER";
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 25;
-          position = "0, -175";
+          position = "0, -150";
           halign = "center";
           valign = "center";
         }
