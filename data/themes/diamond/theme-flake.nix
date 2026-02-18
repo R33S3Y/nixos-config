@@ -76,7 +76,7 @@ let
     opacity = {
       active = "0.95";
       inactive = "0.95";
-    }
+    };
   };
 in
 diamond
