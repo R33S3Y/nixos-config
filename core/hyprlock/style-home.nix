@@ -22,7 +22,7 @@
         {
           monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           size = "100, 100";
-          position = "0, 300";
+          position = "0, 0";
           align = "center";
           valign = "center";
 
@@ -37,7 +37,7 @@
         # window box
         {
           monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
-          size = "500, 600";
+          size = "500, 700";
           position = "0, 0";
           halign = "center";
           valign = "center";
@@ -56,7 +56,7 @@
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base06}ff)";
           font_size = 100;
-          position = "0, 150";
+          position = "0, 200";
           halign = "center";
           valign = "center";
         }
@@ -66,7 +66,7 @@
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 30;
-          position = "0, 50";
+          position = "0, 100";
           halign = "center";
           valign = "center";
         }
@@ -76,7 +76,7 @@
           text = "$USER";
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 25;
-          position = "0, -100";
+          position = "0, -150";
           halign = "center";
           valign = "center";
         }
@@ -98,7 +98,7 @@
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
-        position = "0, -200";
+        position = "0, -250";
         halign = "center";
         valign = "center";
       };
