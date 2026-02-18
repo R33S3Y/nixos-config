@@ -18,7 +18,7 @@
       };
 
       image = [
-        # window box
+        # profile pic
         {
           monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           size = "500, 600";
@@ -27,7 +27,7 @@
           valign = "center";
 
           path = "${specialArgs.users.${specialArgs.user}.profile}";
-          rounding = 20;
+          rounding = -1;
           border_size = 3;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         }
