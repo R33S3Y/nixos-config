@@ -38,16 +38,12 @@
 
         rounding = specialArgs.themes.${specialArgs.theme}.borders.rounding;
         
-        blur = {
-          enabled = "true";
-          size = "10";
-          passes = "4";
-        };
+        blur = specialArgs.themes.${specialArgs.theme}.blur;
 
         shadow = {
           enabled = "true";
-          range = "20";
-          render_power = "8";
+          range = "200";
+          render_power = "80";
           color = lib.mkForce "rgba(${config.stylix.base16Scheme.base00}ff)";
         };
 
