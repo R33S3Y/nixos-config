@@ -6,5 +6,5 @@
 
   home-manager.extraSpecialArgs = specialArgs;
 
-  home-manager.users."${specialArgs.hosts.${specialArgs.host}.username}" = import ./home-home.nix;
+  home-manager.users."${specialArgs.users.${specialArgs.user}.name}" = import ./home-home.nix;
 }
