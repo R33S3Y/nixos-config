@@ -38,7 +38,7 @@
         {
           monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           size = "500, 700";
-          position = "0, -25";
+          position = "0, -50";
           halign = "center";
           valign = "center";
 
