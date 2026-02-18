@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, specialArgs, ... }:
 { 
 
   home.pointerCursor = {
@@ -23,7 +23,7 @@
 
         gaps_in = "5";
         gaps_out = "10";
-        border_size = "3";
+        border_size = specialArgs.themes.${specialArgs.theme}.borders.thickness;
         #col.active_border = "rgba(c18fb3ff) rgba(c18fb3ff) 45deg"
         #col.inactive_border = "rgba(57526cff)"
 
@@ -36,7 +36,7 @@
       decoration = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-        rounding = "20";
+        rounding = specialArgs.themes.${specialArgs.theme}.borders.rounding;
         
         blur = {
           enabled = "true";
