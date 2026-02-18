@@ -55,7 +55,6 @@ let
       ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
       ../../../core/style/stylix-nix.nix      # stylix  -  this repo expects stylix
       ../../../core/other/sudo-nix.nix        # sudo  -  Sudo settings
-      ../../../core/other/var-nix.nix         # var - Make var option
       ../../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
       
 
