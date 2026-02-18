@@ -59,7 +59,7 @@ let
     borders = {
       thickness = "3";
       rounding = "20";
-    }
+    };
   };
 in
 diamond
