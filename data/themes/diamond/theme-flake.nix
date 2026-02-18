@@ -9,6 +9,7 @@ let
 
     polarity = "dark";
     
+    # wallpaper
     image = ./wallpaper.jpg;
     
     base16Scheme = {
