@@ -43,7 +43,7 @@
         shadow = {
           enabled = "true";
           range = "200";
-          render_power = "80";
+          render_power = "40";
           color = lib.mkForce "rgba(${config.stylix.base16Scheme.base00}ff)";
         };
 
