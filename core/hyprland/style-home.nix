@@ -48,7 +48,7 @@
           enabled = "true";
           range = "8";
           render_power = "8";
-          # color = "rgba(1a1a1aee)";
+          color = "rgba(${config.stylix.base16Scheme.base00}ff)";
         };
 
         active_opacity = "0.95";
