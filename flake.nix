@@ -26,9 +26,7 @@
           nixpkgs.config.allowUnfree = true;
 
           host = hostName;
-          hosts = hosts;
           user = hosts.${hostName}.user;
-          user = users;
         };
 
         modules = hosts.${hostName}.imports;
