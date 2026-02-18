@@ -48,10 +48,6 @@
       };
     };
   };
-
-  var.style = { 
-    profile = ./profile.png;
-  };
 }
 #base00 = "#181B28"; # ----
 #base01 = "#282b38"; # ---
