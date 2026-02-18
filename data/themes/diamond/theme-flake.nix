@@ -75,7 +75,7 @@ let
 
     opacity = {
       active = "0.95";
-      inactive = "0.9";
+      inactive = "0.85";
     };
   };
 in
