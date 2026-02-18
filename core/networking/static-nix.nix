@@ -4,17 +4,17 @@
 {
 
   # Networking
-  networking.hostName = specialArgs.var.${specialArgs.system}.hostName; # Define your hostname.
+  networking.hostName = specialArgs.hosts.${specialArgs.host}.hostName; # Define your hostname.
   networking.useDHCP = false;
-  networking.interfaces.${specialArgs.var.${specialArgs.system}.static.interface}.ipv4.addresses = [{
-      address = specialArgs.var.${specialArgs.system}.static.ipv4.address;
-      prefixLength = specialArgs.var.${specialArgs.system}.static.ipv4.prefixLength;
+  networking.interfaces.${specialArgs.hosts.${specialArgs.host}.static.interface}.ipv4.addresses = [{
+      address = specialArgs.hosts.${specialArgs.host}.static.ipv4.address;
+      prefixLength = specialArgs.hosts.${specialArgs.host}.static.ipv4.prefixLength;
     }];
   networking.defaultGateway = {
-    address = specialArgs.var.${specialArgs.system}.static.gatewayAddress;
-    interface = specialArgs.var.${specialArgs.system}.static.interface;
+    address = specialArgs.hosts.${specialArgs.host}.static.gatewayAddress;
+    interface = specialArgs.hosts.${specialArgs.host}.static.interface;
   };
-  networking.nameservers = specialArgs.var.${specialArgs.system}.static.nameservers;
+  networking.nameservers = specialArgs.hosts.${specialArgs.host}.static.nameservers;
   networking.networkmanager.enable = false;
   networking.firewall.enable = true;
 }

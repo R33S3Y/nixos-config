@@ -6,17 +6,17 @@
       "$mainMod" = "SUPER";
       # this is broken
       exec-once = builtins.concatLists [
-        (if specialArgs.var.${specialArgs.system}.microphone.bluetooth.enable then [
-          "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.var.${specialArgs.system}.microphone.bluetooth.id}'"
+        (if specialArgs.hosts.${specialArgs.host}.microphone.bluetooth.enable then [
+          "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.hosts.${specialArgs.host}.microphone.bluetooth.id}'"
         ] else [])
-        (if specialArgs.var.${specialArgs.system}.speaker.bluetooth.enable then [
-          "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.var.${specialArgs.system}.speaker.bluetooth.id}'"
+        (if specialArgs.hosts.${specialArgs.host}.speaker.bluetooth.enable then [
+          "sh -c 'sleep 1 && bluetoothctl connect ${specialArgs.hosts.${specialArgs.host}.speaker.bluetooth.id}'"
         ] else [])
         [
-          "getDeviceId --source '${specialArgs.var.${specialArgs.system}.microphone.name}' | xarg -I {} wpctl set-volume {} ${specialArgs.var.${specialArgs.system}.speaker.volume}"
-          "getDeviceId --sink '${specialArgs.var.${specialArgs.system}.speaker.name}' | xarg -I {} wpctl set-volume {} ${specialArgs.var.${specialArgs.system}.speaker.volume}"
-          "getDeviceId --source '${specialArgs.var.${specialArgs.system}.microphone.name}' | xargs wpctl set-default"
-          "getDeviceId --sink '${specialArgs.var.${specialArgs.system}.speaker.name}' | xargs wpctl set-default"
+          "getDeviceId --source '${specialArgs.hosts.${specialArgs.host}.microphone.name}' | xarg -I {} wpctl set-volume {} ${specialArgs.hosts.${specialArgs.host}.speaker.volume}"
+          "getDeviceId --sink '${specialArgs.hosts.${specialArgs.host}.speaker.name}' | xarg -I {} wpctl set-volume {} ${specialArgs.hosts.${specialArgs.host}.speaker.volume}"
+          "getDeviceId --source '${specialArgs.hosts.${specialArgs.host}.microphone.name}' | xargs wpctl set-default"
+          "getDeviceId --sink '${specialArgs.hosts.${specialArgs.host}.speaker.name}' | xargs wpctl set-default"
         ]
       ];
         

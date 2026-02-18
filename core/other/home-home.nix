@@ -1,6 +1,6 @@
 { specialArgs, ... }:
 {
-  imports = specialArgs.var.${specialArgs.system}.homeImports;
+  imports = specialArgs.hosts.${specialArgs.host}.homeImports;
   # Enable home-manager
   programs.home-manager.enable = true;
 

@@ -17,23 +17,23 @@
 
   outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, ... }@inputs: 
   let 
-    var = {
-      bort = import ./hosts/bort/var-flake.nix {
+    hosts = {
+      bort = import ./data/hosts/bort/var-flake.nix {
         inherit inputs home-manager nur nix-minecraft;
       };
-      cinnabar = import ./hosts/cinnabar/var-flake.nix {
+      cinnabar = import ./data/hosts/cinnabar/var-flake.nix {
         inherit inputs home-manager nur;
       };
-      diamond = import ./hosts/diamond/var-flake.nix {
+      diamond = import ./data/hosts/diamond/var-flake.nix {
         inherit inputs home-manager nur;
       };
-      morganite = import ./hosts/morganite/var-flake.nix {
+      morganite = import ./data/hosts/morganite/var-flake.nix {
         inherit inputs home-manager;
       };
-      obsidian = import ./hosts/obsidian/var-flake.nix {
+      obsidian = import ./data/hosts/obsidian/var-flake.nix {
         inherit inputs home-manager;
       };
-      template = import ./hosts/template/var-flake.nix {
+      template = import ./data/hosts/template/var-flake.nix {
         inherit inputs home-manager nur nix-minecraft;
       };
     };
@@ -45,48 +45,48 @@
         specialArgs = { 
           inherit inputs;
           nixpkgs.config.allowUnfree = true;
-          system = "bort";
-          var = var;
+          host = "bort";
+          hosts = hosts;
         };
-        modules = var.bort.imports;
+        modules = hosts.bort.imports;
       };
       cinnabar = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
           inherit inputs;
           nixpkgs.config.allowUnfree = true;
-          system = "cinnabar";
-          var = var;
+          host = "cinnabar";
+          hosts = hosts;
         };
-        modules = var.cinnabar.imports;
+        modules = hosts.cinnabar.imports;
       };
       diamond = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
           inherit inputs;
           nixpkgs.config.allowUnfree = true;
-          system = "diamond";
-          var = var;
+          host = "diamond";
+          hosts = hosts;
         };
-        modules = var.diamond.imports;
+        modules = hosts.diamond.imports;
       };
       obsidian = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
           inherit inputs; 
-          system = "obsidian";
-          var = var;
+          host = "obsidian";
+          hosts = hosts;
         };
-        modules = var.obsidian.imports;
+        modules = hosts.obsidian.imports;
       };
       morganite = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { 
           inherit inputs; 
-          system = "morganite";
-          var = var;
+          host = "morganite";
+          hosts = hosts;
         };
-        modules = var.morganite.imports;
+        modules = hosts.morganite.imports;
       };
     };
   };

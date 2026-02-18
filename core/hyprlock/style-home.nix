@@ -20,7 +20,7 @@
       image = [
         # window box
         {
-          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
+          monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           size = "500, 600";
           position = "0, 0";
           align = "center";
@@ -36,7 +36,7 @@
       shape = [
         # window box
         {
-          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
+          monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           size = "500, 600";
           position = "0, 0";
           halign = "center";
@@ -52,7 +52,7 @@
       label = [
         # Time
         {
-          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
+          monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base06}ff)";
           font_size = 100;
@@ -62,7 +62,7 @@
         }
         # Date
         {
-          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
+          monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 30;
@@ -72,7 +72,7 @@
         }
         # USER
         {
-          monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
+          monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
           text = "$USER";
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 25;
@@ -84,7 +84,7 @@
 
       # INPUT FIELD
       input-field = {
-        monitor = specialArgs.var.${specialArgs.system}.primaryMonitor;
+        monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
         size = "325, 60";
         outline_thickness = 3;
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8

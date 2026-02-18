@@ -16,8 +16,8 @@
     #media-session.enable = true;
   };
   
-  hardware.bluetooth.enable = specialArgs.var.${specialArgs.system}.bluetooth; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = specialArgs.var.${specialArgs.system}.bluetooth; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.enable = specialArgs.hosts.${specialArgs.host}.bluetooth; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = specialArgs.hosts.${specialArgs.host}.bluetooth; # powers up the default Bluetooth controller on boot
 
   environment.systemPackages = [
     (pkgs.stdenv.mkDerivation {

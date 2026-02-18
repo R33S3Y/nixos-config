@@ -4,5 +4,5 @@
 {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = specialArgs.var.${specialArgs.system}.programs;
+  environment.systemPackages = specialArgs.hosts.${specialArgs.host}.programs;
 } 

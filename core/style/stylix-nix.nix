@@ -1,6 +1,6 @@
-{ config, pkgs, lib, specialArgs, ... }:
+{ config, pkgs, lib, specialArgs,... }:
 {
-  config.stylix = {
+  stylix = {
     enable = true;
     
     polarity = "dark";
@@ -49,14 +49,7 @@
     };
   };
 
-  options = {
-    style = lib.mkOption {
-      type = lib.types.attrs;
-      default = { };
-    };
-  };
-
-  specialArgs.style = { 
+  var.style = { 
     profile = ./profile.png;
   };
 }
