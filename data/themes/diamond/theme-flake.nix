@@ -60,6 +60,12 @@ let
       thickness = "3";
       rounding = "20";
     };
+
+    blur = {
+      enabled = "true";
+      size = "10";
+      passes = "4";
+    };
   };
 in
 diamond
