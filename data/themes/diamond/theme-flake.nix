@@ -1,6 +1,10 @@
 { inputs }:
 
 let
+  pkgs = import inputs.nixpkgs {
+    system = "x86_64-linux"; # or inherit system if passed from the flake
+    config.allowUnfree = true;
+  };
   diamond = {
 
     polarity = "dark";
