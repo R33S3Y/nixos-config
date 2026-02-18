@@ -28,7 +28,7 @@
 
           path = "${specialArgs.users.${specialArgs.user}.profile}";
           rounding = -1;
-          border_size = 3;
+          border_size = specialArgs.themes.${specialArgs.themes}.borders.thickness;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         }
       ];
@@ -43,8 +43,8 @@
           valign = "center";
 
           color = "rgba(${config.stylix.base16Scheme.base00}B0)";
-          rounding = 20;
-          border_size = 3;
+          rounding = specialArgs.themes.${specialArgs.theme}.borders.rounding;;
+          border_size = specialArgs.themes.${specialArgs.themes}.borders.thickness;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         }
       ];
