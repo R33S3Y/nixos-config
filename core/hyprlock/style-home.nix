@@ -76,7 +76,7 @@
           text = "$USER";
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 25;
-          position = "0, -150";
+          position = "0, -175";
           halign = "center";
           valign = "center";
         }
