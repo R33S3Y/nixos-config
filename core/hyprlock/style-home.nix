@@ -43,7 +43,7 @@
           valign = "center";
 
           color = "rgba(${config.stylix.base16Scheme.base00}B0)";
-          rounding = specialArgs.themes.${specialArgs.theme}.borders.rounding;;
+          rounding = specialArgs.themes.${specialArgs.theme}.borders.rounding;
           border_size = specialArgs.themes.${specialArgs.themes}.borders.thickness;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         }
