@@ -22,11 +22,12 @@
         system = "x86_64-linux";
 
         specialArgs = {
-          inherit inputs hosts users;
+          inherit inputs hosts users themes;
           nixpkgs.config.allowUnfree = true;
 
           host = hostName;
           user = hosts.${hostName}.user;
+          theme = users.${hosts.${hostName}.user}.theme;
         };
 
         modules = hosts.${hostName}.imports;
@@ -54,6 +55,11 @@
     };
     users = {
       reese = import ./data/users/reese/user-flake.nix {
+        inherit inputs;
+      };
+    };
+    themes = {
+      diamond = import ./data/themes/diamond/theme-flake.nix {
         inherit inputs;
       };
     };
