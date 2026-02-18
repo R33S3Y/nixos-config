@@ -90,11 +90,11 @@
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;
-        outer_color = "rgba(${config.stylix.base16Scheme.base04}ff)";
+        outer_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         check_color = "rgba(${config.stylix.base16Scheme.base08}ff) rgba(${config.stylix.base16Scheme.base09}ff) 0deg";
         fail_color = "rgba(${config.stylix.base16Scheme.base0D}ff) rgba(${config.stylix.base16Scheme.base0E}ff) 0deg";
         inner_color = "rgba(${config.stylix.base16Scheme.base03}ff)";
-        font_color = "rgba(${config.stylix.base16Scheme.base04}ff)";
+        font_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
