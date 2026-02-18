@@ -39,7 +39,10 @@ let
         package = pkgs.source-sans-pro;
         name = "Source Sans Pro";
       };
-      serif = config.stylix.fonts.sansSerif;
+      serif = {
+        package = pkgs.source-sans-pro;
+        name = "Source Sans Pro";
+      };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
