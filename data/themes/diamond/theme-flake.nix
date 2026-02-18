@@ -2,30 +2,69 @@
 
 let
   diamond = {
-    name = "reese";
-    prettyName = "Reese";
 
-    profile = ./profile.png;
-    theme = "diamond";
-
-    screenshotFolder = "~/Pictures";
-
-
-    timeZone = "Pacific/Auckland";
-
-    defaultLocale = "en_NZ.UTF-8";
-
-    extraLocaleSettings = {
-      LC_ADDRESS = "en_NZ.UTF-8";
-      LC_IDENTIFICATION = "en_NZ.UTF-8";
-      LC_MEASUREMENT = "en_NZ.UTF-8";
-      LC_MONETARY = "en_NZ.UTF-8";
-      LC_NAME = "en_NZ.UTF-8";
-      LC_NUMERIC = "en_NZ.UTF-8";
-      LC_PAPER = "en_NZ.UTF-8";
-      LC_TELEPHONE = "en_NZ.UTF-8";
-      LC_TIME = "en_NZ.UTF-8";
+    polarity = "dark";
+    
+    image = ./wallpaper.jpg;
+    
+    base16Scheme = {
+      base00 = "181B28"; # ----
+      base01 = "282b38"; # ---
+      base02 = "383b48"; # --
+      base03 = "484b58"; # -
+      base04 = "c58bcf"; # +
+      base05 = "d5abdf"; # ++
+      base06 = "e5cbef"; # +++
+      base07 = "f5ebff"; # ++++
+      base08 = "4075dc"; # red
+      base09 = "5075dc"; # orange
+      base0A = "6075dc"; # yellow
+      base0B = "7075dc"; # green
+      base0C = "8075dc"; # aqua/cyan
+      base0D = "9075dc"; # blue
+      base0E = "a075dc"; # purple
+      base0F = "b075dc"; # brown
+    };
+  
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrains Mono Nerd Font";
+      };
+      sansSerif = {
+        package = pkgs.source-sans-pro;
+        name = "Source Sans Pro";
+      };
+      serif = config.stylix.fonts.sansSerif;
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
+      sizes = {
+        applications = 13;
+        desktop = 15;
+        popups = 13;
+        terminal = 11;
+      };
     };
   };
 in
 diamond
+
+
+#base00 = "#181B28"; # ----
+#base01 = "#282b38"; # ---
+#base02 = "#383b48"; # --
+#base03 = "#484b58"; # -
+#base04 = "#c58bcf"; # +
+#base05 = "#d5abdf"; # ++
+#base06 = "#e5cbef"; # +++
+#base07 = "#f5ebff"; # ++++
+#base08 = "#4075dc"; # red
+#base09 = "#5075dc"; # orange
+#base0A = "#6075dc"; # yellow
+#base0B = "#7075dc"; # green
+#base0C = "#8075dc"; # aqua/cyan
+#base0D = "#9075dc"; # blue
+#base0E = "#a075dc"; # purple
+#base0F = "#b075dc"; # brown
