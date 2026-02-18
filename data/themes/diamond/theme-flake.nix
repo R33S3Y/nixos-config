@@ -66,6 +66,17 @@ let
       size = "10";
       passes = "4";
     };
+
+    shadow = {
+      enabled = "true";
+      range = "50";
+      render_power = "10";
+    };
+
+    opacity = {
+      active = "0.95";
+      inactive = "0.95";
+    }
   };
 in
 diamond

@@ -21,8 +21,8 @@
       general  = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-        gaps_in = "5";
-        gaps_out = "10";
+        gaps_in = "6";
+        gaps_out = "12";
         border_size = specialArgs.themes.${specialArgs.theme}.borders.thickness;
         #col.active_border = "rgba(c18fb3ff) rgba(c18fb3ff) 45deg"
         #col.inactive_border = "rgba(57526cff)"
@@ -40,15 +40,10 @@
         
         blur = specialArgs.themes.${specialArgs.theme}.blur;
 
-        shadow = {
-          enabled = "true";
-          range = "50";
-          render_power = "10";
-          #color = lib.mkForce "rgba(${config.stylix.base16Scheme.base00}ff)";
-        };
+        shadow = specialArgs.themes.${specialArgs.theme}.shadow;
 
-        active_opacity = "0.95";
-        inactive_opacity = "0.9";
+        active_opacity = specialArgs.themes.${specialArgs.theme}.opacity.active;
+        inactive_opacity = specialArgs.themes.${specialArgs.theme}.opacity.inactive;
       };
     };
   };
