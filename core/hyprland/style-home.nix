@@ -48,7 +48,7 @@
           enabled = "true";
           range = "8";
           render_power = "8";
-          color = "rgba(${config.stylix.base16Scheme.base00}ff)";
+          color = lib.mkForce "rgba(${config.stylix.base16Scheme.base00}ff)";
         };
 
         active_opacity = "0.95";
