@@ -21,8 +21,8 @@
         # profile pic
         {
           monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
-          size = "500, 600";
-          position = "0, 200";
+          size = "100, 100";
+          position = "0, 300";
           align = "center";
           valign = "center";
 
