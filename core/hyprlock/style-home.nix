@@ -94,7 +94,7 @@
         check_color = "rgba(${config.stylix.base16Scheme.base08}ff) rgba(${config.stylix.base16Scheme.base09}ff) 0deg";
         fail_color = "rgba(${config.stylix.base16Scheme.base0D}ff) rgba(${config.stylix.base16Scheme.base0E}ff) 0deg";
         inner_color = "rgba(${config.stylix.base16Scheme.base03}ff)";
-        font_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
+        font_color = "rgba(${config.stylix.base16Scheme.base04}ff)";
         fade_on_empty = false;
         placeholder_text = "<i>Enter Password</i>";
         hide_input = false;
