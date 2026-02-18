@@ -59,10 +59,12 @@
     };
     in
   {
-    bort      = mkHost "bort";
-    cinnabar  = mkHost "cinnabar";
-    diamond   = mkHost "diamond";
-    obsidian  = mkHost "obsidian";
-    morganite = mkHost "morganite";
+    nixosConfigurations = {
+      bort      = mkHost "bort";
+      cinnabar  = mkHost "cinnabar";
+      diamond   = mkHost "diamond";
+      obsidian  = mkHost "obsidian";
+      morganite = mkHost "morganite";
+    };
   };
 }
