@@ -70,7 +70,7 @@ in {
       theme.bar.outer_spacing = toString (gapsOut - borderSize) + "px"; # sideways spacing between modules and screen edge
       theme.bar.margin_top = "0"; # looks to do nothing
       theme.bar.margin_bottom = "0"; # also looks to do nothing
-      theme.bar.margin_sides = "200px";#toString gapsOut + "px";
+      theme.bar.margin_sides = "0"; #toString gapsOut + "px";
       #theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
