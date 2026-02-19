@@ -68,9 +68,9 @@ in {
 
       theme.bar.background = background
         + (if transparentButtons && transparent then "00" else "");
-      theme.bar.outer_spacing = toString (gapsOut - borderSize) + "px"; # sideways spacing between modules and screen edge
-      theme.bar.margin_top = toString (gapsOut - borderSize) + "px"; # looks to do nothing
-      theme.bar.margin_bottom = "0"; # also looks to do nothing
+      #theme.bar.outer_spacing = toString (gapsOut - borderSize) + "px"; # sideways spacing between modules and screen edge
+      theme.bar.margin_top = toString (gapsOut - borderSize) + "px"; # only works when floating = true
+      theme.bar.margin_bottom = "0"; # only works when floating = true
       theme.bar.margin_sides = "0"; # only works when floating = true
       theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
