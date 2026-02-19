@@ -22,7 +22,7 @@ let
   gapsOut = theme.borders.padding.outer;
   gapsIn = theme.borders.padding.inner;
 
-  floating = false;
+  floating = true;
   transparent = true;
 
   notificationOpacity = 90;
@@ -68,7 +68,6 @@ in {
       theme.bar.background = background
         + (if transparentButtons && transparent then "00" else "");
       theme.bar.outer_spacing = toString (gapsOut - borderSize) + "px"; # sideways spacing between modules and screen edge
-      theme.bar.border_radius = toString 0 + "px";
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
       theme.bar.dropdownGap = "4.5em";
