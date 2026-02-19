@@ -22,7 +22,6 @@ let
   gapsOut = theme.borders.padding.outer;
   gapsIn = theme.borders.padding.inner;
 
-  floating = false;
   transparent = true;
 
   notificationOpacity = 90;
@@ -65,17 +64,19 @@ in {
       theme.font.name = config.stylix.fonts.serif.name;
       theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
 
+      theme.bar.floating = true; # allows gaps around the bar
+
       theme.bar.background = background
         + (if transparentButtons && transparent then "00" else "");
       theme.bar.outer_spacing = toString (gapsOut - borderSize) + "px"; # sideways spacing between modules and screen edge
-      theme.bar.margin_top = "0"; # looks to do nothing
+      theme.bar.margin_top = toString (gapsOut - borderSize) + "px"; # looks to do nothing
       theme.bar.margin_bottom = "0"; # also looks to do nothing
-      theme.bar.margin_sides = "0"; #toString gapsOut + "px";
-      #theme.bar.border_radius = toString rounding + "px";
+      theme.bar.margin_sides = "0"; # only works when floating = true
+      theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
       theme.bar.dropdownGap = "4.5em";
-      theme.bar.floating = true; # add a small gap to the top
+      
 
       theme.bar.buttons.hover = background;
       theme.bar.buttons.y_margins = "0px";
