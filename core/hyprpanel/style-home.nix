@@ -70,7 +70,7 @@ in {
         + (if transparentButtons && transparent then "00" else "");
       theme.bar.outer_spacing = "0"; # use margin instead
       theme.bar.margin_top = toString (gapsOut - borderSize) + "px"; # only works when floating = true
-      theme.bar.margin_bottom = "0"; # only works when floating = true
+      theme.bar.margin_bottom = toString (gapsOut - borderSize) + "px"; # only works when floating = true
       theme.bar.margin_sides = toString (gapsOut - borderSize) + "px"; # only works when floating = true
       theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
