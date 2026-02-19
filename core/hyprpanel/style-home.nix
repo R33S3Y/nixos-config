@@ -71,7 +71,7 @@ in {
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
       theme.bar.dropdownGap = "4.5em";
-      theme.bar.floating = false;
+      theme.bar.floating = true;
 
       theme.bar.buttons.hover = background;
       theme.bar.buttons.y_margins = "0px";
