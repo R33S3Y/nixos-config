@@ -73,7 +73,7 @@ in {
       theme.bar.margin_bottom = toString (gapsIn - borderSize) + "px"; # only works when floating = true
       theme.bar.margin_sides = toString (gapsOut - borderSize) + "px"; # only works when floating = true
       theme.bar.border_radius = toString rounding + "px";
-      theme.bar.transparent = transparent;
+      #theme.bar.transparent = transparent;
       theme.bar.location = "top";
       theme.bar.dropdownGap = toString ((gapsIn - borderSize)*2) + "px"; # how far down dropdowns are
       
