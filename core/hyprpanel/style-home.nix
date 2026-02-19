@@ -75,7 +75,7 @@ in {
       theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
-      theme.bar.dropdownGap = "4.5em";
+      theme.bar.dropdownGap = "45em";
       
 
       theme.bar.buttons.hover = background;
