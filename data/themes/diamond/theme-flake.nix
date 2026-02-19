@@ -59,6 +59,10 @@ let
     borders = {
       thickness = "3";
       rounding = "20";
+      padding = {
+        inner = 6;
+        outer = 12;
+      };
     };
 
     blur = {

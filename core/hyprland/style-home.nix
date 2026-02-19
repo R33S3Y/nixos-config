@@ -21,8 +21,8 @@
       general  = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-        gaps_in = "6";
-        gaps_out = "12";
+        gaps_in = specialArgs.themes.${specialArgs.theme}.borders.padding.inner;
+        gaps_out = specialArgs.themes.${specialArgs.theme}.borders.padding.outer;
         border_size = specialArgs.themes.${specialArgs.theme}.borders.thickness;
         #col.active_border = "rgba(c18fb3ff) rgba(c18fb3ff) 45deg"
         #col.inactive_border = "rgba(57526cff)"
