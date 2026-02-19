@@ -79,7 +79,7 @@ in {
       theme.bar.floating = false;
 
       theme.bar.buttons.hover = background;
-      theme.bar.buttons.y_margins = "100px";
+      theme.bar.buttons.y_margins = "12px";
       theme.bar.buttons.spacing = "0.3em";
       theme.bar.buttons.radius =
         (if transparent then toString rounding else toString (rounding - 8))
