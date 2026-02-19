@@ -73,7 +73,7 @@ in {
       theme.bar.margin_sides = toString gaps-out + "px";
       theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
-      theme.bar.location = position;
+      theme.bar.location = "top";
       theme.bar.dropdownGap = "4.5em";
       theme.bar.floating = false;
 
