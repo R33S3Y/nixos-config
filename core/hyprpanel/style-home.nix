@@ -67,7 +67,7 @@ in {
 
       theme.bar.background = background
         + (if transparentButtons && transparent then "00" else "");
-      theme.bar.outer_spacing = "0px";
+      theme.bar.outer_spacing = gaps_out;
       theme.bar.margin_top = toString (gaps-in * 2) + "px";
       theme.bar.margin_bottom = "0";
       theme.bar.margin_sides = toString gaps-out + "px";
