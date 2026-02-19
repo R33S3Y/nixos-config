@@ -57,8 +57,8 @@ let
     };
 
     borders = {
-      thickness = "3";
-      rounding = "20";
+      thickness = 3;
+      rounding = 20;
       padding = {
         inner = 6;
         outer = 12;
@@ -67,19 +67,19 @@ let
 
     blur = {
       enabled = "true";
-      size = "10";
-      passes = "4";
+      size = 10;
+      passes = 4;
     };
 
     shadow = {
       enabled = "true";
-      range = "50";
-      render_power = "10";
+      range = 50;
+      render_power = 10;
     };
 
     opacity = {
-      active = "0.95";
-      inactive = "0.9";
+      active = 0.95;
+      inactive = 0.9;
     };
   };
 in
