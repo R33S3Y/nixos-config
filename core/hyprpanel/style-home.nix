@@ -24,7 +24,6 @@ let
 
   floating = false;
   transparent = true;
-  position = "top"; # "top" or "bottom"
 
   notificationOpacity = 90;
 
@@ -69,10 +68,8 @@ in {
       theme.bar.background = background
         + (if transparentButtons && transparent then "00" else "");
       theme.bar.outer_spacing = "0px";
-      theme.bar.margin_top =
-        (if position == "top" then toString (gaps-in * 2) else "0") + "px";
-      theme.bar.margin_bottom =
-        (if position == "top" then "0" else toString (gaps-in * 2)) + "px";
+      theme.bar.margin_top = gaps-in * 2 + "px";
+      theme.bar.margin_bottom = "0";
       theme.bar.margin_sides = toString gaps-out + "px";
       theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
@@ -81,7 +78,7 @@ in {
       theme.bar.floating = false;
 
       theme.bar.buttons.hover = background;
-      theme.bar.buttons.y_margins = "12px";
+      theme.bar.buttons.y_margins = "0px";
       theme.bar.buttons.spacing = "0.3em";
       theme.bar.buttons.radius =
         (if transparent then toString rounding else toString (rounding - 8))
