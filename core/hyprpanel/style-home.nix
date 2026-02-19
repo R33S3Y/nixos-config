@@ -8,19 +8,19 @@ let
   transparentButtons = true;
 
   accent = "#${config.lib.stylix.colors.base0D}";
-  accent-alt = "#${config.lib.stylix.colors.base08}";
+  accentAlt = "#${config.lib.stylix.colors.base08}";
   background = "#${config.lib.stylix.colors.base00}";
-  background-alt = "#${config.lib.stylix.colors.base01}";
+  backgroundAlt = "#${config.lib.stylix.colors.base01}";
   foreground = "#${config.lib.stylix.colors.base05}";
-  foreground-alt = "#${config.lib.stylix.colors.base06}";
+  foregroundAlt = "#${config.lib.stylix.colors.base06}";
   font = "${config.stylix.fonts.serif.name}";
   fontSizeForHyprpanel = "${toString config.stylix.fonts.sizes.desktop}px";
 
   rounding = theme.borders.rounding; 
-  border-size = theme.borders.rounding; 
+  borderSize = theme.borders.rounding; 
 
-  gaps-out = theme.borders.padding.outer;
-  gaps-in = theme.borders.padding.inner;
+  gapsOut = theme.borders.padding.outer;
+  gapsIn = theme.borders.padding.inner;
 
   floating = false;
   transparent = true;
@@ -67,10 +67,10 @@ in {
 
       theme.bar.background = background
         + (if transparentButtons && transparent then "00" else "");
-      theme.bar.outer_spacing = gaps_out;
-      theme.bar.margin_top = toString (gaps-in * 2) + "px";
+      theme.bar.outer_spacing = gapsOut;
+      theme.bar.margin_top = toString (gapsIn * 2) + "px";
       theme.bar.margin_bottom = "0";
-      theme.bar.margin_sides = toString gaps-out + "px";
+      theme.bar.margin_sides = toString gapsOut + "px";
       theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
@@ -88,23 +88,23 @@ in {
       theme.bar.buttons.style = "default";
       theme.bar.buttons.monochrome = true;
       theme.bar.buttons.text = if transparent && transparentButtons then
-        foreground-alt
+        foregroundAlt
       else
         foreground;
       theme.bar.buttons.icon = accent;
       
       theme.bar.menus.monochrome = true;
       theme.bar.menus.card_radius = toString rounding + "px";
-      theme.bar.menus.border.size = toString border-size + "px";
+      theme.bar.menus.border.size = toString borderSize + "px";
       theme.bar.menus.border.radius = toString rounding + "px";
       theme.bar.menus.menu.media.card.tint = 90;
       theme.bar.menus.background = background;
-      theme.bar.menus.cards = background-alt;
+      theme.bar.menus.cards = backgroundAlt;
       theme.bar.menus.label = foreground;
       theme.bar.menus.text = foreground;
       theme.bar.menus.border.color = accent;
       theme.bar.menus.popover.text = foreground;
-      theme.bar.menus.popover.background = background-alt;
+      theme.bar.menus.popover.background = backgroundAlt;
       theme.bar.menus.listitems.active = accent;
       theme.bar.menus.icons.active = accent;
       theme.bar.menus.switch.enabled = accent;
@@ -114,9 +114,9 @@ in {
       theme.bar.menus.iconbuttons.active = accent;
       theme.bar.menus.progressbar.foreground = accent;
       theme.bar.menus.slider.primary = accent;
-      theme.bar.menus.tooltip.background = background-alt;
+      theme.bar.menus.tooltip.background = backgroundAlt;
       theme.bar.menus.tooltip.text = foreground;
-      theme.bar.menus.dropdownmenu.background = background-alt;
+      theme.bar.menus.dropdownmenu.background = backgroundAlt;
       theme.bar.menus.dropdownmenu.text = foreground;
 
 
@@ -155,10 +155,10 @@ in {
       bar.workspaces.showApplicationIcons = true;
       bar.workspaces.showWsIcons = true;
 
-      theme.bar.buttons.workspaces.hover = accent-alt;
+      theme.bar.buttons.workspaces.hover = accentAlt;
       theme.bar.buttons.workspaces.active = accent;
-      theme.bar.buttons.workspaces.available = accent-alt;
-      theme.bar.buttons.workspaces.occupied = accent-alt;
+      theme.bar.buttons.workspaces.available = accentAlt;
+      theme.bar.buttons.workspaces.occupied = accentAlt;
 
       # Windowtitle module
       bar.windowtitle.label = true;
@@ -166,8 +166,8 @@ in {
 
       # Media
       bar.media.show_active_only = true;
-      theme.bar.menus.menu.media.background.color = background-alt;
-      theme.bar.menus.menu.media.card.color = background-alt;
+      theme.bar.menus.menu.media.background.color = backgroundAlt;
+      theme.bar.menus.menu.media.card.color = backgroundAlt;
 
       # Cava
       bar.customModules.updates.pollingInterval = 1440000;
@@ -199,7 +199,7 @@ in {
       theme.notification.enableShadow = true;
       theme.notification.border_radius = toString rounding + "px";
       menus.power.lowBatteryNotification = true;
-      theme.bar.buttons.notifications.background = background-alt;
+      theme.bar.buttons.notifications.background = backgroundAlt;
       theme.bar.buttons.notifications.hover = background;
       theme.bar.buttons.notifications.total = accent;
       theme.bar.buttons.notifications.icon = accent;
@@ -207,10 +207,10 @@ in {
       theme.notification.actions.background = accent;
       theme.notification.actions.text = foreground;
       theme.notification.label = accent;
-      theme.notification.border = background-alt;
+      theme.notification.border = backgroundAlt;
       theme.notification.text = foreground;
       theme.notification.labelicon = accent;
-      theme.notification.close_button.background = background-alt;
+      theme.notification.close_button.background = backgroundAlt;
       theme.notification.close_button.label = accent;
 
       # osd
@@ -221,11 +221,11 @@ in {
       theme.osd.margins = "0px 0px 0px 10px";
       theme.osd.muted_zero = true;
       theme.osd.bar_color = accent;
-      theme.osd.bar_overflow_color = accent-alt;
+      theme.osd.bar_overflow_color = accentAlt;
       theme.osd.icon = background;
       theme.osd.icon_container = accent;
       theme.osd.label = accent;
-      theme.osd.bar_container = background-alt;
+      theme.osd.bar_container = backgroundAlt;
 
       # other
       wallpaper.enable = false; 
