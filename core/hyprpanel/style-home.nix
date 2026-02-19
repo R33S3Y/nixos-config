@@ -67,7 +67,7 @@ in {
 
       theme.bar.background = background
         + (if transparentButtons && transparent then "00" else "");
-      theme.bar.outer_spacing = toString (gapsOut - borderSize) + "px"; # sideways spacing between modules and screen edge
+      theme.bar.outer_spacing = toString (200 - borderSize) + "px"; # sideways spacing between modules and screen edge
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
       theme.bar.dropdownGap = "4.5em";
