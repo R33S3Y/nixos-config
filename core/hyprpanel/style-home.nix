@@ -17,7 +17,7 @@ let
   fontSizeForHyprpanel = "${toString config.stylix.fonts.sizes.desktop}px";
 
   rounding = theme.borders.rounding; 
-  borderSize = theme.borders.rounding; 
+  borderSize = theme.borders.thickness; 
 
   gapsOut = theme.borders.padding.outer;
   gapsIn = theme.borders.padding.inner;
@@ -70,7 +70,7 @@ in {
       theme.bar.outer_spacing = toString gapsOut + "px"; # sideway spacing between modules and screen edge
       theme.bar.margin_top = toString (gapsIn * 2) + "px";
       theme.bar.margin_bottom = "0";
-      theme.bar.margin_sides = toString gapsOut + "px";
+      theme.bar.margin_sides = toString (gapsOut - borderSize) + "px";
       theme.bar.border_radius = toString rounding + "px";
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
