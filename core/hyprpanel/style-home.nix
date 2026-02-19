@@ -3,6 +3,8 @@
 # Display informations like workspaces, battery, wifi, ...
 { inputs, config, specialArgs, ... }:
 let
+  theme = specialArgs.themes.${specialArgs.theme};
+
   transparentButtons = true;
 
   accent = "#${config.lib.stylix.colors.base0D}";
@@ -14,11 +16,11 @@ let
   font = "${config.stylix.fonts.serif.name}";
   fontSizeForHyprpanel = "${toString config.stylix.fonts.sizes.desktop}px";
 
-  rounding = 20; 
-  border-size = 2;
+  rounding = theme.borders.rounding; 
+  border-size = theme.borders.rounding; 
 
-  gaps-out = 20;
-  gaps-in = 10;
+  gaps-out = theme.borders.padding.outer;
+  gaps-in = theme.borders.padding.inner;
 
   floating = false;
   transparent = true;

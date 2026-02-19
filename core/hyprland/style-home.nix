@@ -1,4 +1,7 @@
 { config, pkgs, specialArgs, lib, ... }:
+let 
+  theme = specialArgs.themes.${specialArgs.theme};
+in
 { 
 
   home.pointerCursor = {
@@ -21,11 +24,9 @@
       general  = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-        gaps_in = specialArgs.themes.${specialArgs.theme}.borders.padding.inner;
-        gaps_out = specialArgs.themes.${specialArgs.theme}.borders.padding.outer;
-        border_size = specialArgs.themes.${specialArgs.theme}.borders.thickness;
-        #col.active_border = "rgba(c18fb3ff) rgba(c18fb3ff) 45deg"
-        #col.inactive_border = "rgba(57526cff)"
+        gaps_in = theme.borders.padding.inner;
+        gaps_out = theme.borders.padding.outer;
+        border_size = theme.borders.thickness;
 
         layout = "dwindle";
 
@@ -36,14 +37,14 @@
       decoration = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-        rounding = specialArgs.themes.${specialArgs.theme}.borders.rounding;
+        rounding = theme.borders.rounding;
         
-        blur = specialArgs.themes.${specialArgs.theme}.blur;
+        blur = theme.blur;
 
-        shadow = specialArgs.themes.${specialArgs.theme}.shadow;
+        shadow = theme.shadow;
 
-        active_opacity = specialArgs.themes.${specialArgs.theme}.opacity.active;
-        inactive_opacity = specialArgs.themes.${specialArgs.theme}.opacity.inactive;
+        active_opacity = theme.opacity.active;
+        inactive_opacity = theme.opacity.inactive;
       };
     };
   };
