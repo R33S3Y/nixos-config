@@ -73,7 +73,7 @@
         # USER
         {
           monitor = specialArgs.hosts.${specialArgs.host}.primaryMonitor;
-          text = "$USER";
+          text = specialArgs.users.${specialArgs.user}.prettyName;
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 25;
           position = "0, -150";

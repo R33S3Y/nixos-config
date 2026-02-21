@@ -64,13 +64,13 @@ in {
       theme.font.name = config.stylix.fonts.serif.name;
       theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
 
-
       theme.bar.floating = true; # allows gaps around the bar
       theme.bar.outer_spacing = "0"; # use margin instead
       theme.bar.margin_top = toString (gapsOut - borderSize) + "px"; # only works when floating = true
       theme.bar.margin_bottom = toString (gapsIn - borderSize) + "px"; # only works when floating = true
       theme.bar.margin_sides = toString (gapsOut - borderSize) + "px"; # only works when floating = true
       theme.bar.border_radius = toString rounding + "px";
+
       theme.bar.dropdownGap = toString ((gapsIn - borderSize)*2) + "px"; # how far down dropdowns are (is from absolte top)
 
       theme.bar.transparent = transparent;
@@ -180,7 +180,7 @@ in {
 
       # systray
 
-      # vollume
+      # volume
       bar.volume.label = false;
 
       # bluetooth
