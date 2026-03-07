@@ -61,7 +61,7 @@
         inherit inputs home-manager;
       };
       obsidian = import ./data/hosts/obsidian/host-flake.nix {
-        inherit inputs home-manager nixpkgsStable;
+        inherit inputs home-manager;
       };
       template = import ./data/hosts/template/host-flake.nix {
         inherit inputs home-manager nur nix-minecraft;
