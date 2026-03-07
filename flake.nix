@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgsStable.url = "github:NixOS/nixpkgs/nixos-25.11";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +48,7 @@
         inherit inputs home-manager;
       };
       obsidian = import ./data/hosts/obsidian/host-flake.nix {
-        inherit inputs home-manager;
+        inherit inputs home-manager nixpkgsStable;
       };
       template = import ./data/hosts/template/host-flake.nix {
         inherit inputs home-manager nur nix-minecraft;

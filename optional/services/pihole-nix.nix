@@ -12,7 +12,7 @@
   services.pihole-ftl = {
     enable = true;
 
-    package = stable.pkgs.pihole-ftl;
+    package = nixpkgsStable.pihole-ftl;
 
     openFirewallDHCP = true;
     openFirewallDNS = true;
