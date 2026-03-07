@@ -34,7 +34,6 @@
         modules = hosts.${hostName}.imports ++ [
           (final: prev: {
             stable = import nixpkgsStable {
-              inherit system;
               config.allowUnfree = true;
             };
           })
