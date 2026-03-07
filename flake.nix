@@ -32,11 +32,17 @@
         };
 
         modules = hosts.${hostName}.imports ++ [
-          (final: prev: {
-            stable = import nixpkgsStable {
-              config.allowUnfree = true;
-            };
-          })
+          ({ config, pkgs, ... }: {
+
+          nixpkgs.overlays = [
+            (final: prev: {
+              stable = import nixpkgsStable {
+                config.allowUnfree = true;
+              };
+            })
+          ];
+
+        })
         ];
       };  
 
