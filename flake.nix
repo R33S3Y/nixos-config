@@ -2,8 +2,8 @@
   description = "NixOS Configuration for all my PC's";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgsStable.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +16,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, nixpkgsStable, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, nixpkgs-unstable, ... }@inputs: 
   let 
     mkHost = hostName:
       nixpkgs.lib.nixosSystem {
@@ -36,7 +36,7 @@
 
           nixpkgs.overlays = [
             (final: prev: {
-              stable = import nixpkgsStable {
+              unstable = import nixpkgs-unstable {
                 system = "x86_64-linux";
                 config.allowUnfree = true;
               };
