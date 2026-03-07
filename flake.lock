@@ -318,7 +318,24 @@
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
+        "stable": "stable",
         "stylix": "stylix"
+      }
+    },
+    "stable": {
+      "locked": {
+        "lastModified": 1772598333,
+        "narHash": "sha256-YaHht/C35INEX3DeJQNWjNaTcPjYmBwwjFJ2jdtr+5U=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "fabb8c9deee281e50b1065002c9828f2cf7b2239",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-25.11",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "stylix": {

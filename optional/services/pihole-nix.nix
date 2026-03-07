@@ -1,5 +1,5 @@
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, stable, ... }:
 
 {
   services.pihole-web = {
