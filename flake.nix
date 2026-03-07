@@ -16,7 +16,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, stable, ... }@inputs: 
   let 
     mkHost = hostName:
       nixpkgs.lib.nixosSystem {
