@@ -43,7 +43,7 @@ cp -r "$CONFIG_SRC"/* "$CONFIG_DST"/
 
 # Rebuild NixOS locally (diamond)
 sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
-sudo nix-store --gc
+sudo nix-collect-garbage
 
 if ! nixos-rebuild switch --flake "$CONFIG_DST/#diamond"; then
     echo -e "${BAD}Local NixOS rebuild failed on diamond. Aborting.${RESET}"
@@ -68,7 +68,7 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
     # Removing older generations
     echo -e "${OK}Removing older generations $HOST...${RESET}"
     sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
-    sudo nix-store --gc
+    sudo nix-collect-garbage
 
     # Extract just the hostname (after @ if present)
     echo -e "${OK}Rebuilding $HOST...${RESET} \n"
