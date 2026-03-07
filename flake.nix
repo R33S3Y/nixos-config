@@ -1,5 +1,5 @@
 {
-  description = "NixOS Configuration for Diamond";
+  description = "NixOS Configuration for all my PC's";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -31,7 +31,14 @@
           theme = users.${hosts.${hostName}.user}.theme;
         };
 
-        modules = hosts.${hostName}.imports;
+        modules = hosts.${hostName}.imports ++ [
+          (final: prev: {
+            stable = import nixpkgsStable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          })
+        ];
       };  
 
     hosts = {

@@ -1,5 +1,5 @@
 
-{ config, pkgs, lib, nixpkgsStable, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services.pihole-web = {
@@ -12,7 +12,7 @@
   services.pihole-ftl = {
     enable = true;
 
-    package = nixpkgsStable.pihole-ftl;
+    package = pkgs.stable.pihole-ftl;
 
     openFirewallDHCP = true;
     openFirewallDNS = true;
