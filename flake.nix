@@ -37,6 +37,7 @@
           nixpkgs.overlays = [
             (final: prev: {
               stable = import nixpkgsStable {
+                system = "x86_64-linux";
                 config.allowUnfree = true;
               };
             })
