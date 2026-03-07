@@ -68,8 +68,8 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
     # Removing older generations
     echo -e "${OK}Removing older generations $HOST...${RESET}"
     echo -e ""
-    sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
-    sudo nix-collect-garbage
+    ssh "$HOST" sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
+    ssh "$HOST" sudo nix-collect-garbage
 
     # Extract just the hostname (after @ if present)
     echo -e ""
