@@ -1,4 +1,4 @@
-{ inputs, home-manager }:
+{ inputs, home-manager, nixpkgsStable }:
 
 let
   pkgs = import inputs.nixpkgs {
