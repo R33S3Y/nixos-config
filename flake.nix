@@ -2,11 +2,11 @@
   description = "NixOS Configuration for all my PC's";
 
   inputs = {
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgsStable.url = "github:NixOS/nixpkgs/nixos-25.11";
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix";
     nur = {
@@ -16,21 +16,15 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
-  outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, nixpkgs-unstable, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, nixpkgsStable, ... }@inputs: 
   let 
-    system = "x86_64-linux";
-
-    unstablePkgs = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
-
     mkHost = hostName:
       nixpkgs.lib.nixosSystem {
-        inherit system;
+        system = "x86_64-linux";
 
         specialArgs = {
           inherit inputs hosts users themes;
+          nixpkgs.config.allowUnfree = true;
 
           host = hostName;
           user = hosts.${hostName}.user;
@@ -39,11 +33,13 @@
 
         modules = hosts.${hostName}.imports ++ [
           ({ config, pkgs, ... }: {
-          
-          nixpkgs.config.allowUnfree = true;
+
           nixpkgs.overlays = [
             (final: prev: {
-              unstable = unstablePkgs;
+              stable = import nixpkgsStable {
+                system = "x86_64-linux";
+                config.allowUnfree = true;
+              };
             })
           ];
 
@@ -65,7 +61,7 @@
         inherit inputs home-manager;
       };
       obsidian = import ./data/hosts/obsidian/host-flake.nix {
-        inherit inputs home-manager;
+        inherit inputs home-manager nixpkgsStable;
       };
       template = import ./data/hosts/template/host-flake.nix {
         inherit inputs home-manager nur nix-minecraft;
