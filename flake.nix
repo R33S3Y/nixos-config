@@ -18,13 +18,19 @@
 
   outputs = { self, nixpkgs, home-manager, nur, nix-minecraft, nixpkgs-unstable, ... }@inputs: 
   let 
+    system = "x86_64-linux";
+
+    unstablePkgs = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
     mkHost = hostName:
       nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
 
         specialArgs = {
           inherit inputs hosts users themes;
-          nixpkgs.config.allowUnfree = true;
 
           host = hostName;
           user = hosts.${hostName}.user;
@@ -33,13 +39,11 @@
 
         modules = hosts.${hostName}.imports ++ [
           ({ config, pkgs, ... }: {
-
+          
+          nixpkgs.config.allowUnfree = true;
           nixpkgs.overlays = [
             (final: prev: {
-              unstable = import nixpkgs-unstable {
-                system = "x86_64-linux";
-                config.allowUnfree = true;
-              };
+              unstable = unstablePkgs;
             })
           ];
 
