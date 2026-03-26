@@ -213,6 +213,8 @@ let
       libnotify
 
       keepassxc
+
+      osu-lazer-bin
     ];
 
     bluetooth = true;
