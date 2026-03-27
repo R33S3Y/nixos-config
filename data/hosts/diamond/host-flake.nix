@@ -215,6 +215,7 @@ let
       keepassxc
 
       osu-lazer-bin
+      inkscape
     ];
 
     bluetooth = true;
