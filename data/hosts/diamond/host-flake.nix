@@ -216,6 +216,7 @@ let
 
       osu-lazer-bin
       inkscape
+      thunderbird
     ];
 
     bluetooth = true;
