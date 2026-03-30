@@ -4,7 +4,8 @@
     enable = true;
     settings = {
       color_theme = "stylix";
-      update_ms = "2000";
+      update_ms = "1000";
+      shown_boxes = "cpu mem net proc";
     };
   };
 
