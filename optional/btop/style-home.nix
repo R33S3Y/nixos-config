@@ -4,6 +4,7 @@
     enable = true;
     settings = {
       color_theme = "stylix";
+      update_ms = "2000";
     };
   };
 
