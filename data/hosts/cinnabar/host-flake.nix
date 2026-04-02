@@ -17,13 +17,13 @@ let
       ../../../core/boot/style-nix.nix
 
       # Hyprland
-      ../../../core/hyprland/enable-nix.nix
+      ../../../desktop/hyprland/enable-nix.nix
 
       # Hyprlock
-      ../../../core/hyprlock/enable-nix.nix
+      ../../../desktop/hyprlock/enable-nix.nix
 
       # Hyprpanel
-      ../../../core/hyprpanel/enable-nix.nix
+      ../../../desktop/hyprpanel/enable-nix.nix
 
       # Kitty
       ../../../core/kitty/enable-nix.nix
@@ -36,7 +36,7 @@ let
       ../../../core/networking/dhcp-nix.nix
   
       # PCmanFM
-      ../../../core/pcmanfm/enable-nix.nix
+      ../../../desktop/pcmanfm/enable-nix.nix
 
       # Rofi
       ../../../core/rofi/enable-nix.nix
@@ -49,7 +49,7 @@ let
       ../../../core/other/journald-nix.nix    # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
       ../../../core/other/local-nix.nix       # Local settings
       ../../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-      ../../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
+      ../../../core/other/cmd-nix.nix         # CMD  -  Programs that are still needed. But dont need there own section
       ../../../core/other/user-nix.nix        # user  -  Adds a user
       ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
       ../../../core/style/stylix-nix.nix      # stylix  -  this repo expects stylix
@@ -61,19 +61,19 @@ let
       # You can comment and uncomment these as needed
 
       # btop
-      ../../../optional/btop/enable-nix.nix
+      ../../../core/btop/enable-nix.nix
 
       # Fast Fetch
-      ../../../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
+      ../../../core/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
       # Firefox
-      ../../../optional/firefox/enable-nix.nix
+      ../../../desktop/firefox/enable-nix.nix
 
       # LapisLazuli
-      ../../../optional/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
+      ../../../other/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
 
       # other
-      ../../../optional/other/programs-nix.nix
+      ../../../core/other/programs-nix.nix
 
       # My stuff
       ./hardware-configuration.nix  # hardware  -  your hardware settings
@@ -82,15 +82,15 @@ let
     homeImports = [
       # CORE
       # Hyprland
-      ../../../core/hyprland/bind-home.nix    # Keyboard bindings
-      ../../../core/hyprland/settings-home.nix# Settings
-      ../../../core/hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
+      ../../../desktop/hyprland/bind-home.nix    # Keyboard bindings
+      ../../../desktop/hyprland/settings-home.nix# Settings
+      ../../../desktop/hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
 
       # Hyprlock
-      ../../../core/hyprlock/style-home.nix   # Styles + What to display and where
+      ../../../desktop/hyprlock/style-home.nix   # Styles + What to display and where
 
       # Hyprpanel
-      ../../../core/hyprpanel/style-home.nix
+      ../../../desktop/hyprpanel/style-home.nix
 
       # Kitty
       ../../../core/kitty/bind-home.nix       # Key binds
@@ -117,13 +117,13 @@ let
       # You can comment and uncomment these as needed
 
       # btop
-      ../../../optional/btop/style-home.nix
+      ../../../core/btop/style-home.nix
 
       # Fast Fetch
-      ../../../optional/fastfetch/settings-home.nix  # Fastfetch  -  run on bash init
+      ../../../core/fastfetch/settings-home.nix  # Fastfetch  -  run on bash init
 
       # Firefox
-      ../../../optional/firefox/settings-home.nix
+      ../../../desktop/firefox/settings-home.nix
 
       # Other
       # No home-manager files

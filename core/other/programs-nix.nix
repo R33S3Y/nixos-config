@@ -1,9 +1,6 @@
 
 { config, pkgs, ... }:
 
-{
-  environment.systemPackages = with pkgs; [
-    git
-    nano
-  ];
+{ 
+  environment.systemPackages = specialArgs.hosts.${specialArgs.host}.programs;
 }

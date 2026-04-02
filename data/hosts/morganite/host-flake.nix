@@ -20,7 +20,7 @@ let
       # Other
       ../../../core/other/local-nix.nix       # Local settings
       ../../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-      ../../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
+      ../../../core/other/cmd-nix.nix         # CMD  -  Programs that are still needed. But dont need there own section
       ../../../core/other/user-nix.nix        # user  -  Adds a user
       ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
       ../../../core/other/sudo-nix.nix        # sudo  -  Sudo settings
@@ -28,16 +28,16 @@ let
 
       # OPTIONAL
       # btop
-      ../../../optional/btop/enable-nix.nix
+      ../../../core/btop/enable-nix.nix
 
       # Fast Fetch
-      ../../../optional/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
+      ../../../core/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
       # Services
-      ../../../optional/services/jellyfin-nix.nix
+      ../../../services/jellyfin-nix.nix
 
       # lapisLazuli
-      ../../../optional/lapisLazuli/nfs-nix.nix             # Lapius  -  NAS
+      ../../../other/lapisLazuli/nfs-nix.nix             # Lapius  -  NAS
 
       # My stuff
       ./hardware-configuration.nix   # hardware  -  your hardware settings

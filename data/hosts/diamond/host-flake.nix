@@ -18,13 +18,13 @@ let
       ../../../core/boot/style-nix.nix
 
       # Hyprland
-      ../../../core/hyprland/enable-nix.nix
+      ../../../desktop/hyprland/enable-nix.nix
 
       # Hyprlock
-      ../../../core/hyprlock/enable-nix.nix
+      ../../../desktop/hyprlock/enable-nix.nix
 
       # Hyprpanel
-      ../../../core/hyprpanel/enable-nix.nix
+      ../../../desktop/hyprpanel/enable-nix.nix
 
       # Kitty
       ../../../core/kitty/enable-nix.nix
@@ -34,7 +34,7 @@ let
       ../../../core/networking/dhcp-nix.nix
   
       # PCmanFM
-      ../../../core/pcmanfm/enable-nix.nix
+      ../../../desktop/pcmanfm/enable-nix.nix
 
       # Rofi
       ../../../core/rofi/enable-nix.nix
@@ -50,7 +50,7 @@ let
       ../../../core/other/journald-nix.nix    # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
       ../../../core/other/local-nix.nix       # Local settings
       ../../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-      ../../../core/other/programs-nix.nix    # Programs  -  Programs that are still needed. But dont need there own section
+      ../../../core/other/cmd-nix.nix         # CMD  -  Programs that are still needed. But dont need there own section
       ../../../core/other/user-nix.nix        # user  -  Adds a user
       ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
       ../../../core/style/stylix-nix.nix      # stylix  -  this repo expects stylix
@@ -60,37 +60,37 @@ let
 
       # OPTIONAL
       # btop
-      ../../../optional/btop/enable-nix.nix
+      ../../../core/btop/enable-nix.nix
 
       # Fast Fetch
-      ../../../optional/fastfetch/enable-nix.nix         # Fastfetch  -  You got to show something in that cmd for your reddit posts
+      ../../../core/fastfetch/enable-nix.nix         # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
       # Firefox
-      ../../../optional/firefox/enable-nix.nix
+      ../../../desktop/firefox/enable-nix.nix
 
       # LapisLazuli
-      ../../../optional/lapisLazuli/home-nix.nix         # Lapius  -  Mount NAS to home
-      ../../../optional/lapisLazuli/smb-nix.nix          # Lapius  -  My NAS! It's here cause I want it!
-      ../../../optional/lapisLazuli/nfs-nix.nix          # Lapius  -  NAS
+      ../../../other/lapisLazuli/home-nix.nix         # Lapius  -  Mount NAS to home
+      ../../../other/lapisLazuli/smb-nix.nix          # Lapius  -  My NAS! It's here cause I want it!
+      ../../../other/lapisLazuli/nfs-nix.nix          # Lapius  -  NAS
 
       # nixcord
-      ../../../optional/nixcord/enable-nix.nix
+      ../../../desktop/nixcord/enable-nix.nix
 
       # obsidian
-      ../../../optional/obsidian/enable-nix.nix
+      ../../../desktop/obsidian/enable-nix.nix
 
       # steam
-      ../../../optional/steam/enable-nix.nix
+      ../../../desktop/steam/enable-nix.nix
 
       # Strawberry
-      ../../../optional/strawberry/enable-nix.nix        # Music player
+      ../../../desktop/strawberry/enable-nix.nix        # Music player
 
       # VScode
-      ../../../optional/vscode/enable-nix.nix
+      ../../../desktop/vscode/enable-nix.nix
 
       # Other
-      ../../../optional/other/alvr-nix.nix               # ALVR  -  For my vr nerds
-      ../../../optional/other/programs-nix.nix
+      ../../../desktop/other/alvr-nix.nix               # ALVR  -  For my vr nerds
+      ../../../core/other/programs-nix.nix
 
       # My stuff
       ./hardware-configuration.nix  # hardware  -  your hardware settings
@@ -99,16 +99,16 @@ let
     homeImports = [
       # CORE
       # Hyprland
-      ../../../core/hyprland/bind-home.nix    # Keyboard bindings
-      ../../../core/hyprland/monitor-home.nix 
-      ../../../core/hyprland/settings-home.nix# Settings
-      ../../../core/hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
+      ../../../desktop/hyprland/bind-home.nix    # Keyboard bindings
+      ../../../desktop/hyprland/monitor-home.nix 
+      ../../../desktop/hyprland/settings-home.nix# Settings
+      ../../../desktop/hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
 
       # Hyprlock
-      ../../../core/hyprlock/style-home.nix   # Styles + What to display and where
+      ../../../desktop/hyprlock/style-home.nix   # Styles + What to display and where
 
       # Hyprpanel
-      ../../../core/hyprpanel/style-home.nix
+      ../../../desktop/hyprpanel/style-home.nix
 
       # Kitty
       ../../../core/kitty/bind-home.nix       # Key binds
@@ -135,28 +135,28 @@ let
       # You can comment and uncomment these as needed
 
       # btop
-      ../../../optional/btop/style-home.nix
+      ../../../core/btop/style-home.nix
 
       # Fast Fetch
-      ../../../optional/fastfetch/settings-home.nix  # Fastfetch  -  run on bash init
+      ../../../core/fastfetch/settings-home.nix  # Fastfetch  -  run on bash init
 
       # Firefox
-      ../../../optional/firefox/settings-home.nix
+      ../../../desktop/firefox/settings-home.nix
 
       # nixcord
-      ../../../optional/nixcord/settings-home.nix
+      ../../../desktop/nixcord/settings-home.nix
 
       # obsidian
-      ../../../optional/obsidian/settings-home.nix
+      ../../../desktop/obsidian/settings-home.nix
 
       # steam
-      ../../../optional/steam/startup-home.nix
+      ../../../desktop/steam/startup-home.nix
 
       # Strawberry
-      ../../../optional/strawberry/bind-home.nix     # Global Hotkeys for music player
+      ../../../desktop/strawberry/bind-home.nix     # Global Hotkeys for music player
 
       # VScode
-      ../../../optional/vscode/settings-home.nix
+      ../../../desktop/vscode/settings-home.nix
 
       # Other
       # No home-manager files
