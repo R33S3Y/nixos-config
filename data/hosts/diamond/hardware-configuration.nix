@@ -38,4 +38,7 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.keyboard.zsa.enable = true;
 
+  services.hardware.openrgb = { 
+    enable = true;
+  };
 }
