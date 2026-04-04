@@ -6,7 +6,7 @@ in {
       isNormalUser = true;
       uid = 1000;
       description = "${username}";
-      extraGroups = [ "networkmanager" "wheel" "jellyfin" "cms" ];
+      extraGroups = [ "networkmanager" "wheel" "jellyfin" "cms" "render" ];
     };
     rebuild = {
       isNormalUser = true;
