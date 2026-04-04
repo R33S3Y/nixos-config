@@ -11,9 +11,6 @@ let
       # boot
       ../../../core/boot/bios-nix.nix
 
-      # Kitty
-      ../../../core/kitty/tools-nix.nix
-
       # Networking
       ../../../core/networking/static-nix.nix
 

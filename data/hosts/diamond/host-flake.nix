@@ -27,8 +27,7 @@ let
       ../../../desktop/hyprpanel/enable-nix.nix
 
       # Kitty
-      ../../../core/kitty/enable-nix.nix
-      ../../../core/kitty/tools-nix.nix
+      ../../../desktop/kitty/enable-nix.nix
 
       # Networking
       ../../../core/networking/dhcp-nix.nix
@@ -111,9 +110,9 @@ let
       ../../../desktop/hyprpanel/style-home.nix
 
       # Kitty
-      ../../../core/kitty/bind-home.nix       # Key binds
-      ../../../core/kitty/style-home.nix      # Styles  -  You should be fine to get away with disabling this
-      ../../../core/kitty/settings-home.nix   # Settings
+      ../../../desktop/kitty/bind-home.nix       # Key binds
+      ../../../desktop/kitty/style-home.nix      # Styles  -  You should be fine to get away with disabling this
+      ../../../desktop/kitty/settings-home.nix   # Settings
 
       # PCmanFM
       # No home-manager files
