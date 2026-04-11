@@ -12,6 +12,7 @@
     vaults = {
       "lapisLazuli/reese/NoteBox".settings.app = {
         "attachmentFolderPath" = "Assets";
+        "useMarkdownLinks" = true;
       };
     };
   };
