@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  stylix.targets.vscode.enable = true;
-  stylix.targets.vscode.profileNames = [ "default" ];
+  stylix.targets.vscode = {
+    enable = true;
+    fonts.enable = true;
+    colors.enable = true;
+    profileNames = [ "default" ];
+  };
   programs.vscode = {
     enable = true;
     profiles.default = {
