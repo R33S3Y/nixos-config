@@ -3,7 +3,7 @@
 {
   stylix.targets.vscode = {
     enable = true;
-    fonts.enable = true;
+    fonts.enable = false;
     colors.enable = true;
     profileNames = [ "default" ];
   };
