@@ -11,155 +11,118 @@ let
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
-
+      
       # CORE
+
       # boot
       ../../../core/boot/uefi-nix.nix
       ../../../core/boot/style-nix.nix
-
-      # Hyprland
-      ../../../desktop/hyprland/enable-nix.nix
-
-      # Hyprlock
-      ../../../desktop/hyprlock/enable-nix.nix
-
-      # Hyprpanel
-      ../../../desktop/hyprpanel/enable-nix.nix
-
-      # Kitty
-      ../../../desktop/kitty/enable-nix.nix
-
+      # btop
+      ../../../core/btop/enable-nix.nix
+      # Fast Fetch
+      ../../../core/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
       # Networking
       ../../../core/networking/dhcp-nix.nix
-  
       # PCmanFM
       ../../../desktop/pcmanfm/enable-nix.nix
-
       # Rofi
       ../../../core/rofi/enable-nix.nix
-  
       # SDDM
       ../../../core/sddm/enable-nix.nix
-
       # Sound
       ../../../core/sound/sound-nix.nix
-
+      # Style
+      ../../../core/style/stylix-nix.nix      # stylix  -  this repo expects stylix
       # Other
-      ../../../core/other/home-nix.nix        # home
+      ../../../core/other/cmd-nix.nix         # CMD  -  Programs that are still needed. But dont need there own section
       ../../../core/other/journald-nix.nix    # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
       ../../../core/other/local-nix.nix       # Local settings
       ../../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-      ../../../core/other/cmd-nix.nix         # CMD  -  Programs that are still needed. But dont need there own section
-      ../../../core/other/user-nix.nix        # user  -  Adds a user
+      ../../../core/other/programs-nix.nix    # Install all programs in the programs var
       ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
-      ../../../core/style/stylix-nix.nix      # stylix  -  this repo expects stylix
       ../../../core/other/sudo-nix.nix        # sudo  -  Sudo settings
+      ../../../core/other/user-nix.nix        # user  -  Adds a user
       ../../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
-      
 
-      # OPTIONAL
-      # btop
-      ../../../core/btop/enable-nix.nix
 
-      # Fast Fetch
-      ../../../core/fastfetch/enable-nix.nix         # Fastfetch  -  You got to show something in that cmd for your reddit posts
+      # Desktop
+      # You can comment and uncomment these as needed
 
       # Firefox
       ../../../desktop/firefox/enable-nix.nix
-
-      # LapisLazuli
-      ../../../other/lapisLazuli/home-nix.nix         # Lapius  -  Mount NAS to home
-      ../../../other/lapisLazuli/smb-nix.nix          # Lapius  -  My NAS! It's here cause I want it!
-      ../../../other/lapisLazuli/nfs-nix.nix          # Lapius  -  NAS
-
+      # Hyprland
+      ../../../desktop/hyprland/enable-nix.nix
+      # Hyprlock
+      ../../../desktop/hyprlock/enable-nix.nix
+      # Hyprpanel
+      ../../../desktop/hyprpanel/enable-nix.nix
+      # Kitty
+      ../../../desktop/kitty/enable-nix.nix
       # nixcord
       ../../../desktop/nixcord/enable-nix.nix
-
       # obsidian
       ../../../desktop/obsidian/enable-nix.nix
-
       # steam
       ../../../desktop/steam/enable-nix.nix
-
       # Strawberry
-      ../../../desktop/strawberry/enable-nix.nix        # Music player
-
+      ../../../desktop/strawberry/enable-nix.nix    # Music player
       # VScode
       ../../../desktop/vscode/enable-nix.nix
-
       # Other
       ../../../desktop/other/alvr-nix.nix               # ALVR  -  For my vr nerds
-      ../../../core/other/programs-nix.nix
+
+      # OTHER
+
+      # LapisLazuli
+      ../../../other/lapisLazuli/home-nix.nix     # Lapius  -  Mount NAS to home
+      ../../../other/lapisLazuli/smb-nix.nix      # Lapius  -  My NAS! It's here cause I want it!
+      ../../../other/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
 
       # My stuff
       ./hardware-configuration.nix  # hardware  -  your hardware settings
-      
     ];
     homeImports = [
       # CORE
+
+      # btop
+      ../../../core/btop/style-home.nix
+      # Fast Fetch
+      ../../../core/fastfetch/settings-home.nix  # Fastfetch  -  run on bash init
+      # Rofi
+      ../../../core/rofi/style-home.nix       # Styles
+      # Sound
+      ../../../core/sound/sound-home.nix
+      # Other
+      ../../../core/other/xdgMime-home.nix   # Sets default apps
+
+      # DESKTOP
+      # You can comment and uncomment these as needed
+
       # Hyprland
       ../../../desktop/hyprland/bind-home.nix    # Keyboard bindings
-      ../../../desktop/hyprland/monitor-home.nix 
+      ../../../desktop/hyprland/monitor-home.nix # Monitor settings
       ../../../desktop/hyprland/settings-home.nix# Settings
       ../../../desktop/hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
-
       # Hyprlock
       ../../../desktop/hyprlock/style-home.nix   # Styles + What to display and where
-
       # Hyprpanel
       ../../../desktop/hyprpanel/style-home.nix
-
       # Kitty
       ../../../desktop/kitty/bind-home.nix       # Key binds
       ../../../desktop/kitty/style-home.nix      # Styles  -  You should be fine to get away with disabling this
       ../../../desktop/kitty/settings-home.nix   # Settings
-
-      # PCmanFM
-      # No home-manager files
-
-      # Rofi
-      ../../../core/rofi/style-home.nix       # Styles
-
-      # SDDM
-      # TODO : SDDM styles
-
-      # Sound
-      ../../../core/sound/sound-home.nix
-
-      # Other
-      ../../../core/other/xdgMime-home.nix   # Sets default apps
-
-
-      # OPTIONAL
-      # You can comment and uncomment these as needed
-
-      # btop
-      ../../../core/btop/style-home.nix
-
-      # Fast Fetch
-      ../../../core/fastfetch/settings-home.nix  # Fastfetch  -  run on bash init
-
       # Firefox
       ../../../desktop/firefox/settings-home.nix
-
       # nixcord
       ../../../desktop/nixcord/settings-home.nix
-
       # obsidian
       ../../../desktop/obsidian/settings-home.nix
-
       # steam
       ../../../desktop/steam/startup-home.nix
-
       # Strawberry
       ../../../desktop/strawberry/bind-home.nix     # Global Hotkeys for music player
-
       # VScode
       ../../../desktop/vscode/settings-home.nix
-
-      # Other
-      # No home-manager files
-
     ];
     
     user = "reese";
