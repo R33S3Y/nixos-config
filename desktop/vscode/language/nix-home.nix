@@ -20,7 +20,7 @@
             formatting.command = ["nixfmt"];
             diagnostic.suppress = [
               "undefined_var"
-              #"unused_binding"
+              "unused_binding"
             ];
           };
         };
