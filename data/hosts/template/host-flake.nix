@@ -137,6 +137,7 @@ let
       ../../../desktop/strawberry/bind-home.nix     # Global Hotkeys for music player
       # VScode
       ../../../desktop/vscode/settings-home.nix
+      ../../../desktop/vscode/language/nix-home.nix # Nix LSP and FMT support
 
     ];
     
