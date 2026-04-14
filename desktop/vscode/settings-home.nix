@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   stylix.targets.vscode = {
@@ -12,12 +12,13 @@
     profiles.default = {
       enableUpdateCheck = false;
       extensions = [ 
-        #pkgs.vscode-extensions.bbenoist.nix 
-        #pkgs.vscode-extensions.naumovs.color-highlight 
-        #pkgs.vscode-extensions.ms-python.python
+        
       ];
       userSettings = { 
-        
+        editor = {
+          tabSize = 2; # sets tabsize
+          detectIndentation = false; # turns off auto detect for tabSize
+        };
       };
     };
   };

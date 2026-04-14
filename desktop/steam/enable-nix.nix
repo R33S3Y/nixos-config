@@ -1,5 +1,5 @@
 
-{ config, pkgs, inputs, lib, ... }:
+{ ... }:
 
 {
   programs.steam = {
