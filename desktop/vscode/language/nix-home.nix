@@ -11,8 +11,17 @@
       extensions = with pkgs; [ 
         vscode-extensions.jnoortheen.nix-ide
       ];
-      userSettings = { 
-        
+      userSettings.nix = {
+        enableLanguageServer = true;
+        serverPath = "nixd";
+
+        serverSettings = {
+          "nixd" = {
+            "formatting" = {
+              "command" = ["nixfmt"];
+            };
+          };
+        };
       };
     };
   };
