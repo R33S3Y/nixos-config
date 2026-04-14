@@ -16,10 +16,12 @@
         serverPath = "nixd";
 
         serverSettings = {
-          "nixd" = {
-            "formatting" = {
-              "command" = ["nixfmt"];
-            };
+          nixd = {
+            formatting.command = ["nixfmt"];
+            diagnostic.suppress = [
+              "undefined_var"
+              #"unused_binding"
+            ];
           };
         };
       };
