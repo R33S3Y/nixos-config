@@ -8,7 +8,7 @@
 
   programs.vscode = {
     profiles.default = {
-      extensions = [ 
+      extensions = with pkgs; [ 
         vscode-extensions.jnoortheen.nix-ide
       ];
       userSettings = { 
