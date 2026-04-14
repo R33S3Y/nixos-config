@@ -25,7 +25,7 @@
         "scm.inputFontSize" = 13;
         "screencastMode.fontSize" = 58;
         "terminal.integrated.fontSize" = 14;
-      }
+      };
     };
   };
 }
