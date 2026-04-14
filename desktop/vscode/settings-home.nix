@@ -3,7 +3,7 @@
 {
   stylix.targets.vscode = {
     enable = true;
-    fonts.enable = false;
+    fonts.enable = true;
     colors.enable = true;
     profileNames = [ "default" ];
   };
@@ -17,14 +17,7 @@
         pkgs.vscode-extensions.ms-python.python
       ];
       userSettings = { 
-        "chat.editor.fontSize" = 14;
-        "debug.console.fontSize" = 14;
-        "editor.fontSize" = 14;
-        "editor.minimap.sectionHeaderFontSize" = 9;
-        "markdown.preview.fontSize" = 14;
-        "scm.inputFontSize" = 13;
-        "screencastMode.fontSize" = 58;
-        "terminal.integrated.fontSize" = 14;
+        
       };
     };
   };
