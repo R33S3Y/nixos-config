@@ -15,14 +15,8 @@
         enableLanguageServer = true;
         serverPath = "nixd";
 
-        serverSettings = {
-          nixd = {
-            formatting.command = ["nixfmt"];
-            diagnostic.suppress = [
-              "undefined_var"
-              "unused_binding"
-            ];
-          };
+        serverSettings.nixd = {
+          formatting.command = ["nixfmt"];
         };
       };
     };
