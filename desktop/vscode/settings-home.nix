@@ -33,7 +33,6 @@
           language = "en-GB,en-NZ";
           autocorrect = true;
           hideAddToDictionaryCodeActions = true; # hides some ctl + shift + p options that wont work.
-          diagnosticLevel = "Warning"; # if it hits a limit
           maxDuplicateProblems = 1000;
           maxNumberOfProblems = 10000;
           suggestionMenuType = "quickFix";
@@ -42,9 +41,11 @@
           checkLimit = 10000;
           userWords = [
             # their is a option to use make a custom dictionary that may prove useful if this list gets too long
-            "stylix"
-            "pkgs"
-            "nixos"
+
+          ];
+          ignoreWords = [
+            # this is just to shut it up a bit
+
           ];
         };
       };

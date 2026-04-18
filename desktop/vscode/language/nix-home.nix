@@ -26,8 +26,8 @@
         };
         "[nix]" = {
           editor.defaultFormatter = "jnoortheen.nix-ide";
-          cSpell.words = [
-            # their is a option to use make a custom dictionary that may prove useful if this list gets too long
+          cSpell.ignoreWords = [
+            # this is just to shut it up a bit
             "stylix"
             "pkgs"
             "nixos"
