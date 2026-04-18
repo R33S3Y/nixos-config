@@ -31,7 +31,7 @@ let
       ../../../core/fastfetch/enable-nix.nix # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
       # Services
-      ../../../services/pihole-nix.nix
+      ../../../services/pihole/pihole-nix.nix
 
       # My stuff
       ./hardware-configuration.nix # hardware  -  your hardware settings

@@ -1,5 +1,4 @@
-
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   services.pihole-web = {
@@ -17,7 +16,7 @@
     openFirewallDHCP = true;
     openFirewallDNS = true;
     openFirewallWebserver = true;
-    
+
     # Blocklists
     lists = [
       {
@@ -39,19 +38,21 @@
         description = "Steven Black Hosts";
       }
     ];
-    
-    
+
     # Optional settings
     privacyLevel = 0; # 0 = show everything, increase for more privacy
     queryLogDeleter = {
       enable = true;
       interval = "weekly";
-      age = 7;      # keep logs max 7 days
+      age = 7; # keep logs max 7 days
     };
 
     settings = {
       dns = {
-        upstreams = [ "8.8.8.8" "8.8.4.4" ];
+        upstreams = [
+          "8.8.8.8"
+          "8.8.4.4"
+        ];
         CNAMEdeepInspect = true;
         blockESNI = true;
         EDNS0ECS = true;
@@ -168,7 +169,7 @@
         networkNames = true;
         refreshNames = "IPV4_ONLY";
       };
- 
+
       misc = {
         delay_startup = 0;
         nice = -10;
