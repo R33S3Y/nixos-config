@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, specialArgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -18,6 +18,10 @@
 
           serverSettings.nixd = {
             formatting.command = [ "nixfmt" ];
+            options = {
+              nixos.expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${specialArgs.system}.options";
+              home-manager.expr = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.${specialArgs.system}.options.home-manager.users.type.getSubOptions []";
+            };
           };
         };
         "[nix]" = {

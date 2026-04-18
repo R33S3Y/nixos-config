@@ -1,4 +1,4 @@
-{ inputs, home-manager, nixpkgsStable }:
+{ inputs, home-manager }:
 
 let
   pkgs = import inputs.nixpkgs {
@@ -15,34 +15,35 @@ let
       ../../../core/networking/static-nix.nix
 
       # Other
-      ../../../core/other/local-nix.nix       # Local settings
-      ../../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-      ../../../core/other/cmd-nix.nix         # CMD  -  Programs that are still needed. But dont need there own section
-      ../../../core/other/user-nix.nix        # user  -  Adds a user
-      ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22
-      ../../../core/other/sudo-nix.nix        # sudo  -  Sudo settings
-      ../../../core/other/journald-nix.nix    # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
-  
+      ../../../core/other/local-nix.nix # Local settings
+      ../../../core/other/nix-nix.nix # Nix settings  -  enable flakes, state nix version, etc
+      ../../../core/other/cmd-nix.nix # CMD  -  Programs that are still needed. But dont need there own section
+      ../../../core/other/user-nix.nix # user  -  Adds a user
+      ../../../core/other/ssh-nix.nix # ssh  -  Enables ssh on port 22
+      ../../../core/other/sudo-nix.nix # sudo  -  Sudo settings
+      ../../../core/other/journald-nix.nix # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
+
       # OPTIONAL
       # btop
       ../../../core/btop/enable-nix.nix
 
       # Fast Fetch
-      ../../../core/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
+      ../../../core/fastfetch/enable-nix.nix # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
       # Services
       ../../../services/pihole-nix.nix
 
       # My stuff
-      ./hardware-configuration.nix   # hardware  -  your hardware settings
-      
+      ./hardware-configuration.nix # hardware  -  your hardware settings
+
     ];
 
     user = "reese";
 
     hostName = "obsidian";
 
-    static = { # only needed when using networking-static-nix.nix
+    static = {
+      # only needed when using networking-static-nix.nix
       interface = "ens18";
       ipv4 = {
         address = "192.168.1.249";
@@ -53,6 +54,6 @@ let
       nameservers = [ "192.168.1.249" ];
     };
   };
-  
+
 in
 obsidian
