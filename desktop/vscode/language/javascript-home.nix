@@ -8,7 +8,9 @@
         vscode-extensions.prettier.prettier-vscode
       ];
       userSettings = {
-
+        "[javascript]" = {
+          editor.defaultFormatter = "prettier.prettier-vscode";
+        };
       };
     };
   };
