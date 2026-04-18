@@ -16,7 +16,7 @@
       ];
       userSettings = {
         editor = {
-          tabSize = 2; # sets tabsize
+          tabSize = 2; # sets tabSize
           insertSpaces = true; # Space when tab
           detectIndentation = false; # turns off auto detect for tabSize
         };
@@ -28,6 +28,12 @@
         editor = {
           formatOnSave = true;
           formatOnPaste = true;
+        };
+        cSpell = {
+          language = "en-GB,en-NZ";
+          userWords = [
+
+          ];
         };
       };
     };
