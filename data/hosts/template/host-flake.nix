@@ -44,7 +44,7 @@ let
       # Style
       ../../../core/style/stylix-nix.nix # stylix  -  this repo expects stylix
       # Other
-      ../../../core/other/cmd-nix.nix # CMD  -  Programs that are still needed. But dont need there own section
+      ../../../core/other/cmd-nix.nix # CMD  -  Programs that are still needed. But don't need there own section
       ../../../core/other/home-nix.nix # home
       ../../../core/other/journald-nix.nix # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
       ../../../core/other/local-nix.nix # Local settings
@@ -93,9 +93,9 @@ let
       # OTHER
 
       # LapisLazuli
-      ../../../other/lapisLazuli/home-nix.nix # Lapius  -  Mount NAS to home
-      ../../../other/lapisLazuli/smb-nix.nix # Lapius  -  My NAS! It's here cause I want it!
-      ../../../other/lapisLazuli/nfs-nix.nix # Lapius  -  NAS
+      ../../../other/lapisLazuli/home-nix.nix # Lapis  -  Mount NAS to home
+      ../../../other/lapisLazuli/smb-nix.nix # Lapis  -  My NAS! It's here cause I want it!
+      ../../../other/lapisLazuli/nfs-nix.nix # Lapis  -  NAS
     ];
     homeImports = [
       # CORE

@@ -1,17 +1,21 @@
-{ inputs, home-manager, nur }:
+{
+  inputs,
+  home-manager,
+  nur,
+}:
 
 let
   pkgs = import inputs.nixpkgs {
     system = "x86_64-linux"; # or inherit system if passed from the flake
     config.allowUnfree = true;
   };
-  diamond = { 
+  diamond = {
     imports = [
       # Nix modules
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
-      
+
       # CORE
 
       # boot
@@ -20,7 +24,7 @@ let
       # btop
       ../../../core/btop/enable-nix.nix
       # Fast Fetch
-      ../../../core/fastfetch/enable-nix.nix     # Fastfetch  -  You got to show something in that cmd for your reddit posts
+      ../../../core/fastfetch/enable-nix.nix # Fastfetch  -  You got to show something in that cmd for your reddit posts
       # Networking
       ../../../core/networking/dhcp-nix.nix
       # PCmanFM
@@ -32,19 +36,18 @@ let
       # Sound
       ../../../core/sound/sound-nix.nix
       # Style
-      ../../../core/style/stylix-nix.nix      # stylix  -  this repo expects stylix
+      ../../../core/style/stylix-nix.nix # stylix  -  this repo expects stylix
       # Other
-      ../../../core/other/cmd-nix.nix         # CMD  -  Programs that are still needed. But dont need there own section
-      ../../../core/other/home-nix.nix        # home
-      ../../../core/other/journald-nix.nix    # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
-      ../../../core/other/local-nix.nix       # Local settings
-      ../../../core/other/nix-nix.nix         # Nix settings  -  enable flakes, state nix version, etc
-      ../../../core/other/programs-nix.nix    # Install all programs in the programs var
-      ../../../core/other/ssh-nix.nix         # ssh  -  Enables ssh on port 22 needed for deploy rs
-      ../../../core/other/sudo-nix.nix        # sudo  -  Sudo settings
-      ../../../core/other/user-nix.nix        # user  -  Adds a user
-      ../../../core/other/x11-nix.nix         # x11  -  needed for Xwayland??
-
+      ../../../core/other/cmd-nix.nix # CMD  -  Programs that are still needed. But dont need there own section
+      ../../../core/other/home-nix.nix # home
+      ../../../core/other/journald-nix.nix # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
+      ../../../core/other/local-nix.nix # Local settings
+      ../../../core/other/nix-nix.nix # Nix settings  -  enable flakes, state nix version, etc
+      ../../../core/other/programs-nix.nix # Install all programs in the programs var
+      ../../../core/other/ssh-nix.nix # ssh  -  Enables ssh on port 22 needed for deploy rs
+      ../../../core/other/sudo-nix.nix # sudo  -  Sudo settings
+      ../../../core/other/user-nix.nix # user  -  Adds a user
+      ../../../core/other/x11-nix.nix # x11  -  needed for Xwayland??
 
       # Desktop
       # You can comment and uncomment these as needed
@@ -66,21 +69,21 @@ let
       # steam
       ../../../desktop/steam/enable-nix.nix
       # Strawberry
-      ../../../desktop/strawberry/enable-nix.nix    # Music player
+      ../../../desktop/strawberry/enable-nix.nix # Music player
       # VScode
       ../../../desktop/vscode/enable-nix.nix
       # Other
-      ../../../desktop/other/alvr-nix.nix               # ALVR  -  For my vr nerds
+      ../../../desktop/other/alvr-nix.nix # ALVR  -  For my vr nerds
 
       # OTHER
 
       # LapisLazuli
-      ../../../other/lapisLazuli/home-nix.nix     # Lapius  -  Mount NAS to home
-      ../../../other/lapisLazuli/smb-nix.nix      # Lapius  -  My NAS! It's here cause I want it!
-      ../../../other/lapisLazuli/nfs-nix.nix      # Lapius  -  NAS
+      ../../../other/lapisLazuli/home-nix.nix # Lapis  -  Mount NAS to home
+      ../../../other/lapisLazuli/smb-nix.nix # Lapis  -  My NAS! It's here cause I want it!
+      ../../../other/lapisLazuli/nfs-nix.nix # Lapis  -  NAS
 
       # My stuff
-      ./hardware-configuration.nix  # hardware  -  your hardware settings
+      ./hardware-configuration.nix # hardware  -  your hardware settings
     ];
     homeImports = [
       # CORE
@@ -88,13 +91,13 @@ let
       # btop
       ../../../core/btop/style-home.nix
       # Fast Fetch
-      ../../../core/fastfetch/settings-home.nix  # Fastfetch  -  run on bash init
+      ../../../core/fastfetch/settings-home.nix # Fastfetch  -  run on bash init
       # Rofi
-      ../../../core/rofi/style-home.nix       # Styles
+      ../../../core/rofi/style-home.nix # Styles
       # Sound
       ../../../core/sound/sound-home.nix
       # Other
-      ../../../core/other/xdgMime-home.nix   # Sets default apps
+      ../../../core/other/xdgMime-home.nix # Sets default apps
 
       # DESKTOP
       # You can comment and uncomment these as needed
@@ -102,18 +105,18 @@ let
       # Firefox
       ../../../desktop/firefox/settings-home.nix
       # Hyprland
-      ../../../desktop/hyprland/bind-home.nix    # Keyboard bindings
+      ../../../desktop/hyprland/bind-home.nix # Keyboard bindings
       ../../../desktop/hyprland/monitor-home.nix # Monitor settings
-      ../../../desktop/hyprland/settings-home.nix# Settings
-      ../../../desktop/hyprland/style-home.nix   # Styles tweaks  -  (Most styling is handled by stylix)
+      ../../../desktop/hyprland/settings-home.nix # Settings
+      ../../../desktop/hyprland/style-home.nix # Styles tweaks  -  (Most styling is handled by stylix)
       # Hyprlock
-      ../../../desktop/hyprlock/style-home.nix   # Styles + What to display and where
+      ../../../desktop/hyprlock/style-home.nix # Styles + What to display and where
       # Hyprpanel
       ../../../desktop/hyprpanel/style-home.nix
       # Kitty
-      ../../../desktop/kitty/bind-home.nix       # Key binds
-      ../../../desktop/kitty/style-home.nix      # Styles  -  You should be fine to get away with disabling this
-      ../../../desktop/kitty/settings-home.nix   # Settings
+      ../../../desktop/kitty/bind-home.nix # Key binds
+      ../../../desktop/kitty/style-home.nix # Styles  -  You should be fine to get away with disabling this
+      ../../../desktop/kitty/settings-home.nix # Settings
       # nixcord
       ../../../desktop/nixcord/settings-home.nix
       # obsidian
@@ -121,18 +124,18 @@ let
       # steam
       ../../../desktop/steam/startup-home.nix
       # Strawberry
-      ../../../desktop/strawberry/bind-home.nix     # Global Hotkeys for music player
+      ../../../desktop/strawberry/bind-home.nix # Global Hotkeys for music player
       # VScode
       ../../../desktop/vscode/settings-home.nix
       ../../../desktop/vscode/language/javascript-home.nix # ESlint
-      ../../../desktop/vscode/language/nix-home.nix        # Nix LSP and FMT support
+      ../../../desktop/vscode/language/nix-home.nix # Nix LSP and FMT support
     ];
-    
+
     user = "reese";
 
     hostName = "diamond";
 
-    lapisLazuli = { 
+    lapisLazuli = {
       mount = "/home/reese/lapis_lazuli";
       share = "lapis_lazuli";
       credentials = "/etc/nixos/secrets/diamond-user-access";
@@ -147,13 +150,13 @@ let
       git-lfs
       vlc
       nano
-      
+
       prismlauncher
       python314
 
-      protonup-qt #needed for a vrchat fix
+      protonup-qt # needed for a vrchat fix
 
-      bs-manager  
+      bs-manager
 
       r2modman
       super-slicer-beta
@@ -163,7 +166,7 @@ let
 
       obs-studio
 
-      keymapp 
+      keymapp
 
       kicad
       libreoffice-qt6-fresh
@@ -185,7 +188,7 @@ let
     ];
 
     bluetooth = true;
-    
+
     microphone = {
       # use wpctl status to get device names
       name = "Blue Microphones Analog Stereo";
@@ -203,7 +206,7 @@ let
         id = "54:84:50:67:C9:A2"; # bluetoothctl devices
       };
     };
-    primaryMonitor =  "HDMI-A-1";
+    primaryMonitor = "HDMI-A-1";
     monitor = [
       "HDMI-A-1, 3840x2160@60, 0x0, 1, bitdepth,8, cm,srgb"
       "DP-3, 2560x1440@165, 3840x0, 1.066667, transform,3"
