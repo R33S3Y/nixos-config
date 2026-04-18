@@ -1,4 +1,3 @@
-
 { ... }:
 
 {
@@ -7,4 +6,4 @@
     gamescopeSession.enable = true;
   };
   programs.gamescope.enable = true;
-} 
+}

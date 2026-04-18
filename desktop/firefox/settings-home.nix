@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-  
+
   stylix.targets.firefox = {
-    profileNames = ["default"];
+    profileNames = [ "default" ];
     colorTheme.enable = true;
   };
 
@@ -20,7 +20,7 @@
         extensions = {
           force = true;
           #autoDisableScopes = 0;
-          packages = with pkgs.nur.repos.rycee.firefox-addons;[
+          packages = with pkgs.nur.repos.rycee.firefox-addons; [
             darkreader
             sponsorblock
             return-youtube-dislikes
@@ -33,13 +33,13 @@
         };
       };
     };
-    /* ---- POLICIES ---- */
+    # ---- POLICIES ----
     # Check about:policies#documentation for options.
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       EnableTrackingProtection = {
-        Value= true;
+        Value = true;
         Locked = true;
         Cryptomining = true;
         Fingerprinting = true;

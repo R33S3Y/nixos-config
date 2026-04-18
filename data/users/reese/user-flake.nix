@@ -10,7 +10,6 @@ let
 
     screenshotFolder = "~/Pictures";
 
-
     timeZone = "Pacific/Auckland";
 
     defaultLocale = "en_NZ.UTF-8";

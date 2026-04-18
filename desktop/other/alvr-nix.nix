@@ -1,23 +1,4 @@
-
-{ config, pkgs, 
-  lib,
-  stdenv,
-  callPackage,
-  nix-update-script,
-
-  buildNpmPackage,
-  fetchNpmDeps,
-  fetchFromGitHub,
-  makeDesktopItem,
-
-  autoPatchelfHook,
-  copyDesktopItems,
-  makeWrapper,
-
-  electron,
-  steam-run-free,
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
   programs.alvr = {
@@ -43,12 +24,9 @@
     );
   };
 
-  networking.firewall.allowedUDPPorts = [ 9943 9944 ];
+  networking.firewall.allowedUDPPorts = [
+    9943
+    9944
+  ];
 
-  # was having some internet throughput issues when using alvr this was the fix
-  powerManagement.cpuFreqGovernor = "performance"; 
-  boot.kernelParams = [ "amd_pstate=active" "processor.max_cstate=1" "idle=nomwait" ];
-  boot.blacklistedKernelModules = [ "r8169" ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ r8125 ];
-  boot.kernelModules = [ "r8125" ];
 }

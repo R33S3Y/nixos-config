@@ -1,4 +1,8 @@
-{ config, pkgs, specialArgs, ... }:
+{
+  pkgs,
+  specialArgs,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -60,13 +64,17 @@
         "$mainMod, mouse_up, workspace, e+1"
 
         # Screenshot a window
-        "$mainMod SHIFT, PRINT, exec, hyprshot -m window -o ${specialArgs.users.${specialArgs.user}.screenshotFolder}"
+        "$mainMod SHIFT, PRINT, exec, hyprshot -m window -o ${
+          specialArgs.users.${specialArgs.user}.screenshotFolder
+        }"
 
         # Screenshot a monitor
         ", PRINT, exec, hyprshot -m region -o ${specialArgs.users.${specialArgs.user}.screenshotFolder}"
 
         # Screenshot a region
-        "$mainMod, PRINT, exec, hyprshot -m output -o ${specialArgs.users.${specialArgs.user}.screenshotFolder}"
+        "$mainMod, PRINT, exec, hyprshot -m output -o ${
+          specialArgs.users.${specialArgs.user}.screenshotFolder
+        }"
 
         # color picker
         "$mainMod CTRL, PRINT, exec, hyprpicker -a"

@@ -1,8 +1,7 @@
-
-{ config, pkgs, inputs, ... }:
+{ ... }:
 
 {
-  stylix.targets.vencord = { 
+  stylix.targets.vencord = {
     colors = {
       enable = true;
     };

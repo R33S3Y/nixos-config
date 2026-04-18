@@ -1,4 +1,3 @@
-
 { ... }:
 
 {
@@ -7,4 +6,4 @@
     device = "lapisLazuli:/mnt/Pool 1/lapisLazuli";
     fsType = "nfs";
   };
-} 
+}

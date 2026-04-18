@@ -11,16 +11,16 @@
     enable = true;
     profiles.default = {
       enableUpdateCheck = false;
-      extensions = [ 
-        
+      extensions = [
+
       ];
-      userSettings = { 
+      userSettings = {
         editor = {
           tabSize = 2; # sets tabsize
           insertSpaces = true; # Space when tab
           detectIndentation = false; # turns off auto detect for tabSize
         };
-        files = { 
+        files = {
           trimTrailingWhitespace = true;
           insertFinalNewline = true;
           trimFinalNewlines = true;
@@ -28,7 +28,7 @@
         editor = {
           formatOnSave = true;
           formatOnPaste = true;
-        };         
+        };
       };
     };
   };

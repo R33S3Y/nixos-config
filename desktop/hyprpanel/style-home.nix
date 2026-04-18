@@ -1,7 +1,11 @@
 # From: https://github.com/anotherhadi/nixy/tree/main
 # Hyprpanel is the bar on top of the screen
 # Display informations like workspaces, battery, wifi, ...
-{ inputs, config, specialArgs, ... }:
+{
+  config,
+  specialArgs,
+  ...
+}:
 let
   theme = specialArgs.themes.${specialArgs.theme};
 
@@ -13,11 +17,9 @@ let
   backgroundAlt = "#${config.lib.stylix.colors.base01}";
   foreground = "#${config.lib.stylix.colors.base05}";
   foregroundAlt = "#${config.lib.stylix.colors.base06}";
-  font = "${config.stylix.fonts.serif.name}";
-  fontSizeForHyprpanel = "${toString config.stylix.fonts.sizes.desktop}px";
 
-  rounding = theme.borders.rounding; 
-  borderSize = theme.borders.thickness; 
+  rounding = theme.borders.rounding;
+  borderSize = theme.borders.thickness;
 
   gapsOut = theme.borders.padding.outer;
   gapsIn = theme.borders.padding.inner;
@@ -27,7 +29,8 @@ let
   notificationOpacity = 90;
 
   location = "";
-in {
+in
+{
 
   stylix.targets.hyprpanel.enable = false;
 
@@ -35,11 +38,18 @@ in {
     enable = true;
 
     settings = {
-      
+
       bar.layouts = {
         "${specialArgs.hosts.${specialArgs.host}.primaryMonitor}" = {
-          "left" = [ "dashboard" "workspaces" "windowtitle" ];
-          "middle" = [ "media" "cava" ];
+          "left" = [
+            "dashboard"
+            "workspaces"
+            "windowtitle"
+          ];
+          "middle" = [
+            "media"
+            "cava"
+          ];
           "right" = [
             "systray"
             "volume"
@@ -50,16 +60,19 @@ in {
           ];
         };
         "*" = {
-          "left" = [ "dashboard" "workspaces" "windowtitle" ];
+          "left" = [
+            "dashboard"
+            "workspaces"
+            "windowtitle"
+          ];
           "right" = [
             "volume"
             "clock"
             "notifications"
           ];
-        }; 
+        };
       };
-      
-      
+
       #Main bar
       theme.font.name = config.stylix.fonts.serif.name;
       theme.font.size = "${toString config.stylix.fonts.sizes.desktop}px";
@@ -71,31 +84,24 @@ in {
       theme.bar.margin_sides = toString (gapsOut - borderSize) + "px"; # only works when floating = true
       theme.bar.border_radius = toString rounding + "px";
 
-      theme.bar.dropdownGap = toString ((gapsIn - borderSize)*2) + "px"; # how far down dropdowns are (is from absolte top)
+      theme.bar.dropdownGap = toString ((gapsIn - borderSize) * 2) + "px"; # how far down dropdowns are (is from absolte top)
 
       theme.bar.transparent = transparent;
       theme.bar.location = "top";
-      theme.bar.background = background
-        + (if transparentButtons && transparent then "00" else "");
-      
-      
+      theme.bar.background = background + (if transparentButtons && transparent then "00" else "");
 
       theme.bar.buttons.hover = background;
       theme.bar.buttons.y_margins = "0px";
       theme.bar.buttons.spacing = "0.3em";
       theme.bar.buttons.radius =
-        (if transparent then toString rounding else toString (rounding - 8))
-        + "px";
+        (if transparent then toString rounding else toString (rounding - 8)) + "px";
       theme.bar.buttons.padding_x = "0.8rem";
       theme.bar.buttons.padding_y = "0.4rem";
       theme.bar.buttons.style = "default";
       theme.bar.buttons.monochrome = true;
-      theme.bar.buttons.text = if transparent && transparentButtons then
-        foregroundAlt
-      else
-        foreground;
+      theme.bar.buttons.text = if transparent && transparentButtons then foregroundAlt else foreground;
       theme.bar.buttons.icon = accent;
-      
+
       theme.bar.menus.monochrome = true;
       theme.bar.menus.card_radius = toString rounding + "px";
       theme.bar.menus.border.size = toString borderSize + "px";
@@ -121,7 +127,6 @@ in {
       theme.bar.menus.tooltip.text = foreground;
       theme.bar.menus.dropdownmenu.background = backgroundAlt;
       theme.bar.menus.dropdownmenu.text = foreground;
-
 
       # Start menu
       bar.launcher.icon = "";
@@ -231,7 +236,7 @@ in {
       theme.osd.bar_container = backgroundAlt;
 
       # other
-      wallpaper.enable = false; 
+      wallpaper.enable = false;
     };
   };
 

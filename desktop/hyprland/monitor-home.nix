@@ -1,4 +1,7 @@
-{ config, pkgs, specialArgs, ... }:
+{
+  specialArgs,
+  ...
+}:
 {
   wayland.windowManager.hyprland = {
     enable = true;
