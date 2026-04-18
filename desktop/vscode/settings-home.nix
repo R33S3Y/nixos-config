@@ -40,7 +40,7 @@
           minWordLength = 1;
           revealIssuesAfterDelayMS = 200;
           checkLimit = 10000;
-          cSpell.userWords = [
+          userWords = [
             # their is a option to use make a custom dictionary that may prove useful if this list gets too long
             "stylix"
             "pkgs"
