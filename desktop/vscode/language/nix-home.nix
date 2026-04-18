@@ -26,6 +26,12 @@
         };
         "[nix]" = {
           editor.defaultFormatter = "jnoortheen.nix-ide";
+          cSpell.userWords = [
+            # their is a option to use make a custom dictionary that may prove useful if this list gets too long
+            "stylix"
+            "pkgs"
+            "nixos"
+          ];
         };
       };
     };
