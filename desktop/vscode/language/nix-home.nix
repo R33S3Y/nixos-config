@@ -26,12 +26,6 @@
         };
         "[nix]" = {
           editor.defaultFormatter = "jnoortheen.nix-ide";
-          cSpell.ignoreWords = [
-            # this is just to shut it up a bit
-            "stylix"
-            "pkgs"
-            "nixos"
-          ];
         };
       };
     };
