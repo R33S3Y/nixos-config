@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   stylix.targets.vscode = {
@@ -11,8 +11,8 @@
     enable = true;
     profiles.default = {
       enableUpdateCheck = false;
-      extensions = [
-
+      extensions = with pkgs; [
+        vscode-extensions.streetsidesoftware.code-spell-checker
       ];
       userSettings = {
         editor = {
