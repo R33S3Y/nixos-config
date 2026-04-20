@@ -148,7 +148,7 @@ let
 
     user = "reese";
 
-    hostName = "diamond";
+    hostName = "template";
 
     static = {
       # only needed when using networking-static-nix.nix

@@ -10,10 +10,7 @@ let
     lib.concatLists (
       lib.mapAttrsToList (
         _: value:
-        if
-          lib.hasAttrByPath [ "static" "ipv4" "address" ] value
-          && lib.hasAttrByPath [ "static" "hostName" ] value
-        then
+        if lib.hasAttrByPath [ "static" "ipv4" "address" ] value && value ? hostName then
           [
             "${value.static.ipv4.address} ${value.hostName}"
             "${value.static.ipv4.address} ${value.hostName}.lan"
