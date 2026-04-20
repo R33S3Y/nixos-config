@@ -14,8 +14,8 @@ let
           value ? static && value.static ? ipv4 && value.static.ipv4 ? address && value.static ? hostName
         then
           [
-            "${value.static.ipv4.address} ${value.hostname}"
-            "${value.static.ipv4.address} ${value.hostname}.lan"
+            "${value.static.ipv4.address} ${value.hostName}"
+            "${value.static.ipv4.address} ${value.hostName}.lan"
           ]
         else
           [ ]
