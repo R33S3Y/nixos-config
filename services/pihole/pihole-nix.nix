@@ -1,5 +1,28 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  specialArgs,
+  ...
+}:
+let
+  addNixHosts =
+    specialArgs:
+    lib.concatLists (
+      lib.mapAttrsToList (
+        _: value:
+        if
+          value ? static && value.static ? ipv4 && value.static.ipv4 ? address && value.static ? hostName
+        then
+          [
+            "${value.static.ipv4.address} ${value.hostname}"
+            "${value.static.ipv4.address} ${value.hostname}.lan"
+          ]
+        else
+          [ ]
+      ) specialArgs.hosts
+    );
 
+in
 {
   services.pihole-web = {
     enable = true;
@@ -63,17 +86,12 @@
         replyWhenBusy = "ALLOW";
         blockTTL = 2;
         hosts = [
-          "192.168.1.246 bort"
-          "192.168.1.246 bort.lan"
-          "192.168.1.248 morganite"
-          "192.168.1.248 morganite.lan"
-          "192.168.1.249 obsidian"
-          "192.168.1.249 obsidian.lan"
           "192.168.1.253 lapisLazuli"
           "192.168.1.253 lapisLazuli.lan"
           "192.168.1.254 jade"
           "192.168.1.254 jade.lan"
-        ];
+        ]
+        ++ addNixHosts specialArgs;
         domainNeeded = false;
         expandHosts = false;
         domain = "lan";
