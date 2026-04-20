@@ -31,7 +31,7 @@ let
       ../../../core/fastfetch/enable-nix.nix # Fastfetch  -  You got to show something in that cmd for your reddit posts
 
       # Services
-      ../../../services/jellyfin-nix.nix
+      ../../../services/jellyfin/jellyfin-nix.nix
 
       # lapisLazuli
       ../../../other/lapisLazuli/nfs-nix.nix # Lapius  -  NAS

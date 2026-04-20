@@ -11,7 +11,7 @@
   services.pihole-ftl = {
     enable = true;
 
-    package = pkgs.stable.pihole-ftl;
+    package = pkgs.pihole-ftl;
 
     openFirewallDHCP = true;
     openFirewallDNS = true;

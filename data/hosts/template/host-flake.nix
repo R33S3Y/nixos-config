@@ -85,7 +85,7 @@ let
       # Services
 
       # (servers)
-      ../../../services/jellyfin-nix.nix
+      ../../../services/jellyfin/jellyfin-nix.nix
       ../../../services/minecraft/minecraft-nix.nix
       ../../../services/minecraft/minecraftBackup-nix.nix
       ../../../services/pihole/pihole-nix.nix
