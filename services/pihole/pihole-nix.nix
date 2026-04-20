@@ -11,7 +11,8 @@ let
       lib.mapAttrsToList (
         _: value:
         if
-          value ? static && value.static ? ipv4 && value.static.ipv4 ? address && value.static ? hostName
+          lib.hasAttrByPath [ "static" "ipv4" "address" ] value
+          && lib.hasAttrByPath [ "static" "hostName" ] value
         then
           [
             "${value.static.ipv4.address} ${value.hostName}"
