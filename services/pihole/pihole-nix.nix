@@ -168,7 +168,7 @@ in
         };
         sync = {
           active = true;
-          server = "pool.ntp.org";
+          server = "nz.pool.ntp.org";
           interval = 3600;
           count = 8;
           rtc = {
