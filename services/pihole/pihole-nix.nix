@@ -6,6 +6,12 @@
 }:
 let
   addNixHosts =
+    # this function takes the specialArgs.hosts.<host>.hostName and <host>.static.ipv4.address and converts it into:
+    # [
+    #   "ipv4.address hostName"
+    #   "ipv4.address hostName.lan"
+    # ]
+    # for all hosts that have that info and are in specialArgs
     specialArgs:
     lib.concatLists (
       lib.mapAttrsToList (

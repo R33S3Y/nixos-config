@@ -84,14 +84,9 @@
         obsidian = import ./data/hosts/obsidian/host-flake.nix {
           inherit inputs home-manager;
         };
-        template = import ./data/hosts/template/host-flake.nix {
-          inherit
-            inputs
-            home-manager
-            nur
-            nix-minecraft
-            ;
-        };
+        #template = import ./data/hosts/template/host-flake.nix {
+        #  inherit inputs home-manager nur nix-minecraft;
+        #};
       };
       users = {
         reese = import ./data/users/reese/user-flake.nix {
@@ -111,6 +106,7 @@
         diamond = mkHost "diamond";
         obsidian = mkHost "obsidian";
         morganite = mkHost "morganite";
+        #template = mkHost "template";
       };
     };
 }
