@@ -148,13 +148,13 @@ let
 
     user = "reese";
 
-    hostName = "diamond";
+    hostName = "dia";
 
     static = {
       # only needed when using networking-static-nix.nix
       interface = "enp10s0";
       ipv4 = {
-        address = "192.168.1.140";
+        address = "192.168.1.1";
         prefixLength = 24;
       };
       gatewayAddress = "192.168.1.1";
