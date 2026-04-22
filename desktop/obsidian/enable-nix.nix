@@ -1,4 +1,4 @@
-{ pkgs, specialArgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -7,6 +7,4 @@
     rofi-obsidian
     xdg-utils
   ];
-
-  specialArgs.hosts.${specialArgs.host}.programs = with pkgs; [ osu-lazer-bin ];
 }
