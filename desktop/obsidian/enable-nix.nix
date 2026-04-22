@@ -8,5 +8,5 @@
     xdg-utils
   ];
 
-  specialArgs.hosts.${specialArgs.host}.programs = with pkgs; [ osu-laser-bin ];
+  specialArgs.hosts.${specialArgs.host}.programs = with pkgs; [ osu-lazer-bin ];
 }
