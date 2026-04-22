@@ -182,7 +182,6 @@ let
 
       keepassxc
 
-      osu-lazer-bin
       inkscape
       thunderbird
     ];
