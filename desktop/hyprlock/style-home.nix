@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  config,
-  ...
-}:
+{ config, ... }:
 {
   stylix.targets.hyprlock.enable = false;
   programs.hyprlock = {
