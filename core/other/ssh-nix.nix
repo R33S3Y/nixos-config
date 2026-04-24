@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  config,
-  ...
-}:
+{ config, pkgs, ... }:
 
 {
   services.openssh = {
