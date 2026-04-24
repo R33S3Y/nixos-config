@@ -39,5 +39,5 @@
     };
   };
 
-  imports = ./home-home.nix;
+  imports = [ ./home-home.nix ];
 }
