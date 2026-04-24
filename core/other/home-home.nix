@@ -44,7 +44,10 @@
   config.programs.home-manager.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  config.home.stateVersion = "24.11";
-  config.home.username = specialArgs.users.${specialArgs.user}.name;
-  config.home.homeDirectory = "/home/${specialArgs.users.${specialArgs.user}.name}";
+  config.home = {
+    stateVersion = "24.11";
+    username = specialArgs.users.${specialArgs.user}.name;
+    homeDirectory = "/home/${specialArgs.users.${specialArgs.user}.name}";
+  };
+
 }

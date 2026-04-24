@@ -3,7 +3,6 @@
 # Display informations like workspaces, battery, wifi, ...
 {
   config,
-  system,
   ...
 }:
 let
