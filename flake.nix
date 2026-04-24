@@ -38,7 +38,7 @@
               users
               themes
               ;
-            #nixpkgs.config.allowUnfree = true;
+            nixpkgs.config.allowUnfree = true;
 
             host = hostName;
             user = hosts.${hostName}.user;
