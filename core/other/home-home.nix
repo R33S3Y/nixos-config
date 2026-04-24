@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, home, ... }:
 {
 
   imports = config.system.hosts.${config.system.host}.homeImports;
