@@ -8,7 +8,7 @@
     };
     host = lib.mkOption {
       default = specialArgs.host;
-      type = lib.types.attrs;
+      type = lib.types.str;
       readOnly = true;
     };
 
@@ -19,7 +19,7 @@
     };
     user = lib.mkOption {
       default = specialArgs.user;
-      type = lib.types.attrs;
+      type = lib.types.str;
       readOnly = true;
     };
 
@@ -30,7 +30,7 @@
     };
     theme = lib.mkOption {
       default = specialArgs.theme;
-      type = lib.types.attrs;
+      type = lib.types.str;
       readOnly = true;
     };
   };
