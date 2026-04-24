@@ -11,8 +11,8 @@ let
     #   "ipv4.address hostName"
     #   "ipv4.address hostName.lan"
     # ]
-    # for all hosts that have that info and are in specialArgs
-    specialArgs:
+    # for all hosts that have that info and are in config.system
+    system:
     lib.concatLists (
       lib.mapAttrsToList (
         _: value:
@@ -23,7 +23,7 @@ let
           ]
         else
           [ ]
-      ) config.system.hosts
+      ) system.hosts
     );
 
 in
@@ -95,7 +95,7 @@ in
           "192.168.1.254 jade"
           "192.168.1.254 jade.lan"
         ]
-        ++ addNixHosts specialArgs;
+        ++ addNixHosts config.system;
         domainNeeded = false;
         expandHosts = false;
         domain = "lan";
