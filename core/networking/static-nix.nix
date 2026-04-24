@@ -1,24 +1,23 @@
 {
-  specialArgs,
+  system,
   ...
 }:
 
 {
-
   # Networking
-  networking.hostName = specialArgs.hosts.${specialArgs.host}.hostName; # Define your hostname.
+  networking.hostName = system.hosts.${system.host}.hostName; # Define your hostname.
   networking.useDHCP = false;
-  networking.interfaces.${specialArgs.hosts.${specialArgs.host}.static.interface}.ipv4.addresses = [
+  networking.interfaces.${system.hosts.${system.host}.static.interface}.ipv4.addresses = [
     {
-      address = specialArgs.hosts.${specialArgs.host}.static.ipv4.address;
-      prefixLength = specialArgs.hosts.${specialArgs.host}.static.ipv4.prefixLength;
+      address = system.hosts.${system.host}.static.ipv4.address;
+      prefixLength = system.hosts.${system.host}.static.ipv4.prefixLength;
     }
   ];
   networking.defaultGateway = {
-    address = specialArgs.hosts.${specialArgs.host}.static.gatewayAddress;
-    interface = specialArgs.hosts.${specialArgs.host}.static.interface;
+    address = system.hosts.${system.host}.static.gatewayAddress;
+    interface = system.hosts.${system.host}.static.interface;
   };
-  networking.nameservers = specialArgs.hosts.${specialArgs.host}.static.nameservers;
+  networking.nameservers = system.hosts.${system.host}.static.nameservers;
   networking.networkmanager.enable = false;
   networking.firewall.enable = true;
 }

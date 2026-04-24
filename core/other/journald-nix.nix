@@ -1,5 +1,9 @@
-
-{ config, pkgs, specialArgs, ... }:
+{
+  config,
+  pkgs,
+  system,
+  ...
+}:
 
 {
   services.journald = {

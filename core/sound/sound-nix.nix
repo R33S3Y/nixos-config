@@ -1,5 +1,9 @@
-
-{ config, pkgs, specialArgs, ... }:
+{
+  config,
+  pkgs,
+  system,
+  ...
+}:
 
 {
   # Enable sound with pipewire.
@@ -15,9 +19,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  
-  hardware.bluetooth.enable = specialArgs.hosts.${specialArgs.host}.bluetooth; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = specialArgs.hosts.${specialArgs.host}.bluetooth; # powers up the default Bluetooth controller on boot
+
+  hardware.bluetooth.enable = system.hosts.${system.host}.bluetooth; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = system.hosts.${system.host}.bluetooth; # powers up the default Bluetooth controller on boot
 
   environment.systemPackages = [
     (pkgs.stdenv.mkDerivation {

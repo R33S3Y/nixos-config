@@ -1,12 +1,12 @@
 {
   pkgs,
   lib,
-  specialArgs,
+  system,
   ...
 }:
 let
   addNixHosts =
-    # this function takes the specialArgs.hosts.<host>.hostName and <host>.static.ipv4.address and converts it into:
+    # this function takes the system.hosts.<host>.hostName and <host>.static.ipv4.address and converts it into:
     # [
     #   "ipv4.address hostName"
     #   "ipv4.address hostName.lan"
@@ -23,7 +23,7 @@ let
           ]
         else
           [ ]
-      ) specialArgs.hosts
+      ) system.hosts
     );
 
 in

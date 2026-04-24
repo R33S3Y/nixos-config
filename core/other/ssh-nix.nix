@@ -1,5 +1,9 @@
-
-{ config, pkgs, specialArgs, ... }:
+{
+  config,
+  pkgs,
+  system,
+  ...
+}:
 
 {
   services.openssh = {
@@ -7,8 +11,8 @@
     ports = [ 22 ];
     settings = {
       PasswordAuthentication = true;
-      AllowUsers = [ 
-        specialArgs.users.${specialArgs.user}.name
+      AllowUsers = [
+        system.users.${system.user}.name
         "rebuild"
       ];
       PermitRootLogin = "no";

@@ -1,19 +1,34 @@
-{ config, pkgs, specialArgs, ... }:
-let username = specialArgs.users.${specialArgs.user}.name;
-in {
+{
+  config,
+  pkgs,
+  system,
+  ...
+}:
+let
+  username = system.users.${system.user}.name;
+in
+{
   users.users = {
     ${username} = {
       isNormalUser = true;
       uid = 1000;
       description = "${username}";
-      extraGroups = [ "networkmanager" "wheel" "jellyfin" "cms" "render" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "jellyfin"
+        "cms"
+        "render"
+      ];
     };
     rebuild = {
       isNormalUser = true;
       uid = 1001;
       group = "rebuild";
       description = "Remote rebuild user";
-      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGspq2G8adszEonoETTJ9s8RWFCJfthqCqd5fjq+wXm reese@diamond" ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPGspq2G8adszEonoETTJ9s8RWFCJfthqCqd5fjq+wXm reese@diamond"
+      ];
     };
     jellyfin = {
       isSystemUser = true;
@@ -29,8 +44,14 @@ in {
     };
   };
   users.groups = {
-    rebuild = { gid = 1001; }; 
-    jellyfin = { gid = 1002; }; 
-    cms = { gid = 1003; }; 
+    rebuild = {
+      gid = 1001;
+    };
+    jellyfin = {
+      gid = 1002;
+    };
+    cms = {
+      gid = 1003;
+    };
   };
 }

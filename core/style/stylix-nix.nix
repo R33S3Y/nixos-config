@@ -1,14 +1,14 @@
-{ specialArgs, ... }:
+{ system, ... }:
 {
   stylix = {
     enable = true;
 
-    polarity = specialArgs.themes.${specialArgs.theme}.polarity;
+    polarity = system.themes.${system.theme}.polarity;
 
-    image = specialArgs.themes.${specialArgs.theme}.image;
+    image = system.themes.${system.theme}.image;
 
-    base16Scheme = specialArgs.themes.${specialArgs.theme}.base16Scheme;
+    base16Scheme = system.themes.${system.theme}.base16Scheme;
 
-    fonts = specialArgs.themes.${specialArgs.theme}.fonts;
+    fonts = system.themes.${system.theme}.fonts;
   };
 }

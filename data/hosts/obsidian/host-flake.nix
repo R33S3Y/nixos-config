@@ -21,6 +21,7 @@ let
       ../../../core/other/user-nix.nix # user  -  Adds a user
       ../../../core/other/ssh-nix.nix # ssh  -  Enables ssh on port 22
       ../../../core/other/sudo-nix.nix # sudo  -  Sudo settings
+      ../../../core/other/system-nix.nix # system  - System var
       ../../../core/other/journald-nix.nix # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
 
       # OPTIONAL

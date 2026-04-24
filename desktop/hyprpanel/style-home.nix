@@ -3,11 +3,11 @@
 # Display informations like workspaces, battery, wifi, ...
 {
   config,
-  specialArgs,
+  system,
   ...
 }:
 let
-  theme = specialArgs.themes.${specialArgs.theme};
+  theme = system.themes.${system.theme};
 
   transparentButtons = true;
 
@@ -40,7 +40,7 @@ in
     settings = {
 
       bar.layouts = {
-        "${specialArgs.hosts.${specialArgs.host}.primaryMonitor}" = {
+        "${system.hosts.${system.host}.primaryMonitor}" = {
           "left" = [
             "dashboard"
             "workspaces"
@@ -132,7 +132,7 @@ in
       bar.launcher.icon = "";
 
       menus.dashboard.powermenu.confirmation = false;
-      menus.dashboard.powermenu.avatar.image = "${specialArgs.users.${specialArgs.user}.profile}";
+      menus.dashboard.powermenu.avatar.image = "${system.users.${system.user}.profile}";
 
       menus.dashboard.shortcuts.left.shortcut1.icon = "";
       menus.dashboard.shortcuts.left.shortcut1.command = "zen";

@@ -1,10 +1,15 @@
-{ config, pkgs, specialArgs, ... }:
+{
+  config,
+  pkgs,
+  system,
+  ...
+}:
 {
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.extraSpecialArgs = specialArgs;
+  home-manager.extraSpecialArgs = system;
 
-  home-manager.users."${specialArgs.users.${specialArgs.user}.name}" = import ./home-home.nix;
+  home-manager.users."${system.users.${system.user}.name}" = import ./home-home.nix;
 }

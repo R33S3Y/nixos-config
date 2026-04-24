@@ -1,12 +1,12 @@
 {
   config,
   pkgs,
-  specialArgs,
+  system,
   lib,
   ...
 }:
 let
-  theme = specialArgs.themes.${specialArgs.theme};
+  theme = system.themes.${system.theme};
 in
 {
 
