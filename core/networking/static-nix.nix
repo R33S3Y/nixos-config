@@ -1,23 +1,24 @@
 {
-  system,
+  config,
   ...
 }:
 
 {
   # Networking
-  networking.hostName = system.hosts.${system.host}.hostName; # Define your hostname.
+  networking.hostName = config.system.hosts.${config.system.host}.hostName; # Define your hostname.
   networking.useDHCP = false;
-  networking.interfaces.${system.hosts.${system.host}.static.interface}.ipv4.addresses = [
-    {
-      address = system.hosts.${system.host}.static.ipv4.address;
-      prefixLength = system.hosts.${system.host}.static.ipv4.prefixLength;
-    }
-  ];
+  networking.interfaces.${config.system.hosts.${config.system.host}.static.interface}.ipv4.addresses =
+    [
+      {
+        address = config.system.hosts.${config.system.host}.static.ipv4.address;
+        prefixLength = config.system.hosts.${config.system.host}.static.ipv4.prefixLength;
+      }
+    ];
   networking.defaultGateway = {
-    address = system.hosts.${system.host}.static.gatewayAddress;
-    interface = system.hosts.${system.host}.static.interface;
+    address = config.system.hosts.${config.system.host}.static.gatewayAddress;
+    interface = config.system.hosts.${config.system.host}.static.interface;
   };
-  networking.nameservers = system.hosts.${system.host}.static.nameservers;
+  networking.nameservers = config.system.hosts.${config.system.host}.static.nameservers;
   networking.networkmanager.enable = false;
   networking.firewall.enable = true;
 }

@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  system,
+  config,
   ...
 }:
 
@@ -15,5 +15,5 @@
   # Enable networking
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
-  networking.hostName = system.hosts.${system.host}.hostName;
+  networking.hostName = config.system.hosts.${config.system.host}.hostName;
 }

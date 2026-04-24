@@ -1,11 +1,11 @@
 {
   config,
   pkgs,
-  system,
+  config,
   ...
 }:
 let
-  username = system.users.${system.user}.name;
+  username = config.system.users.${config.system.user}.name;
 in
 {
   users.users = {

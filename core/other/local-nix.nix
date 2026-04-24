@@ -1,16 +1,16 @@
 {
   config,
   pkgs,
-  system,
+  config,
   ...
 }:
 
 {
   # Set your time zone.
-  time.timeZone = system.users.${system.user}.timeZone;
+  time.timeZone = config.system.users.${config.system.user}.timeZone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = system.users.${system.user}.defaultLocale;
+  i18n.defaultLocale = config.system.users.${config.system.user}.defaultLocale;
 
-  i18n.extraLocaleSettings = system.users.${system.user}.extraLocaleSettings;
+  i18n.extraLocaleSettings = config.system.users.${config.system.user}.extraLocaleSettings;
 }

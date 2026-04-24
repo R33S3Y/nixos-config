@@ -7,7 +7,7 @@
   ...
 }:
 let
-  theme = system.themes.${system.theme};
+  theme = config.system.themes.${config.system.theme};
 
   transparentButtons = true;
 
@@ -40,7 +40,7 @@ in
     settings = {
 
       bar.layouts = {
-        "${system.hosts.${system.host}.primaryMonitor}" = {
+        "${config.system.hosts.${config.system.host}.primaryMonitor}" = {
           "left" = [
             "dashboard"
             "workspaces"
@@ -132,7 +132,7 @@ in
       bar.launcher.icon = "";
 
       menus.dashboard.powermenu.confirmation = false;
-      menus.dashboard.powermenu.avatar.image = "${system.users.${system.user}.profile}";
+      menus.dashboard.powermenu.avatar.image = "${config.system.users.${config.system.user}.profile}";
 
       menus.dashboard.shortcuts.left.shortcut1.icon = "";
       menus.dashboard.shortcuts.left.shortcut1.command = "zen";

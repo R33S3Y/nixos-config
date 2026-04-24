@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  system,
+  config,
   ...
 }:
 
@@ -12,7 +12,7 @@
     settings = {
       PasswordAuthentication = true;
       AllowUsers = [
-        system.users.${system.user}.name
+        config.system.users.${config.system.user}.name
         "rebuild"
       ];
       PermitRootLogin = "no";

@@ -1,12 +1,12 @@
 {
-  system,
+  config,
   ...
 }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = system.hosts.${system.host}.monitor;
+      monitor = config.system.hosts.${config.system.host}.monitor;
     };
   };
 }

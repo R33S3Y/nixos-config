@@ -1,6 +1,6 @@
 { specialArgs, lib, ... }:
 {
-  system = {
+  options.system = {
     hosts = lib.mkOption {
       default = specialArgs.hosts;
       type = lib.types.attrs;

@@ -1,10 +1,10 @@
 {
   config,
   pkgs,
-  system,
+  config,
   ...
 }:
 
 {
-  environment.systemPackages = system.hosts.${system.host}.programs;
+  environment.systemPackages = config.system.hosts.${config.system.host}.programs;
 }

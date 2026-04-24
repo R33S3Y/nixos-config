@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  system,
+  config,
   ...
 }:
 {
@@ -12,30 +12,38 @@
       # this is broken
       exec-once = builtins.concatLists [
         (
-          if system.hosts.${system.host}.microphone.bluetooth.enable then
+          if config.system.hosts.${config.system.host}.microphone.bluetooth.enable then
             [
-              "sh -c 'sleep 1 && bluetoothctl connect ${system.hosts.${system.host}.microphone.bluetooth.id}'"
+              "sh -c 'sleep 1 && bluetoothctl connect ${
+                config.system.hosts.${config.system.host}.microphone.bluetooth.id
+              }'"
             ]
           else
             [ ]
         )
         (
-          if system.hosts.${system.host}.speaker.bluetooth.enable then
+          if config.system.hosts.${config.system.host}.speaker.bluetooth.enable then
             [
-              "sh -c 'sleep 1 && bluetoothctl connect ${system.hosts.${system.host}.speaker.bluetooth.id}'"
+              "sh -c 'sleep 1 && bluetoothctl connect ${
+                config.system.hosts.${config.system.host}.speaker.bluetooth.id
+              }'"
             ]
           else
             [ ]
         )
         [
           "getDeviceId --source '${
-            system.hosts.${system.host}.microphone.name
-          }' | xarg -I {} wpctl set-volume {} ${system.hosts.${system.host}.speaker.volume}"
+            config.system.hosts.${config.system.host}.microphone.name
+          }' | xarg -I {} wpctl set-volume {} ${config.system.hosts.${config.system.host}.speaker.volume}"
           "getDeviceId --sink '${
-            system.hosts.${system.host}.speaker.name
-          }' | xarg -I {} wpctl set-volume {} ${system.hosts.${system.host}.speaker.volume}"
-          "getDeviceId --source '${system.hosts.${system.host}.microphone.name}' | xargs wpctl set-default"
-          "getDeviceId --sink '${system.hosts.${system.host}.speaker.name}' | xargs wpctl set-default"
+            config.system.hosts.${config.system.host}.speaker.name
+          }' | xarg -I {} wpctl set-volume {} ${config.system.hosts.${config.system.host}.speaker.volume}"
+          "getDeviceId --source '${
+            config.system.hosts.${config.system.host}.microphone.name
+          }' | xargs wpctl set-default"
+          "getDeviceId --sink '${
+            config.system.hosts.${config.system.host}.speaker.name
+          }' | xargs wpctl set-default"
         ]
       ];
 

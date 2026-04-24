@@ -1,7 +1,7 @@
 {
   config,
   pkgs,
-  system,
+  config,
   ...
 }:
 
@@ -20,8 +20,8 @@
     #media-session.enable = true;
   };
 
-  hardware.bluetooth.enable = system.hosts.${system.host}.bluetooth; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = system.hosts.${system.host}.bluetooth; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.enable = config.system.hosts.${config.system.host}.bluetooth; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = config.system.hosts.${config.system.host}.bluetooth; # powers up the default Bluetooth controller on boot
 
   environment.systemPackages = [
     (pkgs.stdenv.mkDerivation {

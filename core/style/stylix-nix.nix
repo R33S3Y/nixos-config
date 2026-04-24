@@ -1,14 +1,14 @@
-{ system, ... }:
+{ config, ... }:
 {
   stylix = {
     enable = true;
 
-    polarity = system.themes.${system.theme}.polarity;
+    polarity = config.system.themes.${config.system.theme}.polarity;
 
-    image = system.themes.${system.theme}.image;
+    image = config.system.themes.${config.system.theme}.image;
 
-    base16Scheme = system.themes.${system.theme}.base16Scheme;
+    base16Scheme = config.system.themes.${config.system.theme}.base16Scheme;
 
-    fonts = system.themes.${system.theme}.fonts;
+    fonts = config.system.themes.${config.system.theme}.fonts;
   };
 }
