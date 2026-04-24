@@ -45,7 +45,7 @@ cp -r "$CONFIG_SRC"/* "$CONFIG_DST"/
 sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
 sudo nix-collect-garbage
 
-if ! nixos-rebuild switch --flake "$CONFIG_DST/#diamond"; then
+if ! nixos-rebuild switch --flake --verbose "$CONFIG_DST/#diamond"; then
     echo -e "${BAD}Local NixOS rebuild failed on diamond. Aborting.${RESET}"
     exit 1
 fi
