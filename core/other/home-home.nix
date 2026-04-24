@@ -1,4 +1,9 @@
-{ specialArgs, lib, ... }:
+{
+  specialArgs,
+  lib,
+  config,
+  ...
+}:
 {
   options.system = {
     hosts = lib.mkOption {
