@@ -1,13 +1,13 @@
 
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
-  
+
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 
-      25565 
+    allowedTCPPorts = [
+      25565
     ]; #minecraft java default server port
   };
 
@@ -29,12 +29,12 @@
           view-distance = 16;
           simulation-distance = 16;
           motd = "§cChristian §9Minecraft §eServer§r§b - Creative Mode Soon?";
-          level-name = "CMS"; 
+          level-name = "CMS";
         };
 
         jvmOpts = "-Xms4092M -Xmx4092M";
 
-        symlinks = { 
+        symlinks = {
           #Fetching from the internet
           "mods" = pkgs.linkFarmFromDrvs "mods" (builtins.attrValues {
             lithium = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/gl30uZvp/lithium-fabric-0.21.2%2Bmc1.21.11.jar"; sha256 = "sha256-MQZjnHPuI/RL++Xl56gVTf460P1ISR5KhXZ1mO17Bzk="; };
@@ -46,7 +46,7 @@
             distantHorizons = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/uCdwusMi/versions/GT3Bm3GN/DistantHorizons-2.4.5-b-1.21.11-fabric-neoforge.jar"; sha256 = "sha256-dpTHoX5V9b7yG0VsIqKxxOSAYLN0Z97itx1MEuWGvD8="; };
             noEndermanGrief = pkgs.fetchurl { url = "https://cdn.modrinth.com/data/ss02V75k/versions/JsguYUrA/no-enderman-grief-v3.0.1.jar"; sha256 = "sha256-w5uz+6KMVO27pXxdW+Pu4tX4OtZLsgB08skETMn7Fj4="; };
           });
-      
+
           "server-icon.png" = ./minecraftServerIcon.png;
         };
       };

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   serverName = "cmsSurvival";
@@ -10,7 +10,7 @@ in {
       enable = true;
       description = "Minecraft backup for ${serverName}";
       wants = [ "network-online.target" ];
-      
+
       conflicts = [ "minecraft-server-${serverName}.service" ];
       before = [ "minecraft-server-${serverName}.service" ];
       onSuccess = [ "minecraft-server-${serverName}.service" ]; # MC server will not start again if the backup fails
