@@ -8,8 +8,8 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   config.home = {
     stateVersion = "24.11";
-    username = specialArgs.users.${specialArgs.user}.name;
-    homeDirectory = "/home/${specialArgs.users.${specialArgs.user}.name}";
+    username = config.system.users.${config.system.user}.name;
+    homeDirectory = "/home/${config.system.users.${config.system.user}.name}";
   };
 
 }

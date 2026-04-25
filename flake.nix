@@ -94,7 +94,7 @@
         };
       };
       themes = {
-        diamond = import ./data/themes/diamond/theme-flake.nix {
+        dia = import ./data/themes/diamond/theme-flake.nix {
           inherit inputs;
         };
       };
