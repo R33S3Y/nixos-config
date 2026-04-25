@@ -24,7 +24,7 @@ let
       # Fast Fetch
       ../../../core/fastfetch/enable-nix.nix # Fastfetch  -  You got to show something in that cmd for your reddit posts
       # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
-      ../../../core/lazyUpdate/enable-nix.nix
+      #../../../core/lazyUpdate/enable-nix.nix
       # Networking
       #../../../core/networking/dhcp-nix.nix
       ../../../core/networking/static-nix.nix
@@ -32,10 +32,6 @@ let
       ../../../desktop/pcmanfm/enable-nix.nix
       # Rofi
       ../../../core/rofi/enable-nix.nix
-      # SDDM
-      ../../../core/sddm/enable-nix.nix
-      # Sound
-      ../../../core/sound/sound-nix.nix
       # Style
       ../../../core/style/stylix-nix.nix # stylix  -  this repo expects stylix
       # Other
@@ -69,7 +65,7 @@ let
       # Rofi
       ../../../core/rofi/style-home.nix # Styles
       # Sound
-      ../../../core/sound/sound-home.nix
+      ../../../desktop/sound/sound-home.nix
       # Other
       ../../../core/other/xdgMime-home.nix # Sets default apps
     ];

@@ -37,10 +37,6 @@ let
       ../../../desktop/pcmanfm/enable-nix.nix
       # Rofi
       ../../../core/rofi/enable-nix.nix
-      # SDDM
-      ../../../core/sddm/enable-nix.nix
-      # Sound
-      ../../../core/sound/sound-nix.nix
       # Style
       ../../../core/style/stylix-nix.nix # stylix  -  this repo expects stylix
       # Other
@@ -72,6 +68,10 @@ let
       ../../../desktop/nixcord/enable-nix.nix
       # obsidian
       ../../../desktop/obsidian/enable-nix.nix
+      # SDDM
+      ../../../desktop/sddm/enable-nix.nix
+      # Sound
+      ../../../desktop/sound/sound-nix.nix
       # steam
       ../../../desktop/steam/enable-nix.nix
       # Strawberry
@@ -109,7 +109,7 @@ let
       # Rofi
       ../../../core/rofi/style-home.nix # Styles
       # Sound
-      ../../../core/sound/sound-home.nix
+      ../../../desktop/sound/sound-home.nix
       # Other
       ../../../core/other/xdgMime-home.nix # Sets default apps
 

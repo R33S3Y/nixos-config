@@ -45,7 +45,7 @@ let
       ../../../core/rofi/enable-nix.nix
 
       # SDDM
-      ../../../core/sddm/enable-nix.nix
+      ../../../desktop/sddm/enable-nix.nix
 
       # Other
       ../../../core/other/home-nix.nix # home

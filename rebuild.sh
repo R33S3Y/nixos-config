@@ -76,7 +76,7 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
     echo -e "${OK}Rebuilding $HOST...${RESET} \n"
     HOSTNAME=$(echo "$HOST" | cut -d@ -f2)
     # Rebuild NixOS remotely
-    if ! ssh "$HOST" "sudo -S nixos-rebuild switch --flake $CONFIG_DST/#$HOSTNAME"; then
+    if ! ssh "$HOST" "sudo nixos-rebuild switch --flake $CONFIG_DST/#$HOSTNAME"; then
         echo -e "${BAD}Remote NixOS rebuild failed on $HOST. Aborting.${RESET}"
         exit 1
     fi
