@@ -1,4 +1,4 @@
-{ config, ... }:
+{ system, ... }:
 {
 
   home-manager.useGlobalPkgs = true;
