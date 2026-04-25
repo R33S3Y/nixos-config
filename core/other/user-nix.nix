@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ system, ... }:
 let
   username = system.users.${system.user}.name;
 in
