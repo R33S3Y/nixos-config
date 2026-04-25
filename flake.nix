@@ -72,7 +72,7 @@
             ;
         };
         cinnabar = import ./data/hosts/cinnabar/host-flake.nix {
-          inherit inputs home-manager;
+          inherit inputs home-manager nur;
         };
         diamond = import ./data/hosts/diamond/host-flake.nix {
           inherit inputs home-manager nur;
