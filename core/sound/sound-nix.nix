@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ system, pkgs, ... }:
 
 {
   # Enable sound with pipewire.
