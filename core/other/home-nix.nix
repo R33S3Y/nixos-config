@@ -6,5 +6,5 @@
 
   home-manager.extraSpecialArgs = { system = system; };
 
-  home-manager.users."${system.user}" = import ./system-home.nix;
+  home-manager.users."${system.user}" = import ./home-home.nix;
 }

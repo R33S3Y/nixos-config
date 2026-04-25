@@ -52,7 +52,6 @@ let
       ../../../core/other/programs-nix.nix # Install all programs in the programs var
       ../../../core/other/ssh-nix.nix # ssh  -  Enables ssh on port 22 needed for deploy rs
       ../../../core/other/sudo-nix.nix # sudo  -  Sudo settings
-      ../../../core/other/system-nix.nix # system  - System var
       ../../../core/other/user-nix.nix # user  -  Adds a user
       ../../../core/other/x11-nix.nix # x11  -  needed for Xwayland??
 
