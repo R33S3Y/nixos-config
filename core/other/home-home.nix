@@ -1,7 +1,7 @@
-{ config, specialArgs, ... }:
+{ config, ... }:
 {
 
-  imports = specialArgs.hosts.${specialArgs.host}.homeImports;
+  imports = config.system.${config.system.host}.homeImports;
   # Enable home-manager
   config.programs.home-manager.enable = true;
 
