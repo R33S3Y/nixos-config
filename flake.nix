@@ -31,18 +31,16 @@
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
-          specialArgs = {
-            inherit
-              inputs
-              hosts
-              users
-              themes
-              ;
+          specialArgs = { system = {
+              hosts = hosts;
+              users = users;
+              themes = themes;
+              host = hostName;
+              user = hosts.${hostName}.user;
+              theme = users.${hosts.${hostName}.user}.theme;
+            };
+            inherit inputs;
             nixpkgs.config.allowUnfree = true;
-
-            host = hostName;
-            user = hosts.${hostName}.user;
-            theme = users.${hosts.${hostName}.user}.theme;
           };
 
           modules = hosts.${hostName}.imports ++ [
