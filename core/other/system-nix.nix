@@ -1,35 +1,35 @@
-{ lib, specialArgs, ... }:
+{ lib, system, ... }:
 {
   options.system = {
     hosts = lib.mkOption {
-      default = specialArgs.hosts;
+      default = system.hosts;
       type = lib.types.attrs;
       readOnly = true;
     };
     host = lib.mkOption {
-      default = specialArgs.host;
+      default = system.host;
       type = lib.types.str;
       readOnly = true;
     };
 
     users = lib.mkOption {
-      default = specialArgs.users;
+      default = system.users;
       type = lib.types.attrs;
       readOnly = true;
     };
     user = lib.mkOption {
-      default = specialArgs.user;
+      default = system.user;
       type = lib.types.str;
       readOnly = true;
     };
 
     themes = lib.mkOption {
-      default = specialArgs.themes;
+      default = system.themes;
       type = lib.types.attrs;
       readOnly = true;
     };
     theme = lib.mkOption {
-      default = specialArgs.theme;
+      default = system.theme;
       type = lib.types.str;
       readOnly = true;
     };
