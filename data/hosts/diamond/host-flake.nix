@@ -87,49 +87,7 @@ let
       ./hardware-configuration.nix # hardware  -  your hardware settings
     ];
     homeImports = [
-      # CORE
 
-      # btop
-      ../../../core/btop/style-home.nix
-      # Fast Fetch
-      ../../../core/fastfetch/settings-home.nix # Fastfetch  -  run on bash init
-      # Rofi
-      ../../../core/rofi/style-home.nix # Styles
-      # Sound
-      ../../../core/sound/sound-home.nix
-      # Other
-      ../../../core/other/xdgMime-home.nix # Sets default apps
-
-      # DESKTOP
-      # You can comment and uncomment these as needed
-
-      # Firefox
-      ../../../desktop/firefox/settings-home.nix
-      # Hyprland
-      ../../../desktop/hyprland/bind-home.nix # Keyboard bindings
-      ../../../desktop/hyprland/monitor-home.nix # Monitor settings
-      ../../../desktop/hyprland/settings-home.nix # Settings
-      ../../../desktop/hyprland/style-home.nix # Styles tweaks  -  (Most styling is handled by stylix)
-      # Hyprlock
-      ../../../desktop/hyprlock/style-home.nix # Styles + What to display and where
-      # Hyprpanel
-      ../../../desktop/hyprpanel/style-home.nix
-      # Kitty
-      ../../../desktop/kitty/bind-home.nix # Key binds
-      ../../../desktop/kitty/style-home.nix # Styles  -  You should be fine to get away with disabling this
-      ../../../desktop/kitty/settings-home.nix # Settings
-      # nixcord
-      ../../../desktop/nixcord/settings-home.nix
-      # obsidian
-      ../../../desktop/obsidian/settings-home.nix
-      # steam
-      ../../../desktop/steam/startup-home.nix
-      # Strawberry
-      ../../../desktop/strawberry/bind-home.nix # Global Hotkeys for music player
-      # VScode
-      ../../../desktop/vscode/settings-home.nix
-      ../../../desktop/vscode/language/javascript-home.nix # ESlint
-      ../../../desktop/vscode/language/nix-home.nix # Nix LSP and FMT support
     ];
 
     user = "reese";

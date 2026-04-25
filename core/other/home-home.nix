@@ -1,4 +1,4 @@
-{ config, specialArgs, users, user, hosts, host, ... }:
+{ config, users, user, hosts, host, ... }:
 {
 
   imports = hosts.${host}.homeImports;
