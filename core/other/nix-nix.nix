@@ -1,4 +1,4 @@
-{ }:
+{ system, config, ... }:
 
 {
   # Allow unfree packages
