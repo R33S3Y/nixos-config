@@ -6,7 +6,7 @@ let
     prettyName = "Reese";
 
     profile = ./profile.png;
-    theme = "dia";
+    theme = "diamond";
 
     screenshotFolder = "~/Pictures";
 
