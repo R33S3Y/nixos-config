@@ -18,7 +18,7 @@ let
       # boot
       ../../../core/boot/bios-nix.nix
       #../../../core/boot/uefi-nix.nix
-      #../../../core/boot/style-nix.nix
+      ../../../core/boot/style-nix.nix
       # btop
       ../../../core/btop/enable-nix.nix
       # Fast Fetch
@@ -74,7 +74,7 @@ let
 
     static = {
       # only needed when using networking-static-nix.nix
-      interface = "enp10s0";
+      interface = "ens18";
       ipv4 = {
         address = "192.168.1.252";
         prefixLength = 24;
