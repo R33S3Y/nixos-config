@@ -5,20 +5,20 @@
 
 {
   # Networking
-  networking.hostName = config.system.hosts.${config.system.host}.hostName; # Define your hostname.
+  networking.hostName = system.hosts.${system.host}.hostName; # Define your hostname.
   networking.useDHCP = false;
-  networking.interfaces.${config.system.hosts.${config.system.host}.static.interface}.ipv4.addresses =
+  networking.interfaces.${system.hosts.${system.host}.static.interface}.ipv4.addresses =
     [
       {
-        address = config.system.hosts.${config.system.host}.static.ipv4.address;
-        prefixLength = config.system.hosts.${config.system.host}.static.ipv4.prefixLength;
+        address = system.hosts.${system.host}.static.ipv4.address;
+        prefixLength = system.hosts.${system.host}.static.ipv4.prefixLength;
       }
     ];
   networking.defaultGateway = {
-    address = config.system.hosts.${config.system.host}.static.gatewayAddress;
-    interface = config.system.hosts.${config.system.host}.static.interface;
+    address = system.hosts.${system.host}.static.gatewayAddress;
+    interface = system.hosts.${system.host}.static.interface;
   };
-  networking.nameservers = config.system.hosts.${config.system.host}.static.nameservers;
+  networking.nameservers = system.hosts.${system.host}.static.nameservers;
   networking.networkmanager.enable = false;
   networking.firewall.enable = true;
 }

@@ -1,5 +1,5 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = config.system.hosts.${config.system.host}.programs;
+  environment.systemPackages = system.hosts.${system.host}.programs;
 }

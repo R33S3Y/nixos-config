@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  username = config.system.users.${config.system.user}.name;
+  username = system.users.${system.user}.name;
 in
 {
   users.users = {

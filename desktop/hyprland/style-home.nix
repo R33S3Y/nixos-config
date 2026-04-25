@@ -5,7 +5,7 @@
   ...
 }:
 let
-  theme = config.system.themes.${config.system.theme};
+  theme = system.themes.${system.theme};
 in
 {
 

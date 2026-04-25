@@ -6,12 +6,12 @@
 }:
 let
   addNixHosts =
-    # this function takes the config.system.hosts.<host>.hostName and <host>.static.ipv4.address and converts it into:
+    # this function takes the system.hosts.<host>.hostName and <host>.static.ipv4.address and converts it into:
     # [
     #   "ipv4.address hostName"
     #   "ipv4.address hostName.lan"
     # ]
-    # for all hosts that have that info and are in config.system
+    # for all hosts that have that info and are in system
     system:
     lib.concatLists (
       lib.mapAttrsToList (
@@ -95,7 +95,7 @@ in
           "192.168.1.254 jade"
           "192.168.1.254 jade.lan"
         ]
-        ++ addNixHosts config.system;
+        ++ addNixHosts system;
         domainNeeded = false;
         expandHosts = false;
         domain = "lan";

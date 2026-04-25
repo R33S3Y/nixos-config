@@ -19,15 +19,15 @@
       image = [
         # profile pic
         {
-          monitor = config.system.hosts.${config.system.host}.primaryMonitor;
+          monitor = system.hosts.${system.host}.primaryMonitor;
           size = "100, 100";
           position = "0, 350";
           align = "center";
           valign = "center";
 
-          path = "${config.system.users.${config.system.user}.profile}";
+          path = "${system.users.${system.user}.profile}";
           rounding = -1;
-          border_size = config.system.themes.${config.system.theme}.borders.thickness;
+          border_size = system.themes.${system.theme}.borders.thickness;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         }
       ];
@@ -35,15 +35,15 @@
       shape = [
         # window box
         {
-          monitor = config.system.hosts.${config.system.host}.primaryMonitor;
+          monitor = system.hosts.${system.host}.primaryMonitor;
           size = "500, 700";
           position = "0, 0";
           halign = "center";
           valign = "center";
 
           color = "rgba(${config.stylix.base16Scheme.base00}B0)";
-          rounding = config.system.themes.${config.system.theme}.borders.rounding;
-          border_size = config.system.themes.${config.system.theme}.borders.thickness;
+          rounding = system.themes.${system.theme}.borders.rounding;
+          border_size = system.themes.${system.theme}.borders.thickness;
           border_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         }
       ];
@@ -51,7 +51,7 @@
       label = [
         # Time
         {
-          monitor = config.system.hosts.${config.system.host}.primaryMonitor;
+          monitor = system.hosts.${system.host}.primaryMonitor;
           text = ''cmd[update:1000] echo "<span>$(date +"%I:%M")</span>"'';
           color = "rgba(${config.stylix.base16Scheme.base06}ff)";
           font_size = 100;
@@ -61,7 +61,7 @@
         }
         # Date
         {
-          monitor = config.system.hosts.${config.system.host}.primaryMonitor;
+          monitor = system.hosts.${system.host}.primaryMonitor;
           text = ''cmd[update:1000] echo -e "$(date +"%A, %B %d")"'';
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 30;
@@ -71,8 +71,8 @@
         }
         # USER
         {
-          monitor = config.system.hosts.${config.system.host}.primaryMonitor;
-          text = config.system.users.${config.system.user}.prettyName;
+          monitor = system.hosts.${system.host}.primaryMonitor;
+          text = system.users.${system.user}.prettyName;
           color = "rgba(${config.stylix.base16Scheme.base04}ff)";
           font_size = 25;
           position = "0, -150";
@@ -83,9 +83,9 @@
 
       # INPUT FIELD
       input-field = {
-        monitor = config.system.hosts.${config.system.host}.primaryMonitor;
+        monitor = system.hosts.${system.host}.primaryMonitor;
         size = "325, 60";
-        outline_thickness = config.system.themes.${config.system.theme}.borders.thickness;
+        outline_thickness = system.themes.${system.theme}.borders.thickness;
         dots_size = 0.2; # Scale of input-field height, 0.2 - 0.8
         dots_spacing = 0.2; # Scale of dots' absolute size, 0.0 - 1.0
         dots_center = true;

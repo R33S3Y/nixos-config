@@ -5,12 +5,12 @@
     cifs-utils # For SMB/CIFS
   ];
 
-  fileSystems."${config.system.hosts.${config.system.host}.lapisLazuli.mount}" = {
-    device = "//192.168.1.253/${config.system.hosts.${config.system.host}.lapisLazuli.share}";
+  fileSystems."${system.hosts.${system.host}.lapisLazuli.mount}" = {
+    device = "//192.168.1.253/${system.hosts.${system.host}.lapisLazuli.share}";
     fsType = "cifs";
     options = [
-      "credentials=${config.system.hosts.${config.system.host}.lapisLazuli.credentials}"
-      "uid=${config.system.users.${config.system.user}.name}"
+      "credentials=${system.hosts.${system.host}.lapisLazuli.credentials}"
+      "uid=${system.users.${system.user}.name}"
       "gid=users"
       "iocharset=utf8"
     ];

@@ -4,7 +4,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.extraSpecialArgs = { system = config.system; };
+  home-manager.extraSpecialArgs = { system = system; };
 
-  home-manager.users."${config.system.user}" = import ./system-home.nix;
+  home-manager.users."${system.user}" = import ./system-home.nix;
 }

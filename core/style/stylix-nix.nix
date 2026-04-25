@@ -3,12 +3,12 @@
   stylix = {
     enable = true;
 
-    polarity = config.system.themes.${config.system.theme}.polarity;
+    polarity = system.themes.${system.theme}.polarity;
 
-    image = config.system.themes.${config.system.theme}.image;
+    image = system.themes.${system.theme}.image;
 
-    base16Scheme = config.system.themes.${config.system.theme}.base16Scheme;
+    base16Scheme = system.themes.${system.theme}.base16Scheme;
 
-    fonts = config.system.themes.${config.system.theme}.fonts;
+    fonts = system.themes.${system.theme}.fonts;
   };
 }
