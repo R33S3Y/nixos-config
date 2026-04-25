@@ -33,7 +33,7 @@ let
       # OPTIONAL
       # You can comment and uncomment these as needed
 
-      # btop
+      # btopq
       ../../../core/btop/enable-nix.nix
 
       # Fast Fetch
