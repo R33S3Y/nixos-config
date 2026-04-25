@@ -1,6 +1,10 @@
 {
-  specialArgs,
-  lib,
+  hosts,
+  host,
+  users,
+  user,
+  themes,
+  theme,
   ...
 }:
 {
