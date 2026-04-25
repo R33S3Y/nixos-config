@@ -81,6 +81,10 @@ let
 
       nameservers = [ "192.168.1.249" ];
     };
+
+    programs = with pkgs; [
+
+    ];
   };
 
 in
