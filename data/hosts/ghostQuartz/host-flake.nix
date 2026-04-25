@@ -64,8 +64,6 @@ let
       ../../../core/lazyUpdate/run-home.nix
       # Rofi
       ../../../core/rofi/style-home.nix # Styles
-      # Sound
-      ../../../desktop/sound/sound-home.nix
       # Other
       ../../../core/other/xdgMime-home.nix # Sets default apps
     ];

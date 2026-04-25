@@ -94,8 +94,6 @@ let
       ../../../core/fastfetch/settings-home.nix # Fastfetch  -  run on bash init
       # Rofi
       ../../../core/rofi/style-home.nix # Styles
-      # Sound
-      ../../../desktop/sound/sound-home.nix
       # Other
       ../../../core/other/xdgMime-home.nix # Sets default apps
 
@@ -121,6 +119,8 @@ let
       ../../../desktop/nixcord/settings-home.nix
       # obsidian
       ../../../desktop/obsidian/settings-home.nix
+      # Sound
+      ../../../desktop/sound/sound-home.nix
       # steam
       ../../../desktop/steam/startup-home.nix
       # Strawberry
