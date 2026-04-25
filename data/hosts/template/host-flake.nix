@@ -49,7 +49,6 @@ let
       ../../../core/other/ssh-nix.nix # ssh  -  Enables ssh on port 22 needed for deploy rs
       ../../../core/other/sudo-nix.nix # sudo  -  Sudo settings
       ../../../core/other/user-nix.nix # user  -  Adds a user
-      ../../../core/other/x11-nix.nix # x11  -  needed for Xwayland??
 
       # Desktop
       # You can comment and uncomment these as needed
@@ -81,6 +80,7 @@ let
       # Other
       ../../../desktop/other/alvr-nix.nix # ALVR  -  For my vr nerds
       ../../../desktop/other/print-nix.nix # Print  -  How old are you?
+      ../../../desktop/other/x11-nix.nix # x11  -  needed for Xwayland??
 
       # Services
 
