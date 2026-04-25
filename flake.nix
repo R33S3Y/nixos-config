@@ -72,18 +72,13 @@
             ;
         };
         cinnabar = import ./data/hosts/cinnabar/host-flake.nix {
-          inherit inputs home-manager nur;
+          inherit inputs home-manager;
         };
         diamond = import ./data/hosts/diamond/host-flake.nix {
           inherit inputs home-manager nur;
         };
         ghostQuartz = import ./data/hosts/ghostQuartz/host-flake.nix {
-          inherit
-            inputs
-            home-manager
-            nur
-            nix-minecraft
-            ;
+          inherit inputs home-manager;
         };
         morganite = import ./data/hosts/morganite/host-flake.nix {
           inherit inputs home-manager;
