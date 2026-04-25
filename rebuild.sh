@@ -11,6 +11,7 @@ REMOTE_HOSTS=(
     "rebuild@obsidian"
     "rebuild@morganite"
     "rebuild@bort"
+    "rebuild@ghostQuartz"
 )
 
 GOOD="\033[94m"
