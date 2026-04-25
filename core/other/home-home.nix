@@ -1,4 +1,4 @@
-{ config, specialArgs, ... }:
+{ config, specialArgs, users, user, ... }:
 {
 
   imports = specialArgs.hosts.${specialArgs.host}.homeImports;
@@ -8,8 +8,8 @@
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   config.home = {
     stateVersion = "24.11";
-    username = config.system.users.${config.system.user}.name;
-    homeDirectory = "/home/${config.system.users.${config.system.user}.name}";
+    username = users.${user}.name;
+    homeDirectory = "/home/${users.${user}.name}";
   };
 
 }
