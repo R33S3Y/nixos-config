@@ -48,6 +48,8 @@
             "stylix"
             "pkgs"
             "nixos"
+            "nixpkgs"
+            "pihole"
           ];
         };
       };

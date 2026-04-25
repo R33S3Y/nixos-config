@@ -31,7 +31,8 @@
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
-          specialArgs = { system = {
+          specialArgs = {
+            system = {
               hosts = hosts;
               users = users;
               themes = themes;
@@ -76,6 +77,14 @@
         diamond = import ./data/hosts/diamond/host-flake.nix {
           inherit inputs home-manager nur;
         };
+        ghostQuartz = import ./data/hosts/ghostQuartz/host-flake.nix {
+          inherit
+            inputs
+            home-manager
+            nur
+            nix-minecraft
+            ;
+        };
         morganite = import ./data/hosts/morganite/host-flake.nix {
           inherit inputs home-manager;
         };
@@ -102,6 +111,7 @@
         bort = mkHost "bort";
         cinnabar = mkHost "cinnabar";
         diamond = mkHost "diamond";
+        ghostQuartz = mkHost "ghostQuartz";
         obsidian = mkHost "obsidian";
         morganite = mkHost "morganite";
         #template = mkHost "template";
