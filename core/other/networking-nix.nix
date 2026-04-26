@@ -27,13 +27,7 @@ in
   }
   // (
     if
-      lib.hasAttrByPath [
-        "system"
-        "hosts"
-        "${system.host}"
-        "static"
-        "ipv4"
-      ]
+      lib.hasAttrByPath [ "hosts" "${system.host}" "static" "ipv4" ] system
       && system.hosts.${system.host}.static.ipv4 ? address
       && system.hosts.${system.host}.static.ipv4 ? prefixLength
       && system.hosts.${system.host}.static.enable
