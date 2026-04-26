@@ -1,4 +1,4 @@
-{ system, ... }:
+{ system, lib, ... }:
 let
   static = system: {
     useDHCP = false;
@@ -27,9 +27,16 @@ in
   }
   // (
     if
-      system.hosts.${system.host}.static.enable
+      lib.hasAttrByPath [
+        "system"
+        "hosts"
+        "${system.host}"
+        "static"
+        "ipv4"
+      ]
       && system.hosts.${system.host}.static.ipv4 ? address
       && system.hosts.${system.host}.static.ipv4 ? prefixLength
+      && system.hosts.${system.host}.static.enable
     then
       static system
     else
