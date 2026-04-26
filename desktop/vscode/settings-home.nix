@@ -50,6 +50,7 @@
             "nixos"
             "nixpkgs"
             "pihole"
+            "networkmanager"
           ];
         };
       };
