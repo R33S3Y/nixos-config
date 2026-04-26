@@ -1,5 +1,6 @@
 { system, ... }:
 
 {
-  environment.systemPackages = system.hosts.${system.host}.programs;
+  environment.systemPackages =
+    if system.hosts.${system.host} ? programs then system.hosts.${system.host}.programs else [ ];
 }
