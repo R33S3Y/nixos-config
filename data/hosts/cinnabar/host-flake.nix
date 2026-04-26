@@ -36,7 +36,7 @@ let
       ../../../core/lazyUpdate/enable-nix.nix
 
       # Networking
-      ../../../core/networking/dhcp-nix.nix
+      ../../../core/other/networking-nix.nix
 
       # PCmanFM
       ../../../desktop/pcmanfm/enable-nix.nix

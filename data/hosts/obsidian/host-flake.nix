@@ -23,9 +23,6 @@ let
       ../../../core/fastfetch/enable-nix.nix # Fastfetch  -  You got to show something in that cmd for your reddit posts
       # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
       ../../../core/lazyUpdate/enable-nix.nix
-      # Networking
-      #../../../core/networking/dhcp-nix.nix
-      ../../../core/networking/static-nix.nix
       # PCmanFM
       ../../../desktop/pcmanfm/enable-nix.nix
       # Rofi
@@ -38,6 +35,7 @@ let
       ../../../core/other/journald-nix.nix # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
       ../../../core/other/local-nix.nix # Local settings
       ../../../core/other/nix-nix.nix # Nix settings  -  enable flakes, state nix version, etc
+      ../../../core/other/networking-nix.nix
       ../../../core/other/programs-nix.nix # Install all programs in the programs var
       ../../../core/other/ssh-nix.nix # ssh  -  Enables ssh on port 22 needed for deploy rs
       ../../../core/other/sudo-nix.nix # sudo  -  Sudo settings

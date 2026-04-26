@@ -26,8 +26,8 @@ let
       # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
       #../../../core/lazyUpdate/enable-nix.nix
       # Networking
-      #../../../core/networking/dhcp-nix.nix
-      ../../../core/networking/static-nix.nix
+      #../../../core/other/networking-nix.nix
+      ../../../core/other/networking-nix.nix
       # PCmanFM
       ../../../desktop/pcmanfm/enable-nix.nix
       # Rofi
