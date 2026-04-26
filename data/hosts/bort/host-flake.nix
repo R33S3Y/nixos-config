@@ -83,7 +83,8 @@ let
     hostName = "bort";
 
     static = {
-      # only needed when using networking-static-nix.nix
+      enable = true;
+
       interface = "ens18";
       ipv4 = {
         address = "192.168.1.246";

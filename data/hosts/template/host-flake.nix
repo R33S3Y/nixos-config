@@ -151,7 +151,8 @@ let
     hostName = "template";
 
     static = {
-      # only needed when using networking-static-nix.nix
+      enable = true;
+
       interface = "enp10s0";
       ipv4 = {
         address = "192.168.1.1";
