@@ -1,4 +1,3 @@
-
 { config, pkgs, ... }:
 
 {
@@ -8,6 +7,6 @@
 
   stylix.targets.grub.enable = true;
   stylix.targets.grub.useWallpaper = true;
-   
+
   #boot.loader.timeout = 0;
 }
