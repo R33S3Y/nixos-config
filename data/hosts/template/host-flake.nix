@@ -82,10 +82,20 @@ let
 
       # Services
 
-      # (servers)
+      # Auth DNS
+      ../../../services/authDNS/knot-nix.nix
+      ../../../services/authDNS/options-nix.nix
+      ../../../services/authDNS/zoneFiles-nix.nix
+
+      # Jellyfin
       ../../../services/jellyfin/jellyfin-nix.nix
+
+      # Minecraft
       ../../../services/minecraft/minecraft-nix.nix
       ../../../services/minecraft/minecraftBackup-nix.nix
+      ../../../services/minecraft/authDNS-nix.nix
+
+      # pihole
       ../../../services/pihole/pihole-nix.nix
 
       # OTHER

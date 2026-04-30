@@ -1,4 +1,9 @@
-{ ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   services.knot = {
     enable = true;
@@ -13,10 +18,16 @@
         ];
       };
 
-      zone = [{
-        domain = "reesey.org";
-        storage =
-      }];
+      zone = lib.mapAttrsToList (name: info: {
+        domain = name;
+        storage = "${pkgs.${"${name}.zone"}}";
+        file = "${name}.zone";
+      }) config.services.authDNS.domains;
+
+      log = {
+        target = "syslog";
+        any = "info";
+      };
     };
   };
 }

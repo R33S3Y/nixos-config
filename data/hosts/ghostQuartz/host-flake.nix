@@ -47,7 +47,13 @@ let
 
       # Services
 
-      # (servers)
+      # Auth DNS
+      ../../../services/authDNS/knot-nix.nix
+      ../../../services/authDNS/options-nix.nix
+      ../../../services/authDNS/zoneFiles-nix.nixs
+
+      # Minecraft
+      ../../../services/minecraft/authDNS-nix.nix
 
       # My stuff
       ./hardware-configuration.nix # hardware  -  your hardware settings
