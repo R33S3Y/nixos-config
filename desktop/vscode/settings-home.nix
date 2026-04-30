@@ -51,6 +51,9 @@
             "nixpkgs"
             "pihole"
             "networkmanager"
+            "str"
+            "dmarc"
+            "attrset"
           ];
         };
       };
