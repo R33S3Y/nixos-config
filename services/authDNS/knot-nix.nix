@@ -18,7 +18,7 @@
         ];
       };
 
-      zone = lib.mapAttrsToList (name: info: {
+      zone = lib.mapAttrs (name: info: {
         domain = name;
         storage = "${pkgs."${name}.zone"}";
         file = "${name}.zone";
