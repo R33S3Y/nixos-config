@@ -11,6 +11,9 @@ let
       pname = "${name}.zone";
       version = "1.0";
 
+      src = null;
+      dontUnpack = true;
+
       buildPhase = ''
                 cat > ${name}.zone <<EOF
         $ORIGIN ${name}.
