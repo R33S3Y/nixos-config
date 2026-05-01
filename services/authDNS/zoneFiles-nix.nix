@@ -8,7 +8,7 @@
 # this file takes all the info in services.authDNS.domains and converts it into a zone files and then pkgs it. For knot DNS to pickup and use.
 
 {
-  environment.systemPackages = lib.mapAttrs (
+  environment.systemPackages = lib.mapAttrsToList (
     name: info:
     pkgs.stdenv.mkDerivation {
       name = "${name}.zone";
@@ -18,6 +18,7 @@
       src = ./.;
 
       buildInputs = [
+
       ];
 
       nativeBuildInputs = [
