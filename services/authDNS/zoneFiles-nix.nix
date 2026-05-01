@@ -15,6 +15,9 @@
       pname = "${name}.zone";
       version = "1.0";
 
+      src = null;
+      dontUnpack = true;
+
       buildPhase = ''
         echo "
         $ORIGIN ${name}.
