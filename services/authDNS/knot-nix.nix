@@ -10,31 +10,23 @@ let
     pkgs.stdenv.mkDerivation {
       pname = "${name}.zone";
       version = "1.0";
-
       src = null;
       dontUnpack = true;
-
       buildPhase = ''
-                cat > ${name}.zone <<EOF
-        $ORIGIN ${name}.
-        $TTL ${toString info.ttl}
-
-        @ IN SOA ns1.${name}. ${lib.strings.replaceString "@" "." info.email}. (
-          $(date +%s)                 ; serial (version number)
-          ${toString info.ttl}        ; refresh (how often should the secondary server contact main)
-          ${toString (info.ttl / 2)}  ; retry (how long should the secondary server wait before try to contact the primary server in the case of failure)
-          ${toString (info.ttl * 16)} ; expire (If the secondary fails to connect to the primary for this amount of time. It should stop serving requests.)
+        cat > ${name}.zone <<EOF
+        \$ORIGIN ${name}.
+        \$TTL ${toString info.ttl}
+        @ IN SOA ns1.${name}. ${lib.strings.replaceStrings [ "@" ] [ "." ] info.email}. (
+          $(date +%s)                 ; serial
+          ${toString info.ttl}        ; refresh
+          ${toString (info.ttl / 2)}  ; retry
+          ${toString (info.ttl * 16)} ; expire
           ${toString info.ttl}        ; minimum
         )
-
         @ IN NS ns1.${name}.
-
-        ${lib.concatStrings (
-          lib.map (record: "${record.name} IN ${record.type} ${record.value}") info.records
-        )}
+        ${lib.concatMapStrings (record: "${record.name} IN ${record.type} ${record.value}\n") info.records}
         EOF
       '';
-
       installPhase = ''
         mkdir -p $out
         cp ${name}.zone $out/
@@ -46,26 +38,24 @@ in
   services.knot = {
     enable = true;
     checkConfig = true;
-
     settings = {
-
       server = {
         listen = [
           "0.0.0.0@53"
           "::@53"
         ];
       };
-
       zone = lib.mapAttrsToList (name: drv: {
         domain = name;
         storage = "${drv}";
         file = "${name}.zone";
       }) zones;
-
-      log = {
-        target = "syslog";
-        any = "info";
-      };
+      log = [
+        {
+          target = "syslog";
+          any = "info";
+        }
+      ];
     };
   };
 }
