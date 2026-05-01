@@ -50,7 +50,7 @@ let
       # Auth DNS
       ../../../services/authDNS/knot-nix.nix
       ../../../services/authDNS/options-nix.nix
-      ../../../services/authDNS/zoneFiles-nix.nixs
+      ../../../services/authDNS/zoneFiles-nix.nix
 
       # Minecraft
       ../../../services/minecraft/authDNS-nix.nix
