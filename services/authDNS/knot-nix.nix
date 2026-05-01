@@ -5,45 +5,39 @@
   ...
 }:
 let
-  zones =
-    domains:
-    lib.mapAttrsToList (
-      name: info:
-      pkgs.stdenv.mkDerivation {
-        name = "${name}.zone";
-        pname = "${name}.zone";
-        version = "1.0";
+  zones = lib.mapAttrs (
+    name: info:
+    pkgs.stdenv.mkDerivation {
+      pname = "${name}.zone";
+      version = "1.0";
 
-        src = null;
-        dontUnpack = true;
+      buildPhase = ''
+                cat > ${name}.zone <<EOF
+        $ORIGIN ${name}.
+        $TTL ${toString info.ttl}
 
-        buildPhase = ''
-          echo "
-          $ORIGIN ${name}.
-          $TTL ${toString info.ttl}
+        @ IN SOA ns1.${name}. ${lib.strings.replaceString "@" "." info.email}. (
+          $(date +%s)                 ; serial (version number)
+          ${toString info.ttl}        ; refresh (how often should the secondary server contact main)
+          ${toString (info.ttl / 2)}  ; retry (how long should the secondary server wait before try to contact the primary server in the case of failure)
+          ${toString (info.ttl * 16)} ; expire (If the secondary fails to connect to the primary for this amount of time. It should stop serving requests.)
+          ${toString info.ttl}        ; minimum
+        )
 
-          @ IN SOA ns1.${name}. ${lib.strings.replaceString "@" "." info.email}. (
-            $(date +%s)                 ; serial (version number)
-            ${toString info.ttl}      ; refresh (how often should the secondary server contact main)
-            ${toString (info.ttl / 2)}  ; retry (how long should the secondary server wait before try to contact the primary server in the case of failure)
-            ${toString (info.ttl * 16)} ; expire (If the secondary fails to connect to the primary for this amount of time. It should stop serving requests.)
-            ${toString info.ttl}      ; minimum
-          )
+        @ IN NS ns1.${name}.
 
-          @   IN NS ns1.${name}.
+        ${lib.concatStrings (
+          lib.map (record: "${record.name} IN ${record.type} ${record.value}") info.records
+        )}
+        EOF
+      '';
 
-          ${lib.concatStrings (
-            lib.map (record: "${record.name} IN ${record.type} ${record.value} \n") info.records
-          )}
-          " >> ${name}.zone
-        '';
-
-        installPhase = ''
-          mkdir -p $out
-          cp ${name}.zone $out
-        '';
-      }
-    ) config.services.authDNS.domains;
+      installPhase = ''
+        mkdir -p $out
+        cp ${name}.zone $out/
+      '';
+    }
+  ) config.services.authDNS.domains;
 in
 {
   services.knot = {
