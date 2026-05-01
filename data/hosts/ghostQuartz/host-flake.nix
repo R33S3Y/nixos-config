@@ -48,7 +48,7 @@ let
       # Services
 
       # Auth DNS
-      #../../../services/authDNS/knot-nix.nix
+      ../../../services/authDNS/knot-nix.nix
       ../../../services/authDNS/options-nix.nix
       ../../../services/authDNS/zoneFiles-nix.nix
 
