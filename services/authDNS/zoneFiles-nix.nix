@@ -17,6 +17,12 @@
 
       src = ./.;
 
+      buildInputs = [
+      ];
+
+      nativeBuildInputs = [
+      ];
+
       buildPhase = ''
         echo "
         $ORIGIN ${name}.
