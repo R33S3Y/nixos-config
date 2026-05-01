@@ -11,7 +11,7 @@
   environment.systemPackages = lib.mapAttrs (
     name: info:
     pkgs.stdenv.mkDerivation {
-      pname = "${name}.zone";
+      pname = "${lib.strings.replaceString "." "-" name}-zone";
       version = "1.0";
 
       buildPhase = ''
