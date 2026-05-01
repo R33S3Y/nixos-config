@@ -56,9 +56,9 @@ in
         ];
       };
 
-      zone = lib.mapAttrs (name: drv: {
+      zone = lib.mapAttrsToList (name: drv: {
         domain = name;
-        storage = drv;
+        storage = "${drv}";
         file = "${name}.zone";
       }) zones;
 
