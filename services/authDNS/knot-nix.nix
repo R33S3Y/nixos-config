@@ -20,7 +20,7 @@
 
       zone = lib.mapAttrsToList (name: info: {
         domain = name;
-        storage = "${pkgs.${"${name}.zone"}}";
+        storage = "${pkgs.${${name}.zone}}";
         file = "${name}.zone";
       }) config.services.authDNS.domains;
 
