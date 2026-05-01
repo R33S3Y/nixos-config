@@ -15,15 +15,6 @@
       pname = "${name}.zone";
       version = "1.0";
 
-      src = ./.;
-
-      buildInputs = [
-
-      ];
-
-      nativeBuildInputs = [
-      ];
-
       buildPhase = ''
         echo "
         $ORIGIN ${name}.
