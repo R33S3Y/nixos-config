@@ -20,12 +20,13 @@ in
         ];
       };
 
-      zone = lib.mapAttrs (
+      zone = lib.mapAttrsToList (
         name: info:
         let
           zoneName = "${name}.zone";
         in
         {
+          domain = name;
           storage = "${findPackage config.environment.systemPackages zoneName}/${zoneName}";
           file = zoneName;
         }
