@@ -26,7 +26,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # Get the current NixOS generation locally
-CURRENT_GEN=$(nix-env --list-generations --profile /nix/var/nix/profiles/system | tail -n 1 | awk '{print $1}')
+CURRENT_GEN=$(nixos-rebuild list-generations | awk 'NR==2 {print $1}')
 NEXT_GEN=$((CURRENT_GEN + 1))
 COMMIT_MSG="$(date '+%Y-%m-%d') - Attempting Build for gen: $NEXT_GEN"
 
