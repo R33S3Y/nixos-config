@@ -7,6 +7,10 @@ let
   findPackage = pkgs: name: builtins.head (builtins.filter (p: p.pname or p.name or "" == name) pkgs);
 in
 {
+  networking.firewall = {
+    allowedTCPPorts = [ 53 ];
+    allowedUDPPorts = [ 53 ];
+  };
   services.knot = {
     enable = true;
     checkConfig = true;
@@ -40,7 +44,4 @@ in
       ];
     };
   };
-  networking.firewall.allowedTCPPorts = [
-    53
-  ];
 }
