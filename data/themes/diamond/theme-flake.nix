@@ -8,10 +8,10 @@ let
   diamond = {
 
     polarity = "dark";
-    
+
     # wallpaper
     image = ./wallpaper.jpg;
-    
+
     base16Scheme = {
       base00 = "181B28"; # ----
       base01 = "282b38"; # ---
@@ -30,7 +30,7 @@ let
       base0E = "a075dc"; # purple
       base0F = "b075dc"; # brown
     };
-  
+
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
@@ -84,7 +84,6 @@ let
   };
 in
 diamond
-
 
 #base00 = "#181B28"; # ----
 #base01 = "#282b38"; # ---

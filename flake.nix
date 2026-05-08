@@ -93,7 +93,9 @@
         #};
       };
       networks = {
-        homelab = import ./data/networks/homelab/network-flake.nix;
+        homelab = import ./data/networks/homelab/network-flake.nix {
+          inherit inputs;
+        };
       };
       users = {
         reese = import ./data/users/reese/user-flake.nix {
