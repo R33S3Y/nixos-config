@@ -34,9 +34,11 @@
           specialArgs = {
             system = {
               hosts = hosts;
+              networks = networks;
               users = users;
               themes = themes;
               host = hostName;
+              network = hosts.${hostName}.network;
               user = hosts.${hostName}.user;
               theme = users.${hosts.${hostName}.user}.theme;
             };
@@ -89,6 +91,9 @@
         #template = import ./data/hosts/template/host-flake.nix {
         #  inherit inputs home-manager nur nix-minecraft;
         #};
+      };
+      networks = {
+        homelab = import ./data/networks/homelab/network-flake.nix;
       };
       users = {
         reese = import ./data/users/reese/user-flake.nix {

@@ -75,6 +75,8 @@ let
 
     user = "reese";
 
+    network = "homelab";
+
     hostName = "ghostQuartz";
 
     static = {

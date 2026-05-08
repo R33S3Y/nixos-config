@@ -66,6 +66,8 @@ let
 
     user = "reese";
 
+    network = "homelab";
+
     hostName = "obsidian";
 
     static = {

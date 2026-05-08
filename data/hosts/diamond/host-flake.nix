@@ -132,6 +132,8 @@ let
 
     user = "reese";
 
+    network = "homelab";
+
     hostName = "diamond";
 
     lapisLazuli = {

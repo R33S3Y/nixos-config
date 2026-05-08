@@ -78,6 +78,8 @@ let
 
     user = "reese";
 
+    network = "homelab";
+
     hostName = "bort";
 
     static = {

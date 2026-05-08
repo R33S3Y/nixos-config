@@ -130,6 +130,8 @@ let
 
     user = "reese";
 
+    network = "homelab";
+
     hostName = "cinnabar";
 
     programs = with pkgs; [

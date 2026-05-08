@@ -10,7 +10,7 @@ let
     system = "x86_64-linux"; # or inherit system if passed from the flake
     config.allowUnfree = true;
   };
-  template = {
+  host = {
     imports = [
       # Nix modules
       inputs.stylix.nixosModules.stylix
@@ -156,6 +156,8 @@ let
 
     user = "reese";
 
+    network = "homelab";
+
     hostName = "template";
 
     static = {
@@ -213,4 +215,4 @@ let
     ];
   };
 in
-template
+host

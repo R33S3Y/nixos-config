@@ -71,6 +71,8 @@ let
 
     user = "reese";
 
+    network = "homelab";
+
     hostName = "morganite";
 
     static = {
