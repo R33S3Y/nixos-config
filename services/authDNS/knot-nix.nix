@@ -31,7 +31,7 @@ in
         in
         {
           domain = name;
-          storage = "${findPackage config.environment.systemPackages zoneName}/${zoneName}";
+          storage = "${findPackage config.environment.systemPackages zoneName}/";
           file = zoneName;
         }
       ) config.services.authDNS.domains;
