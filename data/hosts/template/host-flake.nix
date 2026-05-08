@@ -85,6 +85,7 @@ let
       # Auth DNS
       ../../../services/authDNS/knot-nix.nix
       ../../../services/authDNS/options-nix.nix
+      ../../../services/authDNS/settings-nix.nix
       ../../../services/authDNS/zoneFiles-nix.nix
 
       # Jellyfin
