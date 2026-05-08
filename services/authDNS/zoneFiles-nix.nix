@@ -23,7 +23,7 @@
         \$ORIGIN ${name}.
         \$TTL ${toString info.ttl}
 
-        @ IN SOA ns1.${name}. ${lib.strings.replaceString "@" "." info.email}. (
+        @ IN SOA ${info.primaryNameserver.name}.${name}. ${lib.strings.replaceString "@" "." info.email}. (
           1                           ; serial (version number) - this will only matter if we pointed a secondary server towards this.
           ${toString info.ttl}        ; refresh (how often should the secondary server contact main)
           ${toString (info.ttl / 2)}  ; retry (how long should the secondary server wait before try to contact the primary server in the case of failure)
@@ -31,8 +31,8 @@
           ${toString info.ttl}        ; minimum
         )
 
-        @   IN NS ns1.${name}.
-        ns1 IN A 192.168.1.252 ; todo!!!! I have a plan but just in a minute
+        @   IN NS ${info.primaryNameserver.name}.${name}.
+        ${info.primaryNameserver.name} IN A ${info.primaryNameserver.address}
 
         ${lib.concatStrings (
           lib.map (record: "${record.name} IN ${record.type} ${record.value} \n") info.records

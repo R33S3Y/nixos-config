@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 # this file defines / lays out the format used to config services.authDNS across this repo
 # Hopefully one day we will run our own options searcher that can read this. :3
@@ -42,6 +42,18 @@ let
           description = ''
             The TTL or time to live of the domain. It's also used to calculate the time related values for now.
           '';
+        };
+        primaryNameserver = {
+          name = lib.mkOption {
+            type = lib.types.str;
+            default = config.networking.hostName;
+            description = "the name of the primary nameserver";
+          };
+          address = lib.mkOption {
+            type = lib.types.str;
+            default = "127.1.1.1";
+            description = "The IP address of the name server";
+          };
         };
       };
     };
