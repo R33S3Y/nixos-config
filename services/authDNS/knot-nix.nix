@@ -28,7 +28,7 @@ in
 
       zone = lib.mapAttrs (name: info: {
         domain = name;
-        storage = "${findPackage config.environment.systemPackages pkgs."${name}.zone"}/${name}.zone";
+        storage = "${findPackage config.environment.systemPackages "${name}.zone"}/${name}.zone";
         file = "${name}.zone";
       }) config.services.authDNS.domains;
 
