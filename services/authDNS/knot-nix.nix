@@ -5,12 +5,7 @@
   ...
 }:
 let
-  findPackage =
-    pkgs: name:
-    let
-      found = builtins.filter (p: p.pname or p.name or "" == name) pkgs;
-    in
-    if found == [ ] then null else builtins.head found;
+  findPackage = pkgs: name: builtins.head (builtins.filter (p: p.pname or p.name or "" == name) pkgs);
 in
 {
   services.knot = {
