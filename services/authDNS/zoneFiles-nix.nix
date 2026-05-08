@@ -32,7 +32,7 @@
         )
 
         @   IN NS ns1.${name}.
-        ns1.IN A 192.168.1.252 ; todo!!!! I have a plan but just in a minute
+        ns1 IN A 192.168.1.252 ; todo!!!! I have a plan but just in a minute
 
         ${lib.concatStrings (
           lib.map (record: "${record.name} IN ${record.type} ${record.value} \n") info.records
