@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }:
 let
@@ -33,10 +32,12 @@ in
         }
       ) config.services.authDNS.domains;
 
-      log = {
-        target = "syslog";
-        any = "info";
-      };
+      log = [
+        {
+          target = "syslog";
+          any = "info";
+        }
+      ];
     };
   };
 }
