@@ -26,11 +26,17 @@ in
         ];
       };
 
-      zone = lib.mapAttrs (name: info: {
-        domain = name;
-        storage = "${findPackage config.environment.systemPackages "${name}.zone"}/${name}.zone";
-        file = "${name}.zone";
-      }) config.services.authDNS.domains;
+      zone = lib.mapAttrs (
+        name: info:
+        let
+          zoneName = "${name}.zone";
+        in
+        {
+          domain = name;
+          storage = "${findPackage config.environment.systemPackages zoneName}/${zoneName}";
+          file = zoneName;
+        }
+      ) config.services.authDNS.domains;
 
       log = {
         target = "syslog";
