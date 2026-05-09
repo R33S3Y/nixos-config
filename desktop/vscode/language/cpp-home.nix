@@ -5,7 +5,7 @@
 
 {
   home.packages = with pkgs; [
-    clang-tools
+    llvmPackages_20.clang-tools
   ];
   programs.vscode = {
     profiles.default = {
