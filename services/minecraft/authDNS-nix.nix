@@ -1,10 +1,10 @@
-{ ... }:
+{ system, ... }:
 {
   services.authDNS.domains."reesey.org".records = [
     {
       name = "java";
       type = "A";
-      value = "1.2.3.4";
+      value = system.networks.${system.network}.public.ipv4Address;
     }
   ];
 }
