@@ -66,12 +66,6 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
     echo -e "${OK}Copying files to $HOST...${RESET}"
     scp -q -r "$CONFIG_SRC"/* "$HOST:$CONFIG_DST/"
 
-    # Removing older generations
-    echo -e "${OK}Removing older generations $HOST...${RESET}"
-    echo -e ""
-    #ssh "$HOST" sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
-    #ssh "$HOST" sudo nix-collect-garbage
-
     # Extract just the hostname (after @ if present)
     echo -e ""
     echo -e "${OK}Rebuilding $HOST...${RESET} \n"
@@ -82,6 +76,13 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
         exit 1
     fi
     echo -e ""
+
+    # Removing older generations
+    echo -e "${OK}Removing older generations $HOST...${RESET}"
+    echo -e ""
+    ssh "$HOST" sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
+    ssh "$HOST" sudo nix-collect-garbage
+
 done
 
 echo -e "\n${GOOD}All rebuilds succeeded. Pushing changes to GitHub...\n${RESET}"
