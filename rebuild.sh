@@ -67,7 +67,6 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
     scp -q -r "$CONFIG_SRC"/* "$HOST:$CONFIG_DST/"
 
     # Extract just the hostname (after @ if present)
-    echo -e ""
     echo -e "${OK}Rebuilding $HOST...${RESET} \n"
     HOSTNAME=$(echo "$HOST" | cut -d@ -f2)
     # Rebuild NixOS remotely
@@ -75,6 +74,7 @@ for HOST in "${REMOTE_HOSTS[@]}"; do
         echo -e "${BAD}Remote NixOS rebuild failed on $HOST. Aborting.${RESET}"
         exit 1
     fi
+    echo -e ""
     echo -e ""
 
     # Removing older generations
