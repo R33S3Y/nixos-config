@@ -45,7 +45,7 @@ let
       ../../../desktop/sddm/enable-nix.nix
 
       # Other
-      ../../../core/other/home-nix.nix # home
+      ../../../core/home/home-nix.nix # home
       ../../../core/other/journald-nix.nix # journald  -  adds a fix that explicity limits how much storage logs are allow to take at 2GB
       ../../../core/other/local-nix.nix # Local settings
       ../../../core/other/networking-nix.nix
