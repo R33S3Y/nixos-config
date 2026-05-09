@@ -4,6 +4,9 @@
 }:
 
 {
+  home.packages = with pkgs; [
+    clang-tools
+  ];
   programs.vscode = {
     profiles.default = {
       extensions = with pkgs; [
