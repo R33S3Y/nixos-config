@@ -56,6 +56,7 @@
             "attrset"
           ];
         };
+        chat.disableAIFeatures = true;
       };
     };
   };
