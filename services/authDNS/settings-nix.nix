@@ -11,6 +11,11 @@
         type = "A";
         value = system.networks.${system.network}.public.ipV4Address;
       }
+      {
+        name = "@";
+        type = "NS";
+        value = "${system.hosts.${system.host}.hostName}2";
+      }
     ];
   };
 }
