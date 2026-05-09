@@ -61,8 +61,6 @@ let
       ../../../core/btop/style-home.nix
       # Fast Fetch
       ../../../core/fastfetch/settings-home.nix # Fastfetch  -  run on bash init
-      # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
-      ../../../core/lazyUpdate/run-home.nix
       # Rofi
       ../../../core/rofi/style-home.nix # Styles
       # Other
