@@ -31,6 +31,7 @@
         "[nix]" = {
           editor.defaultFormatter = "jnoortheen.nix-ide";
         };
+        chat.disableAIFeatures = true;
       };
     };
   };
