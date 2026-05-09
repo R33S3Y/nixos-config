@@ -1,6 +1,5 @@
 {
   pkgs,
-  system,
   ...
 }:
 
@@ -12,6 +11,9 @@
       ];
       userSettings = {
         "[cpp]" = {
+          editor.defaultFormatter = "llvm-vs-code-extensions.vscode-clangd";
+        };
+        "[c]" = {
           editor.defaultFormatter = "llvm-vs-code-extensions.vscode-clangd";
         };
       };
