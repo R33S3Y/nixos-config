@@ -56,7 +56,14 @@
             "attrset"
           ];
         };
-        chat.disableAIFeatures = true;
+        chat = {
+          disableAIFeatures = true;
+          agent.enabled = false;
+        };
+        editor.inlineSuggest = {
+          enabled = false;
+          suppressSuggestions = true;
+        };
       };
     };
   };
