@@ -54,15 +54,21 @@
             "str"
             "dmarc"
             "attrset"
+            "reesey"
           ];
         };
+        # disable AI slop
         chat = {
           disableAIFeatures = true;
           agent.enabled = false;
+          commandCenter.enabled = false;
         };
         editor.inlineSuggest = {
           enabled = false;
           suppressSuggestions = true;
+        };
+        github.copilot.enable = {
+          "*" = false;
         };
       };
     };
