@@ -97,10 +97,10 @@ int main(int argc, char const *argv[]) {
   vector<string> hosts = getFlakeInputs(flake);
 
   for (string host : hosts) {
-    cout << host;
+    cout << host + "\n";
     vector<string> nixFiles = getNixFiles(flake, host);
     for (string nixFile : nixFiles) {
-      cout << nixFile;
+      cout << nixFile + "\n";
     }
   }
 
