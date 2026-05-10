@@ -74,7 +74,6 @@ vector<string> getNixFiles(string flake, string host) {
   vector<string> output;
 
   for (string currentStr : cmdOutSplit) {
-    cout << currentStr + "\n";
     if (currentStr.find(flake) != string::npos) {
 
       string delim = "»";
@@ -102,7 +101,6 @@ int main(int argc, char const *argv[]) {
     cout << host + "\n";
     cout << "\n";
     vector<string> nixFiles = getNixFiles(flake, host);
-    cout << "\n";
     for (string nixFile : nixFiles) {
       cout << nixFile + "\n";
     }
