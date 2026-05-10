@@ -88,12 +88,11 @@ vector<string> getNixFiles(string flake, string host) {
     }
   }
 
-  if (pos != string::npos)
-    = s.substr(pos + delim.size());
+  return output;
 }
 int main(int argc, char const *argv[]) {
 
-  string flake "~/Desktop/nixos";
+  string flake = "~/Desktop/nixos";
   // Get flake input
   vector<string> hosts = getFlakeInputs(flake);
 
