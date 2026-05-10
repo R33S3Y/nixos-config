@@ -6,7 +6,7 @@
       pname = "deploy";
       version = "1.0";
 
-      src = ./.;
+      src = ./src;
 
       buildInputs = [
         pkgs.nlohmann_json
@@ -17,7 +17,7 @@
       ];
 
       buildPhase = ''
-        g++ src/main.cpp -o deploy \
+        g++ main.cpp -o deploy \
           -std=c++20 \
           -I${pkgs.nlohmann_json}/include
       '';
