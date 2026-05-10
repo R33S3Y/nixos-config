@@ -24,7 +24,7 @@
 
       installPhase = ''
         mkdir -p $out/bin
-        cp getDeviceId $out/bin/
+        cp deploy $out/bin/
       '';
     })
   ];
