@@ -57,7 +57,7 @@ vector<string> getFlakeInputs(string flake) {
   auto json = nlohmann::json::parse(runCommand(cmd));
 
   vector<string> configs;
-  for (auto &[key, value] : j["nixosConfigurations"].items()) {
+  for (auto &[key, value] : ["nixosConfigurations"].items()) {
     configs.push_back(key);
   }
 
@@ -68,7 +68,7 @@ vector<string> getNixFiles(string flake, string host) {
                "._module.args.modules";
 
   string cmdOut = runCommand(cmd);
-  vector<string> cmdOutSplit = splitStrByChar(cmdOut, " ");
+  vector<string> cmdOutSplit = splitStrByChar(cmdOut, ' ');
 
   vector<string> output;
 
