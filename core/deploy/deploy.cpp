@@ -68,6 +68,8 @@ vector<string> getNixFiles(string flake, string host) {
                "._module.args.modules";
 
   string cmdOut = runCommand(cmd);
+  cout << cmdOut + "\n";
+  cout << "\n";
   vector<string> cmdOutSplit = splitStrByChar(cmdOut, ' ');
 
   vector<string> output;
