@@ -57,7 +57,7 @@ vector<string> getFlakeInputs(string flake) {
   auto json = nlohmann::json::parse(runCommand(cmd));
 
   vector<string> configs;
-  for (auto &[key, value] : ["nixosConfigurations"].items()) {
+  for (auto &[key, value] : json["nixosConfigurations"].items()) {
     configs.push_back(key);
   }
 
