@@ -95,7 +95,7 @@ vector<string> getNixFiles(string flake, string host) {
 }
 int main(int argc, char const *argv[]) {
 
-  string flake = "~/Desktop/nixos";
+  string flake = "/home/reese/Desktop/nixos";
   // Get flake input
   vector<string> hosts = getFlakeInputs(flake);
 
