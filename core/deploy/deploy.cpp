@@ -35,7 +35,7 @@ vector<string> splitStrByChar(string inputStr, char inputChar) {
       currentStr += currentChar;
     }
   }
-
+  output.push_back(currentStr);
   return output;
 }
 string replace(string s, string from, string to) {
