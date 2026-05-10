@@ -100,7 +100,7 @@ int main(int argc, char const *argv[]) {
   for (string host : hosts) {
     cout << host;
     vector<string> nixFiles = getNixFiles(flake, host);
-    for (string nixFile : nixFiles) : {
+    for (string nixFile : nixFiles) {
       cout << nixFile;
     }
   }
