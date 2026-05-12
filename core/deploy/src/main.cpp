@@ -66,7 +66,7 @@ int main(int argc, char const *argv[]) {
   }
   utils::runCommand("nix flake clone " + flakeLink + " --dest " + flakePath);
 
-  vector<string> hosts = getFlakeInputs(flakeLink);
+  vector<string> hosts = getFlakeInputs(flakePath);
 
   for (string host : hosts) {
     cout << host + "\n";
