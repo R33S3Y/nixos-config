@@ -10,4 +10,5 @@ public:
   static vector<string> splitStrByChar(string inputStr, char inputChar);
   static string replace(string s, string from, string to);
   static string trim(string s);
+  static string readFile(const string &path);
 };

@@ -1,7 +1,10 @@
+#include "resolve.h"
 #include "utils.h"
+#include <algorithm>
 #include <filesystem>
 #include <iostream>
 #include <nlohmann/json.hpp>
+#include <set>
 #include <string>
 #include <vector>
 
@@ -54,6 +57,7 @@ vector<string> getOtherImports(string flakeLink, string flakePath,
   }
   return output;
 }
+
 int main(int argc, char const *argv[]) {
 
   string flakeLink = "/home/reese/Desktop/nixos";
@@ -72,9 +76,33 @@ int main(int argc, char const *argv[]) {
     cout << host + "\n";
     cout << "\n";
 
-    vector<string> nixFiles = getNixFiles(flakeLink, host);
-    for (string nixFile : nixFiles) {
-      cout << nixFile + "\n";
+    vector<string> unprocessedFiles = getNixFiles(flakePath, host);
+    unprocessedFiles.push_back("/flake.nix");
+
+    vector<string> processedFiles;
+    resolve r(flakePath, flakeLink);
+
+    for (int i = 0; i < unprocessedFiles.size(); i++) {
+      std::string filePath = unprocessedFiles[i];
+      unprocessedFiles.erase(unprocessedFiles.begin() + i);
+      processedFiles.push_back(filePath);
+
+      cout << filePath + "\n";
+
+      const string fullFilePath = flakePath + filePath;
+      r.preprocessFile(fullFilePath);
+
+      vector<string> hold = r.resolveImportStatements();
+      hold.erase(remove_if(hold.begin(), hold.end(),
+                           [&](const std::string &x) {
+                             return find(processedFiles.begin(),
+                                         processedFiles.end(),
+                                         x) != processedFiles.end();
+                           }),
+                 hold.end());
+      set<string> s(unprocessedFiles.begin(), unprocessedFiles.end());
+      s.insert(hold.begin(), hold.end());
+      unprocessedFiles = vector<string>(s.begin(), s.end());
     }
     cout << "\n";
   }

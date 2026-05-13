@@ -1,7 +1,10 @@
 #include "utils.h"
 #include <cstddef>
 #include <cstdio>
+#include <fstream>
 #include <nlohmann/json.hpp>
+#include <sstream>
+#include <stdexcept>
 #include <string>
 #include <vector>
 
@@ -49,4 +52,13 @@ string utils::trim(string s) {
   s.erase(0, s.find_first_not_of(" \t\n\r"));
   s.erase(s.find_last_not_of(" \t\n\r") + 1);
   return s;
+}
+
+string utils::readFile(const string &path) {
+  ifstream file(path);
+  if (!file.is_open())
+    throw runtime_error("Failed to open file: " + path);
+  ostringstream ss;
+  ss << file.rdbuf();
+  return ss.str();
 }
