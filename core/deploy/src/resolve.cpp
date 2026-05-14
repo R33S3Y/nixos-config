@@ -37,7 +37,10 @@ vector<string> resolve::resolveImportStatements() {
     lineStr = utils::replace(lineStr, ";", "");
     lineStr = utils::trim(lineStr);
 
-    paths.push_back(resolveKey(lineStr));
+    string result = resolveKey(lineStr);
+    if (result != "") {
+      paths.push_back(result);
+    }
   }
   return paths;
 }
@@ -50,10 +53,11 @@ string resolve::resolveKey(string test) {
     return result;
   }
 
-  cerr << "\n\033[31mError\033[0m : Failed to resolve the following in: "
+  cerr << "\n\033[31mError\033[0m : Failed to resolve the following in ("
           "\033[35m" +
-              flakeLink + filepath + "\033[0m\n";
+              flakeLink + filepath + "\033[0m)\n";
   cerr << utils::trim(test) + "\n";
+  return "";
 }
 
 string resolve::resolvePath(string test) {
