@@ -102,12 +102,6 @@ int main(int argc, char const *argv[]) {
 
       vector<string> imports = r.resolveImportStatements();
 
-      cout << "\n";
-      cout << "import files: \n";
-      for (string file : imports) {
-        cout << file + "\n";
-      }
-
       imports.erase(remove_if(imports.begin(), imports.end(),
                               [&](const string &f) {
                                 return find(processedFiles.begin(),
