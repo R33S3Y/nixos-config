@@ -104,7 +104,10 @@ vector<string> resolve::resolveImportsStatements() {
     workingFileStr = workingFileStr.substr(lineEnd);
 
     vector<string> items = utils::splitStrByChars(lineStr, {' ', '\n'});
-    for (string item : items) {
+    for (int i = 0; i < items.size(); i++) {
+      string item = items[i];
+
+      // input sanitization
       vector<string> arr = {"imports", "=", "[", "]"};
       bool found =
           std::any_of(arr.begin(), arr.end(), [&](const std::string &s) {
@@ -118,6 +121,15 @@ vector<string> resolve::resolveImportsStatements() {
       if (item == "") {
         continue;
       }
+      // re-merge bracket statements
+      if (item.find("(") != string::npos &&
+          !(item.find("(") < item.find(")"))) {
+        while (items[i + 1].find(")") != string::npos) {
+          item += items[i + 1];
+          items.erase(items.begin() + i + 1);
+        }
+      }
+
       cout << item + "\n";
       string result = resolveKey(item);
       if (result != "") {
@@ -140,7 +152,6 @@ string resolve::resolveKey(string test) {
               flakeLink + filepath + "\033[0m)\n";
   string errorCode;
   vector<string> tokenTest = utils::splitStrByChar(test, '\n');
-  cerr << utils::trim(test) + "\n";
   for (int i = 0; i < prettyfile.size(); i++) {
 
     if (prettyfile[i].find(tokenTest[0]) == string::npos) {

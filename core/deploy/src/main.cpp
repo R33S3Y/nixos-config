@@ -102,9 +102,8 @@ int main(int argc, char const *argv[]) {
     resolve r(flakePath, flakeLink);
 
     while (unprocessedFiles.size() != 0) {
-      int i = 0;
-      std::string filePath = unprocessedFiles[i];
-      unprocessedFiles.erase(unprocessedFiles.begin() + i);
+      std::string filePath = unprocessedFiles[0];
+      unprocessedFiles.erase(unprocessedFiles.begin());
       processedFiles.push_back(filePath);
 
       r.preprocessFile(filePath);
