@@ -81,7 +81,7 @@ int main(int argc, char const *argv[]) {
     unprocessedFiles.push_back("/flake.nix");
 
     cout << "\n";
-    cout << "Processed files: \n";
+    cout << "Unprocessed files: \n";
     for (string file : unprocessedFiles) {
       cout << file + "\n";
     }
