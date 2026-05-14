@@ -49,7 +49,7 @@ string resolve::resolveKey(string test) {
     return result;
   }
 
-  cerr << "\n\033[31mError\033[0m : failed to resolve: " + test;
+  cerr << "\n\033[31mError\033[0m : failed to resolve: " + test + "\n";
   return "";
 }
 
@@ -95,12 +95,9 @@ string resolve::resolvePath(string test) {
 
       if (path.rfind(flakePath, 0) == 0) {
         path = utils::replace(path, flakePath, "");
-        cout << path + "\n";
         return path;
       }
       if (path.rfind(flakeLink, 0) == 0) {
-        path = utils::replace(path, flakeLink, "");
-        cout << path + "\n";
         return path;
       }
     }
