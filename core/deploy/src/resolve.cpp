@@ -43,7 +43,6 @@ void resolve::preprocessFile(const string &filepath) {
   }
   vector<string> stringlessLinefile = utils::splitStrByChar(rawFileStr, '\n');
 
-  cout << "\n" + filepath + "\n\n";
   string fileStr;
   this->prettyfile = {};
   for (int i = 0; i < lineFile.size(); i++) {
@@ -52,12 +51,7 @@ void resolve::preprocessFile(const string &filepath) {
                                ":\033[0m " + line + "\n");
 
     if (stringlessLinefile[i].find("#") != string::npos) {
-
-      cout << "(" + stringlessLinefile[i] + ")\n";
-      cout << "(" + line + ")\n";
-
       line = line.substr(0, stringlessLinefile[i].find("#"));
-      cout << "(" + line + ")\n";
     }
     fileStr += line + "\n";
   }
