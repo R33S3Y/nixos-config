@@ -63,7 +63,7 @@ vector<string> filter(vector<string> imports, vector<string> processedFiles) {
 
   return imports;
 }
-vector<string> merge(vector<string> import, vector<string> unprocessedFiles) {
+vector<string> merge(vector<string> imports, vector<string> unprocessedFiles) {
   set<string> pending(unprocessedFiles.begin(), unprocessedFiles.end());
   pending.insert(imports.begin(), imports.end());
   unprocessedFiles.assign(pending.begin(), pending.end());
