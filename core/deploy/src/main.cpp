@@ -88,8 +88,7 @@ int main(int argc, char const *argv[]) {
       unprocessedFiles.erase(unprocessedFiles.begin() + i);
       processedFiles.push_back(filePath);
 
-      const string fullFilePath = flakePath + filePath;
-      r.preprocessFile(fullFilePath);
+      r.preprocessFile(filePath);
 
       vector<string> imports = r.resolveImportStatements();
 

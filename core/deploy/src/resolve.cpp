@@ -11,9 +11,10 @@ using namespace std;
 resolve::resolve(const string &flakePath, const string &flakeLink)
     : flakePath(flakePath), flakeLink(flakeLink) {}
 
-void resolve::preprocessFile(const string &absoluteFilepath) {
-  this->absoluteFilepath = absoluteFilepath;
-  this->fileStr = utils::readFile(absoluteFilepath);
+void resolve::preprocessFile(const string &filepath) {
+  this->filepath = filepath;
+  this->absoluteFilepath = flakePath + filepath;
+  this->fileStr = utils::readFile(flakePath + filepath);
   return;
 }
 
@@ -49,8 +50,9 @@ string resolve::resolveKey(string test) {
     return result;
   }
 
-  cerr << "\n\033[31mError\033[0m : failed to resolve: " + test + "\n";
-  return "";
+  cerr << "\n\033[31mError!!!\033[0m\n";
+  cerr << "Failed to resolve the following in: " + flakeLink + filePath + "\n";
+  cerr << utils::trim(test) + "\n";
 }
 
 string resolve::resolvePath(string test) {

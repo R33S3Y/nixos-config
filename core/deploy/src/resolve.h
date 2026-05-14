@@ -10,7 +10,7 @@ class resolve {
 public:
   resolve(const string &flakePath, const string &flakeLink);
 
-  void preprocessFile(const string &absoluteFilepath);
+  void preprocessFile(const string &filepath);
   vector<string> resolveImportStatements();
   string resolveKey(string test);
   string resolvePath(string test);
@@ -20,5 +20,6 @@ private:
   string flakePath;
   string flakeLink;
   string absoluteFilepath;
+  string filePath;
   string fileStr;
 };
