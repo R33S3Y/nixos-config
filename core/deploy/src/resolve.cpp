@@ -51,6 +51,7 @@ void resolve::preprocessFile(const string &filepath) {
       cout << line + "\n";
 
       line = line.substr(0, stringlessLinefile[i].find("#"));
+      cout << line + "\n";
     }
     fileStr += line + "\n";
   }
