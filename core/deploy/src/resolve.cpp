@@ -89,7 +89,7 @@ string resolve::resolveKey(string test) {
       if (i == j) {
         line = utils::replace(line, "\n", "");
 
-        line += "    \n\033<---\033[0m)\n"
+        line += "    \n\033<---\033[0m)\n";
       }
 
       errorCode += line;
