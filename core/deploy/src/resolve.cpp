@@ -50,8 +50,9 @@ string resolve::resolveKey(string test) {
     return result;
   }
 
-  cerr << "\n\033[31mError!!!\033[0m\n";
-  cerr << "Failed to resolve the following in: " + flakeLink + filepath + "\n";
+  cerr << "\n\033[31mError\033[0m : Failed to resolve the following in: "
+          "\033[35m" +
+              flakeLink + filepath + "\033[0m\n";
   cerr << utils::trim(test) + "\n";
 }
 
