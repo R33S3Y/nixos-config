@@ -123,7 +123,7 @@ vector<string> resolve::resolveImportsStatements() {
       }
       // re-merge bracket statements
       if (item.find("(") != string::npos && item.find(")") == string::npos) {
-        while (items[i + 1].find(")") != string::npos) {
+        while (i + 1 < items.size() && items[i + 1].find(")") == string::npos) {
           item += items[i + 1];
           items.erase(items.begin() + i + 1);
         }
