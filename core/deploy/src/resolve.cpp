@@ -2,6 +2,7 @@
 #include "utils.h"
 #include <algorithm>
 #include <filesystem>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -42,6 +43,8 @@ vector<string> resolve::resolveImportStatements() {
 
 string resolve::resolveKey(string test) {
   string result;
+
+  cout << test + "\n";
 
   result = resolvePath(test);
   if (result != "") {
