@@ -55,9 +55,8 @@ string resolve::resolveKey(string test) {
 }
 
 string resolve::resolvePath(string test) {
-  size_t pos = test.find(" ");
-  if (pos == string::npos) {
-    test = test.substr(0, pos);
+  if (test.find(" ") == string::npos) {
+    test = test.substr(test.find(" "));
   }
 
   if (test[0] == '/') {
