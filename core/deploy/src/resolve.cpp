@@ -96,10 +96,12 @@ string resolve::resolvePath(string test) {
 
       if (path.rfind(flakePath, 0) == 0) {
         path = utils::replace(path, flakePath, "");
+        cout << path + "\n";
         return path;
       }
       if (path.rfind(flakeLink, 0) == 0) {
         path = utils::replace(path, flakeLink, "");
+        cout << path + "\n";
         return path;
       }
     }
