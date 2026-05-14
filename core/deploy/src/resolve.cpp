@@ -26,7 +26,8 @@ void resolve::preprocessFile(const string &filepath) {
   for (string stringToken : stringTokens) {
     while (rawFileStr.find(stringToken) != string::npos) {
       size_t start = rawFileStr.find(stringToken);
-      size_t end = rawFileStr.find(stringToken, start + stringToken.size()) + 1;
+      size_t end = rawFileStr.find(stringToken, start + stringToken.size()) +
+                   stringToken.size();
 
       if (end == string::npos) {
         break;
@@ -34,7 +35,7 @@ void resolve::preprocessFile(const string &filepath) {
 
       for (size_t i = start; i < end; i++) {
         if (rawFileStr[i] != '\n') {
-          cout << rawFileStr[i];
+          // cout << rawFileStr[i];
           rawFileStr[i] = ' ';
         }
       }
@@ -51,11 +52,11 @@ void resolve::preprocessFile(const string &filepath) {
 
     if (stringlessLinefile[i].find("#") != string::npos) {
 
-      // cout << stringlessLinefile[i] + "\n";
-      // cout << line + "\n";
+      cout << stringlessLinefile[i] + "\n";
+      cout << line + "\n";
 
       line = line.substr(0, stringlessLinefile[i].find("#"));
-      // cout << line + "\n";
+      cout << line + "\n";
     }
     fileStr += line + "\n";
   }
