@@ -12,6 +12,7 @@ public:
 
   void preprocessFile(const string &filepath);
   vector<string> resolveImportStatements();
+  vector<string> resolveImportsStatements();
   string resolveKey(string test);
   string resolvePath(string test);
   string resolveValue(string test);

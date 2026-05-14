@@ -1,4 +1,5 @@
 #include "utils.h"
+#include <algorithm>
 #include <cstddef>
 #include <cstdio>
 #include <fstream>
@@ -26,6 +27,23 @@ string utils::runCommand(string cmd) {
 
   return result;
 }
+vector<string> utils::splitStrByChars(string inputStr,
+                                      vector<char> inputChars) {
+  vector<string> output;
+  string currentStr;
+
+  for (char currentChar : inputStr) {
+    if (find(inputChars.begin(), inputChars.end(), currentChar) !=
+        inputChars.end()) {
+      output.push_back(currentStr);
+      currentStr.clear();
+    } else {
+      currentStr += currentChar;
+    }
+  }
+  output.push_back(currentStr);
+  return output;
+}
 vector<string> utils::splitStrByChar(string inputStr, char inputChar) {
   vector<string> output;
   string currentStr;
@@ -45,6 +63,15 @@ string utils::replace(string s, string from, string to) {
   size_t pos = s.find(from);
   if (pos != string::npos) {
     s.replace(pos, from.size(), to);
+  }
+  return s;
+}
+string utils::replaceAll(string s, string from, string to) {
+  while (s.find(from) != string::npos) {
+    size_t pos = s.find(from);
+    if (pos != string::npos) {
+      s.replace(pos, from.size(), to);
+    }
   }
   return s;
 }

@@ -76,7 +76,7 @@ vector<string> resolve::resolveImportStatements() {
     workingFileStr = workingFileStr.substr(lineEnd);
 
     lineStr = utils::replace(lineStr, "import ", "");
-    lineStr = utils::replace(lineStr, ";", "");
+    lineStr = utils::replaceAll(lineStr, ";", "");
     lineStr = utils::trim(lineStr);
 
     string result = resolveKey(lineStr);
@@ -87,6 +87,44 @@ vector<string> resolve::resolveImportStatements() {
   return paths;
 }
 
+vector<string> resolve::resolveImportsStatements() {
+  string workingFileStr = fileStr;
+
+  vector<string> paths;
+  while (workingFileStr.length() > 0) {
+    size_t pos = workingFileStr.find("imports ");
+    if (pos == string::npos) {
+      break;
+    }
+    workingFileStr = workingFileStr.substr(pos);
+
+    size_t lineEnd = workingFileStr.find(";");
+
+    string lineStr = workingFileStr.substr(0, lineEnd);
+    workingFileStr = workingFileStr.substr(lineEnd);
+
+    vector<string> items = utils::splitStrByChars(lineStr, {' ', '\n'});
+    for (string item : items) {
+      vector<string> arr = {"imports", "=", "[", "]"};
+      bool found =
+          std::any_of(arr.begin(), arr.end(), [&](const std::string &s) {
+            return item.find(s) != std::string::npos;
+          });
+      if (found == true) {
+        continue;
+      }
+      cout << item + "\n";
+      item = utils::replaceAll(item, ";", "");
+      item = utils::trim(item);
+
+      string result = resolveKey(lineStr);
+      if (result != "") {
+        paths.push_back(result);
+      }
+    }
+  }
+  return paths;
+}
 string resolve::resolveKey(string test) {
   string result;
 
@@ -176,3 +214,5 @@ string resolve::resolvePath(string test) {
   }
   return "";
 }
+
+string resolve::resolveValue(string test) {}

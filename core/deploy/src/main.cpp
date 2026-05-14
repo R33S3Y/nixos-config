@@ -52,14 +52,23 @@ vector<string> getNixFiles(string flakeLink, string host) {
 
   return output;
 }
-vector<string> getOtherImports(string flakeLink, string flakePath,
-                               vector<string> nixFiles) {
-  vector<string> output;
-  for (string nixFile : nixFiles) {
-  }
-  return output;
-}
+vector<string> filter(vector<string> imports, vector<string> processedFiles) {
+  imports.erase(remove_if(imports.begin(), imports.end(),
+                          [&](const string &f) {
+                            return find(processedFiles.begin(),
+                                        processedFiles.end(),
+                                        f) != processedFiles.end();
+                          }),
+                imports.end());
 
+  return imports;
+}
+vector<string> merge(vector<string> import, vector<string> unprocessedFiles) {
+  set<string> pending(unprocessedFiles.begin(), unprocessedFiles.end());
+  pending.insert(imports.begin(), imports.end());
+  unprocessedFiles.assign(pending.begin(), pending.end());
+  return unprocessedFiles;
+}
 int main(int argc, char const *argv[]) {
 
   string flakeLink = "/home/reese/Desktop/nixos";
@@ -100,18 +109,15 @@ int main(int argc, char const *argv[]) {
 
       r.preprocessFile(filePath);
 
-      vector<string> imports = r.resolveImportStatements();
+      vector<string> imports;
 
-      imports.erase(remove_if(imports.begin(), imports.end(),
-                              [&](const string &f) {
-                                return find(processedFiles.begin(),
-                                            processedFiles.end(),
-                                            f) != processedFiles.end();
-                              }),
-                    imports.end());
-      set<string> pending(unprocessedFiles.begin(), unprocessedFiles.end());
-      pending.insert(imports.begin(), imports.end());
-      unprocessedFiles.assign(pending.begin(), pending.end());
+      imports = r.resolveImportStatements();
+      imports = filter(imports, processedFiles);
+      unprocessedFiles = merge(imports, unprocessedFiles);
+
+      imports = r.resolveImportsStatements();
+      imports = filter(imports, processedFiles);
+      unprocessedFiles = merge(imports, unprocessedFiles);
     }
     cout << "\n";
     cout << "Processed files: \n";
