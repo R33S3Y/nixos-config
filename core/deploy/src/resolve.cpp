@@ -121,10 +121,11 @@ vector<string> resolve::resolveImportsStatements() {
       if (item == "") {
         continue;
       }
+
       // re-merge bracket statements
       if (item.find("(") != string::npos && item.find(")") == string::npos) {
         while (i + 1 < items.size() && items[i + 1].find(")") == string::npos) {
-          item += items[i + 1];
+          item += " " + utils::trim(items[i + 1]);
           items.erase(items.begin() + i + 1);
         }
       }
