@@ -52,6 +52,9 @@ void resolve::preprocessFile(const string &filepath) {
   }
 
   this->fileStr = fileStr;
+  if (filepath.find("flake.nix") != string::npos) {
+    cout << fileStr + "\n";
+  }
   return;
 }
 
