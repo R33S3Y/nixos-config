@@ -88,18 +88,11 @@ int main(int argc, char const *argv[]) {
       unprocessedFiles.erase(unprocessedFiles.begin() + i);
       processedFiles.push_back(filePath);
 
-      cout << filePath + "\n";
-
       const string fullFilePath = flakePath + filePath;
       r.preprocessFile(fullFilePath);
 
       vector<string> imports = r.resolveImportStatements();
 
-      cout << "imports \n";
-      for (string import : imports) {
-        cout << import + "\n";
-      }
-      cout << "importend\n";
       imports.erase(remove_if(imports.begin(), imports.end(),
                               [&](const string &f) {
                                 return find(processedFiles.begin(),
@@ -110,6 +103,11 @@ int main(int argc, char const *argv[]) {
       set<string> pending(unprocessedFiles.begin(), unprocessedFiles.end());
       pending.insert(imports.begin(), imports.end());
       unprocessedFiles.assign(pending.begin(), pending.end());
+    }
+
+    cout << "Processed files: \n";
+    for (string file : processedFiles) {
+      cout << file + "\n";
     }
     cout << "\n";
   }
