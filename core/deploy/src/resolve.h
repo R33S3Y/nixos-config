@@ -22,4 +22,5 @@ private:
   string absoluteFilepath;
   string filepath;
   string fileStr;
+  vector<string> prettyfile;
 };

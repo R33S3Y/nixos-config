@@ -14,7 +14,26 @@ resolve::resolve(const string &flakePath, const string &flakeLink)
 void resolve::preprocessFile(const string &filepath) {
   this->filepath = filepath;
   this->absoluteFilepath = flakePath + filepath;
-  this->fileStr = utils::readFile(flakePath + filepath);
+
+  vector<string> lineFile =
+      utils::splitStrByChar(utils::readFile(flakePath + filepath), '\n');
+  string fileStr;
+  string prettyfileStr;
+  bool inQuotes = false;
+  for (int i = 0; i < lineFile.size(); i++) {
+    string line = lineFile[i];
+    this->prettyfile.push_back(to_string(i + 1) + ". " + line + "\n");
+
+    if (line.find("''"))
+      inQuotes = !inQuotes;
+
+    if (line.find("#") != string::npos && inQuotes == false) {
+      line = line.substr(0, line.find("#"));
+    }
+    fileStr += line + "\n";
+  }
+
+  this->fileStr = fileStr;
   return;
 }
 
@@ -53,10 +72,33 @@ string resolve::resolveKey(string test) {
     return result;
   }
 
-  cerr << "\n\033[31mError\033[0m : Failed to resolve the following in ("
-          "\033[35m" +
+  cerr << "\n\033[31mError\033[0m : Failed to resolve the following in "
+          "(\033[35m" +
               flakeLink + filepath + "\033[0m)\n";
-  cerr << utils::trim(test) + "\n";
+  string errorCode;
+  vector<string> tokenTest = utils::splitStrByChar(test, '\n');
+  for (int i = 0; i < prettyfile.size(); i++) {
+
+    if (prettyfile[i].find(tokenTest[0]) == string::npos) {
+      continue;
+    }
+
+    for (int j = i - 2; j < i + tokenTest.size() + 2; j++) {
+      string line = prettyfile[j];
+
+      if (i == j) {
+        line = utils::replace(line, "\n", "");
+
+        line += "    \n\033<---\033[0m)\n"
+      }
+
+      errorCode += line;
+    }
+  }
+  if (errorCode.size() == 0) {
+    errorCode = utils::trim(test) + "\n";
+  }
+  cerr << errorCode;
   return "";
 }
 
