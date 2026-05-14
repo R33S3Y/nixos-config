@@ -93,17 +93,24 @@ int main(int argc, char const *argv[]) {
       const string fullFilePath = flakePath + filePath;
       r.preprocessFile(fullFilePath);
 
-      vector<string> hold = r.resolveImportStatements();
-      hold.erase(remove_if(hold.begin(), hold.end(),
-                           [&](const std::string &x) {
-                             return find(processedFiles.begin(),
-                                         processedFiles.end(),
-                                         x) != processedFiles.end();
-                           }),
-                 hold.end());
-      set<string> s(unprocessedFiles.begin(), unprocessedFiles.end());
-      s.insert(hold.begin(), hold.end());
-      unprocessedFiles = vector<string>(s.begin(), s.end());
+      vector<string> imports = r.resolveImportStatements();
+
+      cout << "imports";
+      for (string imports : imports) {
+        cout << "import";
+      }
+      cout << "importend";
+
+      imports.erase(remove_if(imports.begin(), imports.end(),
+                              [&](const string &f) {
+                                return find(processedFiles.begin(),
+                                            processedFiles.end(),
+                                            f) != processedFiles.end();
+                              }),
+                    imports.end());
+      set<string> pending(unprocessedFiles.begin(), unprocessedFiles.end());
+      pending.insert(imports.begin(), imports.end());
+      unprocessedFiles.assign(pending.begin(), pending.end());
     }
     cout << "\n";
   }
