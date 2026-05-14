@@ -26,7 +26,7 @@ void resolve::preprocessFile(const string &filepath) {
   for (string stringToken : stringTokens) {
     while (rawFileStr.find(stringToken) != string::npos) {
       size_t start = rawFileStr.find(stringToken);
-      size_t end = rawFileStr.find(stringToken, start + stringToken.size());
+      size_t end = rawFileStr.find(stringToken, start + stringToken.size()) + 1;
 
       if (end == string::npos) {
         break;
