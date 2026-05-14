@@ -20,6 +20,6 @@ private:
   string flakePath;
   string flakeLink;
   string absoluteFilepath;
-  string filePath;
+  string filepath;
   string fileStr;
 };
