@@ -65,7 +65,8 @@ int main(int argc, char const *argv[]) {
 
   filesystem::create_directories(flakePath);
   if (filesystem::is_empty(flakePath) == false) {
-    cerr << "Error : flakePath (" + flakePath + ") is not empty";
+    cerr << "\n\033[31mError\033[0m : flakePath (" + flakePath +
+                ") is not empty";
     return 1;
   }
   utils::runCommand("nix flake clone " + flakeLink + " --dest " + flakePath);

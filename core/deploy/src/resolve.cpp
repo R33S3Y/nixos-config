@@ -49,7 +49,7 @@ string resolve::resolveKey(string test) {
     return result;
   }
 
-  cerr << "Error : failed to resole: " + test;
+  cerr << "\n\033[31mError\033[0m : failed to resolve: " + test;
   return "";
 }
 
@@ -57,8 +57,6 @@ string resolve::resolvePath(string test) {
   if (test.find(" ") != string::npos) {
     test = test.substr(0, test.find(" "));
   }
-
-  cout << test + "\n";
 
   if (test[0] == '/') {
     // is absolute file path
