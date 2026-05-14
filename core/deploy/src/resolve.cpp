@@ -128,6 +128,10 @@ vector<string> resolve::resolveImportsStatements() {
           item += " " + utils::trim(items[i + 1]);
           items.erase(items.begin() + i + 1);
         }
+        if (i + 1 < items.size()) {
+          item += " " + utils::trim(items[i + 1]);
+          items.erase(items.begin() + i + 1);
+        }
       }
 
       cout << item + "\n";
