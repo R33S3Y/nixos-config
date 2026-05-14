@@ -11,7 +11,7 @@
 using namespace std;
 
 vector<string> getFlakeInputs(string flakeLink) {
-  string cmd = "nix flakeLink show " + flakeLink + " --json";
+  string cmd = "nix flake show " + flakeLink + " --json";
 
   auto json = nlohmann::json::parse(utils::runCommand(cmd));
 
