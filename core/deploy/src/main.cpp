@@ -64,7 +64,7 @@ int main(int argc, char const *argv[]) {
   string flakePath = "/tmp/currentConfig";
 
   filesystem::create_directories(flakePath);
-  if (filesystem::is_empty(flakePath) == true) {
+  if (filesystem::is_empty(flakePath)) {
     cerr << "Error : flakePath (" + flakePath + ") is not empty";
     return 1;
   }
@@ -106,6 +106,8 @@ int main(int argc, char const *argv[]) {
     }
     cout << "\n";
   }
+
+  filesystem::remove_all(flakePath);
 
   return 0;
 }
