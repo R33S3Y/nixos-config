@@ -138,6 +138,7 @@ string resolve::resolveKey(string test) {
               flakeLink + filepath + "\033[0m)\n";
   string errorCode;
   vector<string> tokenTest = utils::splitStrByChar(test, '\n');
+  cerr << utils::trim(test) + "\n";
   for (int i = 0; i < prettyfile.size(); i++) {
 
     if (prettyfile[i].find(tokenTest[0]) == string::npos) {
