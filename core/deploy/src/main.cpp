@@ -100,7 +100,6 @@ int main(int argc, char const *argv[]) {
         cout << import + "\n";
       }
       cout << "importend\n";
-
       imports.erase(remove_if(imports.begin(), imports.end(),
                               [&](const string &f) {
                                 return find(processedFiles.begin(),
