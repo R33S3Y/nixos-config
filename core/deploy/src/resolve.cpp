@@ -122,14 +122,10 @@ vector<string> resolve::resolveImportsStatements() {
         continue;
       }
       // re-merge bracket statements
-      if (item.find("(") != string::npos) {
-        size_t openPos = item.find("(");
-        size_t closePos = item.find(")");
-        if (closePos == string::npos || openPos > closePos) {
-          while (items[i + 1].find(")") != string::npos) {
-            item += items[i + 1];
-            items.erase(items.begin() + i + 1);
-          }
+      if (item.find("(") != string::npos && item.find(")") == string::npos) {
+        while (items[i + 1].find(")") != string::npos) {
+          item += items[i + 1];
+          items.erase(items.begin() + i + 1);
         }
       }
 
