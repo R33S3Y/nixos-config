@@ -49,6 +49,7 @@ string resolve::resolveKey(string test) {
     return result;
   }
 
+  cerr << "Error : failed to resole: " + test;
   return "";
 }
 

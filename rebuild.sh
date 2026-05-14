@@ -43,13 +43,13 @@ mkdir -p $CONFIG_DST
 cp -r "$CONFIG_SRC"/* "$CONFIG_DST"/
 
 # Rebuild NixOS locally (diamond)
-sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
-sudo nix-collect-garbage
-
 if ! nixos-rebuild switch --flake "$CONFIG_DST/#diamond"; then
     echo -e "${BAD}Local NixOS rebuild failed on diamond. Aborting.${RESET}"
     exit 1
 fi
+
+sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
+sudo nix-collect-garbage
 
 echo -e "\n${OK}Local NixOS rebuild succeeded on diamond.${RESET}"
 echo -e "${OK}Pushing to remote hosts...${RESET}\n"
