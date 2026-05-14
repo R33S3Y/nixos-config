@@ -63,11 +63,11 @@ int main(int argc, char const *argv[]) {
   string flakeLink = "/home/reese/Desktop/nixos";
   string flakePath = "/tmp/currentConfig";
 
-  if (!filesystem::exists(flakePath)) {
-    cerr << "Error : flakePath (" + flakePath + ") does not exist";
+  filesystem::create_directories(flakePath);
+  if (filesystem::is_empty(flakePath) == false) {
+    cerr << "Error : flakePath (" + flakePath + ") is not empty";
     return 1;
   }
-  filesystem::create_directories(flakePath);
   utils::runCommand("nix flake clone " + flakeLink + " --dest " + flakePath);
 
   vector<string> hosts = getFlakeInputs(flakePath);
