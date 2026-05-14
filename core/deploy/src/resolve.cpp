@@ -16,21 +16,34 @@ void resolve::preprocessFile(const string &filepath) {
   this->filepath = filepath;
   this->absoluteFilepath = flakePath + filepath;
 
-  vector<string> lineFile =
-      utils::splitStrByChar(utils::readFile(flakePath + filepath), '\n');
+  string rawFileStr = utils::readFile(flakePath + filepath);
+  vector<string> lineFile = utils::splitStrByChar(rawFileStr, '\n');
+
+  vector<string> stringTokens = {
+      "\"",
+      "''",
+  };
+  for (string stringToken : stringTokens) {
+    while (rawFileStr.find(stringToken) != string::npos) {
+      size_t start = rawFileStr.find(stringToken);
+      size_t end = rawFileStr.find(stringToken, start + stringToken.size());
+
+      for (size_t i = start; i < end; i++)
+        if (rawFileStr[i] != '\n')
+          rawFileStr[i] = ' ';
+    }
+  }
+  vector<string> stringlessLinefile = utils::splitStrByChar(rawFileStr, '\n');
+
   string fileStr;
   this->prettyfile = {};
-  bool inQuotes = false;
   for (int i = 0; i < lineFile.size(); i++) {
     string line = lineFile[i];
     this->prettyfile.push_back("\033[35m" + format("{:4}", i + 1) +
                                ":\033[0m " + line + "\n");
 
-    if (line.find("''"))
-      inQuotes = !inQuotes;
-
-    if (line.find("#") != string::npos && inQuotes == false) {
-      line = line.substr(0, line.find("#"));
+    if (stringlessLinefile[i].find("#") != string::npos) {
+      line = line.substr(0, stringlessLinefile[i].find("#"));
     }
     fileStr += line + "\n";
   }
