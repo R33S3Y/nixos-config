@@ -74,8 +74,8 @@ int main(int argc, char const *argv[]) {
   vector<string> hosts = getFlakeInputs(flakePath);
 
   for (string host : hosts) {
-    cout << host + "\n";
     cout << "\n";
+    cout << host + "\n";
 
     vector<string> unprocessedFiles = getNixFiles(flakePath, host);
     unprocessedFiles.push_back("/flake.nix");
@@ -103,12 +103,11 @@ int main(int argc, char const *argv[]) {
       pending.insert(imports.begin(), imports.end());
       unprocessedFiles.assign(pending.begin(), pending.end());
     }
-
+    cout << "\n";
     cout << "Processed files: \n";
     for (string file : processedFiles) {
       cout << file + "\n";
     }
-    cout << "\n";
   }
 
   filesystem::remove_all(flakePath);

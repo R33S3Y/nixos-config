@@ -2,6 +2,7 @@
 #include "utils.h"
 #include <algorithm>
 #include <filesystem>
+#include <format>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -22,7 +23,7 @@ void resolve::preprocessFile(const string &filepath) {
   bool inQuotes = false;
   for (int i = 0; i < lineFile.size(); i++) {
     string line = lineFile[i];
-    this->prettyfile.push_back(to_string(i + 1) + ". " + line + "\n");
+    this->prettyfile.push_back(format("{:03}", i + 1) + ": " + line + "\n");
 
     if (line.find("''"))
       inQuotes = !inQuotes;
