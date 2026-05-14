@@ -43,7 +43,7 @@ void resolve::preprocessFile(const string &filepath) {
   }
   vector<string> stringlessLinefile = utils::splitStrByChar(rawFileStr, '\n');
 
-  cout << filepath;
+  cout << "\n" + filepath + "\n\n";
   string fileStr;
   this->prettyfile = {};
   for (int i = 0; i < lineFile.size(); i++) {
