@@ -44,7 +44,9 @@ vector<string> getNixFiles(string flakeLink, string host) {
       currentStr = utils::replace(currentStr, flakeLink, "");
       currentStr = utils::trim(currentStr);
 
-      output.push_back(currentStr);
+      if (currentStr != "") {
+        output.push_back(currentStr);
+      }
     }
   }
 
