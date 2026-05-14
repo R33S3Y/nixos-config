@@ -23,7 +23,7 @@ void resolve::preprocessFile(const string &filepath) {
   bool inQuotes = false;
   for (int i = 0; i < lineFile.size(); i++) {
     string line = lineFile[i];
-    this->prettyfile.push_back(format("{:02}", i + 1) + ": " + line + "\n");
+    this->prettyfile.push_back(format("{:4}", i + 1) + ": " + line + "\n");
 
     if (line.find("''"))
       inQuotes = !inQuotes;
