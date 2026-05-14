@@ -95,11 +95,11 @@ int main(int argc, char const *argv[]) {
 
       vector<string> imports = r.resolveImportStatements();
 
-      cout << "imports";
-      for (string imports : imports) {
-        cout << "import";
+      cout << "imports \n";
+      for (string import : imports) {
+        cout << import + "\n";
       }
-      cout << "importend";
+      cout << "importend\n";
 
       imports.erase(remove_if(imports.begin(), imports.end(),
                               [&](const string &f) {
