@@ -28,6 +28,9 @@ void resolve::preprocessFile(const string &filepath) {
       size_t start = rawFileStr.find(stringToken);
       size_t end = rawFileStr.find(stringToken, start + stringToken.size());
 
+      if (end == string::npos)
+        break;
+
       for (size_t i = start; i < end; i++)
         if (rawFileStr[i] != '\n')
           rawFileStr[i] = ' ';
