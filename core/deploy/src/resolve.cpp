@@ -117,7 +117,7 @@ vector<string> resolve::resolveImportsStatements() {
       item = utils::replaceAll(item, ";", "");
       item = utils::trim(item);
 
-      string result = resolveKey(lineStr);
+      string result = resolveKey(item);
       if (result != "") {
         paths.push_back(result);
       }
