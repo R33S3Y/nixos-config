@@ -81,8 +81,6 @@ int main(int argc, char const *argv[]) {
 
     vector<string> unprocessedFiles = getNixFiles(flakePath, host);
 
-    cout << "(" + unprocessedFiles.back() + ")";
-
     unprocessedFiles.push_back("/flake.nix");
 
     cout << "\n";
