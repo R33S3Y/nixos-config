@@ -116,6 +116,9 @@ vector<string> resolve::resolveImportsStatements() {
       cout << item + "\n";
       item = utils::replaceAll(item, ";", "");
       item = utils::trim(item);
+      if (item == "") {
+        continue;
+      }
 
       string result = resolveKey(item);
       if (result != "") {
