@@ -113,13 +113,12 @@ vector<string> resolve::resolveImportsStatements() {
       if (found == true) {
         continue;
       }
-      cout << item + "\n";
       item = utils::replaceAll(item, ";", "");
       item = utils::trim(item);
       if (item == "") {
         continue;
       }
-
+      cout << item + "\n";
       string result = resolveKey(item);
       if (result != "") {
         paths.push_back(result);
