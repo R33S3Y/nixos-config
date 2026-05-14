@@ -46,10 +46,9 @@ void resolve::preprocessFile(const string &filepath) {
                                ":\033[0m " + line + "\n");
 
     if (stringlessLinefile[i].find("#") != string::npos) {
-      if (filepath.find("/flake.nix") != string::npos) {
-        cout << stringlessLinefile[i] + "\n";
-        cout << line + "\n";
-      }
+
+      cout << stringlessLinefile[i] + "\n";
+      cout << line + "\n";
 
       line = line.substr(0, stringlessLinefile[i].find("#"));
     }
