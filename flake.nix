@@ -42,7 +42,7 @@
               user = hosts.${hostName}.user;
               theme = users.${hosts.${hostName}.user}.theme;
             };
-            inherit inputs;
+            inherit inputs; # test
             nixpkgs.config.allowUnfree = true;
           };
 
