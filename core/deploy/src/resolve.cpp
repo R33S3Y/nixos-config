@@ -44,8 +44,6 @@ vector<string> resolve::resolveImportStatements() {
 string resolve::resolveKey(string test) {
   string result;
 
-  cout << test + "\n";
-
   result = resolvePath(test);
   if (result != "") {
     return result;
@@ -58,6 +56,8 @@ string resolve::resolvePath(string test) {
   if (test.find(" ") == string::npos) {
     test = test.substr(test.find(" "));
   }
+
+  cout << test + "\n";
 
   if (test[0] == '/') {
     // is absolute file path
