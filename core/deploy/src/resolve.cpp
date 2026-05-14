@@ -18,7 +18,7 @@ void resolve::preprocessFile(const string &filepath) {
   vector<string> lineFile =
       utils::splitStrByChar(utils::readFile(flakePath + filepath), '\n');
   string fileStr;
-  string prettyfileStr;
+  this->prettyfile = {};
   bool inQuotes = false;
   for (int i = 0; i < lineFile.size(); i++) {
     string line = lineFile[i];
@@ -83,7 +83,7 @@ string resolve::resolveKey(string test) {
       continue;
     }
 
-    for (int j = i - 2; j < i + tokenTest.size() + 2; j++) {
+    for (int j = i - 1; j < i + tokenTest.size() + 2; j++) {
       string line = prettyfile[j];
 
       if (i == j) {
