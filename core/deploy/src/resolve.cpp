@@ -28,12 +28,16 @@ void resolve::preprocessFile(const string &filepath) {
       size_t start = rawFileStr.find(stringToken);
       size_t end = rawFileStr.find(stringToken, start + stringToken.size());
 
-      if (end == string::npos)
+      if (end == string::npos) {
         break;
+      }
 
-      for (size_t i = start; i < end; i++)
-        if (rawFileStr[i] != '\n')
+      for (size_t i = start; i < end; i++) {
+        if (rawFileStr[i] != '\n') {
+          cout << rawFileStr[i];
           rawFileStr[i] = ' ';
+        }
+      }
     }
   }
   vector<string> stringlessLinefile = utils::splitStrByChar(rawFileStr, '\n');
@@ -47,11 +51,11 @@ void resolve::preprocessFile(const string &filepath) {
 
     if (stringlessLinefile[i].find("#") != string::npos) {
 
-      cout << stringlessLinefile[i] + "\n";
-      cout << line + "\n";
+      // cout << stringlessLinefile[i] + "\n";
+      // cout << line + "\n";
 
       line = line.substr(0, stringlessLinefile[i].find("#"));
-      cout << line + "\n";
+      // cout << line + "\n";
     }
     fileStr += line + "\n";
   }
