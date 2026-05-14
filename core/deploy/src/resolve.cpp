@@ -53,7 +53,7 @@ string resolve::resolveKey(string test) {
 }
 
 string resolve::resolvePath(string test) {
-  if (test.find(" ") == string::npos) {
+  if (test.find("{") == string::npos) {
     test = test.substr(0, test.find(" "));
   }
 
