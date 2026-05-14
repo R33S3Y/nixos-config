@@ -80,6 +80,12 @@ int main(int argc, char const *argv[]) {
     vector<string> unprocessedFiles = getNixFiles(flakePath, host);
     unprocessedFiles.push_back("/flake.nix");
 
+    cout << "\n";
+    cout << "Processed files: \n";
+    for (string file : unprocessedFiles) {
+      cout << file + "\n";
+    }
+
     vector<string> processedFiles;
     resolve r(flakePath, flakeLink);
 
