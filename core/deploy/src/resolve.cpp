@@ -93,6 +93,8 @@ vector<string> resolve::resolveImportsStatements() {
   vector<string> paths;
 
   if (workingFileStr.find("in") != string::npos) { // filters out let in syntax.
+    cout << workingFileStr.substr(0, workingFileStr.find("in"));
+
     workingFileStr = workingFileStr.substr(workingFileStr.find("in"));
   }
 
