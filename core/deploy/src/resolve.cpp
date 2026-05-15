@@ -92,7 +92,7 @@ vector<string> resolve::resolveImportsStatements() {
 
   vector<string> paths;
   while (workingFileStr.length() > 0) {
-    size_t pos = workingFileStr.find("imports ");
+    size_t pos = workingFileStr.find("imports");
     if (pos == string::npos) {
       break;
     }
@@ -103,19 +103,22 @@ vector<string> resolve::resolveImportsStatements() {
     string lineStr = workingFileStr.substr(0, lineEnd);
     workingFileStr = workingFileStr.substr(lineEnd);
 
+    lineStr = utils::replaceAll(lineStr, "imports", "");
+    lineStr = utils::trim(lineStr);
+
+    if (lineStr[0] !=
+        '=') { // incase you end up with: thing = var.imports ++ [];
+      continue;
+    }
+    lineStr = utils::replaceAll(lineStr, "=", "");
+    lineStr = utils::replaceAll(lineStr, "[", "");
+    lineStr = utils::replaceAll(lineStr, "]", "");
+
     vector<string> items = utils::splitStrByChars(lineStr, {' ', '\n'});
     for (int i = 0; i < items.size(); i++) {
       string item = items[i];
 
       // input sanitization
-      vector<string> arr = {"imports", "=", "[", "]"};
-      bool found =
-          std::any_of(arr.begin(), arr.end(), [&](const std::string &s) {
-            return item.find(s) != std::string::npos;
-          });
-      if (found == true) {
-        continue;
-      }
       item = utils::replaceAll(item, ";", "");
       item = utils::trim(item);
       if (item == "") {
