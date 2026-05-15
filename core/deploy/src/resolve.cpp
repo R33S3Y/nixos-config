@@ -91,6 +91,11 @@ vector<string> resolve::resolveImportsStatements() {
   string workingFileStr = fileStr;
 
   vector<string> paths;
+
+  if (workingFileStr.find("in") == string::npos) { // filters out let in syntax.
+    workingFileStr = workingFileStr.substr(workingFileStr.find("in"));
+  }
+
   while (workingFileStr.length() > 0) {
     size_t pos = workingFileStr.find("imports");
     if (pos == string::npos) {
