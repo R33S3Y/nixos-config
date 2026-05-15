@@ -134,7 +134,6 @@ vector<string> resolve::resolveImportsStatements() {
         }
       }
 
-      cout << item + "\n";
       string result = resolveKey(item);
       if (result != "") {
         paths.push_back(result);
