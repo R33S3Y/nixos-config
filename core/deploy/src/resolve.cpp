@@ -164,7 +164,7 @@ string resolve::resolveKey(string test) {
       continue;
     }
 
-    for (int j = i - 1; j < i + tokenTest.size() + 2; j++) {
+    for (int j = i - 1; j < i + tokenTest.size() + 1; j++) {
       string line = prettyfile[j];
 
       if (i == j) {
