@@ -19,7 +19,7 @@ let
       ../../../core/btop/enable-nix.nix
       # Fast Fetch
       ../../../core/fastfetch/enable-nix.nix # Fastfetch  -  You got to show something in that cmd for your reddit posts
-      # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
+      # lazyUpdate - update on rebulid script - requires passwordless nixos-rebuild provided by sudo-nix.nix
       #../../../core/lazyUpdate/enable-nix.nix
       # Networking
       #../../../core/other/networking-nix.nix

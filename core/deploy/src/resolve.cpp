@@ -96,7 +96,7 @@ vector<string> resolve::resolveImportsStatements() {
   size_t inPos = workingFileStr.find("in") + 2;
   if (letPos != string::npos &&
       inPos != string::npos) { // filters out let in syntax.
-    cout << workingFileStr.substr(letPos, inPos);
+    cout << workingFileStr.substr(letPos, inPos) + "\n";
     workingFileStr =
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos);
   }
