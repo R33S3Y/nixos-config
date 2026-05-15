@@ -92,7 +92,7 @@ vector<string> resolve::resolveImportsStatements() {
 
   vector<string> paths;
 
-  if (workingFileStr.find("in") == string::npos) { // filters out let in syntax.
+  if (workingFileStr.find("in") != string::npos) { // filters out let in syntax.
     workingFileStr = workingFileStr.substr(workingFileStr.find("in"));
   }
 
