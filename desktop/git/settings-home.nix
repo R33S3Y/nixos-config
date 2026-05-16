@@ -1,4 +1,4 @@
-{ system }:
+{ system, ... }:
 {
   programs.git = {
     enable = true;
