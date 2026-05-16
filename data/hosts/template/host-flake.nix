@@ -125,6 +125,8 @@ let
 
       # Firefox
       ../../../desktop/firefox/settings-home.nix
+      # git
+      ../../../desktop/git/settings-home.nix
       # Hyprland
       ../../../desktop/hyprland/bind-home.nix # Keyboard bindings
       ../../../desktop/hyprland/monitor-home.nix # Monitor settings

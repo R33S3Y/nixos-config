@@ -8,6 +8,8 @@ let
     profile = ./profile.png;
     theme = "diamond";
 
+    email = "r3es3y@gmail.com";
+
     screenshotFolder = "~/Pictures";
 
     timeZone = "Pacific/Auckland";

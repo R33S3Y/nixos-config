@@ -1,12 +1,12 @@
-{ ... }:
+{ system }:
 {
   programs.git = {
     enable = true;
     settings = [
       {
         user = {
-          email = "r3es3y@gmail.com";
-          name = "Reesey";
+          email = system.users.${system.user}.email;
+          name = system.users.${system.user}.prettyName;
         };
       }
     ];
