@@ -51,8 +51,6 @@ let
 
       # Firefox
       ../../../desktop/firefox/enable-nix.nix
-      # git
-      ../../../desktop/git/settings-home.nix
       # Hyprland
       ../../../desktop/hyprland/enable-nix.nix
       # Hyprlock
@@ -106,6 +104,8 @@ let
 
       # Firefox
       ../../../desktop/firefox/settings-home.nix
+      # git
+      ../../../desktop/git/settings-home.nix
       # Hyprland
       ../../../desktop/hyprland/bind-home.nix # Keyboard bindings
       ../../../desktop/hyprland/monitor-home.nix # Monitor settings
