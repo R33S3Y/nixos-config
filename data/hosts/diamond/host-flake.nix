@@ -51,6 +51,8 @@ let
 
       # Firefox
       ../../../desktop/firefox/enable-nix.nix
+      # git
+      ../../../desktop/git/settings-home.nix
       # Hyprland
       ../../../desktop/hyprland/enable-nix.nix
       # Hyprlock
