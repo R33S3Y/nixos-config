@@ -128,12 +128,12 @@ vector<string> resolve::resolveImportsStatements() {
 
   vector<string> paths;
 
-  size_t letPos = getValidStatementPos("let", workingFileStr);
-  size_t inPos = getValidStatementPos("in", workingFileStr.substr(letPos));
-  while (letPos != 0 && inPos != 0) {
+  while (getValidStatementPos("let", workingFileStr) != 0 &&
+         getValidStatementPos("in", workingFileStr.substr(getValidStatementPos(
+                                        "let", workingFileStr))) != 0) {
 
-    letPos = getValidStatementPos("let", workingFileStr);
-    inPos = getValidStatementPos("in", workingFileStr.substr(letPos));
+    size_t letPos = getValidStatementPos("let", workingFileStr);
+    size_t inPos = getValidStatementPos("in", workingFileStr.substr(letPos));
 
     cout << workingFileStr.substr(letPos, inPos - letPos) + "\n";
     workingFileStr =
