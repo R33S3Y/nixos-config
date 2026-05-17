@@ -2,7 +2,7 @@
 
 {
   programs.vesktop.enable = true;
-  stylix.targets.vencord = {
+  stylix.targets.vesktop = {
     colors = {
       enable = true;
     };
