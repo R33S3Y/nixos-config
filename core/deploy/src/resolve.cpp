@@ -108,10 +108,10 @@ vector<string> resolve::resolveImportsStatements() {
       continue;
     }
 
-    cout << workingFileStr.substr(letPos, inPos) + "\n";
+    cout << workingFileStr.substr(letPos, inPos - letPos) + "\n";
     workingFileStr =
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos);
-    blankStr = workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos);
+    blankStr = blankStr.substr(0, letPos) + blankStr.substr(inPos);
   }
 
   while (workingFileStr.length() > 0) {
