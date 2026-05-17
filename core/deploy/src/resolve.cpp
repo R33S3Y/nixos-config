@@ -93,6 +93,8 @@ size_t getValidStatementPos(string statement, string s) {
   while (s.find(statement) != string::npos) {
     size_t pos = s.find(statement);
 
+    s.replace(pos, statement.size(), statement.size(), '.');
+
     vector<char> validChars = {'(', ')', '{', '}'};
     bool validStart = false;
     if (pos == 0) {
@@ -120,7 +122,7 @@ size_t getValidStatementPos(string statement, string s) {
     }
   }
 
-  return 0;
+  return string::npos;
 }
 
 vector<string> resolve::resolveImportsStatements() {
@@ -128,9 +130,10 @@ vector<string> resolve::resolveImportsStatements() {
 
   vector<string> paths;
 
-  while (getValidStatementPos("let", workingFileStr) != 0 &&
+  while (getValidStatementPos("let", workingFileStr) != string::npos &&
          getValidStatementPos("in", workingFileStr.substr(getValidStatementPos(
-                                        "let", workingFileStr))) != 0) {
+                                        "let", workingFileStr))) !=
+             string::npos) {
 
     size_t letPos = getValidStatementPos("let", workingFileStr);
     size_t inPos = getValidStatementPos("in", workingFileStr.substr(letPos));
