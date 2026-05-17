@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <format>
 #include <iostream>
+#include <iterator>
 #include <string>
 #include <vector>
 
@@ -88,30 +89,55 @@ vector<string> resolve::resolveImportStatements() {
   return paths;
 }
 
+size_t getValidStatementPos(string statement, string s) {
+  while (s.find(statement) != string::npos) {
+    size_t pos = s.find(statement);
+
+    vector<char> validChars = {'(', ')', '{', '}'};
+    bool validStart = false;
+    if (pos == 0) {
+      validStart = true;
+    } else {
+      if (isspace(s[pos - 1]) || find(validChars.begin(), validChars.end(),
+                                      s[pos - 1]) != validChars.end()) {
+        validStart = true;
+      }
+    }
+
+    bool validEnd = false;
+    if (pos >= s.size() + statement.size()) {
+      validEnd = true;
+    } else {
+      if (isspace(s[pos + statement.size()]) ||
+          find(validChars.begin(), validChars.end(),
+               s[pos + statement.size()]) != validChars.end()) {
+        validEnd = true;
+      }
+    }
+
+    if (validEnd && validStart) {
+      return pos;
+    }
+  }
+
+  return 0;
+}
+
 vector<string> resolve::resolveImportsStatements() {
   string workingFileStr = fileStr;
 
   vector<string> paths;
 
-  string blankStr = workingFileStr;
-  while (blankStr.find("let") != string::npos &&
-         blankStr.find("in", blankStr.find("let")) != string::npos) {
-    // cancel if let or in word
-    size_t letPos = blankStr.find("let");
-    size_t inPos = blankStr.find("in", letPos);
-    if (!isspace(workingFileStr[letPos - 1]) ||
-        !isspace(workingFileStr[letPos + 3]) ||
-        !isspace(workingFileStr[inPos - 1]) ||
-        !isspace(workingFileStr[inPos + 2])) {
-      blankStr.replace(letPos, 3, "...");
-      blankStr.replace(inPos, 2, "..");
-      continue;
-    }
+  size_t letPos = getValidStatementPos("let", workingFileStr);
+  size_t inPos = getValidStatementPos("in", workingFileStr.substr(letPos));
+  while (letPos != 0 && inPos != 0) {
+
+    letPos = getValidStatementPos("let", workingFileStr);
+    inPos = getValidStatementPos("in", workingFileStr.substr(letPos));
 
     cout << workingFileStr.substr(letPos, inPos - letPos) + "\n";
     workingFileStr =
-        workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos);
-    blankStr = blankStr.substr(0, letPos) + blankStr.substr(inPos);
+        workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos + 2);
   }
 
   while (workingFileStr.length() > 0) {
