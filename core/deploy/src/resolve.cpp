@@ -95,10 +95,10 @@ vector<string> resolve::resolveImportsStatements() {
 
   string blankStr = workingFileStr;
   while (blankStr.find("let") != string::npos &&
-         blankStr.find("in") != string::npos) {
+         blankStr.find("in", blankStr.find("let")) != string::npos) {
     // cancel if let or in word
     size_t letPos = blankStr.find("let");
-    size_t inPos = blankStr.find("in");
+    size_t inPos = blankStr.find("in", letPos);
     if (!isspace(workingFileStr[letPos - 1]) ||
         !isspace(workingFileStr[letPos + 3]) ||
         !isspace(workingFileStr[inPos - 1]) ||
