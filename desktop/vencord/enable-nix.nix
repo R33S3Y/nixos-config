@@ -2,7 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    discord
-    vencord
+    vesktop
   ];
 }
