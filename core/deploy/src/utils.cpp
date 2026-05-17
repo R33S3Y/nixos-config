@@ -1,5 +1,6 @@
 #include "utils.h"
 #include <algorithm>
+#include <cctype>
 #include <cstddef>
 #include <cstdio>
 #include <fstream>
@@ -80,7 +81,6 @@ string utils::trim(string s) {
   s.erase(s.find_last_not_of(" \t\n\r") + 1);
   return s;
 }
-
 string utils::readFile(const string &path) {
   ifstream file(path);
   if (!file.is_open())

@@ -1,6 +1,7 @@
 #include "resolve.h"
 #include "utils.h"
 #include <algorithm>
+#include <cctype>
 #include <filesystem>
 #include <format>
 #include <iostream>
@@ -92,16 +93,25 @@ vector<string> resolve::resolveImportsStatements() {
 
   vector<string> paths;
 
-  while (workingFileStr.find("let") != string::npos &&
-         workingFileStr.find("in") != string::npos) {
-    size_t letPos = workingFileStr.find("let");
-    size_t inPos = workingFileStr.find("in") + 2;
-    if (letPos != string::npos &&
-        inPos != string::npos) { // filters out let in syntax.
-      cout << workingFileStr.substr(letPos, inPos) + "\n";
-      workingFileStr =
-          workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos);
+  string blankStr = workingFileStr;
+  while (blankStr.find("let") != string::npos &&
+         blankStr.find("in") != string::npos) {
+    // cancel if let or in word
+    size_t letPos = blankStr.find("let");
+    size_t inPos = blankStr.find("in");
+    if (!isspace(workingFileStr[letPos - 1]) ||
+        !isspace(workingFileStr[letPos + 3]) ||
+        !isspace(workingFileStr[inPos - 1]) ||
+        !isspace(workingFileStr[inPos + 2])) {
+      blankStr.replace(letPos, 3, "...");
+      blankStr.replace(inPos, 2, "..");
+      continue;
     }
+
+    cout << workingFileStr.substr(letPos, inPos) + "\n";
+    workingFileStr =
+        workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos);
+    blankStr = workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos);
   }
 
   while (workingFileStr.length() > 0) {
