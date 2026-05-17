@@ -59,8 +59,8 @@ let
       ../../../desktop/hyprpanel/enable-nix.nix
       # Kitty
       ../../../desktop/kitty/enable-nix.nix
-      # nixcord
-      ../../../desktop/nixcord/enable-nix.nix
+      # vencord
+      ../../../desktop/vencord/enable-nix.nix
       # obsidian
       ../../../desktop/obsidian/enable-nix.nix
       # SDDM
@@ -119,8 +119,8 @@ let
       ../../../desktop/kitty/bind-home.nix # Key binds
       ../../../desktop/kitty/style-home.nix # Styles  -  You should be fine to get away with disabling this
       ../../../desktop/kitty/settings-home.nix # Settings
-      # nixcord
-      ../../../desktop/nixcord/settings-home.nix
+      # vencord
+      ../../../desktop/vencord/settings-home.nix
       # obsidian
       ../../../desktop/obsidian/settings-home.nix
       # Sound
