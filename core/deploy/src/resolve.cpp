@@ -146,6 +146,8 @@ vector<string> resolve::resolveImportsStatements() {
 
     workingFileStr =
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos + 2);
+
+    cout << workingFileStr + "\n";
   }
 
   while (workingFileStr.length() > 0) {
