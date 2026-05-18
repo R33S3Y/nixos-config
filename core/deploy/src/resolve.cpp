@@ -95,6 +95,8 @@ size_t getValidStatementPos(string statement, string s) {
 
     s.replace(pos, statement.size(), statement.size(), '.');
 
+    cout << to_string(pos) + "\n";
+
     vector<char> validChars = {'(', ')', '{', '}'};
     bool validStart = false;
     if (pos == 0) {
@@ -141,8 +143,6 @@ vector<string> resolve::resolveImportsStatements() {
     workingFileStr =
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos + 2);
   }
-
-  cout << workingFileStr;
 
   while (workingFileStr.length() > 0) {
     size_t pos = workingFileStr.find("imports");
