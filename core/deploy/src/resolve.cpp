@@ -130,6 +130,8 @@ size_t getValidStatementPos(string statement, string s) {
 vector<string> resolve::resolveImportsStatements() {
   string workingFileStr = fileStr;
 
+  cout << filepath;
+
   vector<string> paths;
 
   while (getValidStatementPos("let", workingFileStr) != string::npos &&
