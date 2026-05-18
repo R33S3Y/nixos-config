@@ -138,10 +138,11 @@ vector<string> resolve::resolveImportsStatements() {
     size_t letPos = getValidStatementPos("let", workingFileStr);
     size_t inPos = getValidStatementPos("in", workingFileStr.substr(letPos));
 
-    cout << workingFileStr.substr(letPos, inPos - letPos) + "\n";
     workingFileStr =
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos + 2);
   }
+
+  cout << workingFileStr;
 
   while (workingFileStr.length() > 0) {
     size_t pos = workingFileStr.find("imports");
