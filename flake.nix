@@ -64,6 +64,9 @@
         };
 
       hosts = {
+        amethyst = import ./data/hosts/amethyst/host-flake.nix {
+          inherit inputs home-manager nur;
+        };
         bort = import ./data/hosts/bort/host-flake.nix {
           inherit
             inputs
@@ -109,6 +112,7 @@
     in
     {
       nixosConfigurations = {
+        amethyst = mkHost "amethyst";
         bort = mkHost "bort";
         cinnabar = mkHost "cinnabar";
         diamond = mkHost "diamond";
