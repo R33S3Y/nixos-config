@@ -2,7 +2,6 @@
   inputs,
   home-manager,
   nur,
-  nix-minecraft,
 }:
 
 let
