@@ -17,7 +17,7 @@
       "github.com" = {
         hostname = "github.com";
         user = "git";
-        identityFile = "~/.ssh/github";
+        identityFile = "~/.ssh/github"; # TODO - Maybe we can get better key management
       };
     };
   };
