@@ -2,7 +2,7 @@
 {
   stylix.targets.obsidian.vaultNames = [
     "lapisLazuli/reese/NoteBox"
-    "Desktop"
+    "Projects"
   ];
   programs.obsidian = {
     enable = true;

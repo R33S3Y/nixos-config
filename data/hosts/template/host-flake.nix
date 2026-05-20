@@ -195,10 +195,10 @@ let
 
     bluetooth = true;
 
-    # home manager vars
     microphone = {
       # use wpctl status to get device names
       name = "Blue Microphones Analog Stereo";
+      volume = "1";
       bluetooth = {
         enable = false;
         id = ""; # bluetoothctl devices
@@ -206,6 +206,7 @@ let
     };
     speaker = {
       name = "Baseus Inspire XC1";
+      volume = "0.4";
       bluetooth = {
         enable = true;
         id = "54:84:50:67:C9:A2"; # bluetoothctl devices

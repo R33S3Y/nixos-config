@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-CONFIG_SRC="/home/reese/Desktop/nixos"
+CONFIG_SRC="/home/reese/Projects/nixos-config"
 CONFIG_DST="/tmp/config_current"
 GIT_REPO="$CONFIG_SRC"
 

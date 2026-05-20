@@ -75,7 +75,6 @@ let
       # VScode
       ../../../desktop/vscode/enable-nix.nix
       # Other
-      ../../../desktop/other/alvr-nix.nix # ALVR  -  For my vr nerds
       ../../../desktop/other/print-nix.nix # Print  -  How old are you?
       ../../../desktop/other/x11-nix.nix # x11  -  needed for Xwayland??
 
@@ -85,6 +84,9 @@ let
       ../../../other/lapisLazuli/home-nix.nix # Lapis  -  Mount NAS to home
       ../../../other/lapisLazuli/smb-nix.nix # Lapis  -  My NAS! It's here cause I want it!
       ../../../other/lapisLazuli/nfs-nix.nix # Lapis  -  NAS
+
+      # My stuff
+      ./hardware-configuration.nix # hardware  -  your hardware settings
     ];
     homeImports = [
       # CORE
@@ -175,10 +177,10 @@ let
 
     bluetooth = true;
 
-    # home manager vars
     microphone = {
       # use wpctl status to get device names
       name = "Blue Microphones Analog Stereo";
+      volume = "1";
       bluetooth = {
         enable = false;
         id = ""; # bluetoothctl devices
@@ -186,17 +188,16 @@ let
     };
     speaker = {
       name = "Baseus Inspire XC1";
+      volume = "0.4";
       bluetooth = {
         enable = true;
         id = "54:84:50:67:C9:A2"; # bluetoothctl devices
       };
     };
-    #primaryMonitor = "HDMI-A-1";
-    #monitor = [
-    #  "HDMI-A-1, 1920x1080@60, 0x0, 1"
-    #  "DP-3, 2560x1440@165, 1920x-200, 2, transform,3"
-    #  "DP-2, 1920x1080@60, -960x375, 2"
-    #];
+    primaryMonitor = "";
+    monitor = [
+      ""
+    ];
   };
 in
 host
