@@ -192,7 +192,6 @@ let
       osu-lazer-bin
       inkscape
       thunderbird
-      balena-cli
     ];
 
     bluetooth = true;
