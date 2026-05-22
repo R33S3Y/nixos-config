@@ -90,14 +90,11 @@ vector<string> resolve::resolveImportStatements() {
 }
 
 size_t getValidStatementPos(string statement, string s) {
-  cout << statement + "\n";
 
   while (s.find(statement) != string::npos) {
     size_t pos = s.find(statement);
 
     s.replace(pos, statement.size(), statement.size(), '.');
-
-    cout << to_string(pos) + "\n";
 
     vector<char> validChars = {'(', ')', '{', '}'};
     bool validStart = false;
