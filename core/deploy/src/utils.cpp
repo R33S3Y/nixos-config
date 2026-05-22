@@ -1,32 +1,44 @@
 #include "utils.h"
 #include <algorithm>
-#include <cctype>
+#include <cerrno>
 #include <cstddef>
 #include <cstdio>
+#include <cstring>
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <sys/wait.h>
 #include <vector>
 
 using namespace std;
 
-string utils::runCommand(string cmd) {
-  string result;
+struct result {
+  string output;
+  int exitCode;
+  string error;
+
+  bool ok() const { return exitCode == 0; }
+};
+
+result utils::runCommand(string cmd) {
+  result res;
 
   FILE *pipe = popen(cmd.c_str(), "r");
-  if (!pipe)
-    return "";
-
-  char buffer[256];
-  while (fgets(buffer, sizeof(buffer), pipe)) {
-    result += buffer;
+  if (!pipe) {
+    res.exitCode = -1;
+    res.error = strerror(errno);
+    return res;
   }
 
-  pclose(pipe);
+  char buffer[256];
+  while (fgets(buffer, sizeof(buffer), pipe))
+    res.output += buffer;
 
-  return result;
+  int status = pclose(pipe);
+  res.exitCode = (status == -1) ? -1 : WEXITSTATUS(status);
+  return res;
 }
 vector<string> utils::splitStrByChars(string inputStr,
                                       vector<char> inputChars) {

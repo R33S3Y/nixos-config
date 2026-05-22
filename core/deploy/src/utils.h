@@ -6,7 +6,13 @@ using namespace std;
 
 class utils {
 public:
-  static string runCommand(string cmd);
+  struct result {
+    string output;
+    int exitCode;
+    string error;
+    bool ok() const { return exitCode == 0; }
+  };
+  static result runCommand(string cmd);
   static vector<string> splitStrByChar(string inputStr, char inputChar);
   static vector<string> splitStrByChars(string inputStr,
                                         vector<char> inputChars);

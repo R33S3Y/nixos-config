@@ -12,8 +12,12 @@ using namespace std;
 
 vector<string> getFlakeInputs(string flakeLink) {
   string cmd = "nix flake show " + flakeLink + " --json";
+  utils::result cmdOut = utils::runCommand(cmd);
 
-  auto json = nlohmann::json::parse(utils::runCommand(cmd));
+  if (!cmdOut.ok()) {
+    return {};
+  }
+  auto json = nlohmann::json::parse(cmdOut.output);
 
   vector<string> configs;
   for (auto &[key, value] : json["nixosConfigurations"].items()) {
@@ -26,9 +30,14 @@ vector<string> getNixFiles(string flakeLink, string host) {
   string cmd = "nix eval " + flakeLink + "#nixosConfigurations." + host +
                "._module.args.modules";
 
-  string cmdOut = utils::runCommand(cmd);
+  utils::result cmdOut = utils::runCommand(cmd);
 
-  vector<string> cmdOutSplit = utils::splitStrByChar(cmdOut, ' ');
+  if (!cmdOut.ok()) {
+    cerr << "\n\033[31mError\033[0m : Failed to eval for nix files";
+    return {};
+  }
+
+  vector<string> cmdOutSplit = utils::splitStrByChar(cmdOut.output, ' ');
 
   vector<string> output;
 
@@ -80,17 +89,41 @@ int main(int argc, char const *argv[]) {
                 "\033[0m) is not empty";
     return 1;
   }
-  utils::runCommand("nix flake clone " + flakeLink + " --dest " + flakePath);
+  utils::result cmdOut = utils::runCommand("nix flake clone " + flakeLink +
+                                           " --dest " + flakePath);
+  if (!cmdOut.ok()) {
+    cerr << "\n\033[31mError\033[0m : failed to get flake (\033[35m" +
+                flakeLink + "\033[0m)";
+    return 1;
+  }
 
   vector<string> hosts = getFlakeInputs(flakePath);
+  if (hosts.size() == 0) {
+    cerr << "\n\033[31mError\033[0m : flake does not contain any hosts or no "
+            "hosts could be found";
+    return 1;
+  }
 
   for (string host : hosts) {
     cout << "\n";
     cout << host + "\n";
 
+    // in the case of a error while getting a file paths.
+    // We have to rebuild the machine no matter what seeing as we may have just
+    // missed the file that changed
+    bool isError = false;
+
     vector<string> unprocessedFiles = getNixFiles(flakePath, host);
 
+    // the only way this could happen is if getNixFiles had a error/failed
+    if (unprocessedFiles.size() == 0) {
+      isError = true;
+    }
+
     unprocessedFiles.push_back("/flake.nix");
+
+    vector<string> processedFiles;
+    processedFiles.push_back("/flake.lock");
 
     cout << "\n";
     cout << "Unprocessed files: \n";
@@ -98,10 +131,9 @@ int main(int argc, char const *argv[]) {
       cout << file + "\n";
     }
 
-    vector<string> processedFiles;
     resolve r(flakePath, flakeLink);
 
-    while (unprocessedFiles.size() != 0) {
+    while (unprocessedFiles.size() != 0 || isError == false) {
       std::string filePath = unprocessedFiles[0];
       unprocessedFiles.erase(unprocessedFiles.begin());
       processedFiles.push_back(filePath);
