@@ -14,15 +14,7 @@
 
 using namespace std;
 
-struct result {
-  string output;
-  int exitCode;
-  string error;
-
-  bool ok() const { return exitCode == 0; }
-};
-
-result utils::runCommand(string cmd) {
+utils::result utils::runCommand(string cmd) {
   result res;
 
   FILE *pipe = popen(cmd.c_str(), "r");
