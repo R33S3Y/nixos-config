@@ -148,8 +148,8 @@ vector<string> resolve::resolveImportsStatements() {
     cout << "after cut\n";
     cout << workingFileStr + "\n\n";
 
-    size_t letPos = getValidStatementPos("let", workingFileStr);
-    size_t inPos = string::npos;
+    letPos = getValidStatementPos("let", workingFileStr);
+    inPos = string::npos;
     if (letPos != string::npos) {
       inPos =
           getValidStatementPos("in", workingFileStr.substr(letPos)) + letPos;
