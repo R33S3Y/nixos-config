@@ -192,6 +192,7 @@ let
       osu-lazer-bin
       inkscape
       thunderbird
+      file
     ];
 
     bluetooth = true;
