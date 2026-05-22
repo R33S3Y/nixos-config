@@ -137,7 +137,6 @@ vector<string> resolve::resolveImportsStatements() {
   if (letPos != string::npos) {
     inPos = getValidStatementPos("in", workingFileStr.substr(letPos)) + letPos;
   }
-
   while (letPos != string::npos && inPos != string::npos) {
     workingFileStr =
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos + 2);
