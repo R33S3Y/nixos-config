@@ -5,7 +5,6 @@
 #include <cstdio>
 #include <cstring>
 #include <fstream>
-#include <nlohmann/json.hpp>
 #include <sstream>
 #include <stdexcept>
 #include <string>

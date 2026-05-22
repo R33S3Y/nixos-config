@@ -144,10 +144,11 @@ vector<string> resolve::resolveImportsStatements() {
     size_t letPos = getValidStatementPos("let", workingFileStr);
     size_t inPos = getValidStatementPos("in", workingFileStr.substr(letPos));
 
+    cout << "before cut\n";
     cout << workingFileStr + "\n\n";
     workingFileStr =
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos + 2);
-
+    cout << "after cut\n";
     cout << workingFileStr + "\n\n";
   }
 
