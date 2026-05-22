@@ -111,7 +111,7 @@ size_t getValidStatementPos(string statement, string s) {
     }
 
     bool validEnd = false;
-    if (pos >= s.size() + statement.size()) {
+    if (pos + statement.size() >= s.size()) {
       validEnd = true;
     } else {
       if (isspace(s[pos + statement.size()]) ||
