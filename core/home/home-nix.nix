@@ -1,10 +1,15 @@
 { system, ... }:
 {
 
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup";
 
-  home-manager.extraSpecialArgs = { system = system; };
+    extraSpecialArgs = {
+      system = system;
+    };
 
-  home-manager.users."${system.user}" = import ./home-home.nix;
+    users."${system.user}" = import ./home-home.nix;
+  };
 }
