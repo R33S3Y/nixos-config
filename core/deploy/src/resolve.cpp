@@ -136,14 +136,13 @@ vector<string> resolve::resolveImportsStatements() {
 
   vector<string> paths;
 
-  while (getValidStatementPos("let", workingFileStr) != string::npos &&
-         getValidStatementPos("in", workingFileStr.substr(getValidStatementPos(
-                                        "let", workingFileStr))) !=
-             string::npos) {
+  size_t letPos = getValidStatementPos("let", workingFileStr);
+  size_t inPos = string::npos;
+  if (letPos != string::npos) {
+    inPos = getValidStatementPos("in", workingFileStr.substr(letPos)) + letPos;
+  }
 
-    size_t letPos = getValidStatementPos("let", workingFileStr);
-    size_t inPos =
-        getValidStatementPos("in", workingFileStr.substr(letPos)) + letPos;
+  while (letPos != string::npos && inPos != string::npos) {
 
     cout << "before cut\n";
     cout << workingFileStr + "\n\n";
@@ -151,6 +150,13 @@ vector<string> resolve::resolveImportsStatements() {
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos + 2);
     cout << "after cut\n";
     cout << workingFileStr + "\n\n";
+
+    size_t letPos = getValidStatementPos("let", workingFileStr);
+    size_t inPos = string::npos;
+    if (letPos != string::npos) {
+      inPos =
+          getValidStatementPos("in", workingFileStr.substr(letPos)) + letPos;
+    }
   }
 
   while (workingFileStr.length() > 0) {
