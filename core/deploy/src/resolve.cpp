@@ -37,7 +37,6 @@ void resolve::preprocessFile(const string &filepath) {
 
       for (size_t i = start; i < end; i++) {
         if (rawFileStr[i] != '\n') {
-          // cout << rawFileStr[i];
           rawFileStr[i] = ' ';
         }
       }
@@ -140,13 +139,8 @@ vector<string> resolve::resolveImportsStatements() {
   }
 
   while (letPos != string::npos && inPos != string::npos) {
-
-    cout << "before cut\n";
-    cout << workingFileStr + "\n\n";
     workingFileStr =
         workingFileStr.substr(0, letPos) + workingFileStr.substr(inPos + 2);
-    cout << "after cut\n";
-    cout << workingFileStr + "\n\n";
 
     letPos = getValidStatementPos("let", workingFileStr);
     inPos = string::npos;
