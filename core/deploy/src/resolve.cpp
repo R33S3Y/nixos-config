@@ -130,6 +130,8 @@ vector<string> resolve::resolveImportsStatements() {
 
   vector<string> paths;
 
+  // remove let in statement seeing as they are unable to contain a valid
+  // imports statement
   size_t letPos = getValidStatementPos("let", workingFileStr);
   size_t inPos = string::npos;
   if (letPos != string::npos) {
