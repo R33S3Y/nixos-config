@@ -149,7 +149,7 @@ vector<string> resolve::resolveImportsStatements() {
           getValidStatementPos("in", workingFileStr.substr(letPos)) + letPos;
     }
   }
-  cout << filepath + "\n";
+
   while (workingFileStr.length() > 0) {
     size_t pos = workingFileStr.find("imports");
     if (pos == string::npos) {
@@ -202,6 +202,7 @@ vector<string> resolve::resolveImportsStatements() {
       }
     }
   }
+  cout << filepath + "\n";
   return paths;
 }
 string resolve::resolveKey(string test) {
