@@ -259,7 +259,7 @@ string resolve::resolvePath(string test) {
   }
 
   string absoluteFolderPath =
-      absoluteFilepath.substr(0, absoluteFilePath.rfind('/'));
+      absoluteFilePath.substr(0, absoluteFilePath.rfind('/'));
   vector<string> folders;
   for (auto &entry : std::filesystem::directory_iterator(absoluteFolderPath)) {
     if (entry.is_directory())
