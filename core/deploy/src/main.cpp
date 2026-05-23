@@ -150,17 +150,11 @@ int main(int argc, char const *argv[]) {
       imports = filter(imports, processedFiles);
 
       unprocessedFiles = merge(imports, unprocessedFiles);
-
-      cout << "\n";
-      cout << "Processed files: \n";
-      for (string file : processedFiles) {
-        cout << file + "\n";
-      }
-      cout << "\n";
-      cout << "Unprocessed files: \n";
-      for (string file : unprocessedFiles) {
-        cout << file + "\n";
-      }
+    }
+    cout << "\n";
+    cout << "Processed files: \n";
+    for (string file : processedFiles) {
+      cout << file + "\n";
     }
   }
 
