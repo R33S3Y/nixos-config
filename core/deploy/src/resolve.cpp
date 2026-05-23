@@ -129,7 +129,7 @@ vector<string> resolve::resolveImportsStatements() {
   string workingFileStr = fileStr;
 
   vector<string> paths;
-
+  cout << filepath + "\n";
   // remove let in statement seeing as they are unable to contain a valid
   // imports statement
   size_t letPos = getValidStatementPos("let", workingFileStr);
@@ -149,7 +149,7 @@ vector<string> resolve::resolveImportsStatements() {
           getValidStatementPos("in", workingFileStr.substr(letPos)) + letPos;
     }
   }
-
+  cout << filepath + "\n";
   while (workingFileStr.length() > 0) {
     size_t pos = workingFileStr.find("imports");
     if (pos == string::npos) {

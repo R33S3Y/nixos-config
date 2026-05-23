@@ -20,7 +20,6 @@
         g++ main.cpp utils.cpp resolve.cpp -o deploy \
           -std=c++20 \
           -g \
-          -00 \
           -I${pkgs.nlohmann_json}/include
       '';
 
