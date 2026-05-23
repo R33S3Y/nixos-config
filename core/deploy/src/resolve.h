@@ -20,8 +20,8 @@ public:
 private:
   string flakePath;
   string flakeLink;
-  string absoluteFilepath;
-  string filepath;
+  string absoluteFilePath;
+  string filePath;
   string fileStr;
   vector<string> prettyfile;
 };

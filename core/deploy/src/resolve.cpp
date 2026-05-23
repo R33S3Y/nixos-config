@@ -14,11 +14,11 @@ using namespace std;
 resolve::resolve(const string &flakePath, const string &flakeLink)
     : flakePath(flakePath), flakeLink(flakeLink) {}
 
-void resolve::preprocessFile(const string &filepath) {
-  this->filepath = filepath;
-  this->absoluteFilepath = flakePath + filepath;
+void resolve::preprocessFile(const string &filePath) {
+  this->filePath = filePath;
+  this->absoluteFilepath = flakePath + filePath;
 
-  string rawFileStr = utils::readFile(flakePath + filepath);
+  string rawFileStr = utils::readFile(flakePath + filePath);
   vector<string> lineFile = utils::splitStrByChar(rawFileStr, '\n');
 
   vector<string> stringTokens = {
@@ -129,7 +129,6 @@ vector<string> resolve::resolveImportsStatements() {
   string workingFileStr = fileStr;
 
   vector<string> paths;
-  cout << filepath + "\n";
   // remove let in statement seeing as they are unable to contain a valid
   // imports statement
   size_t letPos = getValidStatementPos("let", workingFileStr);
@@ -202,7 +201,6 @@ vector<string> resolve::resolveImportsStatements() {
       }
     }
   }
-  cout << filepath + "\n";
   return paths;
 }
 string resolve::resolveKey(string test) {
@@ -215,7 +213,7 @@ string resolve::resolveKey(string test) {
 
   cerr << "\n\033[31mError\033[0m : Failed to resolve the following in "
           "(\033[35m" +
-              flakeLink + filepath + "\033[0m)\n";
+              flakeLink + filePath + "\033[0m)\n";
   string errorCode;
   vector<string> tokenTest = utils::splitStrByChar(test, '\n');
   for (int i = 0; i < prettyfile.size(); i++) {
