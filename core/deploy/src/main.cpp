@@ -133,7 +133,7 @@ int main(int argc, char const *argv[]) {
 
     resolve r(flakePath, flakeLink);
 
-    while (unprocessedFiles.size() != 0 || isError == false) {
+    while (unprocessedFiles.size() != 0 && isError == false) {
       std::string filePath = unprocessedFiles[0];
       unprocessedFiles.erase(unprocessedFiles.begin());
       processedFiles.push_back(filePath);
