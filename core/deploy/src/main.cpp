@@ -148,10 +148,10 @@ int main(int argc, char const *argv[]) {
 
       imports = r.resolveImportsStatements();
 
-      cout << filePath + "\n";
       imports = filter(imports, processedFiles);
       cout << filePath + "\n";
       unprocessedFiles = merge(imports, unprocessedFiles);
+      cout << filePath + "\n";
     }
     cout << "\n";
     cout << "Processed files: \n";
