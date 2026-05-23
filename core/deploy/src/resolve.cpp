@@ -16,7 +16,7 @@ resolve::resolve(const string &flakePath, const string &flakeLink)
 
 void resolve::preprocessFile(const string &filePath) {
   this->filePath = filePath;
-  this->absoluteFilepath = flakePath + filePath;
+  this->absoluteFilePath = flakePath + filePath;
 
   string rawFileStr = utils::readFile(flakePath + filePath);
   vector<string> lineFile = utils::splitStrByChar(rawFileStr, '\n');
@@ -259,7 +259,7 @@ string resolve::resolvePath(string test) {
   }
 
   string absoluteFolderPath =
-      absoluteFilepath.substr(0, absoluteFilepath.rfind('/'));
+      absoluteFilepath.substr(0, absoluteFilePath.rfind('/'));
   vector<string> folders;
   for (auto &entry : std::filesystem::directory_iterator(absoluteFolderPath)) {
     if (entry.is_directory())
@@ -275,7 +275,7 @@ string resolve::resolvePath(string test) {
         find(folders.begin(), folders.end(), firstItem) != folders.end()) {
       // relative file path
 
-      std::filesystem::path declaredIn = absoluteFilepath;
+      std::filesystem::path declaredIn = absoluteFilePath;
       std::filesystem::path relative = test;
       string path =
           filesystem::weakly_canonical(declaredIn.parent_path() / relative)
