@@ -135,12 +135,10 @@ int main(int argc, char const *argv[]) {
 
     while (unprocessedFiles.size() != 0 || isError == false) {
       std::string filePath = unprocessedFiles[0];
-      cout << filePath + "\n";
       unprocessedFiles.erase(unprocessedFiles.begin());
       processedFiles.push_back(filePath);
 
       r.preprocessFile(filePath);
-      cout << filePath + "\n";
       vector<string> imports;
 
       imports = r.resolveImportStatements();
@@ -152,11 +150,12 @@ int main(int argc, char const *argv[]) {
       imports = filter(imports, processedFiles);
 
       unprocessedFiles = merge(imports, unprocessedFiles);
-    }
-    cout << "\n";
-    cout << "Processed files: \n";
-    for (string file : processedFiles) {
-      cout << file + "\n";
+
+      cout << "\n";
+      cout << "Processed files: \n";
+      for (string file : processedFiles) {
+        cout << file + "\n";
+      }
     }
   }
 
