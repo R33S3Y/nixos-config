@@ -156,6 +156,11 @@ int main(int argc, char const *argv[]) {
       for (string file : processedFiles) {
         cout << file + "\n";
       }
+      cout << "\n";
+      cout << "Unprocessed files: \n";
+      for (string file : unprocessedFiles) {
+        cout << file + "\n";
+      }
     }
   }
 
