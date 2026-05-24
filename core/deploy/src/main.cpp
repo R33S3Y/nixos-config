@@ -111,13 +111,13 @@ int main(int argc, char const *argv[]) {
     // in the case of a error while getting a file paths.
     // We have to rebuild the machine no matter what seeing as we may have just
     // missed the file that changed
-    bool isError = false;
+    bool error = false;
 
     vector<string> unprocessedFiles = getNixFiles(flakePath, host);
 
     // the only way this could happen is if getNixFiles had a error/failed
     if (unprocessedFiles.size() == 0) {
-      isError = true;
+      error = true;
     }
 
     unprocessedFiles.push_back("/flake.nix");
@@ -133,23 +133,29 @@ int main(int argc, char const *argv[]) {
 
     resolve r(flakePath, flakeLink);
 
-    while (unprocessedFiles.size() != 0 && isError == false) {
+    while (unprocessedFiles.size() != 0 && error == false) {
       std::string filePath = unprocessedFiles[0];
       unprocessedFiles.erase(unprocessedFiles.begin());
       processedFiles.push_back(filePath);
 
       r.preprocessFile(filePath);
-      vector<string> imports;
+      resolve::result imports;
 
       imports = r.resolveImportStatements();
-      imports = filter(imports, processedFiles);
-      unprocessedFiles = merge(imports, unprocessedFiles);
+      if (imports.error) {
+        error = true;
+        break;
+      }
+      imports.paths = filter(imports.paths, processedFiles);
+      unprocessedFiles = merge(imports.paths, unprocessedFiles);
 
       imports = r.resolveImportsStatements();
-
-      imports = filter(imports, processedFiles);
-
-      unprocessedFiles = merge(imports, unprocessedFiles);
+      if (imports.error) {
+        error = true;
+        break;
+      }
+      imports.paths = filter(imports.paths, processedFiles);
+      unprocessedFiles = merge(imports.paths, unprocessedFiles);
     }
     cout << "\n";
     cout << "Processed files: \n";

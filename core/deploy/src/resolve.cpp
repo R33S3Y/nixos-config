@@ -61,10 +61,10 @@ void resolve::preprocessFile(const string &filePath) {
   return;
 }
 
-vector<string> resolve::resolveImportStatements() {
+resolve::result resolve::resolveImportStatements() {
   string workingFileStr = fileStr;
 
-  vector<string> paths;
+  result res;
   while (workingFileStr.length() > 0) {
     size_t pos = workingFileStr.find("import ");
     if (pos == string::npos) {
@@ -80,12 +80,17 @@ vector<string> resolve::resolveImportStatements() {
     lineStr = utils::replaceAll(lineStr, ";", "");
     lineStr = utils::trim(lineStr);
 
-    string result = resolveKey(lineStr);
-    if (result != "") {
-      paths.push_back(result);
+    result tmp = resolveKey(lineStr);
+    if (tmp.str != "") {
+      res.paths.push_back(tmp.str);
+    }
+    if (tmp.error) {
+      res.error = true;
+      break; // see the imports statements func for why we break
     }
   }
-  return paths;
+
+  return res;
 }
 
 size_t getValidStatementPos(string statement, string s) {
@@ -125,10 +130,10 @@ size_t getValidStatementPos(string statement, string s) {
   return string::npos;
 }
 
-vector<string> resolve::resolveImportsStatements() {
+resolve::result resolve::resolveImportsStatements() {
   string workingFileStr = fileStr;
 
-  vector<string> paths;
+  result res;
   // remove let in statement seeing as they are unable to contain a valid
   // imports statement
   size_t letPos = getValidStatementPos("let", workingFileStr);
@@ -195,20 +200,29 @@ vector<string> resolve::resolveImportsStatements() {
         }
       }
 
-      string result = resolveKey(item);
-      if (result != "") {
-        paths.push_back(result);
+      result tmp = resolveKey(item);
+      if (tmp.str != "") {
+        res.paths.push_back(tmp.str);
+      }
+      if (tmp.error) {
+        // errors for resolvekey only happen when it falls to resolve something.
+        // If we fail to resolve something then we will need to rebuild the
+        // host no matter what be cause their is no longer any guaranty's as to
+        // what files the host needs
+        res.error = true;
+        break;
       }
     }
   }
-  return paths;
+  return res;
 }
-string resolve::resolveKey(string test) {
-  string result;
+resolve::result resolve::resolveKey(string test) {
+  result res;
 
-  result = resolvePath(test);
-  if (result != "") {
-    return result;
+  res.str = resolvePath(test);
+  if (res.str != "") {
+    res.error = false;
+    return res;
   }
 
   cerr << "\n\033[31mError\033[0m : Failed to resolve the following in "
@@ -238,7 +252,8 @@ string resolve::resolveKey(string test) {
     errorCode = utils::trim(test) + "\n";
   }
   cerr << errorCode;
-  return "";
+  res.error = true;
+  return res;
 }
 
 string resolve::resolvePath(string test) {
