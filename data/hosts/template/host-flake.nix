@@ -201,7 +201,7 @@ let
       volume = "1";
       bluetooth = {
         enable = false;
-        id = ""; # bluetoothctl devices
+        id = ""; # type bluetoothctl and then info to get this info
       };
     };
     speaker = {
@@ -209,7 +209,7 @@ let
       volume = "0.4";
       bluetooth = {
         enable = true;
-        id = "54:84:50:67:C9:A2"; # bluetoothctl devices
+        id = "54:84:50:67:C9:A2"; # type bluetoothctl and then info to get this info
       };
     };
     primaryMonitor = "HDMI-A-1";

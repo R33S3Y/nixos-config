@@ -62,7 +62,7 @@ let
       # vencord
       ../../../desktop/vencord/enable-nix.nix
       # obsidian
-      ../../../desktop/obsidian/enable-nix.nix
+      #../../../desktop/obsidian/enable-nix.nix
       # SDDM
       ../../../desktop/sddm/enable-nix.nix
       # Sound
@@ -80,9 +80,9 @@ let
       # OTHER
 
       # LapisLazuli
-      ../../../other/lapisLazuli/home-nix.nix # Lapis  -  Mount NAS to home
-      ../../../other/lapisLazuli/smb-nix.nix # Lapis  -  My NAS! It's here cause I want it!
-      ../../../other/lapisLazuli/nfs-nix.nix # Lapis  -  NAS
+      #../../../other/lapisLazuli/home-nix.nix # Lapis  -  Mount NAS to home
+      #../../../other/lapisLazuli/smb-nix.nix # Lapis  -  My NAS! It's here cause I want it!
+      #../../../other/lapisLazuli/nfs-nix.nix # Lapis  -  NAS
 
       # My stuff
       ./hardware-configuration.nix # hardware  -  your hardware settings
@@ -124,7 +124,7 @@ let
       # vencord
       ../../../desktop/vencord/settings-home.nix
       # obsidian
-      ../../../desktop/obsidian/settings-home.nix
+      #../../../desktop/obsidian/settings-home.nix
       # Sound
       ../../../desktop/sound/sound-home.nix
       # steam
@@ -143,20 +143,7 @@ let
 
     network = "homelab";
 
-    hostName = "template";
-
-    static = {
-      enable = true;
-
-      interface = "enp10s0";
-      ipv4 = {
-        address = "192.168.1.1";
-        prefixLength = 24;
-      };
-      gatewayAddress = "192.168.1.1";
-
-      nameservers = [ "192.168.1.249" ];
-    };
+    hostName = "amethyst";
 
     lapisLazuli = {
       mount = "/home/reese/lapis_lazuli";
@@ -178,24 +165,26 @@ let
 
     microphone = {
       # use wpctl status to get device names
-      name = "Blue Microphones Analog Stereo";
+      name = "JBL WAVE BUDS";
       volume = "1";
       bluetooth = {
-        enable = false;
-        id = ""; # bluetoothctl devices
+        enable = true;
+        id = "68:59:32:83:6F:39"; # type bluetoothctl and then info
       };
     };
     speaker = {
-      name = "Baseus Inspire XC1";
+      name = "JBL WAVE BUDS";
       volume = "0.4";
       bluetooth = {
         enable = true;
-        id = "54:84:50:67:C9:A2"; # bluetoothctl devices
+        id = "68:59:32:83:6F:39"; # type bluetoothctl and then info
       };
     };
-    primaryMonitor = "";
+    primaryMonitor = "eDP-1";
     monitor = [
-      ""
+      "eDP-1, 1920x1080@60, 0x1080, 1"
+      "DP-4, 1920x1080@60, 0x0, 1"
+      "DP-5, 1920x1080@60, 1920x0, 1"
     ];
   };
 in
