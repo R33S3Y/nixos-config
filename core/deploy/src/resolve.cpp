@@ -11,8 +11,12 @@
 
 using namespace std;
 
-resolve::resolve(const string &flakePath, const string &flakeLink)
-    : flakePath(flakePath), flakeLink(flakeLink) {}
+resolve::resolve(const string &flakePath, const string &flakeLink,
+                 const string &host) {
+  resolve::flakePath = flakePath;
+  resolve::flakeLink = flakeLink;
+  resolve::host = host;
+}
 
 void resolve::preprocessFile(const string &filePath) {
   this->filePath = filePath;

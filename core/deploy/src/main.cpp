@@ -131,7 +131,7 @@ int main(int argc, char const *argv[]) {
       cout << file + "\n";
     }
 
-    resolve r(flakePath, flakeLink);
+    resolve r(flakePath, flakeLink, host);
 
     while (unprocessedFiles.size() != 0 && error == false) {
       std::string filePath = unprocessedFiles[0];

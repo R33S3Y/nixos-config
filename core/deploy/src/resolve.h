@@ -1,5 +1,6 @@
 #pragma once
 
+#include <set>
 #include <shared_mutex>
 #include <string>
 #include <type_traits>
@@ -8,7 +9,7 @@ using namespace std;
 
 class resolve {
 public:
-  resolve(const string &flakePath, const string &flakeLink);
+  resolve(const string &flakePath, const string &flakeLink, const string &host);
 
   struct result {
     bool error = false;
@@ -29,5 +30,8 @@ private:
   string absoluteFilePath;
   string filePath;
   string fileStr;
+  string host;
   vector<string> prettyfile;
+  set<string> resolveMap;
+  vector<string> throwMap;
 };
