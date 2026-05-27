@@ -1,6 +1,6 @@
 #pragma once
 
-#include <set>
+#include <map>
 #include <shared_mutex>
 #include <string>
 #include <type_traits>
@@ -32,6 +32,6 @@ private:
   string fileStr;
   string host;
   vector<string> prettyfile;
-  set<string> resolveMap;
-  vector<string> throwMap;
+  map<string, string> resolveMap;
+  map<string, string> throwMap;
 };
