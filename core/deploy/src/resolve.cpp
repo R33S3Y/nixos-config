@@ -1,67 +1,27 @@
 #include "resolve.h"
+#include "eval.h"
 #include "utils.h"
 #include <algorithm>
 #include <cctype>
-#include <filesystem>
-#include <format>
-#include <iostream>
-#include <iterator>
 #include <string>
 #include <vector>
 
 using namespace std;
 
 resolve::resolve(const string &flakePath, const string &flakeLink,
-                 const string &host) {
-  resolve::flakePath = flakePath;
-  resolve::flakeLink = flakeLink;
-  resolve::host = host;
-}
+                 const string &host)
+    : ev({flakePath, flakeLink, host}), flakePath(flakePath),
+      flakeLink(flakeLink), host(host) {}
 
 void resolve::preprocessFile(const string &filePath) {
-  this->filePath = filePath;
-  this->absoluteFilePath = flakePath + filePath;
+  resolve::filePath = filePath;
+  resolve::absoluteFilePath = flakePath + filePath;
 
   string rawFileStr = utils::readFile(flakePath + filePath);
   vector<string> lineFile = utils::splitStrByChar(rawFileStr, '\n');
 
-  vector<string> stringTokens = {
-      "\"",
-      "''",
-  };
-  for (string stringToken : stringTokens) {
-    while (rawFileStr.find(stringToken) != string::npos) {
-      size_t start = rawFileStr.find(stringToken);
-      size_t end = rawFileStr.find(stringToken, start + stringToken.size()) +
-                   stringToken.size();
+  resolve::fileStr = eval::removeComments(rawFileStr);
 
-      if (end == string::npos) {
-        break;
-      }
-
-      for (size_t i = start; i < end; i++) {
-        if (rawFileStr[i] != '\n') {
-          rawFileStr[i] = ' ';
-        }
-      }
-    }
-  }
-  vector<string> stringlessLinefile = utils::splitStrByChar(rawFileStr, '\n');
-
-  string fileStr;
-  this->prettyfile = {};
-  for (int i = 0; i < lineFile.size(); i++) {
-    string line = lineFile[i];
-    this->prettyfile.push_back("\033[35m" + format("{:4}", i + 1) +
-                               ":\033[0m " + line + "\n");
-
-    if (stringlessLinefile[i].find("#") != string::npos) {
-      line = line.substr(0, stringlessLinefile[i].find("#"));
-    }
-    fileStr += line + "\n";
-  }
-
-  this->fileStr = fileStr;
   return;
 }
 
@@ -84,7 +44,7 @@ resolve::result resolve::resolveImportStatements() {
     lineStr = utils::replaceAll(lineStr, ";", "");
     lineStr = utils::trim(lineStr);
 
-    result tmp = resolveKey(lineStr);
+    eval::result tmp = ev.resolveKey(lineStr);
     if (tmp.str != "") {
       res.paths.push_back(tmp.str);
     }
@@ -204,7 +164,7 @@ resolve::result resolve::resolveImportsStatements() {
         }
       }
 
-      result tmp = resolveKey(item);
+      eval::result tmp = ev.resolveKey(item);
       if (tmp.str != "") {
         res.paths.push_back(tmp.str);
       }
@@ -220,96 +180,3 @@ resolve::result resolve::resolveImportsStatements() {
   }
   return res;
 }
-resolve::result resolve::resolveKey(string test) {
-  result res;
-
-  res.str = resolvePath(test);
-  if (res.str != "") {
-    res.error = false;
-    return res;
-  }
-
-  cerr << "\n\033[31mError\033[0m : Failed to resolve the following in "
-          "(\033[35m" +
-              flakeLink + filePath + "\033[0m)\n";
-  string errorCode;
-  vector<string> tokenTest = utils::splitStrByChar(test, '\n');
-  for (int i = 0; i < prettyfile.size(); i++) {
-
-    if (prettyfile[i].find(tokenTest[0]) == string::npos) {
-      continue;
-    }
-
-    for (int j = i - 2; j < i + tokenTest.size() + 2; j++) {
-      string line = prettyfile[j];
-
-      if (i == j) {
-        line = utils::replace(line, "\n", "");
-
-        line += "    \033[31m<---\033[0m\n";
-      }
-
-      errorCode += line;
-    }
-  }
-  if (errorCode.size() == 0) {
-    errorCode = utils::trim(test) + "\n";
-  }
-  cerr << errorCode;
-  res.error = true;
-  return res;
-}
-
-string resolve::resolvePath(string test) {
-  if (test.find(" ") != string::npos) {
-    test = test.substr(0, test.find(" "));
-  }
-
-  if (test[0] == '/') {
-    // is absolute file path
-    if (test.rfind(flakePath, 0) == 0) {
-      test = utils::replace(test, flakePath, "");
-      return test;
-    }
-    if (test.rfind(flakeLink, 0) == 0) {
-      test = utils::replace(test, flakeLink, "");
-      return test;
-    }
-  }
-
-  string absoluteFolderPath =
-      absoluteFilePath.substr(0, absoluteFilePath.rfind('/'));
-  vector<string> folders;
-  for (auto &entry : std::filesystem::directory_iterator(absoluteFolderPath)) {
-    if (entry.is_directory())
-      folders.push_back(entry.path().string());
-  }
-
-  size_t pos = test.find('/');
-  if (pos != string::npos) {
-
-    string firstItem = test.substr(pos);
-
-    if (test[0] == '.' ||
-        find(folders.begin(), folders.end(), firstItem) != folders.end()) {
-      // relative file path
-
-      std::filesystem::path declaredIn = absoluteFilePath;
-      std::filesystem::path relative = test;
-      string path =
-          filesystem::weakly_canonical(declaredIn.parent_path() / relative)
-              .string();
-
-      if (path.rfind(flakePath, 0) == 0) {
-        path = utils::replace(path, flakePath, "");
-        return path;
-      }
-      if (path.rfind(flakeLink, 0) == 0) {
-        return path;
-      }
-    }
-  }
-  return "";
-}
-
-string resolve::resolveValue(string test) {}

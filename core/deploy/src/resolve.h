@@ -1,5 +1,6 @@
 #pragma once
 
+#include "eval.h"
 #include <map>
 #include <shared_mutex>
 #include <string>
@@ -20,18 +21,15 @@ public:
   void preprocessFile(const string &filepath);
   result resolveImportStatements();
   result resolveImportsStatements();
-  result resolveKey(string test);
-  string resolvePath(string test);
-  string resolveValue(string test);
 
 private:
+  eval ev;
   string flakePath;
   string flakeLink;
   string absoluteFilePath;
   string filePath;
   string fileStr;
   string host;
-  vector<string> prettyfile;
   map<string, string> resolveMap;
   map<string, string> throwMap;
 };
