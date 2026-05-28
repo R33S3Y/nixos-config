@@ -22,8 +22,6 @@
         "$mainMod, W, exec, $fileManager"
         "$mainMod, A, togglefloating,"
         "$mainMod, Z, exec, $menu"
-        "$mainMod, P, pseudo,"
-        "$mainMod, J, togglesplit,"
 
         # Move focus with mainMod + arrow keys
         "$mainMod, left, movefocus, l"
