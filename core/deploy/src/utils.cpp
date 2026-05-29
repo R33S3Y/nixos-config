@@ -140,7 +140,6 @@ string utils::blankWithinTokens(string fileStr, string startToken,
     size_t startRight = startLeft + startToken.size();
     size_t endLeft = fileStr.find(endToken, startRight);
     if (endLeft == string::npos) {
-      holdStr += fileStr;
       break;
     }
     size_t endRight = endLeft + endToken.size();
@@ -150,9 +149,9 @@ string utils::blankWithinTokens(string fileStr, string startToken,
         fileStr[i] = ' ';
       }
     }
-    holdStr += fileStr;
+    holdStr += fileStr.substr(0, endRight);
     fileStr = fileStr.substr(endRight);
   }
-
+  holdStr += fileStr;
   return holdStr;
 }
