@@ -52,74 +52,14 @@ void eval::preProcessFile(string fileStr, string filePath) {
   return;
 }
 
-string eval::blankStrings(string fileStr) {
-  // remove strings from fileStr (fileStr = fileStr without strings)
-  vector<string> stringTokens = {
-      "\"",
-      "''",
-  };
-  for (string stringToken : stringTokens) {
-    while (fileStr.find(stringToken) != string::npos) {
-      size_t start = fileStr.find(stringToken);
-      size_t end = fileStr.find(stringToken, start + stringToken.size()) +
-                   stringToken.size();
-
-      if (end == string::npos) {
-        break;
-      }
-
-      for (size_t i = start; i < end; i++) {
-        if (fileStr[i] != '\n') {
-          fileStr[i] = ' ';
-        }
-      }
-    }
-  }
-
-  return fileStr;
-}
-
-string eval::blankInnerAntiQuotation(string fileStr) {
-  // AntiQuotation == the ${ } syntax.
-  // note that this func keeps the ${  } and only blanks the inner bits
-
-  cout << fileStr + "\n\n";
-
-  string startToken = "${";
-  string endToken = "}";
-
-  string holdStr;
-
-  while (fileStr.size() > 0 && fileStr.find(startToken) != string::npos) {
-    size_t startLeft = fileStr.find(startToken);
-    size_t startRight = startLeft + startToken.size();
-    size_t endLeft = fileStr.find(endToken, startRight);
-
-    if (endLeft == string::npos) {
-      holdStr += fileStr;
-      break;
-    }
-    size_t endRight = endLeft + endToken.size();
-
-    for (size_t i = startRight; i < endLeft; i++) {
-      if (fileStr[i] != '\n') {
-        fileStr[i] = ' ';
-      }
-    }
-    holdStr += fileStr;
-    fileStr = fileStr.substr(endRight);
-  }
-
-  cout << holdStr + "\n";
-  return holdStr;
-}
-
 string eval::removeComments(string fileStr) {
 
   // gets the things before the strings are moved
   vector<string> lineFile = utils::splitStrByChar(fileStr, '\n');
 
-  fileStr = eval::blankStrings(fileStr);
+  // removes the contents inside str
+  fileStr = utils::blankWithinTokens(fileStr, "\"");
+  fileStr = utils::blankWithinTokens(fileStr, "''");
 
   // removes  comments from filestr so it can be useful
   vector<string> stringlessLineFile = utils::splitStrByChar(fileStr, '\n');
@@ -234,13 +174,14 @@ string eval::path(string test) {
 
 string eval::attrsetKey(string test) {
 
-  string hold = eval::blankInnerAntiQuotation(test);
-
-  vector<string> attrsetKeys = utils::splitStrByChar(test, '.');
-
-  // does preproccessing to resolve ${}
-  for (int i = attrsetKeys.size(); i < 0;
-       i--) { // works backs from least signifiant to most.
+  // does preproccessing to resolve funny statements like ${ } and ( )
+  string hold = test;
+  hold = utils::blankWithinTokens(hold, "${", "}");
+  hold = utils::blankWithinTokens(hold, "(", ")");
+  vector<string> attrsetKeys =
+      utils::splitStrByCharByFilterStr(test, hold, '.');
+  for (int i = 0; i < attrsetKeys.size(); i++) {
+    cout << attrsetKeys[i] + "\n";
   }
   return "";
 }

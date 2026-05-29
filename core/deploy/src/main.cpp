@@ -85,22 +85,21 @@ int main(int argc, char const *argv[]) {
 
   filesystem::create_directories(flakePath);
   if (filesystem::is_empty(flakePath) == false) {
-    cerr << "\n\033[31mError\033[0m : flakePath (\033[35m" + flakePath +
-                "\033[0m) is not empty";
+    utils::logError("flakePath (\033[35m" + flakePath +
+                    "\033[0m) is not empty");
     return 1;
   }
   utils::result cmdOut = utils::runCommand("nix flake clone " + flakeLink +
                                            " --dest " + flakePath);
   if (!cmdOut.ok()) {
-    cerr << "\n\033[31mError\033[0m : failed to get flake (\033[35m" +
-                flakeLink + "\033[0m)";
+    utils::logError("failed to get flake (\033[35m" + flakeLink + "\033[0m)");
     return 1;
   }
 
   vector<string> hosts = getFlakeInputs(flakePath);
   if (hosts.size() == 0) {
-    cerr << "\n\033[31mError\033[0m : flake does not contain any hosts or no "
-            "hosts could be found";
+    utils::logError("flake does not contain any hosts or no "
+                    "hosts could be found");
     return 1;
   }
 
