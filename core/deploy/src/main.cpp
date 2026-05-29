@@ -150,7 +150,6 @@ int main(int argc, char const *argv[]) {
       }
       imports.paths = filter(imports.paths, processedFiles);
       unprocessedFiles = merge(imports.paths, unprocessedFiles);
-      cout << "segfault here?" << endl;
 
       imports = r.resolveImportsStatements();
       if (imports.error) {

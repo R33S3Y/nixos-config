@@ -3,6 +3,7 @@
 #include "utils.h"
 #include <algorithm>
 #include <cctype>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -46,6 +47,7 @@ resolve::result resolve::resolveImportStatements() {
     lineStr = utils::replaceAll(lineStr, ";", "");
     lineStr = utils::trim(lineStr);
 
+    cout << "segfault here?" << endl;
     eval::result tmp = ev.statement(lineStr);
     if (tmp.str != "") {
       res.paths.push_back(tmp.str);
