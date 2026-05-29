@@ -83,17 +83,18 @@ string eval::blankInnerAntiQuotation(string fileStr) {
   // AntiQuotation == the ${ } syntax.
   // note that this func keeps the ${  } and only blanks the inner bits
 
-  cout << fileStr + "\n";
+  cout << fileStr + "\n\n";
 
   string startToken = "${";
   string endToken = "}";
 
   string holdStr;
 
-  while (fileStr.size() > 0 || fileStr.find(startToken) != string::npos) {
+  while (fileStr.size() > 0 && fileStr.find(startToken) != string::npos) {
     size_t startLeft = fileStr.find(startToken);
     size_t startRight = startLeft + startToken.size();
     size_t endLeft = fileStr.find(endToken, startRight);
+
     if (endLeft == string::npos) {
       holdStr += fileStr;
       break;
