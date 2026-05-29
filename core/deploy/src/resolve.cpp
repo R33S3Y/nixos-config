@@ -37,7 +37,7 @@ resolve::result resolve::resolveImportStatements() {
     if (pos == string::npos) {
       break;
     }
-    cout << "segfault here?" << endl;
+
     workingFileStr = workingFileStr.substr(pos);
 
     size_t lineEnd = workingFileStr.find(";");

@@ -143,6 +143,7 @@ int main(int argc, char const *argv[]) {
       r.preprocessFile(filePath);
       resolve::result imports;
 
+      cout << "segfault here?" << endl;
       imports = r.resolveImportStatements();
       if (imports.error) {
         error = true;
