@@ -22,6 +22,8 @@ void resolve::preprocessFile(const string &filePath) {
 
   resolve::fileStr = eval::removeComments(rawFileStr);
 
+  ev.preProcessFile(rawFileStr, filePath);
+
   return;
 }
 
