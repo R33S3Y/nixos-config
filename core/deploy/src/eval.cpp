@@ -95,6 +95,7 @@ string eval::blankInnerAntiQuotation(string fileStr) {
     size_t startRight = startLeft + startToken.size();
     size_t endLeft = fileStr.find(endToken, startRight);
     if (endLeft == string::npos) {
+      holdStr += fileStr;
       break;
     }
     size_t endRight = endLeft + endToken.size();
@@ -107,7 +108,6 @@ string eval::blankInnerAntiQuotation(string fileStr) {
     holdStr += fileStr;
     fileStr = fileStr.substr(endRight);
   }
-  holdStr += fileStr;
 
   cout << holdStr + "\n";
   return holdStr;
