@@ -138,8 +138,6 @@ int main(int argc, char const *argv[]) {
       unprocessedFiles.erase(unprocessedFiles.begin());
       processedFiles.push_back(filePath);
 
-      cout << "segfault here??" << endl;
-
       r.preprocessFile(filePath);
       resolve::result imports;
 
