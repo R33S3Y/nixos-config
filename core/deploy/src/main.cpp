@@ -123,12 +123,14 @@ int main(int argc, char const *argv[]) {
 
     vector<string> processedFiles;
     processedFiles.push_back("/flake.lock");
+    cout << "segfault here?";
 
     cout << "\n";
     cout << "Unprocessed files: \n";
     for (string file : unprocessedFiles) {
       cout << file + "\n";
     }
+
     cout << "segfault here??";
 
     resolve r(flakePath, flakeLink, host);
@@ -137,8 +139,6 @@ int main(int argc, char const *argv[]) {
       std::string filePath = unprocessedFiles[0];
       unprocessedFiles.erase(unprocessedFiles.begin());
       processedFiles.push_back(filePath);
-
-      cout << "segfault here?";
 
       r.preprocessFile(filePath);
       resolve::result imports;
