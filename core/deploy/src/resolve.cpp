@@ -44,7 +44,7 @@ resolve::result resolve::resolveImportStatements() {
     lineStr = utils::replaceAll(lineStr, ";", "");
     lineStr = utils::trim(lineStr);
 
-    eval::result tmp = ev.resolveKey(lineStr);
+    eval::result tmp = ev.statement(lineStr);
     if (tmp.str != "") {
       res.paths.push_back(tmp.str);
     }
@@ -164,7 +164,7 @@ resolve::result resolve::resolveImportsStatements() {
         }
       }
 
-      eval::result tmp = ev.resolveKey(item);
+      eval::result tmp = ev.statement(item);
       if (tmp.str != "") {
         res.paths.push_back(tmp.str);
       }

@@ -94,10 +94,10 @@ string eval::removeComments(string fileStr) {
   return output;
 }
 
-eval::result eval::resolveKey(string test) {
+eval::result eval::statement(string test) {
   result res;
 
-  res.str = resolvePath(test);
+  res.str = path(test);
   if (res.str != "") {
     res.error = false;
     return res;
@@ -134,7 +134,7 @@ eval::result eval::resolveKey(string test) {
   return res;
 }
 
-string eval::resolvePath(string test) {
+string eval::path(string test) {
   if (test.find(" ") != string::npos) {
     test = test.substr(0, test.find(" "));
   }
@@ -153,6 +153,7 @@ string eval::resolvePath(string test) {
 
   string absoluteFolderPath =
       eval::absoluteFilePath.substr(0, eval::absoluteFilePath.rfind('/'));
+  cout << absoluteFolderPath + "\n";
   vector<string> folders;
   for (auto &entry : std::filesystem::directory_iterator(absoluteFolderPath)) {
     if (entry.is_directory())
@@ -186,4 +187,4 @@ string eval::resolvePath(string test) {
   return "";
 }
 
-string eval::resolveValue(string test) {}
+string eval::attrsetKey(string test) {}
