@@ -21,6 +21,8 @@ void resolve::preprocessFile(const string &filePath) {
   string rawFileStr = utils::readFile(flakePath + filePath);
   vector<string> lineFile = utils::splitStrByChar(rawFileStr, '\n');
 
+  cout << "segfault here?" << endl;
+
   resolve::fileStr = eval::removeComments(rawFileStr);
 
   ev.preProcessFile(rawFileStr, filePath);
