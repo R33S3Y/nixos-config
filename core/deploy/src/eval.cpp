@@ -104,7 +104,7 @@ string eval::blankInnerAntiQuotation(string fileStr) {
         fileStr[i] = ' ';
       }
     }
-
+    holdStr += fileStr;
     fileStr = fileStr.substr(endRight);
   }
   holdStr += fileStr;
