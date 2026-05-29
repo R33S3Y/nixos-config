@@ -65,6 +65,7 @@ string eval::removeComments(string fileStr) {
 
   // removes  comments from filestr so it can be useful
   vector<string> stringlessLineFile = utils::splitStrByChar(fileStr, '\n');
+  cout << "segfault here?" << endl;
   string output;
   for (int i = 0; i < lineFile.size(); i++) {
     string line = lineFile[i];
@@ -73,8 +74,6 @@ string eval::removeComments(string fileStr) {
     }
     output += line + "\n";
   }
-
-  cout << "segfault here?" << endl;
 
   return output;
 }
