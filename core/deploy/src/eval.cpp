@@ -74,6 +74,8 @@ string eval::removeComments(string fileStr) {
     output += line + "\n";
   }
 
+  cout << "segfault here?" << endl;
+
   return output;
 }
 
