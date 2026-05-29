@@ -173,7 +173,7 @@ string eval::path(string test) {
 }
 
 string eval::attrsetKey(string test) {
-
+  cout << "segfault here?";
   // does preproccessing to resolve funny statements like ${ } and ( )
   string hold = test;
   hold = utils::blankWithinTokens(hold, "${", "}");
