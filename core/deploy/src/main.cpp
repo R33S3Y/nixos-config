@@ -131,14 +131,14 @@ int main(int argc, char const *argv[]) {
       cout << file + "\n";
     }
 
-    cout << "segfault here??" << endl;
-
     resolve r(flakePath, flakeLink, host);
     cout << "segfault here?" << endl;
     while (unprocessedFiles.size() != 0 && error == false) {
       std::string filePath = unprocessedFiles[0];
       unprocessedFiles.erase(unprocessedFiles.begin());
       processedFiles.push_back(filePath);
+
+      cout << "segfault here??" << endl;
 
       r.preprocessFile(filePath);
       resolve::result imports;
