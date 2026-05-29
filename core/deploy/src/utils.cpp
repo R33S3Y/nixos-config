@@ -127,7 +127,7 @@ string utils::trim(string s) {
 }
 
 string utils::blankWithinTokens(string fileStr, string startToken,
-                                string endToken = "") {
+                                string endToken) {
 
   if (endToken == "") {
     endToken = startToken;
