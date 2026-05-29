@@ -1,5 +1,6 @@
 #include "eval.h"
 #include "utils.h"
+#include <cstddef>
 #include <filesystem>
 #include <format>
 #include <iostream>
@@ -51,11 +52,7 @@ void eval::preProcessFile(string fileStr, string filePath) {
   return;
 }
 
-string eval::removeComments(string fileStr) {
-
-  // gets the things before the strings are moved
-  vector<string> lineFile = utils::splitStrByChar(fileStr, '\n');
-
+string eval::blankStrings(string fileStr) {
   // remove strings from fileStr (fileStr = fileStr without strings)
   vector<string> stringTokens = {
       "\"",
@@ -79,8 +76,51 @@ string eval::removeComments(string fileStr) {
     }
   }
 
-  // make pretty string for error logs
-  // and removes  comments from filestr so it can be useful
+  return fileStr;
+}
+
+string eval::blankInnerAntiQuotation(string fileStr) {
+  // AntiQuotation == the ${ } syntax.
+  // note that this func keeps the ${  } and only blanks the inner bits
+
+  cout << fileStr + "\n";
+
+  string startToken = "${";
+  string endToken = "}";
+
+  string holdStr;
+
+  while (fileStr.size() > 0 || fileStr.find(startToken) != string::npos) {
+    size_t startLeft = fileStr.find(startToken);
+    size_t startRight = startLeft + startToken.size();
+    size_t endLeft = fileStr.find(endToken, startRight);
+    if (endLeft == string::npos) {
+      break;
+    }
+    size_t endRight = endLeft + endToken.size();
+
+    for (size_t i = startRight; i < endLeft; i++) {
+      if (fileStr[i] != '\n') {
+        fileStr[i] = ' ';
+      }
+    }
+
+    fileStr = fileStr.substr(endRight);
+  }
+  holdStr += fileStr;
+
+  cout << holdStr + "\n";
+  return holdStr;
+}
+
+string eval::removeComments(string fileStr) {
+
+  // gets the things before the strings are moved
+  vector<string> lineFile = utils::splitStrByChar(fileStr, '\n');
+
+  fileStr = eval::blankStrings(fileStr);
+
+  // removes  comments from filestr so it can be useful
   vector<string> stringlessLineFile = utils::splitStrByChar(fileStr, '\n');
   string output;
   for (int i = 0; i < lineFile.size(); i++) {
@@ -192,6 +232,14 @@ string eval::path(string test) {
 }
 
 string eval::attrsetKey(string test) {
-  cout << test + "\n";
+
+  string hold = eval::blankInnerAntiQuotation(test);
+
+  vector<string> attrsetKeys = utils::splitStrByChar(test, '.');
+
+  // does preproccessing to resolve ${}
+  for (int i = attrsetKeys.size(); i < 0;
+       i--) { // works backs from least signifiant to most.
+  }
   return "";
 }

@@ -22,6 +22,8 @@ public:
     vector<string> paths;
   };
 
+  static string blankStrings(string fileStr);
+  static string blankInnerAntiQuotation(string filestr);
   static string removeComments(string fileStr);
 
   result statement(string test);
