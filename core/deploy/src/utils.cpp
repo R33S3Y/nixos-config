@@ -41,7 +41,7 @@ string utils::readFile(const string &path) {
   return ss.str();
 }
 
-void logError(string message) {
+void utils::logError(string message) {
   cerr << "\n\033[31mError\033[0m : " + message + "\n";
   return;
 }
