@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <iostream>
 #include <nlohmann/json.hpp>
+#include <ostream>
 #include <set>
 #include <string>
 #include <vector>
@@ -131,7 +132,7 @@ int main(int argc, char const *argv[]) {
       cout << file + "\n";
     }
 
-    cout << "segfault here??";
+    cout << "segfault here??" << endl;
 
     resolve r(flakePath, flakeLink, host);
 
