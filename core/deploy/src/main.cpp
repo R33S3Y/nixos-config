@@ -124,7 +124,6 @@ int main(int argc, char const *argv[]) {
 
     vector<string> processedFiles;
     processedFiles.push_back("/flake.lock");
-    cout << "segfault here?";
 
     cout << "\n";
     cout << "Unprocessed files: \n";
@@ -135,7 +134,7 @@ int main(int argc, char const *argv[]) {
     cout << "segfault here??" << endl;
 
     resolve r(flakePath, flakeLink, host);
-
+    cout << "segfault here?" << endl;
     while (unprocessedFiles.size() != 0 && error == false) {
       std::string filePath = unprocessedFiles[0];
       unprocessedFiles.erase(unprocessedFiles.begin());
