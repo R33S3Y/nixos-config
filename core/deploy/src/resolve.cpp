@@ -25,7 +25,6 @@ void resolve::preprocessFile(const string &filePath) {
 
   resolve::fileStr = eval::removeComments(rawFileStr);
 
-  cout << "segfault here??" << endl;
   ev.preProcessFile(rawFileStr, filePath);
 
   return;
