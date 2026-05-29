@@ -102,6 +102,11 @@ eval::result eval::statement(string test) {
     res.error = false;
     return res;
   }
+  res.str = attrsetKey(test);
+  if (res.str != "") {
+    res.error = false;
+    return res;
+  }
 
   cerr << "\n\033[31mError\033[0m : Failed to resolve the following in "
           "(\033[35m" +
@@ -153,7 +158,6 @@ string eval::path(string test) {
 
   string absoluteFolderPath =
       eval::absoluteFilePath.substr(0, eval::absoluteFilePath.rfind('/'));
-  cout << absoluteFolderPath + "\n";
   vector<string> folders;
   for (auto &entry : std::filesystem::directory_iterator(absoluteFolderPath)) {
     if (entry.is_directory())
@@ -187,4 +191,7 @@ string eval::path(string test) {
   return "";
 }
 
-string eval::attrsetKey(string test) {}
+string eval::attrsetKey(string test) {
+  cout << test + "\n";
+  return "";
+}
