@@ -129,6 +129,7 @@ int main(int argc, char const *argv[]) {
     for (string file : unprocessedFiles) {
       cout << file + "\n";
     }
+    cout << "segfault here??";
 
     resolve r(flakePath, flakeLink, host);
 
@@ -141,8 +142,6 @@ int main(int argc, char const *argv[]) {
 
       r.preprocessFile(filePath);
       resolve::result imports;
-
-      cout << "segfault here??";
 
       imports = r.resolveImportStatements();
       if (imports.error) {
