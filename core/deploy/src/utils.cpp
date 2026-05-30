@@ -88,21 +88,14 @@ vector<string> utils::splitStrByCharByFilterStr(string inputStr,
     return {};
   }
 
-  cout << inputStr + "\n";
-  cout << filterStr + "\n";
-  cout << inputChar;
-  cout << "\n";
-
   vector<string> output;
   string currentStr;
 
   for (int i = 0; i < filterStr.size(); i++) {
     if (filterStr[i] == inputChar) {
       output.push_back(currentStr);
-      cout << currentStr;
       currentStr.clear();
     } else {
-      cout << inputStr[i];
       currentStr += inputStr[i];
     }
   }
