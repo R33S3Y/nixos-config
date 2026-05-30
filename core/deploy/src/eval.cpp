@@ -306,6 +306,7 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     res.error = true;
     return res;
   }
+  cout << cmdOut.output + "\n";
   eval::result hold = eval::statement(cmdOut.output, false);
   cout << hold.str + "\n";
   if (hold.error == true) {
