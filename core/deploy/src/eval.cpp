@@ -211,8 +211,8 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     result res;
   }
   cout << attrset + "\n";
-  cout << attrset[attrset.size()];
-  if (attrset[attrset.size()] == '.') {
+  cout << attrset[attrset.size() - 1];
+  if (attrset[attrset.size() - 1] == '.') {
     attrset = attrset.substr(0, attrset.size() - 1);
   }
   cout << attrset + "\n";
