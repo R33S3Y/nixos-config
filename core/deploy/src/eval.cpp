@@ -118,7 +118,7 @@ vector<string> eval::list(string test, bool throwLazy) {
   }
   cout << "segfault??" << endl;
   listItems.erase(listItems.begin());
-  listItems.erase(listItems.end());
+  listItems.pop_back();
   cout << "segfault????" << endl;
   // throw lazy items
   for (int i = 0; i < listItems.size(); i++) {
