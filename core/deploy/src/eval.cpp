@@ -117,6 +117,9 @@ vector<string> eval::list(string test, bool throwLazy) {
     return {};
   }
 
+  listItems.erase(listItems.begin());
+  listItems.erase(listItems.end());
+
   // throw lazy items
   for (int i = 0; i < listItems.size(); i++) {
     string listItem = listItems[i];
