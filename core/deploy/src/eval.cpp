@@ -116,10 +116,10 @@ vector<string> eval::list(string test, bool throwLazy) {
   if (listItems.front() != "[" || listItems.back() != "]") {
     return {};
   }
-  cout << "segfault??" << endl;
+
   listItems.erase(listItems.begin());
   listItems.pop_back();
-  cout << "segfault????" << endl;
+
   // throw lazy items
   for (int i = 0; i < listItems.size(); i++) {
     string listItem = listItems[i];
@@ -332,17 +332,15 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     res.error = true;
     return res;
   }
-  cout << test + "\n";
-  cout << attrset + "\n";
-  cout << cmd + "\n";
+
   utils::result cmdOut = utils::runCommand(cmd);
   if (!cmdOut.ok()) {
     res.error = true;
     return res;
   }
-  cout << cmdOut.output + "\n" << endl;
+
   eval::result hold = eval::statement(cmdOut.output, false);
-  cout << hold.str + "\n";
+
   if (hold.error == true) {
     res.error = true;
     return res;
