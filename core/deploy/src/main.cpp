@@ -106,8 +106,9 @@ int main(int argc, char const *argv[]) {
     // We have to rebuild the machine no matter what seeing as we may have just
     // missed the file that changed
     bool error = false;
-
+    cout << "segfault??" << endl;
     vector<string> unprocessedFiles = getNixFiles(flakePath, host);
+    cout << "segfault????" << endl;
 
     // the only way this could happen is if getNixFiles had a error/failed
     if (unprocessedFiles.size() == 0) {
@@ -124,7 +125,6 @@ int main(int argc, char const *argv[]) {
     for (string file : unprocessedFiles) {
       cout << file + "\n";
     }
-    cout << endl;
 
     resolve r(flakePath, flakeLink, host);
 
