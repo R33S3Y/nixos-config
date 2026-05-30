@@ -291,7 +291,8 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     res.error = true;
     return res;
   }
-  cout << cmd;
+  cout << test + "\n";
+  cout << cmd + "\n";
   utils::result cmdOut = utils::runCommand(cmd);
   if (!cmdOut.ok()) {
     res.error = true;
