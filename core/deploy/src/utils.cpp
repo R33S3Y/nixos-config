@@ -102,6 +102,7 @@ vector<string> utils::splitStrByCharByFilterStr(string inputStr,
       cout << currentStr;
       currentStr.clear();
     } else {
+      cout << inputStr[i];
       currentStr += inputStr[i];
     }
   }
