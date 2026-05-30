@@ -116,9 +116,8 @@ vector<string> eval::list(string test, bool throwLazy) {
   if (listItems.front() != "[" || listItems.back() != "]") {
     return {};
   }
-  cout << listItems.front();
+
   listItems.erase(listItems.begin());
-  cout << listItems.back();
   listItems.erase(listItems.end());
 
   // throw lazy items
@@ -341,15 +340,18 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     res.error = true;
     return res;
   }
-  cout << cmdOut.output + "\n";
+  cout << cmdOut.output + "\n" << endl;
   eval::result hold = eval::statement(cmdOut.output, false);
   cout << hold.str + "\n";
   if (hold.error == true) {
     res.error = true;
-    cout << "has error \n";
     return res;
   }
-  res.str = hold.str;
+  if (hold.type == "list") {
+    res.list = hold.list;
+  } else {
+    res.str = hold.str;
+  }
   res.error = false;
   return res;
 }
