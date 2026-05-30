@@ -116,8 +116,9 @@ vector<string> eval::list(string test, bool throwLazy) {
   if (listItems.front() != "[" || listItems.back() != "]") {
     return {};
   }
-
+  cout << listItems.front();
   listItems.erase(listItems.begin());
+  cout << listItems.back();
   listItems.erase(listItems.end());
 
   // throw lazy items
