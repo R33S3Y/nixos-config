@@ -299,7 +299,7 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     res.error = true;
     return res;
   }
-  eval::result hold = eval::statement(cmdOut.output, true);
+  eval::result hold = eval::statement(cmdOut.output, false);
   if (hold.error == true) {
     res.error = true;
     return res;
