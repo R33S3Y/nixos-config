@@ -96,7 +96,7 @@ vector<string> utils::splitStrByCharByFilterStr(string inputStr,
   vector<string> output;
   string currentStr;
 
-  for (int i = 0; i > filterStr.size(); i++) {
+  for (int i = 0; i < filterStr.size(); i++) {
     if (filterStr[i] == inputChar) {
       output.push_back(currentStr);
       cout << currentStr;
