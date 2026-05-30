@@ -1,3 +1,4 @@
+#include "eval.h"
 #include "resolve.h"
 #include "utils.h"
 #include <algorithm>
@@ -34,23 +35,15 @@ vector<string> getNixFiles(string flakeLink, string host) {
   utils::result cmdOut = utils::runCommand(cmd);
 
   if (!cmdOut.ok()) {
-    cerr << "\n\033[31mError\033[0m : Failed to eval for nix files";
+    cerr << utils::error("Failed to eval for nix files");
     return {};
   }
 
-  vector<string> cmdOutSplit = utils::splitStrByChar(cmdOut.output, ' ');
+  vector<string> list = eval::list(cmdOut.output);
 
   vector<string> output;
-
-  for (string currentStr : cmdOutSplit) {
+  for (string currentStr : list) {
     if (currentStr.find(flakeLink) != string::npos) {
-
-      string delim = "»";
-      size_t pos = currentStr.find(delim);
-      if (pos != string::npos) {
-        currentStr = currentStr.substr(pos + delim.size());
-      }
-
       currentStr = utils::replace(currentStr, flakeLink, "");
       currentStr = utils::trim(currentStr);
 
@@ -86,21 +79,22 @@ int main(int argc, char const *argv[]) {
 
   filesystem::create_directories(flakePath);
   if (filesystem::is_empty(flakePath) == false) {
-    utils::logError("flakePath (\033[35m" + flakePath +
-                    "\033[0m) is not empty");
+    cerr << utils::error("flakePath (\033[35m" + flakePath +
+                         "\033[0m) is not empty");
     return 1;
   }
   utils::result cmdOut = utils::runCommand("nix flake clone " + flakeLink +
                                            " --dest " + flakePath);
   if (!cmdOut.ok()) {
-    utils::logError("failed to get flake (\033[35m" + flakeLink + "\033[0m)");
+    cerr << utils::error("failed to get flake (\033[35m" + flakeLink +
+                         "\033[0m)");
     return 1;
   }
 
   vector<string> hosts = getFlakeInputs(flakePath);
   if (hosts.size() == 0) {
-    utils::logError("flake does not contain any hosts or no "
-                    "hosts could be found");
+    cerr << utils::error("flake does not contain any hosts or no "
+                         "hosts could be found");
     return 1;
   }
 

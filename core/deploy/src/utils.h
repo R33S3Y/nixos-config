@@ -16,7 +16,7 @@ public:
   static result runCommand(string cmd);
   static string readFile(const string &path);
 
-  static void logError(string message);
+  static string error(string message);
 
   // string processing
   static vector<string> splitStrByChar(string inputStr, char inputChar);

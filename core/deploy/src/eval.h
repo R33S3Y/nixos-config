@@ -23,6 +23,7 @@ public:
   };
 
   static string removeComments(string fileStr);
+  static vector<string> list(string test, bool throwLazy = true);
 
   result statement(string test, bool canThrow = true);
   string path(string test);

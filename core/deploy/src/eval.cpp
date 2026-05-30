@@ -16,17 +16,13 @@ eval::eval(const init &i) {
 
   resolveMap = {
       {"config",
-       {"nix eval " + flakePath + "#nixosConfigurations." + host + ".pkgs",
-        ""}},
+       {"nix eval " + flakePath + "#nixosConfigurations." + host + ".", ""}},
       {"options",
-       {"nix eval " + flakePath + "#nixosConfigurations." + host + ".pkgs",
-        ""}},
+       {"nix eval " + flakePath + "#nixosConfigurations." + host + ".", ""}},
       {"lib",
-       {"nix eval " + flakePath + "#nixosConfigurations." + host + ".pkgs",
-        ""}},
+       {"nix eval " + flakePath + "#nixosConfigurations." + host + ".", ""}},
       {"pkgs",
-       {"nix eval " + flakePath + "#nixosConfigurations." + host + ".pkgs",
-        ""}},
+       {"nix eval " + flakePath + "#nixosConfigurations." + host + ".", ""}},
   };
   throwMap = {
       {"builtins", {"nix eval --expr 'builtins", "'"}},
@@ -72,6 +68,47 @@ string eval::removeComments(string fileStr) {
     output += line + "\n";
   }
   return output;
+}
+vector<string> eval::list(string test, bool throwLazy) {
+
+  // mask and split
+  string mask = test;
+  mask = utils::blankWithinTokens(mask, "${", "}");
+  mask = utils::blankWithinTokens(mask, "(", ")");
+  vector<string> listItems = utils::splitStrByCharByFilterStr(test, mask, ' ');
+
+  // is list and cleanup
+  if (listItems.size() == 0) {
+    return {};
+  }
+  for (int i = 0; i < listItems.size(); i++) {
+    listItems[i] = utils::trim(listItems[i]);
+    if (listItems[i].size() == 0) {
+      listItems.erase(listItems.begin() + i);
+      i--;
+    }
+  }
+  if (listItems.size() == 0)
+    return {};
+  if (listItems.front() != "[" || listItems.back() != "]") {
+    return {};
+  }
+
+  // throw lazy items
+  for (int i = 0; i < listItems.size(); i++) {
+    string listItem = listItems[i];
+
+    if (listItem.find("«") != string::npos ||
+        listItem.find("»") != string::npos) {
+      // is lazy item like «thunk» or «lambda @ ...» or «github:...»
+      if (throwLazy == false)
+        continue;
+      listItems.erase(listItems.begin() + i);
+      i--;
+      continue;
+    }
+  }
+  return listItems;
 }
 
 eval::result eval::statement(string test, bool canThrow) {
@@ -177,11 +214,12 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
 
   // does preproccessing to resolve funny statements like ${ } and ( ) and get a
   // clean attrset Split
-  string hold = test;
-  hold = utils::blankWithinTokens(hold, "${", "}");
-  hold = utils::blankWithinTokens(hold, "(", ")");
+  string mask = test;
+  mask = utils::blankWithinTokens(mask, "${", "}");
+  mask = utils::blankWithinTokens(mask, "(", ")");
+  mask = utils::blankWithinTokens(mask, "[", "]");
   vector<string> attrsetKeys =
-      utils::splitStrByCharByFilterStr(test, hold, '.');
+      utils::splitStrByCharByFilterStr(test, mask, '.');
 
   // go though key by key and resolve thing like ${ }
   for (int i = 0; i < attrsetKeys.size(); i++) {
@@ -210,11 +248,23 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     res.str = "";
     result res;
   }
-  cout << attrset + "\n";
-  if (attrset[attrset.size() - 1] == '.') {
+  // remove trailing dot.
+  if (attrset.back() == '.') {
     attrset = attrset.substr(0, attrset.size() - 1);
   }
-  cout << attrset + "\n";
+
+  string cmd;
+  if (resolveMap.count(attrsetKeys[0])) {
+    cmd =
+        resolveMap[attrsetKeys[0]][0] + attrset + resolveMap[attrsetKeys[0]][1];
+  }
+  if (throwMap.count(attrsetKeys[0]) && canThrow == false) {
+    cmd = throwMap[attrsetKeys[0]][0] + attrset + throwMap[attrsetKeys[0]][1];
+  }
+  if (cmd == "") {
+    res.error = true;
+    return res;
+  }
 
   return res;
 }

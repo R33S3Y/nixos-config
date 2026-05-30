@@ -41,9 +41,8 @@ string utils::readFile(const string &path) {
   return ss.str();
 }
 
-void utils::logError(string message) {
-  cerr << "\n\033[31mError\033[0m : " + message + "\n";
-  return;
+string utils::error(string message) {
+  return "\n\033[31mError\033[0m : " + message + "\n";
 }
 
 vector<string> utils::splitStrByChar(string inputStr, char inputChar) {
@@ -83,8 +82,9 @@ vector<string> utils::splitStrByCharByFilterStr(string inputStr,
                                                 char inputChar) {
 
   if (inputStr.size() != filterStr.size()) {
-    utils::logError("utils::splitStrByCharByFilterStr : inputStr and fileStr "
-                    "does not match");
+    cerr << utils::error(
+        "utils::splitStrByCharByFilterStr : inputStr and fileStr "
+        "does not match");
     return {};
   }
 
