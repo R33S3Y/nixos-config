@@ -135,30 +135,58 @@ vector<string> eval::list(string test, bool throwLazy) {
 }
 
 eval::result eval::statement(string test, bool canThrow) {
-  result res;
 
   test = utils::trim(test);
 
   if (test.front() == '\"' && test.back() == '\"') {
     // is string
+    result res;
     res.error = false;
+    res.type = "str";
     res.str = test;
     return res;
   }
 
-  res.str = path(test);
-  if (res.str != "") {
-    res.error = false;
+  vector<string> list = eval::list(test);
+  if (list.size() != 0) {
+    // is list
+    eval::result res;
+    for (string item : list) {
+      eval::result hold = eval::statement(item);
+      if (hold.error == true) {
+        eval::result tmp;
+        tmp.error = true;
+        return tmp;
+      }
+      if (hold.type == "list") {
+        cerr << utils::error("Nested lists are not supported");
+        eval::result tmp;
+        tmp.error = true;
+        return tmp;
+      }
+      res.list.push_back(hold.str);
+    }
+    res.type = "list";
     return res;
   }
-  eval::result hold = attrsetKey(test, canThrow);
-  if (hold.error == false) {
-    res.str = hold.str;
+
+  string path = eval::path(test);
+  if (path != "") {
+    // is path
+    result res;
+    res.str = path;
+    res.type = "path";
     res.error = false;
     return res;
   }
 
+  eval::result hold = eval::attrsetKey(test, canThrow);
+  if (hold.error == false) {
+    return hold;
+  }
+
   if (canThrow == false) {
+    result res;
     res.error = true;
     return res;
   }
@@ -189,6 +217,7 @@ eval::result eval::statement(string test, bool canThrow) {
     errorCode = utils::trim(test) + "\n";
   }
   cerr << errorCode;
+  result res;
   res.error = true;
   return res;
 }

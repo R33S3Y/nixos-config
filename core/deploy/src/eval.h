@@ -18,8 +18,9 @@ public:
 
   struct result {
     bool error = false;
+    string type;
     string str;
-    vector<string> paths;
+    vector<string> list;
   };
 
   static string removeComments(string fileStr);
