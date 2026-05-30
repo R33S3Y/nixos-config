@@ -39,8 +39,9 @@ vector<string> getNixFiles(string flakeLink, string host) {
     return {};
   }
 
+  cout << "segfault??" << endl;
   vector<string> list = eval::list(cmdOut.output);
-
+  cout << "segfault????" << endl;
   vector<string> output;
   for (string currentStr : list) {
     if (currentStr.find(flakeLink) != string::npos) {
@@ -106,9 +107,7 @@ int main(int argc, char const *argv[]) {
     // We have to rebuild the machine no matter what seeing as we may have just
     // missed the file that changed
     bool error = false;
-    cout << "segfault??" << endl;
     vector<string> unprocessedFiles = getNixFiles(flakePath, host);
-    cout << "segfault????" << endl;
 
     // the only way this could happen is if getNixFiles had a error/failed
     if (unprocessedFiles.size() == 0) {
