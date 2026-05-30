@@ -24,9 +24,9 @@ public:
 
   static string removeComments(string fileStr);
 
-  result statement(string test);
+  result statement(string test, bool canThrow = true);
   string path(string test);
-  string attrsetKey(string test);
+  result attrsetKey(string test, bool canThrow);
 
 private:
   string flakePath;

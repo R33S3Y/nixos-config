@@ -26,6 +26,7 @@ public:
   splitStrByCharByFilterStr(string inputStr, string filterStr, char inputChar);
 
   static string replace(string s, string from, string to);
+  static string rReplace(string s, string from, string to);
   static string replaceAll(string s, string from, string to);
 
   static string trim(string s);

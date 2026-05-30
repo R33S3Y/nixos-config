@@ -74,7 +74,7 @@ string eval::removeComments(string fileStr) {
   return output;
 }
 
-eval::result eval::statement(string test) {
+eval::result eval::statement(string test, bool canThrow) {
   result res;
 
   res.str = path(test);
@@ -82,7 +82,7 @@ eval::result eval::statement(string test) {
     res.error = false;
     return res;
   }
-  res.str = attrsetKey(test);
+  eval::result hold = attrsetKey(test, canThrow);
   if (res.str != "") {
     res.error = false;
     return res;
@@ -171,17 +171,50 @@ string eval::path(string test) {
   return "";
 }
 
-string eval::attrsetKey(string test) {
+eval::result eval::attrsetKey(string test, bool canThrow) {
+  eval::result res;
+  string attrset;
 
-  // does preproccessing to resolve funny statements like ${ } and ( )
+  // does preproccessing to resolve funny statements like ${ } and ( ) and get a
+  // clean attrset Split
   string hold = test;
   hold = utils::blankWithinTokens(hold, "${", "}");
   hold = utils::blankWithinTokens(hold, "(", ")");
   vector<string> attrsetKeys =
       utils::splitStrByCharByFilterStr(test, hold, '.');
 
+  // go though key by key and resolve thing like ${ }
   for (int i = 0; i < attrsetKeys.size(); i++) {
-    cout << attrsetKeys[i] + "\n";
+    string attrsetKey = attrsetKeys[i];
+
+    // resolve ${ }
+    if (attrsetKey.find("${") != string::npos &&
+        attrsetKey.find("}", attrsetKey.find("${")) != string::npos) {
+      attrsetKey = utils::replace(attrsetKey, "${", "");
+      attrsetKey = utils::rReplace(attrsetKey, "}", "");
+
+      eval::result hold = eval::statement(attrsetKey, false);
+      if (hold.error == true) {
+        res.error = true;
+        break;
+      }
+      attrsetKey = hold.str;
+    }
+
+    // resolve ( )
+    // todo...
+
+    attrset += attrsetKey + ".";
   }
-  return "";
+  if (res.error == true) {
+    res.str = "";
+    result res;
+  }
+  cout << attrset + "\n";
+  if (attrset[attrset.size()] == '.') {
+    attrset = attrset.substr(0, attrset.size() - 1);
+  }
+  cout << attrset + "\n";
+
+  return res;
 }

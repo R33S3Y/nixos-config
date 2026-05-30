@@ -110,6 +110,13 @@ string utils::replace(string s, string from, string to) {
   }
   return s;
 }
+string utils::rReplace(string s, string from, string to) {
+  size_t pos = s.rfind(from);
+  if (pos != string::npos) {
+    s.replace(pos, from.size(), to);
+  }
+  return s;
+}
 string utils::replaceAll(string s, string from, string to) {
   while (s.find(from) != string::npos) {
     size_t pos = s.find(from);
