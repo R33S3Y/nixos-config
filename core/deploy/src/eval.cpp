@@ -177,12 +177,9 @@ string eval::attrsetKey(string test) {
   string hold = test;
   hold = utils::blankWithinTokens(hold, "${", "}");
   hold = utils::blankWithinTokens(hold, "(", ")");
-  cout << hold + "\n";
-  cout << test + "\n";
   vector<string> attrsetKeys =
       utils::splitStrByCharByFilterStr(test, hold, '.');
 
-  cout << "????";
   for (int i = 0; i < attrsetKeys.size(); i++) {
     cout << attrsetKeys[i] + "\n";
   }
