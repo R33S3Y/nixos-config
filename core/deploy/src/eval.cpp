@@ -149,7 +149,7 @@ eval::result eval::statement(string test, bool canThrow) {
     return res;
   }
 
-  if (canThrow == true) {
+  if (canThrow == false) {
     res.error = true;
     return res;
   }
