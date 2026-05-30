@@ -137,6 +137,8 @@ vector<string> eval::list(string test, bool throwLazy) {
 eval::result eval::statement(string test, bool canThrow) {
   result res;
 
+  test = utils::trim(test);
+
   if (test.front() == '\"' && test.back() == '\"') {
     // is string
     res.error = false;
