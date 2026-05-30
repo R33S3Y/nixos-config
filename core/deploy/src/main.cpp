@@ -124,6 +124,7 @@ int main(int argc, char const *argv[]) {
     for (string file : unprocessedFiles) {
       cout << file + "\n";
     }
+    cout << endl;
 
     resolve r(flakePath, flakeLink, host);
 
@@ -133,7 +134,6 @@ int main(int argc, char const *argv[]) {
       processedFiles.push_back(filePath);
 
       r.preprocessFile(filePath);
-      cout << filePath << endl;
       resolve::result imports;
 
       imports = r.resolveImportStatements();
