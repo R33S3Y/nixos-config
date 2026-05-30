@@ -39,9 +39,8 @@ vector<string> getNixFiles(string flakeLink, string host) {
     return {};
   }
 
-  cout << "segfault??" << endl;
   vector<string> list = eval::list(cmdOut.output);
-  cout << "segfault????" << endl;
+
   vector<string> output;
   for (string currentStr : list) {
     if (currentStr.find(flakeLink) != string::npos) {

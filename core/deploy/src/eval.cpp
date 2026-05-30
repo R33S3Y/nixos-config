@@ -116,10 +116,10 @@ vector<string> eval::list(string test, bool throwLazy) {
   if (listItems.front() != "[" || listItems.back() != "]") {
     return {};
   }
-
+  cout << "segfault??" << endl;
   listItems.erase(listItems.begin());
   listItems.erase(listItems.end());
-
+  cout << "segfault????" << endl;
   // throw lazy items
   for (int i = 0; i < listItems.size(); i++) {
     string listItem = listItems[i];
