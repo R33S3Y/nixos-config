@@ -32,9 +32,20 @@ eval::eval(const init &i) {
         ""}},
   };
 
-  utils::result cmdOut = utils::runCommand(
-      "nix eval " + flakePath + "#nixosConfigurations." + host +
-      "._module.specialArgs --apply builtins.attrNames");
+  // maybe this can be done in parallel
+  bool canThrowModulesPath = false;
+  utils::result cmdOut;
+  cmdOut = utils::runCommand("nix eval " + flakePath + "#nixosConfigurations." +
+                             host + "._module.specialArgs.modulesPath");
+  if (!cmdOut.ok()) {
+    cerr << utils::error("Failed to eval special args");
+  }
+  if (cmdOut.output.find("/nix/store/") != string::npos)
+    canThrowModulesPath = true;
+
+  cmdOut = utils::runCommand("nix eval " + flakePath + "#nixosConfigurations." +
+                             host +
+                             "._module.specialArgs --apply builtins.attrNames");
 
   if (!cmdOut.ok()) {
     cerr << utils::error("Failed to eval special args");
@@ -44,6 +55,14 @@ eval::eval(const init &i) {
     item = utils::replaceAll(item, "\"", "");
     if (item == "inputs")
       continue;
+    if (canThrowModulesPath == true && item == "modulesPath") {
+      eval::throwMap.insert(
+          {item,
+           {"nix eval " + flakePath + "#nixosConfigurations." + host +
+                "._module.specialArgs.",
+            ""}});
+      continue;
+    }
     eval::resolveMap.insert(
         {item,
          {"nix eval " + flakePath + "#nixosConfigurations." + host +
@@ -325,9 +344,15 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     cmd =
         resolveMap[attrsetKeys[0]][0] + attrset + resolveMap[attrsetKeys[0]][1];
   }
-  if (throwMap.count(attrsetKeys[0]) && canThrow == false) {
-    cmd = throwMap[attrsetKeys[0]][0] + attrset + throwMap[attrsetKeys[0]][1];
+  if (throwMap.count(attrsetKeys[0])) {
+    if (canThrow == false)
+      cmd = throwMap[attrsetKeys[0]][0] + attrset + throwMap[attrsetKeys[0]][1];
+    else {
+      res.thrown = true;
+      return res;
+    }
   }
+
   if (cmd == "") {
     res.error = true;
     return res;

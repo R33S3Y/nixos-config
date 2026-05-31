@@ -18,6 +18,7 @@ public:
 
   struct result {
     bool error = false;
+    bool thrown = false;
     string type;
     string str;
     vector<string> list;
