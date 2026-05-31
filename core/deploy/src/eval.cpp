@@ -162,6 +162,9 @@ eval::result eval::statement(string test, bool canThrow) {
 
   if (test.front() == '\"' && test.back() == '\"') {
     // is string
+    test.erase(test.begin());
+    test.pop_back();
+
     result res;
     res.error = false;
     res.type = "str";
@@ -309,11 +312,10 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
 
   // go though key by key and resolve thing like ${ }
   for (int i = 0; i < attrsetKeys.size(); i++) {
-    string attrsetKey = attrsetKeys[i];
+    string attrsetKey = utils::trim(attrsetKeys[i]);
 
     // resolve ${ }
-    if (attrsetKey.find("${") != string::npos &&
-        attrsetKey.find("}", attrsetKey.find("${")) != string::npos) {
+    if (attrsetKey.find("${") != string::npos && attrsetKey.back() == '}') {
       attrsetKey = utils::replace(attrsetKey, "${", "");
       attrsetKey = utils::rReplace(attrsetKey, "}", "");
 
@@ -326,7 +328,47 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
     }
 
     // resolve ( )
-    // todo...
+    if (attrsetKey.front() == '(' && attrsetKey.back() == ')') {
+      attrsetKey.erase(attrsetKey.begin());
+      attrsetKey.pop_back();
+
+      if (attrsetKey.find("-") == string::npos ||
+          attrsetKey.find("?") == string::npos ||
+          attrsetKey.find("++") == string::npos ||
+          attrsetKey.find("*") == string::npos ||
+          attrsetKey.find("!") == string::npos ||
+          attrsetKey.find("//") == string::npos ||
+          attrsetKey.find("<") == string::npos ||
+          attrsetKey.find(">") == string::npos ||
+          attrsetKey.find("==") == string::npos ||
+          attrsetKey.find("!=") == string::npos ||
+          attrsetKey.find("&&") == string::npos ||
+          attrsetKey.find("||") == string::npos) {
+        cerr << utils::error("bracket has unsupported operators");
+        res.error = true;
+        return res;
+      }
+
+      vector<string> items = utils::splitStrByChar(attrsetKey, '+');
+      attrsetKey = "";
+      for (string item : items) {
+        eval::result hold = eval::statement(item);
+        if (hold.error == true) {
+          res.error = true;
+          return res;
+        }
+        if (hold.thrown == true) {
+          res.thrown = true;
+          return res;
+        }
+        if (hold.type == "list") {
+          cerr << utils::error("Nested lists are not supported");
+          res.error = true;
+          return res;
+        }
+        attrsetKey += hold.str;
+      }
+    }
 
     attrset += attrsetKey + ".";
   }
