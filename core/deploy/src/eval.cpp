@@ -332,11 +332,15 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
       attrsetKey.erase(attrsetKey.begin());
       attrsetKey.pop_back();
 
+      string mask = attrsetKey;
+      mask = utils::blankWithinTokens(mask, "\"", "\"");
+      mask = utils::blankWithinTokens(mask, "(", ")");
+      mask = utils::blankWithinTokens(mask, "[", "]");
       vector<string> operators = {"-", "?", "++", "*",  "!",  "//",
                                   "<", ">", "==", "!=", "&&", "||"};
       for (string value : operators) {
         cout << value + "\n";
-        if (attrsetKey.find(value) == string::npos) {
+        if (mask.find(value) != string::npos) {
           cerr << utils::error("Bracket has unsupported operators");
           res.error = true;
           return res;
