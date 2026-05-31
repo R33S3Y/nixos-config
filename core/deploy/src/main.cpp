@@ -151,6 +151,11 @@ int main(int argc, char const *argv[]) {
       unprocessedFiles = merge(imports.paths, unprocessedFiles);
     }
     cout << "\n";
+    cout << "Still Unprocessed files: \n";
+    for (string file : unprocessedFiles) {
+      cout << file + "\n";
+    }
+    cout << "\n";
     cout << "Processed files: \n";
     for (string file : processedFiles) {
       cout << file + "\n";
