@@ -333,21 +333,14 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
       attrsetKey.pop_back();
 
       cout << attrsetKey + "\n";
-      if (attrsetKey.find("-") == string::npos ||
-          attrsetKey.find("?") == string::npos ||
-          attrsetKey.find("++") == string::npos ||
-          attrsetKey.find("*") == string::npos ||
-          attrsetKey.find("!") == string::npos ||
-          attrsetKey.find("//") == string::npos ||
-          attrsetKey.find("<") == string::npos ||
-          attrsetKey.find(">") == string::npos ||
-          attrsetKey.find("==") == string::npos ||
-          attrsetKey.find("!=") == string::npos ||
-          attrsetKey.find("&&") == string::npos ||
-          attrsetKey.find("||") == string::npos) {
-        cerr << utils::error("bracket has unsupported operators");
-        res.error = true;
-        return res;
+      vector<string> operators = {"-", "?", "++", "*",  "!",  "//",
+                                  "<", ">", "==", "!=", "&&", "||"};
+      for (string value : operators) {
+        if (attrsetKey.find(value) == string::npos) {
+          cerr << utils::error("bracket has unsupported operators");
+          res.error = true;
+          return res;
+        }
       }
 
       vector<string> items = utils::splitStrByChar(attrsetKey, '+');
