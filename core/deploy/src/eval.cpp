@@ -332,6 +332,7 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
       attrsetKey.erase(attrsetKey.begin());
       attrsetKey.pop_back();
 
+      cout << attrsetKey + "\n";
       if (attrsetKey.find("-") == string::npos ||
           attrsetKey.find("?") == string::npos ||
           attrsetKey.find("++") == string::npos ||
