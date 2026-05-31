@@ -339,7 +339,6 @@ eval::result eval::attrsetKey(string test, bool canThrow) {
       vector<string> operators = {"-", "?", "++", "*",  "!",  "//",
                                   "<", ">", "==", "!=", "&&", "||"};
       for (string value : operators) {
-        cout << value + "\n";
         if (mask.find(value) != string::npos) {
           cerr << utils::error("Bracket has unsupported operators");
           res.error = true;
