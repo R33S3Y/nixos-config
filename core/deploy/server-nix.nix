@@ -50,28 +50,6 @@ in
             mkdir -p $out/share/man/man1
             cp deploy.1 $out/share/man/man1
           '';
-
-          passthru = {
-            devShell = final.mkShell {
-
-              packages = with final; [
-                clang-tools # gives you clangd itself
-                nlohmann_json
-                libtar
-                libssh2
-                pandoc
-              ];
-
-              shellHook = ''
-                cat > compile_flags.txt <<EOF
-                -std=c++23
-                -I${final.nlohmann_json}/include
-                -I${final.libtar}/include
-                -I${final.libssh2.dev}/include
-                EOF
-              '';
-            };
-          };
         };
       };
     })
