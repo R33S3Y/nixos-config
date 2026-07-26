@@ -36,7 +36,7 @@ in
 
   programs.hyprpanel = {
     enable = true;
-
+    package = pkgs.stable.hyprpanel;
     settings = {
 
       bar.layouts = {

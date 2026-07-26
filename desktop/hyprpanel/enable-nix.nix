@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    hyprpanel
+    stable.hyprpanel
   ];
 
   fonts.packages = with pkgs; [

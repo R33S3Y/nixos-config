@@ -26,8 +26,6 @@ let
       ../../../desktop/hyprland/enable-nix.nix
       # Hyprlock
       ../../../desktop/hyprlock/enable-nix.nix
-      # Hyprpanel
-      ../../../desktop/hyprpanel/enable-nix.nix
       # Kitty
       ../../../desktop/kitty/enable-nix.nix
       # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
@@ -88,8 +86,6 @@ let
       ../../../desktop/hyprland/style-home.nix # Styles tweaks  -  (Most styling is handled by stylix)
       # Hyprlock
       ../../../desktop/hyprlock/style-home.nix # Styles + What to display and where
-      # Hyprpanel
-      ../../../desktop/hyprpanel/style-home.nix
       # Kitty
       ../../../desktop/kitty/bind-home.nix # Key binds
       ../../../desktop/kitty/style-home.nix # Styles  -  You should be fine to get away with disabling this
