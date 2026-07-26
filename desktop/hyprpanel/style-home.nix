@@ -4,6 +4,7 @@
 {
   config,
   system,
+  pkgs,
   ...
 }:
 let
