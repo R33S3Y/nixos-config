@@ -18,7 +18,7 @@ args::parse(vector<string> userInput, map<string, args::optionIn> argValues) {
   }
   if (userInputStr.size() == 0) {
     throw invalid_argument(
-        "No user inputs. Type '\033[35mman deploy \033[0m' for more info.");
+        "No user inputs. Type '\033[35mman deploy\033[0m' for more info.");
   }
 
   map<string, args::optionOut> output;
