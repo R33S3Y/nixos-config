@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   version = "dev";
 in
 {
   # overlay deploy package. So that it can be package and accessed with pkgs.internal.deploy
-  nixpkgs.overlays = [
+  inputs.nixpkgs.overlays = [
     (final: prev: {
-      internal = {
+      internal = (prev.internal or { }) // {
         # prev.internal is their so we don't overwrite pkgs.internal
 
         deploy = prev.stdenv.mkDerivation {
@@ -55,5 +55,5 @@ in
     })
   ];
 
-  #environment.systemPackages = [ pkgs.internal.deploy ]; # install it.
+  environment.systemPackages = [ pkgs.internal.deploy ]; # install it.
 }
