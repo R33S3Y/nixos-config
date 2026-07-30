@@ -1,9 +1,4 @@
-{
-  inputs,
-  home-manager,
-  nur,
-  nix-minecraft,
-}:
+{ inputs }:
 
 let
   pkgs = import inputs.nixpkgs {
@@ -14,7 +9,7 @@ let
     imports = [
       # Nix modules
       inputs.stylix.nixosModules.stylix
-      home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.home-manager
       inputs.nix-minecraft.nixosModules.minecraft-servers
 
       # Core

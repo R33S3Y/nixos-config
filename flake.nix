@@ -26,10 +26,6 @@
   outputs =
     {
       nixpkgs,
-      home-manager,
-      nur,
-      nix-minecraft,
-      nixpkgsStable,
       ...
     }@inputs:
     let
@@ -58,40 +54,31 @@
 
       hosts = {
         amethyst = import ./data/hosts/amethyst/host-flake.nix {
-          inherit inputs home-manager nur;
+          inherit inputs;
         };
         bort = import ./data/hosts/bort/host-flake.nix {
-          inherit
-            inputs
-            home-manager
-            nur
-            nix-minecraft
-            ;
+          inherit inputs;
         };
         cinnabar = import ./data/hosts/cinnabar/host-flake.nix {
-          inherit inputs home-manager nur;
+          inherit inputs;
         };
         diamond = import ./data/hosts/diamond/host-flake.nix {
-          inherit inputs home-manager nur;
+          inherit inputs;
         };
         ghostQuartz = import ./data/hosts/ghostQuartz/host-flake.nix {
-          inherit inputs home-manager;
+          inherit inputs;
         };
         morganite = import ./data/hosts/morganite/host-flake.nix {
-          inherit inputs home-manager;
+          inherit inputs;
         };
         neptunite = import ./data/hosts/neptunite/host-flake.nix {
-          inherit
-            inputs
-            home-manager
-            nur
-            ;
+          inherit inputs;
         };
         obsidian = import ./data/hosts/obsidian/host-flake.nix {
-          inherit inputs home-manager;
+          inherit inputs;
         };
         #template = import ./data/hosts/template/host-flake.nix {
-        #  inherit inputs home-manager nur nix-minecraft;
+        #  inherit inputs;
         #};
       };
       networks = {

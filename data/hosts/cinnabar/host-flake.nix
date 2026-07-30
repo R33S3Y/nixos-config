@@ -1,8 +1,4 @@
-{
-  inputs,
-  home-manager,
-  nur,
-}:
+{ inputs }:
 
 let
   pkgs = import inputs.nixpkgs {
@@ -13,8 +9,8 @@ let
     imports = [
       # Nix modules
       inputs.stylix.nixosModules.stylix
-      home-manager.nixosModules.home-manager
-      nur.modules.nixos.default
+      inputs.home-manager.nixosModules.home-manager
+      inputs.nur.modules.nixos.default
 
       # Core
       ../../../core/core-nix.nix
