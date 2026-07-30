@@ -66,7 +66,7 @@ let
 
       # My stuff
       ./hardware-configuration.nix # hardware  -  your hardware settings
-      #./disko-nix.nix
+      ./disko-nix.nix
     ];
     homeImports = [
       # CORE
