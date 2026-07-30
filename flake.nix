@@ -24,10 +24,7 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      ...
-    }@inputs:
+    { nixpkgs, ... }@inputs:
     let
       mkHost =
         hostName:
