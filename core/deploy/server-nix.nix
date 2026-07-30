@@ -34,8 +34,10 @@ in
               -std=c++23 \
               -g \
               -I${prev.nlohmann_json}/include \
+
               -I${prev.libtar}/include \
               -L${prev.libtar}/lib -ltar \
+
               -I${prev.libssh2.dev}/include \
               -L${prev.libssh2}/lib -lssh2 \
 
@@ -50,6 +52,16 @@ in
             mkdir -p $out/share/man/man1
             cp deploy.1 $out/share/man/man1
           '';
+
+          passthru.devShell = pkgs.mkShell {
+            packages = [
+              prev.libtar
+              prev.libssh2.dev
+            ];
+            shellHook = ''
+              export CPATH="${prev.nlohmann_json}/include:${prev.libtar}/include:${prev.libssh2.dev}/include:$CPATH"
+            '';
+          };
         };
       };
     })
