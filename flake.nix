@@ -81,7 +81,11 @@
           inherit inputs home-manager;
         };
         neptunite = import ./data/hosts/neptunite/host-flake.nix {
-          inherit inputs home-manager nur;
+          inherit
+            inputs
+            home-manager
+            nur
+            ;
         };
         obsidian = import ./data/hosts/obsidian/host-flake.nix {
           inherit inputs home-manager;
