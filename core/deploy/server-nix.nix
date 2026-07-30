@@ -9,19 +9,19 @@ in
       internal = (prev.internal or { }) // {
         # prev.internal is their so we don't overwrite pkgs.internal
 
-        deploy = final.stdenv.mkDerivation {
+        deploy = prev.stdenv.mkDerivation {
           pname = "deploy";
           version = version;
 
           src = ./src;
 
-          buildInputs = with final; [
+          buildInputs = with prev; [
             nlohmann_json
             libtar
             libssh2
           ];
 
-          nativeBuildInputs = with final; [
+          nativeBuildInputs = with prev; [
             gcc
             pandoc
           ];
@@ -33,11 +33,11 @@ in
               -o deploy \
               -std=c++23 \
               -g \
-              -I${final.nlohmann_json}/include \
-              -I${final.libtar}/include \
-              -L${final.libtar}/lib -ltar \
-              -I${final.libssh2.dev}/include \
-              -L${final.libssh2}/lib -lssh2 \
+              -I${prev.nlohmann_json}/include \
+              -I${prev.libtar}/include \
+              -L${prev.libtar}/lib -ltar \
+              -I${prev.libssh2.dev}/include \
+              -L${prev.libssh2}/lib -lssh2 \
 
             sed -i 's/version/\"${version}\"/' server/man.md
             pandoc server/man.md -s -t man -o deploy.1
