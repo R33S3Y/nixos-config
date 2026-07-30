@@ -15,6 +15,7 @@ let
       inputs.stylix.nixosModules.stylix
       home-manager.nixosModules.home-manager
       nur.modules.nixos.default
+      disko.nixosModules.disko
 
       # CORE
       ../../../core/core-nix.nix
@@ -69,6 +70,7 @@ let
 
       # My stuff
       ./hardware-configuration.nix # hardware  -  your hardware settings
+      ./disko-nix.nix
     ];
     homeImports = [
       # CORE
