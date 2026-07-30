@@ -1,6 +1,6 @@
 { system, ... }:
 {
-  services.authDNS.domains."reesey.org".records = [
+  services.internal.authDNS.domains."reesey.org".records = [
     {
       name = "java";
       type = "A";

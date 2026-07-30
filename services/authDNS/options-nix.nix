@@ -86,7 +86,7 @@ let
     };
 in
 {
-  options.services.authDNS = {
+  options.services.internal.authDNS = {
     domains = lib.mkOption {
       type = lib.types.attrsOf (lib.types.submodule domainsOpts);
       default = { };
