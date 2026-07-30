@@ -1,59 +1,50 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 let
   version = "dev";
 in
 {
-  # overlay deploy package. So that it can be package and accessed with pkgs.internal.deploy
-  inputs.nixpkgs.overlays = [
-    (final: prev: {
-      internal = (prev.internal or { }) // {
-        # prev.internal is their so we don't overwrite pkgs.internal
+  environment.systemPackages = [
+    (pkgs.stdenv.mkDerivation {
+      pname = "deploy";
+      version = version;
 
-        deploy = prev.stdenv.mkDerivation {
-          pname = "deploy";
-          version = version;
+      src = ./src;
 
-          src = ./src;
+      buildInputs = with pkgs; [
+        nlohmann_json
+        libtar
+        libssh2
+      ];
 
-          buildInputs = with prev; [
-            nlohmann_json
-            libtar
-            libssh2
-          ];
+      nativeBuildInputs = with pkgs; [
+        gcc
+        pandoc
+      ];
 
-          nativeBuildInputs = with prev; [
-            gcc
-            pandoc
-          ];
+      buildPhase = ''
+        g++ \
+            server/main.cpp \
+            utils/systemHelper.cpp utils/split.cpp utils/strings.cpp utils/ttyHelper.cpp utils/args.cpp utils/nixGet.cpp \
+          -o deploy \
+          -std=c++23 \
+          -g \
+          -I${pkgs.nlohmann_json}/include \
+          -I${pkgs.libtar}/include \
+          -L${pkgs.libtar}/lib -ltar \
+          -I${pkgs.libssh2.dev}/include \
+          -L${pkgs.libssh2}/lib -lssh2 \
 
-          buildPhase = ''
-            g++ \
-                server/main.cpp \
-                utils/systemHelper.cpp utils/split.cpp utils/strings.cpp utils/ttyHelper.cpp utils/args.cpp utils/nixGet.cpp \
-              -o deploy \
-              -std=c++23 \
-              -g \
-              -I${prev.nlohmann_json}/include \
-              -I${prev.libtar}/include \
-              -L${prev.libtar}/lib -ltar \
-              -I${prev.libssh2.dev}/include \
-              -L${prev.libssh2}/lib -lssh2 \
+        sed -i 's/version/\"${version}\"/' server/man.md
+        pandoc server/man.md -s -t man -o deploy.1
+      '';
 
-            sed -i 's/version/\"${version}\"/' server/man.md
-            pandoc server/man.md -s -t man -o deploy.1
-          '';
+      installPhase = ''
+        mkdir -p $out/bin
+        cp deploy $out/bin/
 
-          installPhase = ''
-            mkdir -p $out/bin
-            cp deploy $out/bin/
-
-            mkdir -p $out/share/man/man1
-            cp deploy.1 $out/share/man/man1
-          '';
-        };
-      };
+        mkdir -p $out/share/man/man1
+        cp deploy.1 $out/share/man/man1
+      '';
     })
   ];
-
-  environment.systemPackages = [ pkgs.internal.deploy ]; # install it.
 }
