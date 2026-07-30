@@ -55,5 +55,5 @@ in
     })
   ];
 
-  environment.systemPackages = [ pkgs.internal.deploy ]; # install it.
+  #environment.systemPackages = [ pkgs.internal.deploy ]; # install it.
 }
