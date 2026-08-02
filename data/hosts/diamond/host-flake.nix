@@ -19,6 +19,8 @@ let
       # Desktop
       # Firefox
       ../../../desktop/firefox/enable-nix.nix
+      # Fooyin
+      ../../../desktop/fooyin/enable-nix.nix
       # Hyprland
       ../../../desktop/hyprland/enable-nix.nix
       # Hyprlock
