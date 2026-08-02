@@ -52,7 +52,7 @@ int main(int argc, char const *argv[]) {
 
   // get flake
   string flakeLink = *argsProcessed["flake"].value;
-  string flakePath = "/tmp/nixosConfig";
+  string flakePath = "/tmp/deploy/nixosConfig";
   filesystem::create_directories(flakePath);
   if (filesystem::is_empty(flakePath) == false) {
     cerr << ttyHelper::warning("flakePath (\033[35m" + flakePath +
@@ -132,7 +132,9 @@ int main(int argc, char const *argv[]) {
   out.close();
 
   // tarball flakePath
-
+  // TAR *tarball = nullptr;
+  // tar_open(&tarball, "/tmp/deploy/tarball.tar", nullptr, O_WRONLY | O_CREAT,
+  // 0, );
   // send flakePath
   // rebuild
   // done :3
