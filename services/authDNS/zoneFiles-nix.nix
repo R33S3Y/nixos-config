@@ -5,7 +5,7 @@
   ...
 }:
 
-# this file takes all the info in services.authDNS.domains and converts it into a zone files and then pkgs it. For knot DNS to pickup and use.
+# this file takes all the info in services.internal.authDNS.domains and converts it into a zone files and then pkgs it. For knot DNS to pickup and use.
 
 {
   environment.systemPackages = lib.mapAttrsToList (
@@ -45,6 +45,6 @@
         cp ${name}.zone $out
       '';
     }
-  ) config.services.authDNS.domains;
+  ) config.services.internal.authDNS.domains;
 
 }

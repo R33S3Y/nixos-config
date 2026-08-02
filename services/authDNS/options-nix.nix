@@ -1,6 +1,6 @@
 { lib, config, ... }:
 
-# this file defines / lays out the format used to config services.authDNS across this repo
+# this file defines / lays out the format used to config services.internal.authDNS across this repo
 # Hopefully one day we will run our own options searcher that can read this. :3
 
 let
