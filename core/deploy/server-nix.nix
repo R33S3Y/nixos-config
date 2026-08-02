@@ -35,8 +35,11 @@ in
               -g \
               -I${prev.nlohmann_json}/include
 
+              -I${prev.libtar}/include \
+              -L${prev.libtar}/lib -ltar \
 
-
+              -I${prev.libssh2.dev}/include \
+              -L${prev.libssh2}/lib -lssh2 \
 
             sed -i 's/version/\"${version}\"/' server/man.md
             pandoc server/man.md -s -t man -o deploy.1
