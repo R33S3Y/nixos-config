@@ -4,16 +4,19 @@
 #include "../utils/systemHelper.h"
 #include "../utils/ttyHelper.h"
 #include <algorithm>
+#include <cstddef>
+#include <cstring>
 #include <ctime>
+#include <fcntl.h>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <libtar.h>
 #include <map>
 #include <nlohmann/json.hpp>
 #include <pwd.h>
 #include <stdexcept>
 #include <string>
-#include <tar.h>
 #include <unistd.h>
 #include <vector>
 
@@ -51,13 +54,14 @@ int main(int argc, char const *argv[]) {
   }
 
   // get flake
+  string tmpPath = "/tmp/deploy";
   string flakeLink = *argsProcessed["flake"].value;
-  string flakePath = "/tmp/deploy/nixosConfig";
+  string flakePath = tmpPath + "/nixosConfig";
   filesystem::create_directories(flakePath);
   if (filesystem::is_empty(flakePath) == false) {
     cerr << ttyHelper::warning("flakePath (\033[35m" + flakePath +
                                "\033[0m) is not empty. Deleting...");
-    filesystem::remove_all(flakePath);
+    filesystem::remove_all(tmpPath);
   }
   systemHelper::result cmdOut;
   cmdOut = systemHelper::runCommand("nix flake clone " + flakeLink +
@@ -65,7 +69,7 @@ int main(int argc, char const *argv[]) {
   if (cmdOut.exitCode != 0) {
     cerr << ttyHelper::error("failed to get flake (\033[35m" + flakeLink +
                              "\033[0m)");
-    filesystem::remove_all(flakePath);
+    filesystem::remove_all(tmpPath);
     return 1;
   }
 
@@ -75,7 +79,7 @@ int main(int argc, char const *argv[]) {
   if (availableHosts.size() == 0) {
     cerr << ttyHelper::error("flake does not contain any hosts or no "
                              "hosts could be found");
-    filesystem::remove_all(flakePath);
+    filesystem::remove_all(tmpPath);
     return 1;
   }
   // compare against user input
@@ -83,7 +87,7 @@ int main(int argc, char const *argv[]) {
       argsProcessed["*"].value->size() == 0) {
     cerr << ttyHelper::error("no hosts selected. Please enter a host or type "
                              "'\033[35mman deploy\033[0m' for more info.");
-    filesystem::remove_all(flakePath);
+    filesystem::remove_all(tmpPath);
     return 1;
   }
   vector<string> userHosts =
@@ -97,7 +101,7 @@ int main(int argc, char const *argv[]) {
       } else {
         cerr << ttyHelper::error("host (\033[35m" + userHost +
                                  "\033[0m) does not exist in flake");
-        filesystem::remove_all(flakePath);
+        filesystem::remove_all(tmpPath);
         return 1;
       }
     }
@@ -105,7 +109,7 @@ int main(int argc, char const *argv[]) {
   if (hosts.size() == 0) {
     cerr << ttyHelper::error(
         "no hosts selected. This error should be able to be trigged");
-    filesystem::remove_all(flakePath);
+    filesystem::remove_all(tmpPath);
     return 1;
   }
 
@@ -114,7 +118,7 @@ int main(int argc, char const *argv[]) {
   struct passwd *pw = getpwuid(getuid());
   if (!pw) {
     cerr << ttyHelper::error("couldn't find username");
-    filesystem::remove_all(flakePath);
+    filesystem::remove_all(tmpPath);
     return 1;
   }
   user = pw->pw_name;
@@ -127,18 +131,46 @@ int main(int argc, char const *argv[]) {
       },
       {"dynamic", dynamicRebuild},
   };
-  ofstream out(flakePath + "manifest.json");
+  ofstream out(tmpPath + "/manifest.json");
   out << to_string(manifestJson);
   out.close();
 
-  // tarball flakePath
-  // TAR *tarball = nullptr;
-  // tar_open(&tarball, "/tmp/deploy/tarball.tar", nullptr, O_WRONLY | O_CREAT,
-  // 0, );
+  // make flake path into tarball
+  TAR *tarball = nullptr;
+  if (tar_open(&tarball, (tmpPath + "/tarball.tar").c_str(), nullptr,
+               O_WRONLY | O_CREAT, 0644, TAR_GNU) != 0) {
+    cerr << ttyHelper::error("tar_open failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+  if (tar_append_file(tarball, (tmpPath + "/manifest.json").c_str(),
+                      "manifest.json") != 0) {
+    cerr << ttyHelper::error("tar_append_file failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+
+  // append nixos config
+  size_t realnameLen = flakePath.size();
+  char *realname = new char[realnameLen + 1];
+  strncpy(realname, flakePath.c_str(), flakePath.size() + 1);
+  realname[sizeof(realname) - 1] = '\0';
+
+  char savename[] = "nixosConfig";
+  if (tar_append_tree(tarball, realname, savename) != 0) {
+    cerr << ttyHelper::error("tar_append_tree failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+  if (tar_close(tarball) != 0) {
+    cerr << ttyHelper::error("tar_close failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
   // send flakePath
   // rebuild
   // done :3
 
-  filesystem::remove_all(flakePath);
+  // filesystem::remove_all(tmpPath);
   return 0;
 }
