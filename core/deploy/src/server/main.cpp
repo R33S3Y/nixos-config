@@ -4,12 +4,17 @@
 #include "../utils/systemHelper.h"
 #include "../utils/ttyHelper.h"
 #include <algorithm>
+#include <ctime>
 #include <filesystem>
+#include <fstream>
 #include <iostream>
 #include <map>
 #include <nlohmann/json.hpp>
+#include <pwd.h>
 #include <stdexcept>
 #include <string>
+#include <tar.h>
+#include <unistd.h>
 #include <vector>
 
 using namespace std;
@@ -33,12 +38,16 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
-  // error check
+  // rebuild mode
   if (argsProcessed["all"].invoked == true &&
       argsProcessed["dynamic"].invoked == true) {
     cerr << ttyHelper::error("--dynamic (\033[35m-d\033[0m) and --all "
                              "(\033[35m-a\033[0m) are mutually exclusive");
     return 1;
+  }
+  bool dynamicRebuild = true;
+  if (argsProcessed["all"].invoked == true) {
+    dynamicRebuild = false;
   }
 
   // get flake
@@ -100,10 +109,31 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
-  // todo:
   // make manifest file
-  // tarball flakepath
-  // send flakepath
+  string user;
+  struct passwd *pw = getpwuid(getuid());
+  if (!pw) {
+    cerr << ttyHelper::error("couldn't find username");
+    filesystem::remove_all(flakePath);
+    return 1;
+  }
+  user = pw->pw_name;
+  nlohmann::json manifestJson = {
+      "signing",
+      {"user", user},
+      {
+          "time",
+          static_cast<int64_t>(time(nullptr)),
+      },
+      {"dynamic", dynamicRebuild},
+  };
+  ofstream out(flakePath + "manifest.json");
+  out << to_string(manifestJson);
+  out.close();
+
+  // tarball flakePath
+
+  // send flakePath
   // rebuild
   // done :3
 

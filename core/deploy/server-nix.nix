@@ -49,16 +49,6 @@ in
             mkdir -p $out/share/man/man1
             cp deploy.1 $out/share/man/man1
           '';
-
-          passthru.devShell = pkgs.mkShell {
-            packages = [
-              prev.libtar
-              prev.libssh2.dev
-            ];
-            shellHook = ''
-              export CPATH="${prev.nlohmann_json}/include:${prev.libtar}/include:${prev.libssh2.dev}/include:$CPATH"
-            '';
-          };
         };
       };
     })

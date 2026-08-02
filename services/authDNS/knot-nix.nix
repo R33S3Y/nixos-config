@@ -34,7 +34,7 @@ in
           storage = "${findPackage config.environment.systemPackages zoneName}/";
           file = zoneName;
         }
-      ) config.services.authDNS.domains;
+      ) config.services.internal.authDNS.domains;
 
       log = [
         {
