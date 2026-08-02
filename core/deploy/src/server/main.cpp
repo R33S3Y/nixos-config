@@ -167,6 +167,7 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
+  // sign flakePath
   // send flakePath
   // rebuild
   // done :3
