@@ -14,6 +14,7 @@
 #include <libtar.h>
 #include <map>
 #include <nlohmann/json.hpp>
+#include <ostream>
 #include <pwd.h>
 #include <stdexcept>
 #include <string>
@@ -41,7 +42,7 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
-  cout << "item: " + *argsProcessed["*"].value + "\n";
+  cout << "item: " + *argsProcessed["*"].value + "\n" << endl;
 
   // rebuild mode
   if (argsProcessed["all"].invoked == true &&
