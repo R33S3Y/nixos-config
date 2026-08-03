@@ -41,6 +41,8 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
+  cout << "item: " + *argsProcessed["*"].value + "\n";
+
   // rebuild mode
   if (argsProcessed["all"].invoked == true &&
       argsProcessed["dynamic"].invoked == true) {
@@ -90,8 +92,6 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-  cout << *argsProcessed["*"].value + "\n";
-
   vector<string> userHosts =
       split::splitStrByChar(*argsProcessed["*"].value, ' ');
   if (userHosts.size() == 1 && userHosts[0] == "*") {
