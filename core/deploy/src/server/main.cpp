@@ -90,13 +90,14 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
+  cout << *argsProcessed["*"].value + "\n";
+
   vector<string> userHosts =
       split::splitStrByChar(*argsProcessed["*"].value, ' ');
   if (userHosts.size() == 1 && userHosts[0] == "*") {
     hosts = availableHosts;
   } else {
     for (string userHost : userHosts) {
-      cout << "item: " + userHost + "\n";
       if (ranges::contains(availableHosts, userHost)) {
         hosts.push_back(userHost);
       } else {
