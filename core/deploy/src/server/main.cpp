@@ -94,7 +94,7 @@ int main(int argc, char const *argv[]) {
   }
   vector<string> userHosts =
       split::splitStrByChar(*argsProcessed["*"].value, ' ');
-  if (userHosts.size() == 1 && userHosts[0] == "*") {
+  if (userHosts.size() == 1 || userHosts[0] == "*") {
     hosts = availableHosts;
   } else {
     for (string userHost : userHosts) {
