@@ -18,7 +18,7 @@ in
           buildInputs = with prev; [
             nlohmann_json
             libtar
-            libssl
+            openssl
             libssh2
           ];
 
@@ -37,8 +37,8 @@ in
               -I${prev.nlohmann_json}/include \
               -I${prev.libtar}/include \
               -L${prev.libtar}/lib -ltar \
-              -I${prev.libssl.dev}/include \
-              -L${prev.libssl.out}/lib -lssl \
+              -I${prev.openssl.dev}/include \
+              -L${prev.openssl.out}/lib -lssl \
               -I${prev.libssh2.dev}/include \
               -L${prev.libssh2}/lib -lssh2 \
 
