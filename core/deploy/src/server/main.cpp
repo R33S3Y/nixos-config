@@ -14,7 +14,6 @@
 #include <libtar.h>
 #include <map>
 #include <nlohmann/json.hpp>
-#include <ostream>
 #include <pwd.h>
 #include <stdexcept>
 #include <string>
@@ -155,11 +154,15 @@ int main(int argc, char const *argv[]) {
   size_t realnameLen = flakePath.size();
   char *realname = new char[realnameLen + 1];
   strncpy(realname, flakePath.c_str(), flakePath.size() + 1);
-  realname[sizeof(realname) - 1] = '\0';
 
-  char *savename = "nixosConfig";
+  char savename[] = "nixosConfig";
   if (tar_append_tree(tarball, realname, savename) != 0) {
     cerr << ttyHelper::error("tar_append_tree failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+  if (tar_append_eof(tarball) != 0) {
+    cerr << ttyHelper::error("tar_append_eof failed");
     filesystem::remove_all(tmpPath);
     return 1;
   }
