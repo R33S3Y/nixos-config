@@ -123,15 +123,13 @@ int main(int argc, char const *argv[]) {
   }
   user = pw->pw_name;
   nlohmann::json manifestJson = {
+      {"signingUser", user},
       {
-          "signing",
-          {"user", user},
-          {
-              "time",
-              static_cast<int64_t>(time(nullptr)),
-          },
+          "signingTime",
+          static_cast<int64_t>(time(nullptr)),
       },
       {"dynamic", dynamicRebuild},
+      {"hosts", hosts},
   };
   ofstream out(tmpPath + "/manifest.json");
   out << to_string(manifestJson);
