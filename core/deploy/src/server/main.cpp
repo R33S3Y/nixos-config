@@ -42,8 +42,6 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
-  cout << "item: " + *argsProcessed["*"].value + "\n" << endl;
-
   // rebuild mode
   if (argsProcessed["strict"].invoked == true &&
       argsProcessed["dynamic"].invoked == true) {
@@ -159,7 +157,7 @@ int main(int argc, char const *argv[]) {
   strncpy(realname, flakePath.c_str(), flakePath.size() + 1);
   realname[sizeof(realname) - 1] = '\0';
 
-  char savename[] = "nixosConfig";
+  char *savename = "nixosConfig";
   if (tar_append_tree(tarball, realname, savename) != 0) {
     cerr << ttyHelper::error("tar_append_tree failed");
     filesystem::remove_all(tmpPath);
