@@ -10,11 +10,12 @@
 }:
 
 pkgs.mkShell {
-  packages = [
-    pkgs.libtar
-    pkgs.libssh2.dev
+  packages = with pkgs; [
+    libtar
+    libssl
+    libssh2
   ];
   shellHook = ''
-    export CPATH="${pkgs.nlohmann_json}/include:${pkgs.libtar}/include:${pkgs.libssh2.dev}/include:$CPATH"
+    export CPATH="${pkgs.nlohmann_json}/include:${pkgs.libtar}/include:${pkgs.libssl.dev}/include:${pkgs.libssh2.dev}/include:$CPATH"
   '';
 }
