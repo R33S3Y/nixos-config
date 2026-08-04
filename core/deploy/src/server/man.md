@@ -26,13 +26,13 @@ Deploy is a commandline utility for remotely rebuilding managing Nixos Rebuilds.
 : Commits the code before deploying. Only works when the flakeRef is a standard filepath.
 
 **-d**, **\-\-dynamic**
-: Skip hosts if none of the files touched in the latest commit are used in on that host.
+: Skip hosts if nothing has changed since the last rebuild. Is enabled by default.
 
 **-f flakeRef**, **\-\-flake=flakeRef** (Required)
 : The flake to deploy.
 
 **-s**, **\-\-strict**
-: Rebuilds all hosts, Even if not necessary.
+: Rebuilds all hosts, Even if not necessary. **\-\-strict** is the opposite to the **\-\-dynamic** and they are mutually exclusive.
 
 # HOSTS
 
@@ -42,4 +42,4 @@ Alternatively a wildcard (\*) can be listed to deploy to all hosts available in 
 # EXAMPLE
 
 Deploying to 3 hosts from a github repo:
-: deploy -a -f github:your/repo host1 host2 host3
+: deploy -s -f github:your/repo host1 host2 host3
