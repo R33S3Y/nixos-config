@@ -28,7 +28,7 @@ int main(int argc, char const *argv[]) {
 
   // list flags
   map<string, args::optionIn> argsAvailable = {
-      {"all", args::optionIn{"all", 'a'}},
+      {"strict", args::optionIn{"strict", 's'}},
       {"dynamic", args::optionIn{"dynamic", 'd'}},
       {"flake", args::optionIn{"flake", 'f', true, true}},
   };
@@ -45,14 +45,14 @@ int main(int argc, char const *argv[]) {
   cout << "item: " + *argsProcessed["*"].value + "\n" << endl;
 
   // rebuild mode
-  if (argsProcessed["all"].invoked == true &&
+  if (argsProcessed["strict"].invoked == true &&
       argsProcessed["dynamic"].invoked == true) {
-    cerr << ttyHelper::error("--dynamic (\033[35m-d\033[0m) and --all "
-                             "(\033[35m-a\033[0m) are mutually exclusive");
+    cerr << ttyHelper::error("--dynamic (\033[35m-d\033[0m) and --strict "
+                             "(\033[35m-s\033[0m) are mutually exclusive");
     return 1;
   }
   bool dynamicRebuild = true;
-  if (argsProcessed["all"].invoked == true) {
+  if (argsProcessed["strict"].invoked == true) {
     dynamicRebuild = false;
   }
 
