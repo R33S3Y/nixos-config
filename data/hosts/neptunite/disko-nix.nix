@@ -1,14 +1,14 @@
-{ ... }: {
+{
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/sda";
+        device = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_03023520022426184724-0:0"; # find with: ls -l /dev/disk/by-id/ | grep sda
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "500M";
+              size = "1G";
               type = "EF00";
               content = {
                 type = "filesystem";
@@ -18,27 +18,11 @@
               };
             };
             root = {
-              end = "100%";
+              size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
                 mountpoint = "/";
-              };
-            };
-            encryptedSwap = {
-              size = "10M";
-              content = {
-                type = "swap";
-                randomEncryption = true;
-                priority = 100; # prefer to encrypt as long as we have space for it
-              };
-            };
-            plainSwap = {
-              size = "100%";
-              content = {
-                type = "swap";
-                discardPolicy = "both";
-                resumeDevice = true; # resume from hiberation from this device
               };
             };
           };
