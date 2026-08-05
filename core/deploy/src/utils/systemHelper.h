@@ -20,8 +20,8 @@ template <> struct result<void> {
   optional<string> error;
 };
 
-static result<string> runCommand(string cmd);
-static result<string> readFileToStr(const striqng &path);
-static result<vector<unsigned char>> readFile(const string &path);
-static result<void> saveFileFromStr(const string &path, const string &content);
+result<string> runCommand(string cmd);
+result<string> readFileToStr(const string &path);
+result<vector<unsigned char>> readFile(const string &path);
+result<void> saveFileFromStr(const string &path, const string &content);
 }; // namespace systemHelper

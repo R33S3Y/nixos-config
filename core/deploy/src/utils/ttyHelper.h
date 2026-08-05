@@ -8,7 +8,7 @@ using namespace std;
 
 namespace ttyHelper {
 
-static string error(string message);
-static string warning(string message);
-static string progressBar(const int progress, const int total, const int chars);
+string error(string message);
+string warning(string message);
+string progressBar(const int progress, const int total, const int chars);
 } // namespace ttyHelper

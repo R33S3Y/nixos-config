@@ -5,14 +5,14 @@ using namespace std;
 
 namespace strings {
 
-static string replace(string s, string from, string to);
+string replace(string s, string from, string to);
 
 // reverse Replace
-static string rReplace(string s, string from, string to);
-static string replaceAll(string s, string from, string to);
+string rReplace(string s, string from, string to);
+string replaceAll(string s, string from, string to);
 
-static string trim(string s);
+string trim(string s);
 
-static string blankWithinTokens(string fileStr, string startToken,
-                                string endToken = "", char blankChar = ' ');
+string blankWithinTokens(string fileStr, string startToken,
+                         string endToken = "", char blankChar = ' ');
 } // namespace strings
