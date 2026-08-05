@@ -15,12 +15,6 @@
 
   hardware.enableAllHardware = true;
 
-  # EFI booting
-  isoImage.makeEfiBootable = true;
-
-  # USB booting
-  isoImage.makeUsbBootable = true;
-
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
