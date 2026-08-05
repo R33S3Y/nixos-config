@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     bat
+    # just more man pages
     man-db
     man-pages
   ];
