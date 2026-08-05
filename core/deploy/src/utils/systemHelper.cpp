@@ -2,16 +2,18 @@
 #include <cerrno>
 #include <cstring>
 #include <fstream>
+#include <ios>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
 #include <sys/wait.h>
+#include <vector>
 
 using namespace std;
 
-systemHelper::result systemHelper::runCommand(string cmd) {
-  result res;
+systemHelper::result<string> systemHelper::runCommand(string cmd) {
+  result<string> res;
 
   int stdout_pipe[2], stderr_pipe[2];
   if (pipe(stdout_pipe) || pipe(stderr_pipe)) {
@@ -52,8 +54,8 @@ systemHelper::result systemHelper::runCommand(string cmd) {
       into.append(buffer, n);
   };
 
-  readFd(stdout_pipe[0], res.output);
-  readFd(stderr_pipe[0], res.error);
+  readFd(stdout_pipe[0], *res.output);
+  readFd(stderr_pipe[0], *res.error);
 
   close(stdout_pipe[0]);
   close(stderr_pipe[0]);
@@ -63,11 +65,40 @@ systemHelper::result systemHelper::runCommand(string cmd) {
   res.exitCode = WIFEXITED(status) ? WEXITSTATUS(status) : -1;
   return res;
 }
-string systemHelper::readFile(const string &path) {
+systemHelper::result<string> systemHelper::readFileToStr(const string &path) {
   ifstream file(path);
-  if (!file.is_open())
-    throw runtime_error("Failed to open file: " + path);
+  if (!file.is_open()) {
+    return {.exitCode = 1, .error = "Failed to open file: path"};
+  }
   ostringstream ss;
   ss << file.rdbuf();
-  return ss.str();
+  return {.output = ss.str(), .exitCode = 0};
+}
+systemHelper::result<vector<unsigned char>>
+systemHelper::readFile(const string &path) {
+  ifstream file(path, ios::binary | ios::ate);
+  if (!file.is_open()) {
+    return {.exitCode = 1, .error = "Failed to open file: " + path};
+  }
+
+  streamsize size = file.tellg();
+  file.seekg(0, ios::beg);
+
+  vector<unsigned char> buffer(size);
+
+  if (!file.read(reinterpret_cast<char *>(buffer.data()), size)) {
+    return {.exitCode = 2, .error = "Failed to read file: " + path};
+  }
+  return {.output = buffer, .exitCode = 0};
+}
+
+systemHelper::result<void>
+systemHelper::saveFileFromStr(const string &path, const string &content) {
+  ofstream file(path);
+  if (!file.is_open()) {
+    return {.exitCode = 1, .error = "failed to open file: " + path};
+  }
+  file << content;
+  file.close();
+  return {.exitCode = 0};
 }

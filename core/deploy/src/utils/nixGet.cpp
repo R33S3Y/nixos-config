@@ -15,7 +15,7 @@ vector<string> nixGet::flakeHosts(string flakePath) {
   if (cmdOut.exitCode != 0) {
     return {};
   }
-  auto json = nlohmann::json::parse(cmdOut.output);
+  auto json = nlohmann::json::parse(*cmdOut.output);
 
   vector<string> configs;
   for (auto &[key, value] : json["nixosConfigurations"].items()) {
@@ -30,20 +30,22 @@ string nixGet::futureDerivationPath(string flakePath, string host) {
   systemHelper::result cmdOut = systemHelper::runCommand(cmd);
 
   if (cmdOut.exitCode != 0) {
-    cerr << ttyHelper::error("unable to build to derivation\n" + cmdOut.error);
+    cerr << ttyHelper::error("Unable to build to derivation\n" +
+                             cmdOut.error.value_or(""));
     return "";
   }
 
-  return cmdOut.output;
+  return *cmdOut.output;
 }
 string nixGet::currentDerivationPath() {
   string cmd = "nix-store -q --deriver /run/current-system";
   systemHelper::result cmdOut = systemHelper::runCommand(cmd);
 
   if (cmdOut.exitCode != 0) {
-    cerr << ttyHelper::error("unable to build to derivation\n" + cmdOut.error);
+    cerr << ttyHelper::error("Unable to get current derivation\n" +
+                             cmdOut.error.value_or(""));
     return "";
   }
 
-  return cmdOut.output;
+  return *cmdOut.output;
 };

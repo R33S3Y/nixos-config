@@ -4,12 +4,9 @@
 #include "../utils/systemHelper.h"
 #include "../utils/ttyHelper.h"
 #include <algorithm>
-#include <cstddef>
-#include <cstring>
 #include <ctime>
 #include <fcntl.h>
 #include <filesystem>
-#include <fstream>
 #include <iostream>
 #include <libtar.h>
 #include <map>
@@ -63,9 +60,8 @@ int main(int argc, char const *argv[]) {
                                "\033[0m) is not empty. Deleting...");
     filesystem::remove_all(tmpPath);
   }
-  systemHelper::result cmdOut;
-  cmdOut = systemHelper::runCommand("nix flake clone " + flakeLink +
-                                    " --dest " + flakePath);
+  systemHelper::result cmdOut = systemHelper::runCommand(
+      "nix flake clone " + flakeLink + " --dest " + flakePath);
   if (cmdOut.exitCode != 0) {
     cerr << ttyHelper::error("failed to get flake (\033[35m" + flakeLink +
                              "\033[0m)");
@@ -131,9 +127,8 @@ int main(int argc, char const *argv[]) {
       {"dynamic", dynamicRebuild},
       {"hosts", hosts},
   };
-  ofstream out(tmpPath + "/manifest.json");
-  out << to_string(manifestJson);
-  out.close();
+  systemHelper::saveFileFromStr(tmpPath + "/manifest.json",
+                                nlohmann::to_string(manifestJson));
 
   // make flake path into tarball
   TAR *tarball = nullptr;
@@ -149,8 +144,6 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-
-  // append nixos config
   if (tar_append_tree(tarball, const_cast<char *>(flakePath.c_str()),
                       const_cast<char *>("nixosConfig")) != 0) {
     cerr << ttyHelper::error("tar_append_tree failed");
@@ -167,7 +160,9 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
+
   // sign flakePath
+
   // send flakePath
   // rebuild
   // done :3
