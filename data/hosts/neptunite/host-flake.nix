@@ -32,10 +32,14 @@ let
       # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
       ../../../desktop/lazyUpdate/enable-nix.nix
       ../../../desktop/lazyUpdate/snowflake-nix.nix
+      # Lutris
+      ../../../desktop/lutris/enable-nix.nix
       # obsidian
       ../../../desktop/obsidian/enable-nix.nix
       # PCmanFM
       ../../../desktop/pcmanfm/enable-nix.nix
+      # Plasma
+      ../../../desktop/plasma/enable-nix.nix
       # Rofi
       ../../../desktop/rofi/enable-nix.nix
       # SDDM
@@ -53,6 +57,12 @@ let
       # Other
       #../../../desktop/other/alvr-nix.nix # ALVR  -  For my vr nerds
       ../../../desktop/other/print-nix.nix # Print  -  How old are you?
+
+      # OTHER
+      # boot
+      #../../../other/boot/bios-nix.nix
+      ../../../other/boot/uefi-nix.nix
+      ../../../other/boot/style-nix.nix
 
       # LapisLazuli
       #../../../other/lapisLazuli/home-nix.nix # Lapis  -  Mount NAS to home
