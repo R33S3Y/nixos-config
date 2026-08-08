@@ -6,5 +6,6 @@
     # just more man pages
     man-db
     man-pages
+    openssl_4_0
   ];
 }
