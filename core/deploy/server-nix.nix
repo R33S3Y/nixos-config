@@ -39,6 +39,7 @@ in
               -L${prev.libtar}/lib -ltar \
               -I${prev.openssl_4_0.dev}/include \
               -L${prev.openssl_4_0.out}/lib -lssl \
+              -L${prev.openssl_4_0.out}/lib -lcrypto \
               -I${prev.libssh2.dev}/include \
               -L${prev.libssh2}/lib -lssh2 \
 

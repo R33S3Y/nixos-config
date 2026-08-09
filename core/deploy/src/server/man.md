@@ -31,6 +31,15 @@ Deploy is a commandline utility for remotely rebuilding managing Nixos Rebuilds.
 **-f flakeRef**, **\-\-flake=flakeRef** (Required)
 : The flake to deploy.
 
+**-k SSHPrivateKey**, **\-\-key=SSHPrivateKey**
+: Sets **\-\-keySSH** and **\-\-keySigning** to the same key. You must provide ether **\-\-key** or (**\-\-keySSH** and **\-\-keySigning**).
+
+**\-\-keySHH=SSHPrivateKey**
+: Sets the key used for connecting to other PC over ssh.
+
+**\-\-keySigning=SSHPrivateKey**
+: Sets the key used for signing / verifying the flake.
+
 **-s**, **\-\-strict**
 : Rebuilds all hosts, Even if not necessary. **\-\-strict** is the opposite to the **\-\-dynamic** and they are mutually exclusive.
 

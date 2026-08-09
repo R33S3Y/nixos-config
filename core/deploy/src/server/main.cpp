@@ -4,6 +4,7 @@
 #include "../utils/systemHelper.h"
 #include "../utils/ttyHelper.h"
 #include <algorithm>
+#include <cstddef>
 #include <ctime>
 #include <fcntl.h>
 #include <filesystem>
@@ -11,6 +12,7 @@
 #include <libtar.h>
 #include <map>
 #include <nlohmann/json.hpp>
+#include <openssl/evp.h>
 #include <pwd.h>
 #include <stdexcept>
 #include <string>
@@ -27,6 +29,10 @@ int main(int argc, char const *argv[]) {
       {"strict", args::optionIn{"strict", 's'}},
       {"dynamic", args::optionIn{"dynamic", 'd'}},
       {"flake", args::optionIn{"flake", 'f', true, true}},
+      {"key", args::optionIn{"key", 'k', true}},
+      {"keySSH", args::optionIn{.longName = "keySSH", .takesValue = true}},
+      {"keySigning",
+       args::optionIn{.longName = "keySigning", .takesValue = true}},
   };
 
   // parse user input
@@ -161,7 +167,80 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
+  // get tarball
+  const systemHelper::result<vector<unsigned char>> tarballFileResult =
+      systemHelper::readFile(tmpPath + "/tarball.tar");
+  if (tarballFileResult.exitCode != 0) {
+    cerr << ttyHelper::error(*tarballFileResult.error);
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+  const vector<unsigned char> tarballFileVec = *tarballFileResult.output;
+
+  const unsigned int tarballLen = tarballFileVec.size();
+  unsigned char *tarballFile = new unsigned char[tarballLen];
+  copy(tarballFileVec.begin(), tarballFileVec.end(), tarballFile);
+
+  // hash flakePath
+  EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+
+  unsigned char SHA256Key[256];
+  unsigned int SHA256Size = 256;
+  if (EVP_DigestInit_ex(ctx, EVP_sha256(), NULL) != 0) {
+    cerr << ttyHelper::error("EVP_DigestInit_ex(sha256) failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+  if (EVP_DigestUpdate(ctx, &tarballFile, tarballLen) != 0) {
+    cerr << ttyHelper::error("EVP_DigestUpdate Failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+  delete[] tarballFile;
+  if (EVP_DigestFinal_ex(ctx, SHA256Key, &SHA256Size) != 0) {
+    cerr << ttyHelper::error("EVP_DigestFinal_ex failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+
+  // get signing ssh pkey
+  const systemHelper::result<vector<unsigned char>> privateKeyResult =
+      systemHelper::readFile("");
+  if (privateKeyResult.exitCode != 0) {
+    cerr << ttyHelper::error(*privateKeyResult.error);
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+  const vector<unsigned char> privateKeyVec = *privateKeyResult.output;
+
+  const unsigned int privateKeySize = privateKeyVec.size();
+  unsigned char *privateKeyFile = new unsigned char[privateKeySize];
+  copy(privateKeyVec.begin(), privateKeyVec.end(), privateKeyFile);
+
   // sign flakePath
+  EVP_PKEY *privateKey = EVP_PKEY_new_raw_private_key(
+      EVP_PKEY_ED25519, NULL, privateKeyFile, privateKeySize);
+
+  if (EVP_DigestSignInit(ctx, NULL, NULL, NULL, privateKey) != 0) {
+    cerr << ttyHelper::error("EVP_DigestSignInit failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  };
+  unsigned char signature[64];
+  size_t signatureSize = 64;
+  if (EVP_DigestSign(ctx, signature, &signatureSize, SHA256Key, SHA256Size) !=
+      0) {
+    cerr << ttyHelper::error("EVP_DigestSign failed");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+
+  cout << "signature: ";
+  cout << signature;
+
+  EVP_MD_CTX_free(ctx);
+  EVP_PKEY_free(privateKey);
+  delete[] privateKeyFile;
 
   // send flakePath
   // rebuild
