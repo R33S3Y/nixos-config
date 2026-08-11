@@ -2,6 +2,7 @@
 #include "../utils/nixGet.h"
 #include "../utils/split.h"
 #include "../utils/systemHelper.h"
+#include "../utils/tarHelper.h"
 #include "../utils/ttyHelper.h"
 #include <algorithm>
 #include <cstddef>
@@ -137,32 +138,15 @@ int main(int argc, char const *argv[]) {
                                 nlohmann::to_string(manifestJson));
 
   // make flake path into tarball
-  TAR *tarball = nullptr;
-  if (tar_open(&tarball, (tmpPath + "/tarball.tar").c_str(), nullptr,
-               O_WRONLY | O_CREAT, 0644, TAR_GNU) != 0) {
-    cerr << ttyHelper::error("tar_open failed");
-    filesystem::remove_all(tmpPath);
-    return 1;
-  }
-  if (tar_append_file(tarball, (tmpPath + "/manifest.json").c_str(),
-                      "manifest.json") != 0) {
-    cerr << ttyHelper::error("tar_append_file failed");
-    filesystem::remove_all(tmpPath);
-    return 1;
-  }
-  if (tar_append_tree(tarball, const_cast<char *>(flakePath.c_str()),
-                      const_cast<char *>("nixosConfig")) != 0) {
-    cerr << ttyHelper::error("tar_append_tree failed");
-    filesystem::remove_all(tmpPath);
-    return 1;
-  }
-  if (tar_append_eof(tarball) != 0) {
-    cerr << ttyHelper::error("tar_append_eof failed");
-    filesystem::remove_all(tmpPath);
-    return 1;
-  }
-  if (tar_close(tarball) != 0) {
-    cerr << ttyHelper::error("tar_close failed");
+  tarHelper::result<void> tarStatus =
+      tarHelper::package(tmpPath + "/tarball.tar",
+                         {
+                             {tmpPath + "/manifest.json", "manifest.json"},
+                             {flakePath, "nixosConfig"},
+                         });
+
+  if (tarStatus.exitCode != 0) {
+    cerr << ttyHelper::error(*tarStatus.error);
     filesystem::remove_all(tmpPath);
     return 1;
   }

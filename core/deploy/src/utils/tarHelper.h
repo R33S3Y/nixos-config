@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-namespace tar {
+namespace tarHelper {
 template <typename T> struct result {
   optional<T> output;
   int exitCode;
@@ -14,7 +14,11 @@ template <> struct result<void> {
   int exitCode;
   optional<string> error;
 };
+struct tarItem {
+  string realPath;
+  string tarPath;
+};
 
-result<void> package(string tarName, string tarPath, vector<string> tarContent);
-result<vector<string>> unpackage(string tarName, string tarPath);
-} // namespace tar
+result<void> package(string tarPath, vector<tarItem> items);
+result<vector<tarItem>> unpackage(string tarPath, string tarDropoffLoc);
+} // namespace tarHelper
