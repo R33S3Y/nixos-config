@@ -73,6 +73,8 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
+  return 0;
+
   // get available hosts
   vector<string> hosts;
   vector<string> availableHosts = nixGet::flakeHosts(flakePath);
@@ -133,8 +135,6 @@ int main(int argc, char const *argv[]) {
   };
   systemHelper::saveFileFromStr(tmpPath + "/manifest.json",
                                 nlohmann::to_string(manifestJson));
-
-  return 0;
 
   // make flake path into tarball
   const tarHelper::result<void> tarStatus =
