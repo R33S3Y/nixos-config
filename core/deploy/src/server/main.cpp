@@ -1,19 +1,16 @@
 #include "../utils/args.h"
 #include "../utils/nixGet.h"
 #include "../utils/split.h"
+#include "../utils/sslHelper.h"
 #include "../utils/systemHelper.h"
 #include "../utils/tarHelper.h"
 #include "../utils/ttyHelper.h"
 #include <algorithm>
-#include <cstddef>
 #include <ctime>
-#include <fcntl.h>
 #include <filesystem>
 #include <iostream>
-#include <libtar.h>
 #include <map>
 #include <nlohmann/json.hpp>
-#include <openssl/evp.h>
 #include <pwd.h>
 #include <stdexcept>
 #include <string>
@@ -138,13 +135,12 @@ int main(int argc, char const *argv[]) {
                                 nlohmann::to_string(manifestJson));
 
   // make flake path into tarball
-  tarHelper::result<void> tarStatus =
+  const tarHelper::result<void> tarStatus =
       tarHelper::package(tmpPath + "/tarball.tar",
                          {
                              {tmpPath + "/manifest.json", "manifest.json"},
                              {flakePath, "nixosConfig"},
                          });
-
   if (tarStatus.exitCode != 0) {
     cerr << ttyHelper::error(*tarStatus.error);
     filesystem::remove_all(tmpPath);
@@ -159,30 +155,12 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-  const vector<unsigned char> tarballFileVec = *tarballFileResult.output;
 
-  const unsigned int tarballLen = tarballFileVec.size();
-  unsigned char *tarballFile = new unsigned char[tarballLen];
-  copy(tarballFileVec.begin(), tarballFileVec.end(), tarballFile);
-
-  // hash flakePath
-  EVP_MD_CTX *ctx = EVP_MD_CTX_new();
-
-  unsigned char SHA256Key[256];
-  unsigned int SHA256Size = 256;
-  if (EVP_DigestInit_ex(ctx, EVP_sha256(), NULL) != 0) {
-    cerr << ttyHelper::error("EVP_DigestInit_ex(sha256) failed");
-    filesystem::remove_all(tmpPath);
-    return 1;
-  }
-  if (EVP_DigestUpdate(ctx, &tarballFile, tarballLen) != 0) {
-    cerr << ttyHelper::error("EVP_DigestUpdate Failed");
-    filesystem::remove_all(tmpPath);
-    return 1;
-  }
-  delete[] tarballFile;
-  if (EVP_DigestFinal_ex(ctx, SHA256Key, &SHA256Size) != 0) {
-    cerr << ttyHelper::error("EVP_DigestFinal_ex failed");
+  // make hash
+  const sslHelper::result<vector<unsigned char>> sslHashStatus =
+      sslHelper::getSHA256Hash(*tarballFileResult.output);
+  if (sslHashStatus.exitCode != 0) {
+    cerr << ttyHelper::error(*sslHashStatus.error);
     filesystem::remove_all(tmpPath);
     return 1;
   }
@@ -195,36 +173,18 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-  const vector<unsigned char> privateKeyVec = *privateKeyResult.output;
-
-  const unsigned int privateKeySize = privateKeyVec.size();
-  unsigned char *privateKeyFile = new unsigned char[privateKeySize];
-  copy(privateKeyVec.begin(), privateKeyVec.end(), privateKeyFile);
-
-  // sign flakePath
-  EVP_PKEY *privateKey = EVP_PKEY_new_raw_private_key(
-      EVP_PKEY_ED25519, NULL, privateKeyFile, privateKeySize);
-
-  if (EVP_DigestSignInit(ctx, NULL, NULL, NULL, privateKey) != 0) {
-    cerr << ttyHelper::error("EVP_DigestSignInit failed");
-    filesystem::remove_all(tmpPath);
-    return 1;
-  };
-  unsigned char signature[64];
-  size_t signatureSize = 64;
-  if (EVP_DigestSign(ctx, signature, &signatureSize, SHA256Key, SHA256Size) !=
-      0) {
-    cerr << ttyHelper::error("EVP_DigestSign failed");
+  const sslHelper::result<vector<unsigned char>> sslSignatureStatus =
+      sslHelper::getED25519Signature(*sslHashStatus.output,
+                                     *privateKeyResult.output);
+  if (sslSignatureStatus.exitCode != 0) {
+    cerr << ttyHelper::error(*sslSignatureStatus.error);
     filesystem::remove_all(tmpPath);
     return 1;
   }
 
   cout << "signature: ";
-  cout << signature;
-
-  EVP_MD_CTX_free(ctx);
-  EVP_PKEY_free(privateKey);
-  delete[] privateKeyFile;
+  for (unsigned char i : *sslSignatureStatus.output)
+    cout << i;
 
   // send flakePath
   // rebuild

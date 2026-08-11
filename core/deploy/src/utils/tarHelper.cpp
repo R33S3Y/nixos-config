@@ -1,9 +1,8 @@
-#include "tar.h"
+#include "tarHelper.h"
 #include <fcntl.h>
 #include <filesystem>
 #include <libtar.h>
 #include <string>
-#include <ttyHelper.h>
 #include <vector>
 
 using namespace std;
@@ -50,4 +49,6 @@ tarHelper::result<void> tarHelper::package(string tarPath,
 }
 
 tarHelper::result<vector<tarHelper::tarItem>>
-tarHelper::unpackage(string tarPath, string tarItemsSaveDir) {}
+tarHelper::unpackage(string tarPath, string tarItemsSaveDir) {
+  return {.exitCode = 1};
+}
