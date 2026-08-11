@@ -155,7 +155,7 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-
+  return 0;
   // make hash
   const sslHelper::result<vector<unsigned char>> sslHashStatus =
       sslHelper::getSHA256Hash(*tarballFileResult.output);
