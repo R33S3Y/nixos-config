@@ -28,9 +28,11 @@ int main(int argc, char const *argv[]) {
       {"dynamic", args::optionIn{"dynamic", 'd'}},
       {"flake", args::optionIn{"flake", 'f', true, true}},
       {"key", args::optionIn{"key", 'k', true}},
-      {"keySSH", args::optionIn{.longName = "keySSH", .takesValue = true}},
-      {"keySigning",
-       args::optionIn{.longName = "keySigning", .takesValue = true}},
+      {.longName = "keySSH",
+       .optionIn = args::optionIn{.longName = "keySSH", .takesValue = true}},
+      {.longName = "keySigning",
+       .optionIn =
+           args::optionIn{.longName = "keySigning", .takesValue = true}},
   };
 
   // parse user input
@@ -53,6 +55,8 @@ int main(int argc, char const *argv[]) {
   if (argsProcessed["strict"].invoked == true) {
     dynamicRebuild = false;
   }
+
+  return 0;
 
   // get flake
   string tmpPath = "/tmp/deploy";
