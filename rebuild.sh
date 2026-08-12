@@ -49,7 +49,7 @@ if ! nixos-rebuild switch --flake "$CONFIG_DST/#diamond"; then
 fi
 
 sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations +25
-sudo nix-collect-garbage
+#sudo nix-collect-garbage
 
 echo -e "\n${OK}Local NixOS rebuild succeeded on diamond.${RESET}"
 echo -e "${OK}Pushing to remote hosts...${RESET}\n"
