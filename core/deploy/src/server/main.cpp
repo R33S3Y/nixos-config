@@ -73,6 +73,8 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
+  return 0;
+
   // get available hosts
   vector<string> hosts;
   vector<string> availableHosts = nixGet::flakeHosts(flakePath);
@@ -113,7 +115,6 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
-  return 0;
   // make manifest file
   string user;
   struct passwd *pw = getpwuid(getuid());
