@@ -134,6 +134,8 @@ int main(int argc, char const *argv[]) {
   systemHelper::saveFileFromStr(tmpPath + "/manifest.json",
                                 nlohmann::to_string(manifestJson));
 
+  return 0;
+
   // make flake path into tarball
   const tarHelper::result<void> tarStatus =
       tarHelper::package(tmpPath + "/tarball.tar",
@@ -147,7 +149,6 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
-  return 0;
   // get tarball
   const systemHelper::result<vector<unsigned char>> tarballFileResult =
       systemHelper::readFile(tmpPath + "/tarball.tar");
