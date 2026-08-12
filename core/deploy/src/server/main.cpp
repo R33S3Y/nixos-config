@@ -54,6 +54,7 @@ int main(int argc, char const *argv[]) {
     dynamicRebuild = false;
   }
 
+  cout << *argsProcessed["flake"].value;
   return 0;
 
   // get flake
