@@ -54,15 +54,12 @@ int main(int argc, char const *argv[]) {
     dynamicRebuild = false;
   }
 
-  cout << *argsProcessed["flake"].value;
-  return 0;
-
   // get flake
   string tmpPath = "/tmp/deploy";
   string flakeLink = *argsProcessed["flake"].value;
   string flakePath = tmpPath + "/nixosConfig";
   filesystem::create_directories(flakePath);
-  if (filesystem::is_empty(flakePath) == false) {
+  if (filesystem::is_empty(tmpPath) == false) {
     cerr << ttyHelper::warning("flakePath (\033[35m" + flakePath +
                                "\033[0m) is not empty. Deleting...");
     filesystem::remove_all(tmpPath);
@@ -75,6 +72,8 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
+
+  return 0;
 
   // get available hosts
   vector<string> hosts;
