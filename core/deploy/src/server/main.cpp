@@ -64,6 +64,7 @@ int main(int argc, char const *argv[]) {
                                "\033[0m) is not empty. Deleting...");
     filesystem::remove_all(tmpPath);
   }
+  return 0;
   systemHelper::result cmdOut = systemHelper::runCommand(
       "nix flake clone " + flakeLink + " --dest " + flakePath);
   if (cmdOut.exitCode != 0) {
@@ -72,8 +73,6 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-
-  return 0;
 
   // get available hosts
   vector<string> hosts;
