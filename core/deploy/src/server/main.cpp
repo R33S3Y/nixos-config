@@ -66,7 +66,6 @@ int main(int argc, char const *argv[]) {
   }
   systemHelper::result cmdOut = systemHelper::runCommand(
       "nix flake clone " + flakeLink + " --dest " + flakePath);
-
   return 0;
   if (cmdOut.exitCode != 0) {
     cerr << ttyHelper::error("failed to get flake (\033[35m" + flakeLink +
