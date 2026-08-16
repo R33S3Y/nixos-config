@@ -64,8 +64,9 @@ int main(int argc, char const *argv[]) {
                                "\033[0m) is not empty. Deleting...");
     filesystem::remove_all(tmpPath);
   }
-  systemHelper::result cmdOut = systemHelper::runCommand(
-      "nix flake clone " + flakeLink + " --dest " + flakePath);
+  string cmd = "nix flake clone " + flakeLink + " --dest " + flakePath;
+  cout << cmd << endl;
+  systemHelper::result cmdOut = systemHelper::runCommand(cmd);
   return 0;
   if (cmdOut.exitCode != 0) {
     cerr << ttyHelper::error("failed to get flake (\033[35m" + flakeLink +
