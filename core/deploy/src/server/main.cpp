@@ -59,11 +59,17 @@ int main(int argc, char const *argv[]) {
   string tmpPath = "/tmp/deploy";
   string flakeLink = *argsProcessed["flake"].value;
   string flakePath = tmpPath + "/nixosConfig";
-  filesystem::create_directories(flakePath);
+  filesystem::create_directories(tmpPath);
   if (filesystem::is_empty(tmpPath) == false) {
-    cerr << ttyHelper::warning("flakePath (\033[35m" + flakePath +
+    cerr << ttyHelper::warning("flakePath (\033[35m" + tmpPath +
                                "\033[0m) is not empty. Deleting...");
     filesystem::remove_all(tmpPath);
+  }
+  filesystem::create_directories(flakePath);
+  if (filesystem::is_empty(flakeLink) == false) {
+    cerr << ttyHelper::warning("flakePath (\033[35m" + flakePath +
+                               "\033[0m) is not empty. Deleting...");
+    filesystem::remove_all(flakePath);
   }
   systemHelper::result<string> cmdOut = systemHelper::runCommand(
       "nix flake clone " + flakeLink + " --dest " + flakePath);
