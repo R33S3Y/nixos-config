@@ -18,7 +18,7 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
   unsigned int SHA256Size = 256;
   if (EVP_DigestInit(ctx, EVP_sha256()) != 0) {
     EVP_MD_CTX_free(ctx);
-    return {.exitCode = 1, .error = "EVP_DigestInit_ex Failed"};
+    return {.exitCode = 1, .error = "EVP_DigestInit Failed"};
   }
   if (EVP_DigestUpdate(ctx, &dataArray, dataLen) != 0) {
     EVP_MD_CTX_free(ctx);
