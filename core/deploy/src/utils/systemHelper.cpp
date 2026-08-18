@@ -12,20 +12,15 @@
 using namespace std;
 
 systemHelper::result<string> systemHelper::runCommand(string cmd) {
-  result<string> res;
 
   int stdout_pipe[2], stderr_pipe[2];
   if (pipe(stdout_pipe) || pipe(stderr_pipe)) {
-    res.exitCode = -1;
-    res.error = strerror(errno);
-    return res;
+    return {.exitCode = -1, .error = strerror(errno)};
   }
 
   pid_t pid = fork();
   if (pid == -1) {
-    res.exitCode = -1;
-    res.error = strerror(errno);
-    return res;
+    return {.exitCode = -1, .error = strerror(errno)};
   }
 
   if (pid == 0) {
@@ -52,6 +47,10 @@ systemHelper::result<string> systemHelper::runCommand(string cmd) {
     while ((n = read(fd, buffer, sizeof(buffer))) > 0)
       into.append(buffer, n);
   };
+
+  systemHelper::result<string> res;
+  res.output = "";
+  res.error = "";
 
   readFd(stdout_pipe[0], *res.output);
   readFd(stderr_pipe[0], *res.error);
