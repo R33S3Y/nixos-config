@@ -69,7 +69,6 @@ int main(int argc, char const *argv[]) {
   cout << cmd << endl;
   systemHelper::result cmdOut = systemHelper::runCommand(cmd);
   return 0;
-  cout << "!!!!" << endl;
   if (cmdOut.exitCode != 0) {
     cerr << ttyHelper::error("failed to get flake (\033[35m" + flakeLink +
                              "\033[0m)");
