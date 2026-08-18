@@ -33,7 +33,7 @@ in
                 utils/systemHelper.cpp utils/split.cpp utils/strings.cpp utils/ttyHelper.cpp utils/args.cpp utils/nixGet.cpp utils/tarHelper.cpp utils/sslHelper.cpp \
               -o deploy \
               -std=c++23 \
-              --debug \
+              -debug \
               -g \
               -I${prev.nlohmann_json}/include \
               -I${prev.libtar}/include \
