@@ -66,7 +66,7 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
   }
   filesystem::create_directories(flakePath);
-  if (filesystem::is_empty(flakeLink) == false) {
+  if (filesystem::is_empty(flakePath) == false) {
     cerr << ttyHelper::warning("flakePath (\033[35m" + flakePath +
                                "\033[0m) is not empty. Deleting...");
     filesystem::remove_all(flakePath);
