@@ -1,6 +1,7 @@
 #include "args.h"
 #include "split.h"
 #include "strings.h"
+#include "ttyHelper.h"
 #include <map>
 #include <stdexcept>
 #include <string>
@@ -18,8 +19,8 @@ args::parse(vector<string> userInput, map<string, args::optionIn> argValues) {
     userInputStr += " " + str;
   }
   if (userInputStr.size() == 0) {
-    throw invalid_argument("No user inputs. Type '\033[35mman " + binStr +
-                           "\033[0m' for more info.");
+    throw invalid_argument("No user inputs. Type '" + ttyColour::log + "man " +
+                           binStr + ttyColour::reset + "' for more info.");
   }
 
   map<string, args::optionOut> output;
@@ -94,8 +95,9 @@ args::parse(vector<string> userInput, map<string, args::optionIn> argValues) {
     if (argInfo.takesValue == true) {
       if (userInput[1].starts_with("-") == true) {
         if (argInfo.shortName.has_value()) {
-          throw invalid_argument("--" + argInfo.longName + " (\033[35m-" +
-                                 *argInfo.shortName + "\033[0m) needs a value");
+          throw invalid_argument("--" + argInfo.longName + " (" +
+                                 ttyColour::log + "-" + *argInfo.shortName +
+                                 ttyColour::reset + ") needs a value");
         }
         throw invalid_argument("--" + argInfo.longName + " needs a value");
       }
@@ -141,8 +143,9 @@ args::parse(vector<string> userInput, map<string, args::optionIn> argValues) {
     }
     if (value.required == true) {
       if (value.shortName.has_value()) {
-        throw invalid_argument("--" + value.longName + " (\033[35m-" +
-                               *value.shortName + "\033[0m) is required");
+        throw invalid_argument("--" + value.longName + " (" + ttyColour::log +
+                               "-" + *value.shortName + ttyColour::reset +
+                               ") is required");
       }
       throw invalid_argument("--" + value.longName + " is required");
     }

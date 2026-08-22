@@ -1,4 +1,5 @@
 #include "tarHelper.h"
+#include "ttyHelper.h"
 #include <fcntl.h>
 #include <filesystem>
 #include <libtar.h>
@@ -20,8 +21,8 @@ tarHelper::result<void> tarHelper::package(string tarPath,
       if (tar_append_file(tarball, item.realPath.c_str(),
                           item.tarPath.c_str()) != 0) {
         tar_close(tarball);
-        return {1, "failed to file (\033[35m" + item.realPath +
-                       "\033[0m) to tarball"};
+        return {1, "failed to file (" + ttyColour::log + item.realPath +
+                       ttyColour::reset + ") to tarball"};
       }
       continue;
     }
@@ -29,13 +30,14 @@ tarHelper::result<void> tarHelper::package(string tarPath,
       if (tar_append_tree(tarball, const_cast<char *>(item.realPath.c_str()),
                           const_cast<char *>(item.tarPath.c_str())) != 0) {
         tar_close(tarball);
-        return {1, "failed to folder (\033[35m" + item.realPath +
-                       "\033[0m) to tarball"};
+        return {1, "failed to folder (" + ttyColour::log + item.realPath +
+                       ttyColour::reset + ") to tarball"};
       }
       continue;
     }
     tar_close(tarball);
-    return {1, "failed to identify (\033[35m" + item.realPath + "\033[0m)"};
+    return {1, "failed to identify (" + ttyColour::log + item.realPath +
+                   ttyColour::reset + ")"};
   }
 
   if (tar_append_eof(tarball) != 0) {

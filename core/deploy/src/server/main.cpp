@@ -45,8 +45,10 @@ int main(int argc, char const *argv[]) {
   // rebuild mode
   if (argsProcessed["strict"].invoked == true &&
       argsProcessed["dynamic"].invoked == true) {
-    cerr << ttyHelper::error("--dynamic (\033[35m-d\033[0m) and --strict "
-                             "(\033[35m-s\033[0m) are mutually exclusive");
+    cerr << ttyHelper::error("--dynamic (" + ttyColour::log + "-d" +
+                             ttyColour::reset + ") and --strict (" +
+                             ttyColour::log + "-s" + ttyColour::reset +
+                             ") are mutually exclusive");
     return 1;
   }
   bool dynamicRebuild = true;
@@ -60,21 +62,23 @@ int main(int argc, char const *argv[]) {
   string flakePath = tmpPath + "/nixosConfig";
   filesystem::create_directories(tmpPath);
   if (filesystem::is_empty(tmpPath) == false) {
-    cerr << ttyHelper::warning("flakePath (\033[35m" + tmpPath +
-                               "\033[0m) is not empty. Deleting...");
+    cerr << ttyHelper::warning("flakePath (" + ttyColour::log + tmpPath +
+                               ttyColour::reset +
+                               ") is not empty. Deleting...");
     filesystem::remove_all(tmpPath);
   }
   filesystem::create_directories(flakePath);
   if (filesystem::is_empty(flakePath) == false) {
-    cerr << ttyHelper::warning("flakePath (\033[35m" + flakePath +
-                               "\033[0m) is not empty. Deleting...");
+    cerr << ttyHelper::warning("flakePath (" + ttyColour::log + flakePath +
+                               ttyColour::reset +
+                               ") is not empty. Deleting...");
     filesystem::remove_all(flakePath);
   }
   systemHelper::result<string> cmdOut = systemHelper::runCommand(
       "nix flake clone " + flakeLink + " --dest " + flakePath);
   if (cmdOut.exitCode != 0) {
-    cerr << ttyHelper::error("failed to get flake (\033[35m" + flakeLink +
-                             "\033[0m)");
+    cerr << ttyHelper::error("failed to get flake (" + ttyColour::log +
+                             flakeLink + ttyColour::reset + ")");
     filesystem::remove_all(tmpPath);
     return 1;
   }
@@ -91,8 +95,9 @@ int main(int argc, char const *argv[]) {
   // compare against user input
   if (!argsProcessed["*"].value.has_value() ||
       argsProcessed["*"].value->size() == 0) {
-    cerr << ttyHelper::error("no hosts selected. Please enter a host or type "
-                             "'\033[35mman deploy\033[0m' for more info.");
+    cerr << ttyHelper::error(
+        "no hosts selected. Please enter a host or type '" + ttyColour::log +
+        "man deploy" + ttyColour::reset + "' for more info.");
     filesystem::remove_all(tmpPath);
     return 1;
   }
@@ -105,8 +110,9 @@ int main(int argc, char const *argv[]) {
       if (ranges::contains(availableHosts, userHost)) {
         hosts.push_back(userHost);
       } else {
-        cerr << ttyHelper::error("host (\033[35m" + userHost +
-                                 "\033[0m) does not exist in flake");
+        cerr << ttyHelper::error("host (" + ttyColour::log + userHost +
+                                 ttyColour::reset +
+                                 ") does not exist in flake");
         filesystem::remove_all(tmpPath);
         return 1;
       }
@@ -173,6 +179,19 @@ int main(int argc, char const *argv[]) {
   cout << "got SHA" << endl;
 
   // get signing ssh pkey
+  string signingKeyPath;
+  if (argsProcessed["keySigning"].invoked == true) {
+    signingKeyPath = *argsProcessed["keySigning"].value;
+  } else if (argsProcessed["key"].invoked == true) {
+    signingKeyPath = *argsProcessed["key"].value;
+  } else {
+    cerr << ttyHelper::error(
+        "no signingKey provided please set --keySigning or --key (" +
+        ttyColour::log + "-k" + ttyColour::reset + ").");
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+
   const systemHelper::result<vector<unsigned char>> privateKeyResult =
       systemHelper::readFile("");
   if (privateKeyResult.exitCode != 0) {
@@ -181,6 +200,7 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
   cout << "got Key" << endl;
+  // sign Sha
   const sslHelper::result<vector<unsigned char>> sslSignatureStatus =
       sslHelper::getED25519Signature(*sslHashStatus.output,
                                      *privateKeyResult.output);
