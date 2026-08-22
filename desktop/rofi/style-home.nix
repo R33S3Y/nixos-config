@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   home.file.".config/rofi/config.rasi".text = ''
     @theme "/home/reese/.config/rofi/theme.rasi"
@@ -45,7 +45,7 @@
       cursor:  pointer;
       spacing: 5px ;
       border:  0;
-      
+
     }
     element normal.normal {
       background-color: var(normal-background);
