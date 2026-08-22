@@ -11,7 +11,6 @@
 #include <iostream>
 #include <map>
 #include <nlohmann/json.hpp>
-#include <ostream>
 #include <pwd.h>
 #include <stdexcept>
 #include <string>
