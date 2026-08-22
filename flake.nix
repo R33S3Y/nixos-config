@@ -101,6 +101,9 @@
         colourTestingLight = import ./data/themes/colourTestingLight/theme-flake.nix {
           inherit inputs;
         };
+        colourTestingDark = import ./data/themes/colourTestingDark/theme-flake.nix {
+          inherit inputs;
+        };
       };
     in
     {
