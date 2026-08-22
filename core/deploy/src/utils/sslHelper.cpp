@@ -22,13 +22,13 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
     return {.exitCode = 1, .error = "EVP_DigestInit Failed"};
   }
   cout << "Initted" << endl;
-  if (EVP_DigestUpdate(ctx, dataArray, dataLen) != 0) {
+  if (EVP_DigestUpdate(ctx, dataArray, dataLen) != 1) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestUpdate Failed"};
   }
   cout << "Updated" << endl;
   delete[] dataArray;
-  if (EVP_DigestFinal_ex(ctx, SHA256Key, &SHA256Size) != 0) {
+  if (EVP_DigestFinal_ex(ctx, SHA256Key, &SHA256Size) != 1) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestFinal_ex failed"};
   }
