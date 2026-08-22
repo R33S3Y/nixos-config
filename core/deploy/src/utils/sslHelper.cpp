@@ -52,7 +52,7 @@ sslHelper::getED25519Signature(const vector<unsigned char> data,
 
   EVP_MD_CTX *ctx = EVP_MD_CTX_new();
 
-  if (EVP_DigestSignInit(ctx, NULL, NULL, NULL, privateKeyPKEY) != 0) {
+  if (EVP_DigestSignInit(ctx, NULL, NULL, NULL, privateKeyPKEY) != 1) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestSignInit failed"};
   };
@@ -63,7 +63,7 @@ sslHelper::getED25519Signature(const vector<unsigned char> data,
   unsigned char *dataArr = new unsigned char[dataSize];
   copy(data.begin(), data.end(), dataArr);
 
-  if (EVP_DigestSign(ctx, signature, &signatureSize, dataArr, dataSize) != 0) {
+  if (EVP_DigestSign(ctx, signature, &signatureSize, dataArr, dataSize) != 1) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestSign failed"};
   }

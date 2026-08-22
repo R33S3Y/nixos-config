@@ -34,7 +34,6 @@ in
               -o deploy \
               -std=c++23 \
               -debug \
-              -g \
               -I${prev.nlohmann_json}/include \
               -I${prev.libtar}/include \
               -L${prev.libtar}/lib -ltar \
