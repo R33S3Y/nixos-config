@@ -10,7 +10,7 @@ let
     polarity = "light";
 
     # wallpaper
-    image = "${pkgs.nixos-artwork.wallpapers.nineish-catppuccin-macchiato-alt}/share/backgrounds/nixos/nix-wallpaper-nineish-catppuccin-macchiato-alt.png.png";
+    image = "${pkgs.nixos-artwork.wallpapers.nineish-catppuccin-macchiato-alt}/share/backgrounds/nixos/nix-wallpaper-nineish-catppuccin-macchiato-alt.png";
 
     base16Scheme = {
       base00 = "181B28"; # #181B28 ----
