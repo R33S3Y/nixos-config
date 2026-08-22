@@ -7,20 +7,20 @@ let
   };
   theme = {
 
-    polarity = "light";
+    polarity = "dark";
 
     # wallpaper
     image = "${pkgs.nixos-artwork.wallpapers.nineish}/share/backgrounds/nixos/nix-wallpaper-nineish.png";
 
     base16Scheme = {
-      base00 = "ebf5ff"; # #ebf5ff ----
-      base01 = "cbe5ef"; # #cbe5ef ---
-      base02 = "abd5df"; # #abd5df --
-      base03 = "8bc5cf"; # #8bc5cf -
-      base04 = "484ba8"; # #484ba8 +
-      base05 = "383b88"; # #383b88 ++
-      base06 = "282b58"; # #282b58 +++
-      base07 = "181B28"; # #181B28 ++++
+      base00 = "181B28"; # #181B28 ----
+      base01 = "282b58"; # #282b58 ---
+      base02 = "383b88"; # #383b88 --
+      base03 = "484ba8"; # #484ba8 -
+      base04 = "8bc5cf"; # #8bc5cf +
+      base05 = "abd5df"; # #8bc5cf ++
+      base06 = "cbe5ef"; # #cbe5ef +++
+      base07 = "ebf5ff"; # #ebf5ff ++++
       base08 = "FF4444"; # #FF4444 red
       base09 = "FFAA22"; # #FFAA22 orange
       base0A = "DDDD22"; # #DDDD22 yellow
