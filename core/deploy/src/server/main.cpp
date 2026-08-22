@@ -166,13 +166,13 @@ int main(int argc, char const *argv[]) {
   // make hash
   const sslHelper::result<vector<unsigned char>> sslHashStatus =
       sslHelper::getSHA256Hash(*tarballFileResult.output);
+  cout << "got SHA" << endl;
   if (sslHashStatus.exitCode != 0) {
     cerr << ttyHelper::error(*sslHashStatus.error);
     filesystem::remove_all(tmpPath);
     return 1;
   }
 
-  cout << "got SHA" << endl;
   // get signing ssh pkey
   const systemHelper::result<vector<unsigned char>> privateKeyResult =
       systemHelper::readFile("");
