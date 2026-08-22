@@ -14,7 +14,7 @@
       color1 = "#${config.stylix.base16Scheme.base08}"; # RED
       color2 = "#${config.stylix.base16Scheme.base0B}"; # GREEN
       color3 = "#${config.stylix.base16Scheme.base09}"; # YELLOW (Highlight?)
-      color4 = "#${config.stylix.base16Scheme.base0D}"; # BLUE
+      color4 = "#${config.stylix.base16Scheme.base0E}"; # BLUE
       color5 = "#${config.stylix.base16Scheme.base03}"; # MAGENTA
       color6 = "#${config.stylix.base16Scheme.base05}"; # CYAN
       color7 = "#${config.stylix.base16Scheme.base07}"; # WHITE
@@ -22,7 +22,7 @@
       color9 = "#${config.stylix.base16Scheme.base0F}"; # BR RED
       color10 = "#${config.stylix.base16Scheme.base0C}"; # BR GREEN
       color11 = "#${config.stylix.base16Scheme.base0A}"; # BR YELLOW
-      color12 = "#${config.stylix.base16Scheme.base0E}"; # BR BLUE
+      color12 = "#${config.stylix.base16Scheme.base0D}"; # BR BLUE
       color13 = "#${config.stylix.base16Scheme.base02}"; # BR MAGENTA
       color14 = "#${config.stylix.base16Scheme.base04}"; # BR CYAN
       color15 = "#${config.stylix.base16Scheme.base06}"; # BR WHITE
