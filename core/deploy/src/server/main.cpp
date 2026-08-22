@@ -161,6 +161,8 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
+
+  cout << "tarball" << endl;
   // make hash
   const sslHelper::result<vector<unsigned char>> sslHashStatus =
       sslHelper::getSHA256Hash(*tarballFileResult.output);
@@ -170,8 +172,8 @@ int main(int argc, char const *argv[]) {
     return 1;
   }
 
+  cout << "got SHA" << endl;
   // get signing ssh pkey
-  cout << "aaaaa" << endl;
   const systemHelper::result<vector<unsigned char>> privateKeyResult =
       systemHelper::readFile("");
   if (privateKeyResult.exitCode != 0) {
@@ -179,7 +181,6 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-  cout << "bbbbb" << endl;
   const sslHelper::result<vector<unsigned char>> sslSignatureStatus =
       sslHelper::getED25519Signature(*sslHashStatus.output,
                                      *privateKeyResult.output);
