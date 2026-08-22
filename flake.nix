@@ -98,10 +98,10 @@
         amethyst = import ./data/themes/amethyst/theme-flake.nix {
           inherit inputs;
         };
-        colourTestingLight = import ./data/themes/colourTestingLight/theme-flake.nix {
+        technicallyCorrectLight = import ./data/themes/technicallyCorrectLight/theme-flake.nix {
           inherit inputs;
         };
-        colourTestingDark = import ./data/themes/colourTestingDark/theme-flake.nix {
+        technicallyCorrectDark = import ./data/themes/technicallyCorrectDark/theme-flake.nix {
           inherit inputs;
         };
       };

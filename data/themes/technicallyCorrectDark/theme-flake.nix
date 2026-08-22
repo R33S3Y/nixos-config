@@ -7,7 +7,7 @@ let
   };
   theme = {
 
-    polarity = "light";
+    polarity = "dark";
 
     # wallpaper
     image = "${pkgs.nixos-artwork.wallpapers.nineish-catppuccin-macchiato-alt}/share/backgrounds/nixos/nix-wallpaper-nineish-catppuccin-macchiato-alt.png";

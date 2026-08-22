@@ -6,7 +6,7 @@ let
     prettyName = "Reese";
 
     profile = ./profile.png;
-    theme = "colourTestingDark";
+    theme = "technicallyCorrectDark";
 
     email = "r3es3y@gmail.com";
 
