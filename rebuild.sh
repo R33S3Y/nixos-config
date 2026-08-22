@@ -14,9 +14,12 @@ REMOTE_HOSTS=(
     "rebuild@ghostQuartz"
 )
 
-GOOD="\033[94m"
-OK="\033[35m"
-BAD="\n\033[31m"
+
+BAD="\n\033[31m" # Red
+OK="\033[35m"    # Magenta
+GOOD="\033[94m"  # Bright Blue
+
+
 RESET="\033[0m"
 
 # Ensure the script is run with sudo

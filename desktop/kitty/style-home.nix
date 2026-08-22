@@ -13,7 +13,7 @@
       color0 = "#${config.stylix.base16Scheme.base00}"; # Black
       color1 = "#${config.stylix.base16Scheme.base08}"; # RED
       color2 = "#${config.stylix.base16Scheme.base09}"; # GREEN
-      color3 = "#${config.stylix.base16Scheme.base0A}"; # HIGHLIGH
+      color3 = "#${config.stylix.base16Scheme.base0A}"; # YELLOW (Highlight?)
       color4 = "#${config.stylix.base16Scheme.base04}"; # BLUE
       color5 = "#${config.stylix.base16Scheme.base05}"; # MAGENTA
       color6 = "#${config.stylix.base16Scheme.base06}"; # CYAN
