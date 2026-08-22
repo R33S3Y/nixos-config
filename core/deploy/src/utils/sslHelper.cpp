@@ -1,4 +1,5 @@
 #include "sslHelper.h"
+#include <iostream>
 #include <openssl/evp.h>
 #include <vector>
 
@@ -20,6 +21,7 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestInit Failed"};
   }
+  cout << "Initted" << endl;
   if (EVP_DigestUpdate(ctx, &dataArray, dataLen) != 0) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestUpdate Failed"};
