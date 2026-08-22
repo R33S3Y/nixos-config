@@ -15,8 +15,8 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
   // hash flakePath
   EVP_MD_CTX *ctx = EVP_MD_CTX_new();
 
-  unsigned char SHA256Key[256];
-  unsigned int SHA256Size = 256;
+  unsigned char SHA256Key[EVP_MAX_MD_SIZE];
+  unsigned int SHA256Size = EVP_MAX_MD_SIZE;
   if (EVP_DigestInit(ctx, EVP_sha256()) != 1) { // 1 = succeed, 0 = failed
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestInit Failed"};
@@ -27,6 +27,7 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
     return {.exitCode = 1, .error = "EVP_DigestUpdate Failed"};
   }
   delete[] dataArray;
+  cout << "Updated" << endl;
   if (EVP_DigestFinal_ex(ctx, SHA256Key, &SHA256Size) != 0) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestFinal_ex failed"};
@@ -55,8 +56,8 @@ sslHelper::getED25519Signature(const vector<unsigned char> data,
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestSignInit failed"};
   };
-  unsigned char signature[64];
-  size_t signatureSize = 64;
+  unsigned char signature[EVP_MAX_MD_SIZE];
+  size_t signatureSize = EVP_MAX_MD_SIZE;
 
   const unsigned int dataSize = data.size();
   unsigned char *dataArr = new unsigned char[dataSize];
