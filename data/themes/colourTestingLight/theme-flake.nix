@@ -7,7 +7,7 @@ let
   };
   theme = {
 
-    polarity = "";
+    polarity = "light";
 
     # wallpaper
     image = "${pkgs.nixos-artwork.wallpapers.nineish}/share/backgrounds/nixos/nix-wallpaper-nineish.png";
