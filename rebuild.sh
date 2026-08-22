@@ -16,8 +16,8 @@ REMOTE_HOSTS=(
 
 
 BAD="\n\033[31m" # Red
-OK="\033[35m"    # Magenta
-GOOD="\033[94m"  # Bright Blue
+OK="\033[33m"    # Yellow
+GOOD="\033[32m"  # Green
 
 
 RESET="\033[0m"
