@@ -171,6 +171,7 @@ int main(int argc, char const *argv[]) {
   }
 
   // get signing ssh pkey
+  cout << "aaaaa" << endl;
   const systemHelper::result<vector<unsigned char>> privateKeyResult =
       systemHelper::readFile("");
   if (privateKeyResult.exitCode != 0) {
@@ -178,6 +179,7 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
+  cout << "bbbbb" << endl;
   const sslHelper::result<vector<unsigned char>> sslSignatureStatus =
       sslHelper::getED25519Signature(*sslHashStatus.output,
                                      *privateKeyResult.output);
@@ -195,6 +197,6 @@ int main(int argc, char const *argv[]) {
   // rebuild
   // done :3
 
-  // filesystem::remove_all(tmpPath);
+  filesystem::remove_all(tmpPath);
   return 0;
 }
