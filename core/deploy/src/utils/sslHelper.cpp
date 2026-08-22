@@ -26,8 +26,8 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestUpdate Failed"};
   }
-  delete[] dataArray;
   cout << "Updated" << endl;
+  delete[] dataArray;
   if (EVP_DigestFinal_ex(ctx, SHA256Key, &SHA256Size) != 0) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestFinal_ex failed"};
