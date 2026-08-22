@@ -19,7 +19,7 @@
       color6 = "#${config.stylix.base16Scheme.base02}"; # CYAN
       color7 = "#${config.stylix.base16Scheme.base07}"; # WHITE
       color8 = "#${config.stylix.base16Scheme.base01}"; # BR BLACK
-      color9 = "#${config.stylix.base16Scheme.base09}"; # BR RED
+      color9 = "#${config.stylix.base16Scheme.base0F}"; # BR RED
       color10 = "#${config.stylix.base16Scheme.base0C}"; # BR GREEN
       color11 = "#${config.stylix.base16Scheme.base09}"; # BR YELLOW
       color12 = "#${config.stylix.base16Scheme.base0E}"; # BR BLUE
