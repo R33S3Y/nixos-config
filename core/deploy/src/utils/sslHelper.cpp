@@ -11,7 +11,6 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
   unsigned char *dataArray = new unsigned char[dataLen];
   copy(data.begin(), data.end(), dataArray);
 
-  // hash flakePath
   EVP_MD_CTX *ctx = EVP_MD_CTX_new();
 
   unsigned char SHA256Key[EVP_MAX_MD_SIZE];
@@ -43,9 +42,12 @@ sslHelper::getED25519Signature(const vector<unsigned char> data,
   unsigned char *privateKeyArr = new unsigned char[privateKeySize];
   copy(privateKey.begin(), privateKey.end(), privateKeyArr);
 
-  // sign flakePath
   EVP_PKEY *privateKeyPKEY = EVP_PKEY_new_raw_private_key(
       EVP_PKEY_ED25519, NULL, privateKeyArr, privateKeySize);
+
+  if (!privateKeyPKEY) {
+    return {.exitCode = 1, .error = "EVP_PKEY_new_raw_private_key failed"};
+  }
 
   EVP_MD_CTX *ctx = EVP_MD_CTX_new();
 
