@@ -193,7 +193,7 @@ int main(int argc, char const *argv[]) {
   }
 
   const systemHelper::result<vector<unsigned char>> privateKeyResult =
-      systemHelper::readFile("");
+      systemHelper::readFile(signingKeyPath);
   if (privateKeyResult.exitCode != 0) {
     cerr << ttyHelper::error(*privateKeyResult.error);
     filesystem::remove_all(tmpPath);
