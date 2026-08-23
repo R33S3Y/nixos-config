@@ -1,4 +1,5 @@
 #include "sslHelper.h"
+#include <iostream>
 #include <openssl/evp.h>
 #include <vector>
 
@@ -45,6 +46,7 @@ sslHelper::getED25519Signature(const vector<unsigned char> data,
   EVP_PKEY *privateKeyPKEY = EVP_PKEY_new_raw_private_key(
       EVP_PKEY_ED25519, NULL, privateKeyArr, privateKeySize);
 
+  cout << sizeof(&privateKeyPKEY);
   if (!privateKeyPKEY) {
     return {.exitCode = 1, .error = "EVP_PKEY_new_raw_private_key failed"};
   }
