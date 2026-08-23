@@ -199,7 +199,7 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-  cout << "got Key" << endl;
+  cout << "key" << privateKeyResult.output->size() << endl;
   // sign Sha
   const sslHelper::result<vector<unsigned char>> sslSignatureStatus =
       sslHelper::getED25519Signature(*sslHashStatus.output,
