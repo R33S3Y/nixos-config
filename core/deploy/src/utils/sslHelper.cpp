@@ -16,7 +16,7 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
 
   unsigned char SHA256Key[EVP_MAX_MD_SIZE];
   unsigned int SHA256Size = EVP_MAX_MD_SIZE;
-  if (EVP_DigestInit(ctx, EVP_sha256()) != 1) { // 1 = succeed, 0 = failed
+  if (EVP_DigestInit(ctx, EVP_sha512()) != 1) { // 1 = succeed, 0 = failed
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestInit Failed"};
   }
@@ -49,9 +49,10 @@ sslHelper::getED25519Signature(const vector<unsigned char> data,
 
   EVP_MD_CTX *ctx = EVP_MD_CTX_new();
 
-  if (EVP_DigestSignInit(ctx, NULL, NULL, NULL, privateKeyPKEY) != 1) {
+  if (EVP_DigestSignInit_ex(ctx, NULL, NULL, NULL, NULL, privateKeyPKEY,
+                            NULL) != 1) {
     EVP_MD_CTX_free(ctx);
-    return {.exitCode = 1, .error = "EVP_DigestSignInit failed"};
+    return {.exitCode = 1, .error = "EVP_DigestSignInit_ex failed"};
   };
   unsigned char signature[EVP_MAX_MD_SIZE];
   size_t signatureSize = EVP_MAX_MD_SIZE;
@@ -66,7 +67,6 @@ sslHelper::getED25519Signature(const vector<unsigned char> data,
   }
 
   EVP_MD_CTX_free(ctx);
-  EVP_PKEY_free(privateKeyPKEY);
   delete[] privateKeyArr;
 
   vector<unsigned char> output(signature, signature + signatureSize);
