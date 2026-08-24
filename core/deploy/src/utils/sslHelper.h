@@ -1,3 +1,4 @@
+#include <openssl/evp.h>
 #include <optional>
 #include <string>
 #include <vector>
@@ -15,8 +16,17 @@ template <> struct result<void> {
   optional<string> error;
 };
 
-result<vector<unsigned char>> getSHA256Hash(const vector<unsigned char> data);
-result<vector<unsigned char>>
-getED25519Signature(const vector<unsigned char> data,
-                    const vector<unsigned char> privateKey);
+const result<vector<unsigned char>>
+getSHA512Hash(const vector<unsigned char> data);
+
+const result<EVP_PKEY *>
+openPrivateKey(const vector<unsigned char> privateKeyFile);
+const result<EVP_PKEY *>
+openPublicKey(const vector<unsigned char> publicKeyFile);
+
+const result<vector<unsigned char>>
+signDataWithKey(const vector<unsigned char> data, EVP_PKEY *privateKey);
+const result<bool> verifySignatureWithKey(const vector<unsigned char> data,
+                                          const vector<unsigned char> sign,
+                                          EVP_PKEY *publicKey);
 } // namespace sslHelper

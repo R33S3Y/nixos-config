@@ -170,7 +170,7 @@ int main(int argc, char const *argv[]) {
 
   // make hash
   const sslHelper::result<vector<unsigned char>> sslHashStatus =
-      sslHelper::getSHA256Hash(*tarballFileResult.output);
+      sslHelper::getSHA512Hash(*tarballFileResult.output);
   if (sslHashStatus.exitCode != 0) {
     cerr << ttyHelper::error(*sslHashStatus.error);
     filesystem::remove_all(tmpPath);
@@ -178,7 +178,7 @@ int main(int argc, char const *argv[]) {
   }
   cout << "got SHA" << endl;
 
-  // get signing ssh pkey
+  // get signing ssh key
   string signingKeyPath;
   if (argsProcessed["keySigning"].invoked == true) {
     signingKeyPath = *argsProcessed["keySigning"].value;
@@ -191,27 +191,33 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-
-  const systemHelper::result<vector<unsigned char>> privateKeyResult =
+  const systemHelper::result<vector<unsigned char>> privateKeyFile =
       systemHelper::readFile(signingKeyPath);
-  if (privateKeyResult.exitCode != 0) {
-    cerr << ttyHelper::error(*privateKeyResult.error);
+  if (privateKeyFile.exitCode != 0) {
+    cerr << ttyHelper::error(*privateKeyFile.error);
     filesystem::remove_all(tmpPath);
     return 1;
   }
-  cout << "key size: " << privateKeyResult.output->size() << endl;
+
+  const sslHelper::result<EVP_PKEY *> privateKeyPKEY =
+      sslHelper::openPrivateKey(*privateKeyFile.output);
+  if (privateKeyPKEY.exitCode != 0) {
+    cerr << ttyHelper::error(*privateKeyPKEY.error);
+    filesystem::remove_all(tmpPath);
+    return 1;
+  }
+
   // sign Sha
-  const sslHelper::result<vector<unsigned char>> sslSignatureStatus =
-      sslHelper::getED25519Signature(*sslHashStatus.output,
-                                     *privateKeyResult.output);
-  if (sslSignatureStatus.exitCode != 0) {
-    cerr << ttyHelper::error(*sslSignatureStatus.error);
+  const sslHelper::result<vector<unsigned char>> signatureStatus =
+      sslHelper::signDataWithKey(*sslHashStatus.output, *privateKeyPKEY.output);
+  if (signatureStatus.exitCode != 0) {
+    cerr << ttyHelper::error(*signatureStatus.error);
     filesystem::remove_all(tmpPath);
     return 1;
   }
 
   cout << "signature: ";
-  for (unsigned char i : *sslSignatureStatus.output)
+  for (unsigned char i : *signatureStatus.output)
     cout << i;
 
   // send flakePath

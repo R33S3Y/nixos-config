@@ -1,12 +1,15 @@
 #include "sslHelper.h"
-#include <iostream>
+#include <cstddef>
+#include <openssl/bio.h>
+#include <openssl/err.h>
 #include <openssl/evp.h>
+#include <openssl/pem.h>
 #include <vector>
 
 using namespace std;
 
-sslHelper::result<vector<unsigned char>>
-sslHelper::getSHA256Hash(vector<unsigned char> data) {
+const sslHelper::result<vector<unsigned char>>
+sslHelper::getSHA512Hash(const vector<unsigned char> data) {
 
   const unsigned int dataLen = data.size();
   unsigned char *dataArray = new unsigned char[dataLen];
@@ -35,26 +38,47 @@ sslHelper::getSHA256Hash(vector<unsigned char> data) {
   return {.output = output, .exitCode = 0};
 }
 
-sslHelper::result<vector<unsigned char>>
-sslHelper::getED25519Signature(const vector<unsigned char> data,
-                               const vector<unsigned char> privateKey) {
+const sslHelper::result<EVP_PKEY *>
+sslHelper::openPrivateKey(const vector<unsigned char> privateKeyFile) {
+  EVP_PKEY *privateKeyPKEY = nullptr;
 
-  const unsigned int privateKeySize = privateKey.size();
-  unsigned char *privateKeyArr = new unsigned char[privateKeySize];
-  copy(privateKey.begin(), privateKey.end(), privateKeyArr);
+  BIO *bio = BIO_new_mem_buf(privateKeyFile.data(), (int)privateKeyFile.size());
+  if (!bio) {
+    return {.exitCode = 1, .error = "BIO_new_mem_buf failed"};
+  }
 
-  EVP_PKEY *privateKeyPKEY = EVP_PKEY_new_raw_private_key(
-      EVP_PKEY_ED25519, NULL, privateKeyArr, privateKeySize);
+  privateKeyPKEY = PEM_read_bio_PrivateKey(bio, nullptr, nullptr, nullptr);
 
-  cout << sizeof(&privateKeyPKEY);
   if (!privateKeyPKEY) {
-    return {.exitCode = 1, .error = "EVP_PKEY_new_raw_private_key failed"};
+    unsigned long errCode = ERR_get_error();
+    char errBuf[256];
+    ERR_error_string_n(errCode, errBuf, sizeof(errBuf));
+    string errStr(errBuf);
+    if (errStr.find("bad password") != string::npos ||
+        errStr.find("bad decrypt") != string::npos) {
+      return {
+          .exitCode = 1,
+          .error = "Key requires password. Add support for password to func or "
+                   "cry :3",
+      };
+    }
+    return {.exitCode = 1, .error = "privateKeyPKEY not valid"};
+  }
+  return {.output = privateKeyPKEY, .exitCode = 0};
+}
+
+const sslHelper::result<vector<unsigned char>>
+sslHelper::signDataWithKey(const vector<unsigned char> data,
+                           EVP_PKEY *privateKey) {
+
+  if (!privateKey) {
+    return {.exitCode = 1, .error = "privateKey isn't valid"};
   }
 
   EVP_MD_CTX *ctx = EVP_MD_CTX_new();
 
-  if (EVP_DigestSignInit_ex(ctx, NULL, NULL, NULL, NULL, privateKeyPKEY,
-                            NULL) != 1) {
+  if (EVP_DigestSignInit_ex(ctx, NULL, NULL, NULL, NULL, privateKey, NULL) !=
+      1) {
     EVP_MD_CTX_free(ctx);
     return {.exitCode = 1, .error = "EVP_DigestSignInit_ex failed"};
   };
@@ -71,7 +95,6 @@ sslHelper::getED25519Signature(const vector<unsigned char> data,
   }
 
   EVP_MD_CTX_free(ctx);
-  delete[] privateKeyArr;
 
   vector<unsigned char> output(signature, signature + signatureSize);
   return {.output = output, .exitCode = 0};
