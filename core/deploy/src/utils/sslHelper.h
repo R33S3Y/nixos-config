@@ -16,6 +16,8 @@ template <> struct result<void> {
   optional<string> error;
 };
 
+const result<void> openSSLInIt();
+
 const result<vector<unsigned char>>
 getSHA512Hash(const vector<unsigned char> data);
 

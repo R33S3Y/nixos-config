@@ -20,6 +20,7 @@
 using namespace std;
 
 int main(int argc, char const *argv[]) {
+  sslHelper::openSSLInIt();
   vector<string> args(argv, argv + argc);
 
   // list flags
@@ -176,7 +177,6 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-  cout << "got SHA" << endl;
 
   // get signing ssh key
   string signingKeyPath;

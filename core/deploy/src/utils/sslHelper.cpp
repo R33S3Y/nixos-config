@@ -4,9 +4,15 @@
 #include <openssl/err.h>
 #include <openssl/evp.h>
 #include <openssl/pem.h>
+#include <openssl/provider.h>
 #include <vector>
 
 using namespace std;
+
+const sslHelper::result<void> sslHelper::openSSLInIt() {
+  OSSL_PROVIDER_load(nullptr, "default");
+  return {.exitCode = 0};
+}
 
 const sslHelper::result<vector<unsigned char>>
 sslHelper::getSHA512Hash(const vector<unsigned char> data) {
@@ -62,7 +68,7 @@ sslHelper::openPrivateKey(const vector<unsigned char> privateKeyFile) {
                    "cry :3",
       };
     }
-    return {.exitCode = 1, .error = errStr};
+    return {.exitCode = 1, .error = "PEM_read_bio_PrivateKey failed"};
   }
   return {.output = privateKeyPKEY, .exitCode = 0};
 }
