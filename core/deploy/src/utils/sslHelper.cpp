@@ -62,7 +62,7 @@ sslHelper::openPrivateKey(const vector<unsigned char> privateKeyFile) {
                    "cry :3",
       };
     }
-    return {.exitCode = 1, .error = "privateKeyPKEY not valid"};
+    return {.exitCode = 1, .error = errStr};
   }
   return {.output = privateKeyPKEY, .exitCode = 0};
 }
