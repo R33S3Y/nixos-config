@@ -68,7 +68,7 @@ sslHelper::openPrivateKey(const vector<unsigned char> privateKeyFile) {
                    "cry :3",
       };
     }
-    return {.exitCode = 1, .error = "PEM_read_bio_PrivateKey failed"};
+    return {.exitCode = 1, .error = errStr};
   }
   return {.output = privateKeyPKEY, .exitCode = 0};
 }
