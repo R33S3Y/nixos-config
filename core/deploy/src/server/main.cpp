@@ -20,7 +20,6 @@
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-  sslHelper::openSSLInIt();
   vector<string> args(argv, argv + argc);
 
   // list flags

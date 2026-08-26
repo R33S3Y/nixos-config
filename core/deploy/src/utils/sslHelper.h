@@ -16,15 +16,11 @@ template <> struct result<void> {
   optional<string> error;
 };
 
-const result<void> openSSLInIt();
-
 const result<vector<unsigned char>>
 getSHA512Hash(const vector<unsigned char> data);
 
-const result<EVP_PKEY *>
-openPrivateKey(const vector<unsigned char> privateKeyFile);
-const result<EVP_PKEY *>
-openPublicKey(const vector<unsigned char> publicKeyFile);
+const result<EVP_PKEY *> openPrivateKey(const string privateKeyPath);
+const result<EVP_PKEY *> openPublicKey(const string publicKeyPath);
 
 const result<vector<unsigned char>>
 signDataWithKey(const vector<unsigned char> data, EVP_PKEY *privateKey);

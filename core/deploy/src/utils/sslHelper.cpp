@@ -1,18 +1,16 @@
 #include "sslHelper.h"
 #include <cstddef>
+#include <cstdio>
 #include <openssl/bio.h>
 #include <openssl/err.h>
 #include <openssl/evp.h>
 #include <openssl/pem.h>
 #include <openssl/provider.h>
+#include <stdio.h>
+#include <string>
 #include <vector>
 
 using namespace std;
-
-const sslHelper::result<void> sslHelper::openSSLInIt() {
-  OSSL_PROVIDER_load(nullptr, "default");
-  return {.exitCode = 0};
-}
 
 const sslHelper::result<vector<unsigned char>>
 sslHelper::getSHA512Hash(const vector<unsigned char> data) {
@@ -45,15 +43,12 @@ sslHelper::getSHA512Hash(const vector<unsigned char> data) {
 }
 
 const sslHelper::result<EVP_PKEY *>
-sslHelper::openPrivateKey(const vector<unsigned char> privateKeyFile) {
-  EVP_PKEY *privateKeyPKEY = nullptr;
+sslHelper::openPrivateKey(const string privateKeyPath) {
 
-  BIO *bio = BIO_new_mem_buf(privateKeyFile.data(), (int)privateKeyFile.size());
-  if (!bio) {
-    return {.exitCode = 1, .error = "BIO_new_mem_buf failed"};
-  }
+  FILE *privateKeyFile = fopen(privateKeyPath.c_str(), "r");
 
-  privateKeyPKEY = PEM_read_bio_PrivateKey(bio, nullptr, nullptr, nullptr);
+  EVP_PKEY *privateKeyPKEY =
+      PEM_read_PrivateKey(privateKeyFile, nullptr, nullptr, nullptr);
 
   if (!privateKeyPKEY) {
     unsigned long errCode = ERR_get_error();
