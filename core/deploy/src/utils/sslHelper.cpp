@@ -1,4 +1,5 @@
 #include "sslHelper.h"
+#include "strings.h"
 #include <cstddef>
 #include <cstdio>
 #include <openssl/bio.h>
@@ -43,12 +44,19 @@ sslHelper::getSHA512Hash(const vector<unsigned char> data) {
 }
 
 const sslHelper::result<EVP_PKEY *>
-sslHelper::openPrivateKey(const string privateKeyPath) {
+sslHelper::openPrivateKey(string privateKeyFile) {
+  EVP_PKEY *privateKeyPKEY = nullptr;
 
-  FILE *privateKeyFile = fopen(privateKeyPath.c_str(), "r");
+  privateKeyFile =
+      strings::replaceAll(privateKeyFile, "OPENSSH PRIVATE KEY", "PRIVATE KEY");
 
-  EVP_PKEY *privateKeyPKEY =
-      PEM_read_PrivateKey(privateKeyFile, nullptr, nullptr, nullptr);
+  BIO *bio =
+      BIO_new_mem_buf(privateKeyFile.c_str(), (int)privateKeyFile.size());
+  if (!bio) {
+    return {.exitCode = 1, .error = "BIO_new_mem_buf failed"};
+  }
+
+  privateKeyPKEY = PEM_read_bio_PrivateKey(bio, nullptr, nullptr, nullptr);
 
   if (!privateKeyPKEY) {
     unsigned long errCode = ERR_get_error();
