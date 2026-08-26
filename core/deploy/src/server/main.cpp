@@ -190,16 +190,9 @@ int main(int argc, char const *argv[]) {
     filesystem::remove_all(tmpPath);
     return 1;
   }
-  const systemHelper::result<vector<unsigned char>> privateKeyFile =
-      systemHelper::readFile(signingKeyPath);
-  if (privateKeyFile.exitCode != 0) {
-    cerr << ttyHelper::error(*privateKeyFile.error);
-    filesystem::remove_all(tmpPath);
-    return 1;
-  }
 
   const sslHelper::result<EVP_PKEY *> privateKeyPKEY =
-      sslHelper::openPrivateKey(*privateKeyFile.output);
+      sslHelper::openPrivateKey(signingKeyPath);
   if (privateKeyPKEY.exitCode != 0) {
     cerr << ttyHelper::error(*privateKeyPKEY.error);
     filesystem::remove_all(tmpPath);
