@@ -91,7 +91,7 @@
         dots_center = true;
         outer_color = "rgba(${config.stylix.base16Scheme.base0D}ff)";
         check_color = "rgba(${config.stylix.base16Scheme.base08}ff)";
-        fail_color = "rgba(${config.stylix.base16Scheme.base0D}ff) rgba(${config.stylix.base16Scheme.base0D}ff) 0deg";
+        fail_color = "rgba(${config.stylix.base16Scheme.base0B}ff)";
         inner_color = "rgba(${config.stylix.base16Scheme.base05}B0)";
         font_color = "rgba(${config.stylix.base16Scheme.base03}ff)";
         fade_on_empty = false;
