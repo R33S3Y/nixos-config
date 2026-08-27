@@ -13,9 +13,9 @@ pkgs.mkShell {
   packages = with pkgs; [
     libtar
     openssl_4_0
-    libssh2
+    libssh
   ];
   shellHook = ''
-    export CPATH="${pkgs.nlohmann_json}/include:${pkgs.libtar}/include:${pkgs.openssl_4_0.dev}/include:${pkgs.libssh2.dev}/include:$CPATH"
+    export CPATH="${pkgs.nlohmann_json}/include:${pkgs.libtar}/include:${pkgs.openssl_4_0.dev}/include:${pkgs.libssh.dev}/include:$CPATH"
   '';
 }

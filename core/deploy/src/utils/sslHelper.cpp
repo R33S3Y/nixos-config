@@ -1,7 +1,7 @@
 #include "sslHelper.h"
-#include "strings.h"
 #include <cstddef>
 #include <cstdio>
+#include <libssh/libssh.h>
 #include <openssl/bio.h>
 #include <openssl/err.h>
 #include <openssl/evp.h>
@@ -44,14 +44,37 @@ sslHelper::getSHA512Hash(const vector<unsigned char> data) {
 }
 
 const sslHelper::result<EVP_PKEY *>
-sslHelper::openPrivateKey(string privateKeyFile) {
+sslHelper::openPrivateKey(const string privateKeyFile) {
   EVP_PKEY *privateKeyPKEY = nullptr;
 
-  privateKeyFile =
-      strings::replaceAll(privateKeyFile, "OPENSSH PRIVATE KEY", "PRIVATE KEY");
+  string privateKeyString = privateKeyFile;
+  if (privateKeyFile.find("OPENSSH PRIVATE KEY") !=
+      string::npos) { // is openssh key not ssl
+
+    ssh_key privateKeySSH = ssh_key_new();
+    if (ssh_pki_import_privkey_base64(privateKeyFile.c_str(), "", NULL, nullptr,
+                                      &privateKeySSH) != SSH_OK) {
+      SSH_KEY_FREE(privateKeySSH);
+      return {.exitCode = 1,
+              .error = "ssh_pki_import_privkey_base64 failed while converting "
+                       "the key from the ssh format to pem"};
+    }
+    char *privateKeyCStr = NULL;
+    if (ssh_pki_export_privkey_base64_format(privateKeySSH, "", NULL, nullptr,
+                                             &privateKeyCStr,
+                                             SSH_FILE_FORMAT_PEM) != SSH_OK) {
+      SSH_KEY_FREE(privateKeySSH);
+      return {.exitCode = 1,
+              .error = "ssh_pki_export_privkey_base64_format failed while "
+                       "converting the key from ssh format to pem."};
+    }
+    SSH_KEY_FREE(privateKeySSH);
+    privateKeyString = string(privateKeyCStr);
+    free(privateKeyCStr);
+  }
 
   BIO *bio =
-      BIO_new_mem_buf(privateKeyFile.c_str(), (int)privateKeyFile.size());
+      BIO_new_mem_buf(privateKeyString.c_str(), (int)privateKeyString.size());
   if (!bio) {
     return {.exitCode = 1, .error = "BIO_new_mem_buf failed"};
   }

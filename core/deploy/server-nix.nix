@@ -40,8 +40,8 @@ in
               -I${prev.openssl_4_0.dev}/include \
               -L${prev.openssl_4_0.out}/lib -lssl \
               -L${prev.openssl_4_0.out}/lib -lcrypto \
-              -I${prev.libssh2.dev}/include \
-              -L${prev.libssh2}/lib -lssh2 \
+              -I${prev.libssh.dev}/include \
+              -L${prev.libssh}/lib -lssh \
 
             sed -i 's/version/\"${version}\"/' server/man.md
             pandoc server/man.md -s -t man -o deploy.1

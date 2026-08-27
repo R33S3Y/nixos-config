@@ -19,8 +19,8 @@ template <> struct result<void> {
 const result<vector<unsigned char>>
 getSHA512Hash(const vector<unsigned char> data);
 
-const result<EVP_PKEY *> openPrivateKey(string privateKeyFile);
-const result<EVP_PKEY *> openPublicKey(string publicKeyFile);
+const result<EVP_PKEY *> openPrivateKey(const string privateKeyFile);
+const result<EVP_PKEY *> openPublicKey(const string publicKeyFile);
 
 const result<vector<unsigned char>>
 signDataWithKey(const vector<unsigned char> data, EVP_PKEY *privateKey);
