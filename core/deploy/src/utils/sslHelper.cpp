@@ -52,15 +52,15 @@ sslHelper::openPrivateKey(const string privateKeyFile) {
       string::npos) { // is openssh key not ssl
 
     ssh_key privateKeySSH = ssh_key_new();
-    if (ssh_pki_import_privkey_base64(privateKeyFile.c_str(), "", NULL, nullptr,
-                                      &privateKeySSH) != SSH_OK) {
+    if (ssh_pki_import_privkey_base64(privateKeyFile.c_str(), NULL, NULL,
+                                      nullptr, &privateKeySSH) != SSH_OK) {
       SSH_KEY_FREE(privateKeySSH);
       return {.exitCode = 1,
               .error = "ssh_pki_import_privkey_base64 failed while converting "
                        "the key from the ssh format to pem"};
     }
     char *privateKeyCStr = NULL;
-    if (ssh_pki_export_privkey_base64_format(privateKeySSH, "", NULL, nullptr,
+    if (ssh_pki_export_privkey_base64_format(privateKeySSH, NULL, NULL, nullptr,
                                              &privateKeyCStr,
                                              SSH_FILE_FORMAT_PEM) != SSH_OK) {
       SSH_KEY_FREE(privateKeySSH);
