@@ -51,7 +51,7 @@ sslHelper::openPrivateKey(const string privateKeyFile) {
   if (privateKeyFile.find("OPENSSH PRIVATE KEY") !=
       string::npos) { // is openssh key not ssl
 
-    ssh_key privateKeySSH = ssh_key_new();
+    ssh_key privateKeySSH = NULL;
     if (ssh_pki_import_privkey_base64(privateKeyFile.c_str(), NULL, NULL,
                                       nullptr, &privateKeySSH) != SSH_OK) {
       SSH_KEY_FREE(privateKeySSH);
