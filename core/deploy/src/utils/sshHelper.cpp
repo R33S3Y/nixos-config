@@ -2,6 +2,7 @@
 #include <libssh/libssh.h>
 #include <sshHelper.h>
 #include <string>
+#include <termios.h>
 
 using namespace std;
 
@@ -80,4 +81,27 @@ sshHelper::connectTo(const string host, const string port, const string user,
   ssh_disconnect(session);
   ssh_free(session);
   return {.exitCode = 1, .error = "Error while authenticating. \n" + error};
+}
+
+sshHelper::result<void> sshHelper::runCommandOn(ssh_session session,
+                                                string command) {
+  ssh_channel channel = NULL;
+  channel = ssh_channel_new(session);
+  if (channel == NULL) {
+    return {.exitCode = 1, .error = "ssh channel = NULL"};
+  }
+
+  // it is worth noting that we could add retry logic here and in other places.
+  // But that sounds like a issue for future me :3
+  if (ssh_channel_request_exec(channel, command.c_str()) != SSH_OK) {
+    ssh_channel_free(channel);
+    return {.exitCode = 1, .error = "failed to run command"};
+  }
+  string sterrStr;
+  char sterrBuffer[2048];
+
+  char stoutBuffer[2048];
+
+  ssh_channel_free(channel);
+  return {.exitCode = 0};
 }

@@ -19,8 +19,10 @@ template <> struct result<void> {
 result<ssh_session> connectTo(const string host, const string port,
                               const string user, const string password,
                               const string privateKey);
-result<void> transferFileTo(ssh_session session, string filePath);
+result<void> transferFileTo(ssh_session session, string filePath,
+                            string destPath);
 result<void> runCommandOn(ssh_session session, string command);
+result<void> runCommandsOn(ssh_session session, vector<string> commands);
 result<void> disconnect(ssh_session session);
 
 } // namespace sshHelper
