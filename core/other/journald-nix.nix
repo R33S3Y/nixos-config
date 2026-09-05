@@ -1,10 +1,8 @@
 { ... }:
 
 {
-  services.journald = {
-    extraConfig = ''
-      SystemMaxUse=2G
-      SystemKeepFree=500M
-    '';
+  services.journald.settings.Journal = {
+    SystemMaxUse = "2G";
+    SystemKeepFree = "500M";
   };
 }
