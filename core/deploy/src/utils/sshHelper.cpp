@@ -83,8 +83,8 @@ sshHelper::connectTo(const string host, const string port, const string user,
   return {.exitCode = 1, .error = "Error while authenticating. \n" + error};
 }
 
-sshHelper::result<void> sshHelper::runCommandOn(ssh_session session,
-                                                string command) {
+sshHelper::result<string> sshHelper::runCommandOn(ssh_session session,
+                                                  string command) {
   ssh_channel channel = NULL;
   channel = ssh_channel_new(session);
   if (channel == NULL) {
@@ -97,11 +97,34 @@ sshHelper::result<void> sshHelper::runCommandOn(ssh_session session,
     ssh_channel_free(channel);
     return {.exitCode = 1, .error = "failed to run command"};
   }
-  string sterrStr;
-  char sterrBuffer[2048];
 
-  char stoutBuffer[2048];
+  char buffer[2048];
+  int usedBuffer;
+
+  usedBuffer = 1;
+  string stderrStr;
+  stderrStr.reserve(4096);
+  while (usedBuffer != 0) {
+    // 1 = stderr, 0 = stdout
+    usedBuffer = ssh_channel_read(channel, buffer, sizeof(buffer) - 1, 1);
+    if (usedBuffer == 0)
+      break;
+    buffer[usedBuffer + 1] = '\0';
+    stderrStr += string(buffer);
+  }
+
+  usedBuffer = 1;
+  string stdoutStr;
+  stdoutStr.reserve(4096);
+  while (usedBuffer != 0) {
+    // 1 = stdout, 0 = stdout
+    usedBuffer = ssh_channel_read(channel, buffer, sizeof(buffer) - 1, 1);
+    if (usedBuffer == 0)
+      break;
+    buffer[usedBuffer + 1] = '\0';
+    stdoutStr += string(buffer);
+  }
 
   ssh_channel_free(channel);
-  return {.exitCode = 0};
+  return {.output = stdoutStr, .exitCode = 0, .error = stderrStr};
 }

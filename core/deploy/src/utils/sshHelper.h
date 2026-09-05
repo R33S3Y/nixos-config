@@ -21,8 +21,7 @@ result<ssh_session> connectTo(const string host, const string port,
                               const string privateKey);
 result<void> transferFileTo(ssh_session session, string filePath,
                             string destPath);
-result<void> runCommandOn(ssh_session session, string command);
-result<void> runCommandsOn(ssh_session session, vector<string> commands);
+result<string> runCommandOn(ssh_session session, string command);
 result<void> disconnect(ssh_session session);
 
 } // namespace sshHelper

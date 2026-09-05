@@ -25,7 +25,7 @@ let
       # Hyprlock
       ../../../desktop/hyprlock/enable-nix.nix
       # Hyprpanel
-      ../../../desktop/hyprpanel/enable-nix.nix
+      ../../../desktop//enable-nix.nix
       # Kitty
       ../../../desktop/kitty/enable-nix.nix
       # lazyUpdate - update on rebulid script - requres passwordless nixos-rebuild provided by sudo-nix.nix
