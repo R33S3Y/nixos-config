@@ -1,5 +1,7 @@
 #include <cstddef>
+#include <fcntl.h>
 #include <libssh/libssh.h>
+#include <libssh/sftp.h>
 #include <sshHelper.h>
 #include <string>
 #include <termios.h>
@@ -31,10 +33,8 @@ sshHelper::connectTo(const string host, const string port, const string user,
   }
 
   if (ssh_connect(session)) {
-
     string error = string(ssh_get_error(session));
-    ssh_disconnect(session);
-    ssh_free(session);
+    sshHelper::disconnect(session);
     return {.exitCode = 1, .error = "Failed to connect. \n" + error};
   }
 
@@ -46,8 +46,7 @@ sshHelper::connectTo(const string host, const string port, const string user,
     if (ssh_pki_import_privkey_base64(privateKey.c_str(), NULL, NULL, nullptr,
                                       &sshKey) != SSH_OK) {
       SSH_KEY_FREE(sshKey);
-      ssh_disconnect(session);
-      ssh_free(session);
+      sshHelper::disconnect(session);
       return {.exitCode = 1,
               .error = "ssh_pki_import_privkey_base64 failed. You may need to "
                        "add passphrase support"};
@@ -56,8 +55,7 @@ sshHelper::connectTo(const string host, const string port, const string user,
 
     if (auth != SSH_AUTH_SUCCESS) {
       SSH_KEY_FREE(sshKey);
-      ssh_disconnect(session);
-      ssh_free(session);
+      sshHelper::disconnect(session);
       return {.exitCode = 1,
               .error =
                   "publicKey has been declined. Please provide different auth"};
@@ -73,14 +71,28 @@ sshHelper::connectTo(const string host, const string port, const string user,
     return {.output = session, .exitCode = 0};
   }
   if (auth == SSH_AUTH_DENIED) {
-    ssh_disconnect(session);
-    ssh_free(session);
+    sshHelper::disconnect(session);
     return {.exitCode = 1, .error = "Authentication Failed"};
   }
   string error = string(ssh_get_error(session));
-  ssh_disconnect(session);
-  ssh_free(session);
+  sshHelper::disconnect(session);
   return {.exitCode = 1, .error = "Error while authenticating. \n" + error};
+}
+
+sshHelper::result<sftp_session> sshHelper::getsftpSession(ssh_session session) {
+  sftp_session sftpSes = NULL;
+  sftpSes = sftp_new(session);
+
+  if (sftpSes == NULL) {
+    return {.exitCode = 1, .error = "sftp = NULL"};
+  }
+
+  if (sftp_init(sftpSes) != 0) {
+    sftp_free(sftpSes);
+    return {.exitCode = 1, .error = "failed to init SFTP"};
+  }
+
+  return {.output = sftpSes, .exitCode = 0};
 }
 
 sshHelper::result<string> sshHelper::runCommandOn(ssh_session session,
@@ -127,4 +139,10 @@ sshHelper::result<string> sshHelper::runCommandOn(ssh_session session,
 
   ssh_channel_free(channel);
   return {.output = stdoutStr, .exitCode = 0, .error = stderrStr};
+}
+
+sshHelper::result<void> sshHelper::disconnect(ssh_session session) {
+  ssh_disconnect(session);
+  ssh_free(session);
+  return {.exitCode = 0};
 }
